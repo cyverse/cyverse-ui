@@ -1,6 +1,6 @@
-import react from "react";
+import React from "react";
 
-export default react.createClass({
+export default React.createClass({
     render: function() {
 
         return (
