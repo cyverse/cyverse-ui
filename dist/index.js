@@ -52,12 +52,12 @@
 	  value: true
 	});
 
-	var _hello = __webpack_require__(1);
+	var _Button = __webpack_require__(1);
 
-	Object.defineProperty(exports, 'Hello', {
+	Object.defineProperty(exports, 'Button', {
 	  enumerable: true,
 	  get: function get() {
-	    return _interopRequireDefault(_hello).default;
+	    return _interopRequireDefault(_Button).default;
 	  }
 	});
 
@@ -85,15 +85,16 @@
 
 	exports.default = _react2.default.createClass({
 	    render: function render() {
+
 	        return React.createElement(
-	            "div",
-	            null,
-	            "Hello World"
+	            "button",
+	            { style: { background: "red" } },
+	            "Button"
 	        );
 	    }
 	});
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "hello.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Button.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 2 */

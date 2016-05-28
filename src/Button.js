@@ -1,11 +1,12 @@
 import react from "react";
 
 export default react.createClass({
-    render() {
+    render: function() {
+
         return (
             <button style={{background: "red"}}>
                 Button
             </button>
         )
     }
-}):
+})
