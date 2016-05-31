@@ -1,20 +1,35 @@
 module.exports = {
-    context: __dirname + "/src",
+    context: __dirname + "/docs",
     entry: { 
-        javascript: "./index.js",
+        javascript: "./app.js",
+        html: "./index.html"
     },
 
     output: {
-        filename: "index.js",
-        path: __dirname + "/dist"
+        filename: "app.js",
+        path: __dirname + "/style-guide"
     },
 
     module: {
         loaders: [
             {
+                test: /\.html$/,
+                loader: "file?name=[name].[ext]"
+            },
+
+            {
                 test: /\.js$/, 
                 exclude: /node_modules/, 
                 loaders:["react-hot", "babel-loader?presets[]=react,presets[]=es2015"]
+            },
+            {
+                test: /\.css$/, 
+                exclude: /\.useable\.css$/, 
+                loader: "style!css" 
+            },
+            { 
+                test: /\.useable\.css$/, 
+                loader: "style/useable!css" 
             }
         ]
     }
