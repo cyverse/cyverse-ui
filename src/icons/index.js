@@ -1,2 +1,3 @@
-export { default as Github } from './github';
-export { default as Warning } from './warning';
+export { default as GithubIcon } from './GithubIcon';
+export { default as WarningIcon } from './WarningIcon';
+export { default as CyverseLogo } from './CyverseLogo';

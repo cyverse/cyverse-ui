@@ -1,2 +1,5 @@
-* { box-sizing: border-box }
-
+* { box-sizing: border-box; }
+p { 
+    max-width: 600px; 
+    line-height: 1.5;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import toJsx from 'react-element-to-jsx-string';
 import { Button, Code } from '../../src';
-import { Warning } from '../../src/icons';
+import { WarningIcon } from '../../src/icons';
 
 
 const Example = () => {
@@ -19,7 +19,7 @@ const Example = () => {
                 children="Danger"
                 color="#EA5050"
             >
-                <Warning size={15} style={{position: "relative", top: "-2px"}} /> Danger
+                <WarningIcon size={15} style={{position: "relative", top: "-2px"}} /> Danger
             </Button>
         </div>
     )
@@ -46,7 +46,7 @@ export default React.createClass({
         children="Danger"
         color="#EA5050"
     >
-        <Warning 
+        <WarningIcon 
             size={15} 
             style={{
                 position: "relative", 

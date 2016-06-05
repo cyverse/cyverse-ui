@@ -1,8 +1,8 @@
 import React from 'react';
 import Examples from './ExampleList';
+import Header from './Header';
 import { ActionList } from '../src';
 import { Hr } from '../src';
-import { Github } from '../src/icons';
 import 'normalize.css';
 import './base.css';
 
@@ -26,8 +26,8 @@ const ExampleSection = Examples
                     id={ Name.replace(/\s+/g, '-')
                         .toLowerCase()}
                 >
-                    <h2> { Name } </h2>
                     <Hr/>
+                    <h2> { Name } </h2>
                     <p> { Description } </p>
                     <Render/>
                 </section>
@@ -46,30 +46,16 @@ export default React.createClass({
                     display: "flex"
                 }}
             >
-                <header 
-                    style={{
-                        padding: "15px", 
-                        background: "#0971AB", 
-                        position: "fixed", 
-                        width: "100%", 
-                        zIndex: "99999"
-                    }} 
-                >
-                    <div style={{float: "right"}}>
-                        <Github size="30" fill="white"/>
-                    </div>
-                </header>
-
+                <Header />
                 <div id="sideBar" 
                     style={{
                         position: "fixed",
                         top: "0",
                         bottom: "0",
                         minWidth: "250px",
-                        marginTop: "60px",
+                        marginTop: "50px",
                         padding: "20px",
                         background: "#EEEEEE",
-                        boxShadow: "rgba(0, 0, 0, 0.498039) 0px 1px 4px"
                     }}
                 >
                     <h3>Component List</h3>
@@ -80,19 +66,23 @@ export default React.createClass({
                 <div id="sideBarSpace"
                     style={{
                         position: "reletive",
-                        width: "400px"
+                        width: "300px"
                     }}
                 />
                 <main style={{
                         maxWidth: "1200px",
                         width: "100%",
-                        margin: "60px auto", 
-                        padding: "20px"
+                        margin: "50px auto", 
+                        padding: "20px 40px"
                     }}
                 >
                     <h1>Troosphere UI</h1>
-                    <Hr/>
-                    <p>A collection of UI components for Troposphere.</p>
+                    <p>
+                    A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
+                    </p>
+                    <p>
+                    Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
+                    </p>
                     { ExampleSection } 
                 </main>
                 <footer/>

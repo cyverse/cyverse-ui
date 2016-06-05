@@ -30,7 +30,12 @@ module.exports = {
             { 
                 test: /\.useable\.css$/, 
                 loader: "style/useable!css" 
-            }
+            },
+            { 
+                test: /\.svg$/, 
+                loader: "file?mimetype=image/svg+xml" 
+            },
+                
         ]
     }
 };
