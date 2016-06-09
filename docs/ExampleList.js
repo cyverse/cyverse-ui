@@ -3,6 +3,7 @@ import {
     ButtonEx,
     MediaCardEx,
     AvitarEx,
+    TooltipEx,
 } from './examples';
 
 const ExampleList = [
@@ -20,6 +21,11 @@ const ExampleList = [
         name: "Avitar",
         desc: "An Avitar provides variation within a list of cards as to provide some visual distinction between them. The letter makes it easier to quickly scan for a particular title.",
         render: AvitarEx,
+    },
+    {
+        name: "Tooltip",
+        desc: "Tooltips are used to offer the user information about a function or graph when hovered. An Icon on a Button with no text should use a Tooltip to let the user know the function of the Button",
+        render: TooltipEx,
     },
 ];
 

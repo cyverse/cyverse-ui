@@ -7,10 +7,6 @@ import Ink from 'react-ink';
 const Button = React.createClass({
     displayName: "Button",
 
-    componentDidMount() {
-        console.log( tinyColor(this.props.color).isLight() ); 
-    },
-
     style() {
         let btnColor = this.props.color;
         let txtColor = tinyColor(btnColor).isLight() ? 
@@ -37,15 +33,15 @@ const Button = React.createClass({
         }
     },
 
-    render: function() {
-        return ( 
-            <button 
-                style={this.style()} 
-                onClick={this.props.onTouchTap}
-            >
-                {this.props.children}
-                <Ink/>
-            </button>
+    render() {
+        return (
+                <button 
+                    style={this.style()} 
+                    onClick={this.props.onTouchTap}
+                >
+                    {this.props.children}
+                    <Ink/>
+                </button>
         )
     }
 

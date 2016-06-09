@@ -45,12 +45,10 @@ const VerticalMenu = React.createClass({
         })
     },
 
-    renderMenuItem(item) {
-        let key = 0;
-        key += 1;
+    renderMenuItem(item, i) {
         return (
             <li
-                key={key}
+                key={i}
                 style={{
                     display: "block",
                     padding: "10px 14px",
@@ -88,7 +86,6 @@ const VerticalMenu = React.createClass({
                         justifyContent: "center",
                         fontSize: "17px",
                         borderRadius: "50%",
-                        border: "solid 1px rgba(0,0,0,.1)",
                         height: "35px",
                         width: "35px",
                     }}
@@ -102,7 +99,7 @@ const VerticalMenu = React.createClass({
                         width: "200px",
                         position: "absolute",
                         background: "white",
-                        right: "0",
+                        right: "40px",
                         top: "0",
                         padding: "6px 0",
                         zIndex: "200",

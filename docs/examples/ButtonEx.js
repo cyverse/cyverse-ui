@@ -10,6 +10,7 @@ const Example = () => {
             <Button
                 children="Default"
                 color="#EEEEEE"
+                tooltip="I'm a tooltip"
             />
             <Button
                 children="Primary"

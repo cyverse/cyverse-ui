@@ -2,36 +2,69 @@ import React from 'react';
 
 export default React.createClass({
     propTypes: {
-        message: React.PropTypes.string.isRequired,
+        message: React.PropTypes.string,
     },
 
     getInitialState: function() {
         return ({
-            animate: {
-                opacity: "0",
-                bottom: "55px",
-            }
+            showTooltip: false,
         })
     },
 
-    componentDidMount: function() {
-        setTimeout( ()=> {
-            this.setState({
-                animate: {
-                    opacity: "1",
-                    bottom: "60px",
-                }
-            })
-        }
-        , 100);
+    showTooltip() {
+        this.setState({
+            showTooltip: true,
+        });
     },
+
+    hideTooltip() {
+        this.setState({
+            showTooltip: false,
+            animate: {
+                opacity: "0",
+                bottom: "50px",
+            }
+        });
+    },
+
+    onMouseEnter() {
+        if (!this.props.isDisabled) {
+            this.showTooltip();
+        }
+    },
+
+    onMouseLeave() {
+        this.hideTooltip();
+    },
+
+    onTouch() {
+        this.props.onTouch();
+        setTimeout( ()=> this.hideTooltip(), 2000);
+    },
+
+    tooltip() {
+        let message = this.props.message;
+        if (this.state.showTooltip) {
+            return (
+                <span style={this.style.content}>
+                    <div>
+                        {message}
+                    </div>
+                    <div style={this.style.originPoint}/>
+                </span>
+            )
+        }
+    }, 
 
     style: {
         content: {
+            display: "inline-block",
             transition: "all ease .2s",
             position: "absolute",
+            right: "0",
+            left: "0",
+            margin: "auto",
             bottom: "50px",
-            width: "200px",
             padding: "10px",
             background: "black",
             boxShadow: "0px 2px 5px 0px rgba(0,0,0,.6)",
@@ -40,6 +73,7 @@ export default React.createClass({
             textAlign: "center",
 
         },
+
         originPoint: {
             position: "absolute",
             right: "0",
@@ -55,15 +89,14 @@ export default React.createClass({
     render: function() {
 
         return (
-            <div style={{
-                ...this.style.content,
-                ...this.state.animate,
-            }} >
-                <div>
-                    {this.props.message}
-                </div>
-                <div style={this.style.originPoint}/>
-            </div>
+                <span 
+                     style={{position: "relative"}}
+                     onMouseEnter={ this.onMouseEnter }
+                     onMouseLeave={ this.onMouseLeave }
+                > 
+                    { this.props.children }
+                    { this.tooltip() }
+                </span>
         )
     }
-})
+});

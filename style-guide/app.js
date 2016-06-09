@@ -19681,13 +19681,15 @@
 
 	var _ExampleList2 = _interopRequireDefault(_ExampleList);
 
+	var _Header = __webpack_require__(432);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
 	var _src = __webpack_require__(347);
 
-	var _icons = __webpack_require__(414);
+	__webpack_require__(434);
 
-	__webpack_require__(418);
-
-	__webpack_require__(422);
+	__webpack_require__(438);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19706,8 +19708,13 @@
 	    return _react2.default.createElement(
 	        'section',
 	        {
-	            id: Name.replace(/\s+/g, '-').toLowerCase()
+	            style: { position: "relative", marginBottom: "50px" }
 	        },
+	        _react2.default.createElement('div', {
+	            style: { position: "absolute", top: "-50px" },
+	            id: Name.replace(/\s+/g, '-').toLowerCase()
+	        }),
+	        _react2.default.createElement(_src.Hr, null),
 	        _react2.default.createElement(
 	            'h2',
 	            null,
@@ -19715,7 +19722,6 @@
 	            Name,
 	            ' '
 	        ),
-	        _react2.default.createElement(_src.Hr, null),
 	        _react2.default.createElement(
 	            'p',
 	            null,
@@ -19740,23 +19746,7 @@
 	                    display: "flex"
 	                }
 	            },
-	            _react2.default.createElement(
-	                'header',
-	                {
-	                    style: {
-	                        padding: "15px",
-	                        background: "#0971AB",
-	                        position: "fixed",
-	                        width: "100%",
-	                        zIndex: "99999"
-	                    }
-	                },
-	                _react2.default.createElement(
-	                    'div',
-	                    { style: { float: "right" } },
-	                    _react2.default.createElement(_icons.Github, { size: '30', fill: 'white' })
-	                )
-	            ),
+	            _react2.default.createElement(_Header2.default, null),
 	            _react2.default.createElement(
 	                'div',
 	                { id: 'sideBar',
@@ -19765,10 +19755,9 @@
 	                        top: "0",
 	                        bottom: "0",
 	                        minWidth: "250px",
-	                        marginTop: "60px",
+	                        marginTop: "50px",
 	                        padding: "20px",
-	                        background: "#EEEEEE",
-	                        boxShadow: "rgba(0, 0, 0, 0.498039) 0px 1px 4px"
+	                        background: "#EEEEEE"
 	                    }
 	                },
 	                _react2.default.createElement(
@@ -19782,7 +19771,7 @@
 	            _react2.default.createElement('div', { id: 'sideBarSpace',
 	                style: {
 	                    position: "reletive",
-	                    width: "400px"
+	                    width: "300px"
 	                }
 	            }),
 	            _react2.default.createElement(
@@ -19790,8 +19779,8 @@
 	                { style: {
 	                        maxWidth: "1200px",
 	                        width: "100%",
-	                        margin: "60px auto",
-	                        padding: "20px"
+	                        margin: "50px auto",
+	                        padding: "20px 40px"
 	                    }
 	                },
 	                _react2.default.createElement(
@@ -19799,11 +19788,15 @@
 	                    null,
 	                    'Troosphere UI'
 	                ),
-	                _react2.default.createElement(_src.Hr, null),
 	                _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'A collection of UI components for Troposphere.'
+	                    'A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work.'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity.'
 	                ),
 	                ExampleSection
 	            ),
@@ -19838,6 +19831,18 @@
 	    name: "Button",
 	    desc: "A Button is raised, use it for the more important functions on the page",
 	    render: _examples.ButtonEx
+	}, {
+	    name: "MediaCard",
+	    desc: "MediaCards are used for things like Project and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menue is attached to the card that contains all of the actions for that card.",
+	    render: _examples.MediaCardEx
+	}, {
+	    name: "Avitar",
+	    desc: "An Avitar provides variation within a list of cards as to provide some visual distinction between them. The letter makes it easier to quickly scan for a particular title.",
+	    render: _examples.AvitarEx
+	}, {
+	    name: "Tooltip",
+	    desc: "Tooltips are used to offer the user information about a function or graph when hovered. An Icon on a Button with no text should use a Tooltip to let the user know the function of the Button",
+	    render: _examples.TooltipEx
 	}];
 
 	exports.default = ExampleList;
@@ -19862,6 +19867,33 @@
 	  enumerable: true,
 	  get: function get() {
 	    return _interopRequireDefault(_ButtonEx).default;
+	  }
+	});
+
+	var _MediaCardEx = __webpack_require__(429);
+
+	Object.defineProperty(exports, 'MediaCardEx', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_MediaCardEx).default;
+	  }
+	});
+
+	var _AvitarEx = __webpack_require__(430);
+
+	Object.defineProperty(exports, 'AvitarEx', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_AvitarEx).default;
+	  }
+	});
+
+	var _TooltipEx = __webpack_require__(431);
+
+	Object.defineProperty(exports, 'TooltipEx', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_TooltipEx).default;
 	  }
 	});
 
@@ -19891,7 +19923,7 @@
 
 	var _src = __webpack_require__(347);
 
-	var _icons = __webpack_require__(414);
+	var _icons = __webpack_require__(418);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19901,7 +19933,8 @@
 	        { style: { marginBottom: "20px" } },
 	        _react2.default.createElement(_src.Button, {
 	            children: 'Default',
-	            color: '#EEEEEE'
+	            color: '#EEEEEE',
+	            tooltip: 'I\'m a tooltip'
 	        }),
 	        _react2.default.createElement(_src.Button, {
 	            children: 'Primary',
@@ -19913,7 +19946,7 @@
 	                children: 'Danger',
 	                color: '#EA5050'
 	            },
-	            _react2.default.createElement(_icons.Warning, { size: 15, style: { position: "relative", top: "-2px" } }),
+	            _react2.default.createElement(_icons.WarningIcon, { size: 15, style: { position: "relative", top: "-2px" } }),
 	            ' Danger'
 	        )
 	    );
@@ -19929,7 +19962,7 @@
 	            _react2.default.createElement(_src.Code, { children:
 	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
 	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
-	                '<div style={{marginBottom: "20px"}}>\n    <Button\n        children="Default"\n        color="#EEEEEE"\n    />\n    <Button\n        children="Primary"\n        color="#0971ab"\n    />\n    <Button\n        children="Danger"\n        color="#EA5050"\n    >\n        <Warning \n            size={15} \n            style={{\n                position: "relative", \n                top: "-2px"\n            }} \n        /> \n        Danger\n    </Button>\n</div>'
+	                '<div style={{marginBottom: "20px"}}>\n    <Button\n        children="Default"\n        color="#EEEEEE"\n    />\n    <Button\n        children="Primary"\n        color="#0971ab"\n    />\n    <Button\n        children="Danger"\n        color="#EA5050"\n    >\n        <WarningIcon \n            size={15} \n            style={{\n                position: "relative", \n                top: "-2px"\n            }} \n        /> \n        Danger\n    </Button>\n</div>'
 	                /* Code string ends here */
 	            })
 	        );
@@ -41714,7 +41747,7 @@
 	  }
 	});
 
-	var _Code = __webpack_require__(411);
+	var _Code = __webpack_require__(413);
 
 	Object.defineProperty(exports, 'Code', {
 	  enumerable: true,
@@ -41723,7 +41756,7 @@
 	  }
 	});
 
-	var _Hr = __webpack_require__(412);
+	var _Hr = __webpack_require__(414);
 
 	Object.defineProperty(exports, 'Hr', {
 	  enumerable: true,
@@ -41732,12 +41765,66 @@
 	  }
 	});
 
-	var _ActionList = __webpack_require__(413);
+	var _ActionList = __webpack_require__(415);
 
 	Object.defineProperty(exports, 'ActionList', {
 	  enumerable: true,
 	  get: function get() {
 	    return _interopRequireDefault(_ActionList).default;
+	  }
+	});
+
+	var _MediaCard = __webpack_require__(416);
+
+	Object.defineProperty(exports, 'MediaCard', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_MediaCard).default;
+	  }
+	});
+
+	var _Avitar = __webpack_require__(425);
+
+	Object.defineProperty(exports, 'Avitar', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Avitar).default;
+	  }
+	});
+
+	var _Badge = __webpack_require__(426);
+
+	Object.defineProperty(exports, 'Badge', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Badge).default;
+	  }
+	});
+
+	var _ShowMoreEllipsis = __webpack_require__(427);
+
+	Object.defineProperty(exports, 'ShowMoreEllipsis', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_ShowMoreEllipsis).default;
+	  }
+	});
+
+	var _VerticalMenu = __webpack_require__(417);
+
+	Object.defineProperty(exports, 'VerticalMenu', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_VerticalMenu).default;
+	  }
+	});
+
+	var _Tooltip = __webpack_require__(428);
+
+	Object.defineProperty(exports, 'Tooltip', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Tooltip).default;
 	  }
 	});
 
@@ -41751,11 +41838,13 @@
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(1);
 
@@ -41765,11 +41854,15 @@
 
 	var _radium2 = _interopRequireDefault(_radium);
 
-	var _tinycolor = __webpack_require__(409);
+	var _styles = __webpack_require__(409);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	var _tinycolor = __webpack_require__(411);
 
 	var _tinycolor2 = _interopRequireDefault(_tinycolor);
 
-	var _reactInk = __webpack_require__(410);
+	var _reactInk = __webpack_require__(412);
 
 	var _reactInk2 = _interopRequireDefault(_reactInk);
 
@@ -41778,14 +41871,11 @@
 	var Button = _react2.default.createClass({
 	    displayName: "Button",
 
-	    componentDidMount: function componentDidMount() {
-	        console.log((0, _tinycolor2.default)(this.props.color).isLight());
-	    },
 	    style: function style() {
 	        var btnColor = this.props.color;
 	        var txtColor = (0, _tinycolor2.default)(btnColor).isLight() ? "#55555" : "white";
 
-	        return {
+	        return _extends({
 	            cursor: "pointer",
 	            display: "inline-block",
 	            position: "relative",
@@ -41795,21 +41885,18 @@
 	            outline: "none",
 	            border: "none",
 	            borderRadius: "2px",
-	            boxShadow: "0 1px 4px rgba(0, 0, 0, .5)",
 	            color: txtColor,
 	            fontSize: "14px",
-	            transition: "all ease .2s",
-	            ':hover': {
-	                background: (0, _tinycolor2.default)(this.props.color).darken(5).toString(),
-	                boxShadow: "0 1px 10px rgba(0, 0, 0, .5)"
-	            }
-	        };
+	            transition: "all ease .2s"
+	        }, _styles2.default.boxShadow.sm, {
+	            ':hover': _extends({
+	                background: (0, _tinycolor2.default)(this.props.color).darken(5).toString()
+	            }, _styles2.default.boxShadow.md)
+	        });
 	    },
-
-
 	    render: function render() {
 	        return _react2.default.createElement(
-	            "button",
+	            'button',
 	            {
 	                style: this.style(),
 	                onClick: this.props.onTouchTap
@@ -41818,7 +41905,6 @@
 	            _react2.default.createElement(_reactInk2.default, null)
 	        );
 	    }
-
 	});
 
 	exports.default = (0, _radium2.default)(Button);
@@ -45695,6 +45781,165 @@
 /* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _variables = __webpack_require__(410);
+
+	var _variables2 = _interopRequireDefault(_variables);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styleVariables = {
+	    boxShadow: {
+	        sm: {
+	            boxShadow: "0 1px 4px rgba(0, 0, 0, .5)"
+	        },
+
+	        md: {
+	            boxShadow: "0 1px 10px rgba(0, 0, 0, .5)"
+	        },
+
+	        lg: {
+	            boxShadow: "0 5px 15px rgba(0,0,0,.5)"
+	        },
+
+	        li: {
+	            boxShadow: "0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24)"
+	        }
+	    },
+
+	    t: {
+
+	        caption: {
+	            fontSize: "12px",
+	            fontWeight: "400",
+	            color: _variables2.default.grey.dark
+	        },
+
+	        display4: {
+	            fontSize: "112px",
+	            fontWeight: "300"
+	        },
+
+	        display3: {
+	            fontSize: "56px",
+	            fontWeight: "400px"
+	        },
+
+	        display2: {
+	            fontSize: "45px",
+	            fontWeight: "400"
+	        },
+
+	        display1: {
+	            fontSize: "34px",
+	            fontWeight: "400"
+	        },
+
+	        headline: {
+	            fontSize: "24px",
+	            fontWeight: "500",
+	            margin: "0 0 10px"
+	        },
+
+	        title: {
+	            fontSize: "20px",
+	            fontWeight: "50px",
+	            margin: "0 0 10px"
+	        },
+
+	        subheading: {
+	            fontSize: "16px",
+	            fontWeight: "400",
+	            margin: "0 0 10px"
+	        },
+
+	        body2: {
+	            fontSize: "14px",
+	            fontWeight: "500"
+	        },
+
+	        body1: {
+	            fontSize: "14px",
+	            fontWeight: "400"
+	        }
+
+	    },
+	    BgColors: {
+	        greyXxDark: {
+	            background: _variables2.default.grey.xXDark
+	        },
+	        greyXDark: {
+	            background: _variables2.default.grey.xDark
+	        },
+	        greyDark: {
+	            background: _variables2.default.grey.dark
+	        },
+	        greyDarkMid: {
+	            background: _variables2.default.grey.darkMid
+	        },
+	        greyMid: {
+	            background: _variables2.default.grey.mid
+	        },
+	        greyLightMid: {
+	            background: _variables2.default.grey.lightMid
+	        },
+	        greyLight: {
+	            background: _variables2.default.grey.light
+	        },
+	        greyXLight: {
+	            background: _variables2.default.grey.xLight
+	        },
+	        greyXxlight: {
+	            background: _variables2.default.grey.xXLight
+	        }
+
+	    }
+	};
+
+	exports.default = styleVariables;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "styles.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 410 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var variables = {
+	    grey: {
+	        xXDark: "#52595E",
+	        xDark: "#58646E",
+	        dark: "#8C9296",
+	        darkMid: "#D1D5D9",
+	        mid: "#C9CED5",
+	        lightMid: "#D8DDE2",
+	        light: "#E5E7EA",
+	        xLight: "#EFF1F2",
+	        xXLight: "#F7F8F8"
+	    }
+	};
+
+	exports.default = variables;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "variables.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 411 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var __WEBPACK_AMD_DEFINE_RESULT__;// TinyColor v1.3.0
 	// https://github.com/bgrins/TinyColor
 	// Brian Grinstead, MIT License
@@ -46864,14 +47109,14 @@
 
 
 /***/ },
-/* 410 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports=function(t){function e(n){if(o[n])return o[n].exports;var i=o[n]={exports:{},id:n,loaded:!1};return t[n].call(i.exports,i,i.exports,e),i.loaded=!0,i.exports}var o={};return e.m=t,e.c=o,e.p="",e(0)}([function(t,e,o){"use strict";var n=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var o=arguments[e];for(var n in o)Object.prototype.hasOwnProperty.call(o,n)&&(t[n]=o[n])}return t},i=o(4),r=0,a=o(5),s=o(8),u=o(2),c=o(7),l=s.PropTypes,h=2*Math.PI,p=o(1),f=o(6),d=s.createClass({displayName:"Ink",shouldComponentUpdate:f,propTypes:{background:l.bool,duration:l.number,opacity:l.number,radius:l.number,recenter:l.bool,hasTouch:l.bool},getDefaultProps:function(){return{background:!0,duration:1e3,opacity:.25,radius:150,recenter:!0,hasTouch:i}},getInitialState:function(){return{color:"transparent",density:1,height:0,store:c(this.tick),touchEvents:this.touchEvents(),width:0}},touchEvents:function(){return this.props.hasTouch?{onTouchStart:this._onPress,onTouchEnd:this._onRelease,onTouchCancel:this._onRelease,onTouchLeave:this._onRelease}:{onMouseDown:this._onPress,onMouseUp:this._onRelease,onMouseLeave:this._onRelease}},tick:function(){var t=this.state,e=t.ctx,o=t.color,n=t.density,i=t.height,r=t.width,a=t.store;e.save(),e.scale(n,n),e.clearRect(0,0,r,i),e.fillStyle=o,this.props.background&&(e.globalAlpha=a.getTotalOpacity(this.props.opacity),e.fillRect(0,0,r,i)),a.each(this.makeBlot,this),e.restore()},makeBlot:function(t){var e=this.state,o=e.ctx,n=e.height,i=e.width,r=t.x,a=t.y,s=t.radius;if(o.globalAlpha=p.getBlotOpacity(t,this.props.opacity),o.beginPath(),this.props.recenter){var u=Math.max(n,i);r+=p.getBlotShiftX(t,u,i),a+=p.getBlotShiftY(t,u,n)}o.arc(r,a,s*p.getBlotScale(t),0,h),o.closePath(),o.fill()},componentWillUnmount:function(){this.state.store.stop()},pushBlot:function(t,e,o){var n=this,i=this.refs.canvas;i instanceof window.HTMLCanvasElement==!1&&(i=i.getDOMNode());var r=i.getBoundingClientRect(),s=r.top,u=r.bottom,c=r.left,l=r.right,h=window.getComputedStyle(i),f=h.color,d=this.state.ctx||i.getContext("2d"),g=a(d),v=u-s,m=l-c,x=p.getMaxRadius(v,m,this.props.radius);this.setState({color:f,ctx:d,density:g,height:v,width:m},function(){n.state.store.add({duration:n.props.duration,mouseDown:t,mouseUp:0,radius:x,x:e-c,y:o-s})})},render:function(){var t=this.state,e=t.density,o=t.height,i=t.width,r=t.touchEvents;return s.createElement("canvas",n({className:"ink",ref:"canvas",style:n({},u,this.props.style),height:o*e,width:i*e,onDragOver:this._onRelease},r))},_onPress:function(t){var e=t.button,o=t.ctrlKey,n=t.clientX,i=t.clientY,a=t.changedTouches,s=Date.now();if(a)for(var u=0;u<a.length;u++){var c=a[u],l=c.clientX,h=c.clientY;this.pushBlot(s,l,h)}else e!==r||o||this.pushBlot(s,n,i)},_onRelease:function(){this.state.store.release(Date.now())}});t.exports=d},function(t,e,o){"use strict";function n(t){return l(t.duration,Date.now()-t.mouseDown)}function i(t){return t.mouseUp>0?Date.now()-t.mouseUp:0}function r(t){var e=t.duration,o=t.radius,r=.85*a(n(t),0,o,e),s=.15*a(i(t),0,o,e),l=.02*o*u(Date.now()/e);return c(0,r+s+l)}var a=o(3),s=Math.sqrt(2),u=Math.cos,c=Math.max,l=Math.min;t.exports={getMaxRadius:function(t,e,o){return l(.5*c(t,e),o)},getBlotOpacity:function(t,e){return a(i(t),e,-e,t.duration)},getBlotOuterOpacity:function(t,e){return l(this.getBlotOpacity(t,e),a(n(t),0,.3,3*t.duration))},getBlotShiftX:function(t,e,o){return l(1,r(t)/e*2/s)*(o/2-t.x)},getBlotShiftY:function(t,e,o){return l(1,r(t)/e*2/s)*(o/2-t.y)},getBlotScale:function(t){return r(t)/t.radius}}},function(t,e){"use strict";t.exports={borderRadius:"inherit",height:"100%",left:0,position:"absolute",top:0,width:"100%"}},function(t,e){"use strict";t.exports=function(t,e,o,n){return o*((t=t/n-1)*t*t*t*t+1)+e}},function(t,e){"use strict";var o=!1;"undefined"!=typeof window&&(o="ontouchstart"in window||window.DocumentTouch&&document instanceof DocumentTouch),t.exports=o},function(t,e){"use strict";e.__esModule=!0,e["default"]=function(t){var e=window.devicePixelRatio||1,o=t.webkitBackingStorePixelRatio||t.mozBackingStorePixelRatio||t.msBackingStorePixelRatio||t.oBackingStorePixelRatio||t.backingStorePixelRatio||1;return e/o},t.exports=e["default"]},function(t,e){"use strict";function o(t,e){for(var o in t)if(this.props[o]!==t[o])return!0;for(var n in e)if(this.state[n]!==e[n])return!0;return!1}e.__esModule=!0,e["default"]=o,t.exports=e["default"]},function(t,e,o){"use strict";var n=o(1),i=function(t){var e=t.mouseUp,o=t.duration;return!e||Date.now()-e<o};t.exports=function(t){var e=[],o=!1,r=void 0,a={each:function(t,o){for(var n=0,i=e.length;i>n;n++)t.call(o,e[n])},play:function(){o||(o=!0,a.update())},stop:function(){o=!1,cancelAnimationFrame(r)},getTotalOpacity:function(t){for(var o=0,i=0,r=e.length;r>i;i++)o+=n.getBlotOuterOpacity(e[i],t);return o},update:function(){e=e.filter(i),e.length?(r=requestAnimationFrame(a.update),t()):a.stop()},add:function(t){e.push(t),a.play()},release:function(t){for(var o=e.length-1;o>=0;o--)if(!e[o].mouseUp)return e[o].mouseUp=t}};return a}},function(t,e){t.exports=__webpack_require__(1)}]);
 	//# sourceMappingURL=ink.js.map
 
 /***/ },
-/* 411 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -46912,7 +47157,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Code.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 412 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -46923,6 +47168,8 @@
 	    value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -46932,11 +47179,11 @@
 	exports.default = _react2.default.createClass({
 	    displayName: "Hr",
 	    style: function style() {
-	        return {
+	        return _extends({}, this.props.style, {
 	            border: "0",
 	            height: "1px",
 	            background: "rgba( 0, 0, 0, .1 )"
-	        };
+	        });
 	    },
 	    render: function render() {
 	        return _react2.default.createElement("hr", { style: this.style() });
@@ -46946,7 +47193,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Hr.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 413 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -46995,6 +47242,7 @@
 	                    _react2.default.createElement(
 	                        'a',
 	                        {
+	                            key: option.href,
 	                            style: style.listItem,
 	                            href: option.href
 	                        },
@@ -47024,7 +47272,306 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ActionList.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 414 */
+/* 416 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _VerticalMenu = __webpack_require__(417);
+
+	var _VerticalMenu2 = _interopRequireDefault(_VerticalMenu);
+
+	var _Hr = __webpack_require__(414);
+
+	var _Hr2 = _interopRequireDefault(_Hr);
+
+	var _styles = __webpack_require__(409);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'MediaCard',
+	    onExpand: function onExpand() {
+	        this.props.onExpand();
+	        var scrollAmount = this.props.isExpanded ? -50 : 50;
+	        window.scrollBy(0, scrollAmount);
+	    },
+	    render: function render() {
+	        var shadow = _styles2.default.boxShadow.li;
+	        var detailWidth = "";
+	        var detailPadding = "0 50px 0 0";
+	        var titleMarg = "";
+	        var openStyle = {};
+	        var HeaderRule = null;
+
+	        if (this.props.isExpanded) {
+	            shadow = _styles2.default.boxShadow.lg;
+	            detailWidth = "100%";
+	            detailPadding = "0";
+	            titleMarg = "20px";
+	            openStyle = { margin: "50px -20px" };
+	            HeaderRule = _react2.default.createElement(_Hr2.default, { style: { margin: "0 -20px 20px" } });
+	        }
+
+	        var headerIcons = function headerIcons(icon) {
+	            return _react2.default.createElement(
+	                'div',
+	                { style: { float: "right", marginLeft: "5px" } },
+	                icon
+	            );
+	        };
+
+	        return _react2.default.createElement(
+	            'div',
+	            {
+	                style: _extends({}, openStyle, {
+	                    position: "relative",
+	                    transition: "all ease .1s",
+	                    cursor: "pointer",
+	                    background: "white",
+	                    padding: "20px"
+	                }, shadow),
+	                onClick: this.onExpand
+	            },
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        padding: detailPadding,
+	                        display: "flex",
+	                        flexFlow: "row wrap"
+	                    }
+	                },
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: {
+	                            position: "relative",
+	                            marginRight: "10px",
+	                            alignSelf: "flex-start"
+	                        }
+	                    },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { style: {
+	                                borderRadius: "50%",
+	                                overflow: "hidden"
+	                            }
+	                        },
+	                        this.props.image
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    {
+	                        style: {
+	                            flex: "0 300px",
+	                            marginBottom: '' + titleMarg
+	                        }
+	                    },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { style: _extends({}, _styles2.default.t.body2, {
+	                                color: this.props.color
+	                            })
+	                        },
+	                        this.props.title
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { style: _extends({}, _styles2.default.t.caption)
+	                        },
+	                        this.props.subTitle
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        this.props.titleInfo
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    {
+	                        style: _extends({
+	                            flex: '1 0 ' + detailWidth
+	                        }, _styles2.default.t.body1)
+	                    },
+	                    HeaderRule,
+	                    this.props.detail
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        position: "absolute",
+	                        right: "10px",
+	                        top: "10px"
+	                    }
+	                },
+	                _react2.default.createElement(_VerticalMenu2.default, {
+	                    menuItemList: this.props.contextualMenu
+	                })
+	            )
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MediaCard.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 417 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _radium = __webpack_require__(349);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
+	var _icons = __webpack_require__(418);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var VerticalMenu = _react2.default.createClass({
+	    displayName: 'VerticalMenu',
+	    getInitialState: function getInitialState() {
+	        return {
+	            isOpen: false
+	        };
+	    },
+
+
+	    componentDidMount: function componentDidMount() {
+	        document.addEventListener('click', this.handleDocumentClick, false);
+	    },
+
+	    componentWillUnmount: function componentWillUnmount() {
+	        document.removeEventListener('click', this.handleDocumentClick, false);
+	    },
+
+	    handleDocumentClick: function handleDocumentClick(e) {
+	        var menu = this.refs.root.getDOMNode();
+	        if (!menu.contains(e.target) && this.state.isOpen) {
+	            this.setState({ isOpen: false });
+	        }
+	    },
+
+	    onTouch: function onTouch(e) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	        var isOpen = this.state.isOpen ? false : true;
+	        this.setState({
+	            isOpen: isOpen
+	        });
+	    },
+	    onSelectOption: function onSelectOption(action, e) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	        action();
+	        var isOpen = this.state.isOpen ? false : true;
+	        this.setState({
+	            isOpen: isOpen
+	        });
+	    },
+	    renderMenuItem: function renderMenuItem(item, i) {
+	        return _react2.default.createElement(
+	            'li',
+	            {
+	                key: i,
+	                style: {
+	                    display: "block",
+	                    padding: "10px 14px",
+	                    listStyle: "none",
+	                    ':hover': {
+	                        background: "#EFEFEF"
+	                    }
+	                },
+	                onClick: this.onSelectOption.bind(this, item.action)
+	            },
+	            item.render
+	        );
+	    },
+	    render: function render() {
+	        var menuItemList = this.props.menuItemList.map(this.renderMenuItem);
+	        var showList = this.state.isOpen ? "block" : "none";
+	        var openMenuStyle = this.state.isOpen ? {
+	            background: "#EFEFEF",
+	            color: "black"
+	        } : { color: "grey" };
+
+	        return _react2.default.createElement(
+	            'div',
+	            { ref: 'root' },
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: _extends({}, openMenuStyle, {
+	                        cursor: "pointer",
+	                        display: "flex",
+	                        alignItems: "center",
+	                        justifyContent: "center",
+	                        fontSize: "17px",
+	                        borderRadius: "50%",
+	                        height: "35px",
+	                        width: "35px"
+	                    }),
+	                    onClick: this.onTouch
+	                },
+	                _react2.default.createElement(_icons.VerticalMenuIcon, { size: 24, style: { top: "0" } })
+	            ),
+	            _react2.default.createElement(
+	                'ul',
+	                {
+	                    style: {
+	                        display: showList,
+	                        width: "200px",
+	                        position: "absolute",
+	                        background: "white",
+	                        right: "40px",
+	                        top: "0",
+	                        padding: "6px 0",
+	                        zIndex: "200",
+	                        boxShadow: "0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24)"
+	                    }
+	                },
+	                menuItemList
+	            )
+	        );
+	    }
+	});
+
+	exports.default = (0, _radium2.default)(VerticalMenu);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "VerticalMenu.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -47035,21 +47582,48 @@
 	  value: true
 	});
 
-	var _github = __webpack_require__(415);
+	var _GithubIcon = __webpack_require__(419);
 
-	Object.defineProperty(exports, 'Github', {
+	Object.defineProperty(exports, 'GithubIcon', {
 	  enumerable: true,
 	  get: function get() {
-	    return _interopRequireDefault(_github).default;
+	    return _interopRequireDefault(_GithubIcon).default;
 	  }
 	});
 
-	var _warning = __webpack_require__(417);
+	var _WarningIcon = __webpack_require__(421);
 
-	Object.defineProperty(exports, 'Warning', {
+	Object.defineProperty(exports, 'WarningIcon', {
 	  enumerable: true,
 	  get: function get() {
-	    return _interopRequireDefault(_warning).default;
+	    return _interopRequireDefault(_WarningIcon).default;
+	  }
+	});
+
+	var _CyverseLogo = __webpack_require__(422);
+
+	Object.defineProperty(exports, 'CyverseLogo', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_CyverseLogo).default;
+	  }
+	});
+
+	var _VerticalMenuIcon = __webpack_require__(423);
+
+	Object.defineProperty(exports, 'VerticalMenuIcon', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_VerticalMenuIcon).default;
+	  }
+	});
+
+	var _PersonIcon = __webpack_require__(424);
+
+	Object.defineProperty(exports, 'PersonIcon', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_PersonIcon).default;
 	  }
 	});
 
@@ -47058,7 +47632,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 415 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -47077,7 +47651,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _IconBase = __webpack_require__(416);
+	var _IconBase = __webpack_require__(420);
 
 	var _IconBase2 = _interopRequireDefault(_IconBase);
 
@@ -47118,10 +47692,10 @@
 
 	exports.default = Github;
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "github.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "GithubIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 416 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -47186,7 +47760,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "IconBase.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 417 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -47205,7 +47779,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _IconBase = __webpack_require__(416);
+	var _IconBase = __webpack_require__(420);
 
 	var _IconBase2 = _interopRequireDefault(_IconBase);
 
@@ -47242,19 +47816,796 @@
 
 	exports.default = Warning;
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "warning.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "WarningIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 418 */
+/* 422 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _IconBase = __webpack_require__(420);
+
+	var _IconBase2 = _interopRequireDefault(_IconBase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Github = function (_React$Component) {
+	    _inherits(Github, _React$Component);
+
+	    function Github() {
+	        _classCallCheck(this, Github);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Github).apply(this, arguments));
+	    }
+
+	    _createClass(Github, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _IconBase2.default,
+	                _extends({ viewBox: '0 0 40 40' }, this.props),
+	                _react2.default.createElement(
+	                    'g',
+	                    null,
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M90.35,37.62c-15.84-3.18-37-1.32-49.6,11.59C35.42,54.69,31.34,60.62,30.21,69c-0.39,2.91-2.4-.32-2.4-5.77,0-2.19,1.84-7.39,3-10.14,4.53-10.6,22.27-24.41,59.52-15.47', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M88.31,101.22c4.22-.74,5-4.48,3.19-5.63a4,4,0,0,0-2.7-.31C54.25,98.83,35.12,85.2,30.77,72c-0.47-1.44-2.18-7-2.88-9.92C27,86.91,54,107.21,88.31,101.22', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M82.77,29.7c-11.51-2.39-49.19,3-53.22,21.87a22.19,22.19,0,0,0-.93,5.73c0.09-1.37.16-2.43,0.23-3.33,0.2-1.78.45-3.79,0.77-5.55,0.08-.43.18-0.9,0.29-1.42h0l0.44-1.78v0h0c0.06-.21.11-0.41,0.18-0.62a31,31,0,0,1,3.33-6.94c2-3.33,16.51-14.89,48.89-7.92', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M29.89,46.52c-0.4,2.21-.65,3.61-0.83,4.86-0.09.67-.16,1.34-0.23,2a17.79,17.79,0,0,0-.21,3.55C31.13,88.57,83,95.35,112.81,83.38c4.53-1.82,3.85-7.72,1.24-8.18a3.85,3.85,0,0,0-2,.41C72.58,90.18,28.22,78.48,29.62,51.28a32.82,32.82,0,0,1,.69-6.56Z', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M34.55,34.33c1-1.57,2.46-3.59,3.56-5.1,0.78-1,1.44-1.76,2.19-2.54C49,17.57,64,21.58,71.08,23.86c-8.92-1.13-25.39-4-36.53,10.48', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M37.46,30.05c-0.94,1.34-2.15,3.08-3.09,4.55-0.38.63-.76,1.3-1.13,2-5.56,10.86-1.5,23.19,12.1,31.59C64.45,80,95.2,79.57,114,67.23a36.54,36.54,0,0,0,8.73-7.8c2.16-3.55-.89-7.95-2.59-7.87a2.34,2.34,0,0,0-1.3.63,33.33,33.33,0,0,1-8,7.12c-17.16,11.25-45.21,11.63-62.66.85-14.39-8.89-17.07-22.6-7.93-33.45l-0.09.1c-1,1.09-2,2.24-2.74,3.25', transform: 'translate(-27.82 -20.99)' }),
+	                    'i',
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M173.25,71.93a14.78,14.78,0,0,1-10.41,4.29c-9,0-15.13-7.44-15.13-16.33s6.18-16.4,15.13-16.4a14.78,14.78,0,0,1,10.41,4.29l2-2.77s-4-4.92-12.49-4.92c-11.1,0-18.79,8.58-18.79,19.8s7.69,19.74,18.79,19.74c8.45,0,12.49-5,12.49-5Zm22.54-13.24L194.66,61h-0.19l-1.07-2.27L182.86,40.9h-4.22L192.7,64.17V78.74h3.59V64.17L210.36,40.9H206.2Zm32.5,20.05h6.31L250.11,40.9h-6.56L231.45,71.55l-12-30.65h-6.62Zm51.12-21.82H261.83V46.45h20.68V40.9H255.58V78.74h26.93V73.19H261.83v-11h17.59v-5.3Zm10.89-16V78.74h6.24V66.25h9l9,12.49h6.87V77.85l-9.08-12.3V65.24a11.79,11.79,0,0,0,8-11.67c0-7.88-5.61-12.67-14.5-12.67H290.31ZM313.9,53.64c0,4.79-3.34,7.06-7.95,7.06h-9.4V46.45h9c5,0,8.32,2.33,8.32,7.19m12.4,21.25s4.6,4.73,14.31,4.73c9.46,0,14.06-5,14.06-11.48,0-5.86-3.66-9.21-12.8-11.79-6.37-1.89-8.39-3.15-8.39-5.74,0-3,2.71-4.73,7-4.73A15.63,15.63,0,0,1,350.26,49l3.41-5.11s-3.78-3.85-13.18-3.85c-9,0-13.87,4.29-13.87,10.78,0,5.93,4.1,8.77,12.55,11.29,6.81,2.08,8.58,3.53,8.58,6.43,0,3.09-2.21,5.23-7.31,5.23a18.25,18.25,0,0,1-10.72-3.66Zm59.64-18H368.34V46.45H389V40.9H362.1V78.74H389V73.19H368.34v-11h17.59v-5.3Z', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('polygon', { 'class': 'cls-5', points: '362.62 20.21 367.23 20.21 367.23 21.43 365.69 21.43 365.69 25.12 364.17 25.12 364.17 21.43 362.62 21.43 362.62 20.21' }),
+	                    _react2.default.createElement('polygon', { 'class': 'cls-5', points: '367.9 20.21 369.89 20.21 370.66 23.2 371.43 20.21 373.42 20.21 373.42 25.12 372.18 25.12 372.18 21.38 371.22 25.12 370.1 25.12 369.14 21.38 369.14 25.12 367.9 25.12 367.9 20.21' })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Github;
+	}(_react2.default.Component);
+
+	exports.default = Github;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "CyverseLogo.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 423 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _IconBase = __webpack_require__(420);
+
+	var _IconBase2 = _interopRequireDefault(_IconBase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Github = function (_React$Component) {
+	    _inherits(Github, _React$Component);
+
+	    function Github() {
+	        _classCallCheck(this, Github);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Github).apply(this, arguments));
+	    }
+
+	    _createClass(Github, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _IconBase2.default,
+	                _extends({ viewBox: '0 0 24 24' }, this.props),
+	                _react2.default.createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' }),
+	                _react2.default.createElement('path', { d: 'M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z' })
+	            );
+	        }
+	    }]);
+
+	    return Github;
+	}(_react2.default.Component);
+
+	exports.default = Github;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "VerticalMenuIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 424 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _IconBase = __webpack_require__(420);
+
+	var _IconBase2 = _interopRequireDefault(_IconBase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PersonIcon = function (_React$Component) {
+	    _inherits(PersonIcon, _React$Component);
+
+	    function PersonIcon() {
+	        _classCallCheck(this, PersonIcon);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(PersonIcon).apply(this, arguments));
+	    }
+
+	    _createClass(PersonIcon, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _IconBase2.default,
+	                _extends({ viewBox: '0 0 24 24' }, this.props),
+	                _react2.default.createElement('path', { d: 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z' }),
+	                _react2.default.createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' })
+	            );
+	        }
+	    }]);
+
+	    return PersonIcon;
+	}(_react2.default.Component);
+
+	exports.default = PersonIcon;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PersonIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 425 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _radium = __webpack_require__(349);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
+	var _tinycolor = __webpack_require__(411);
+
+	var _tinycolor2 = _interopRequireDefault(_tinycolor);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Button = _react2.default.createClass({
+	    displayName: "Avitar",
+
+	    render: function render() {
+	        var letter = this.props.name[0].toUpperCase();
+	        var size = this.props.size;
+	        var color = this.props.color;
+
+	        return _react2.default.createElement(
+	            "div",
+	            { style: _extends({
+	                    display: "inline-block",
+	                    textAlign: "center",
+	                    width: size + "px",
+	                    height: size + "px",
+	                    borderRadius: "999px",
+	                    background: color,
+	                    fontSize: size * .7 + "px",
+	                    lineHeight: size + 2 + "px",
+	                    color: "rgba(255,255,255,.7)"
+	                }, this.props.style)
+	            },
+	            letter
+	        );
+	    }
+
+	});
+
+	exports.default = (0, _radium2.default)(Button);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Avitar.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 426 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styles = __webpack_require__(409);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'Badge',
+	    render: function render() {
+	        var bg = this.props.color ? { background: this.props.color } : _styles2.default.BgColors.greyXDark;
+
+	        return _react2.default.createElement(
+	            'div',
+	            {
+	                style: _extends({
+	                    display: "inline-block",
+	                    verticalAlign: "middle",
+	                    padding: "3px",
+	                    lineHeight: "74%",
+	                    fontSize: "8px",
+	                    borderRadius: "9999px",
+	                    color: "white"
+	                }, bg)
+	            },
+	            this.props.children
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Badge.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 427 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _radium = __webpack_require__(349);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ShowMoreEllipsis = _react2.default.createClass({
+	    displayName: 'ShowMoreEllipsis',
+
+
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            { style: {
+	                    background: "#EFEFEF",
+	                    borderRadius: "8px",
+	                    padding: "0 3px 12px",
+	                    display: "inline-block",
+	                    lineHeight: "0",
+	                    verticalAlign: "middle",
+	                    fontSize: "22px",
+	                    ':hover': {
+	                        background: "lightgrey"
+	                    }
+	                } },
+	            '...'
+	        );
+	    }
+	});
+
+	exports.default = (0, _radium2.default)(ShowMoreEllipsis);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ShowMoreEllipsis.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 428 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: "Tooltip",
+
+	    propTypes: {
+	        message: _react2.default.PropTypes.string
+	    },
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            showTooltip: false
+	        };
+	    },
+
+	    showTooltip: function showTooltip() {
+	        this.setState({
+	            showTooltip: true
+	        });
+	    },
+	    hideTooltip: function hideTooltip() {
+	        this.setState({
+	            showTooltip: false,
+	            animate: {
+	                opacity: "0",
+	                bottom: "50px"
+	            }
+	        });
+	    },
+	    onMouseEnter: function onMouseEnter() {
+	        if (!this.props.isDisabled) {
+	            this.showTooltip();
+	        }
+	    },
+	    onMouseLeave: function onMouseLeave() {
+	        this.hideTooltip();
+	    },
+	    onTouch: function onTouch() {
+	        var _this = this;
+
+	        this.props.onTouch();
+	        setTimeout(function () {
+	            return _this.hideTooltip();
+	        }, 2000);
+	    },
+	    tooltip: function tooltip() {
+	        var message = this.props.message;
+	        if (this.state.showTooltip) {
+	            return _react2.default.createElement(
+	                "span",
+	                { style: this.style.content },
+	                _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    message
+	                ),
+	                _react2.default.createElement("div", { style: this.style.originPoint })
+	            );
+	        }
+	    },
+
+
+	    style: {
+	        content: {
+	            display: "inline-block",
+	            transition: "all ease .2s",
+	            position: "absolute",
+	            right: "0",
+	            left: "0",
+	            margin: "auto",
+	            bottom: "50px",
+	            padding: "10px",
+	            background: "black",
+	            boxShadow: "0px 2px 5px 0px rgba(0,0,0,.6)",
+	            borderRadius: "3px",
+	            color: "white",
+	            textAlign: "center"
+
+	        },
+
+	        originPoint: {
+	            position: "absolute",
+	            right: "0",
+	            left: "0",
+	            bottom: "-20px",
+	            margin: "auto",
+	            width: "10px",
+	            border: "solid 10px rgba(0,0,0,0)",
+	            borderTop: "solid 10px black"
+	        }
+	    },
+
+	    render: function render() {
+
+	        return _react2.default.createElement(
+	            "span",
+	            {
+	                style: { position: "relative" },
+	                onMouseEnter: this.onMouseEnter,
+	                onMouseLeave: this.onMouseLeave
+	            },
+	            this.props.children,
+	            this.tooltip()
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Tooltip.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 429 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _variables = __webpack_require__(410);
+
+	var _variables2 = _interopRequireDefault(_variables);
+
+	var _icons = __webpack_require__(418);
+
+	var _src = __webpack_require__(347);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'MediaCardEx',
+	    getInitialState: function getInitialState() {
+	        return {
+	            isExpanded: false
+	        };
+	    },
+	    onExpand: function onExpand() {
+	        var isExpanded = this.state.isExpanded ? false : true;
+	        this.setState({
+	            isExpanded: isExpanded
+	        });
+	    },
+	    Example: function Example() {
+	        return _react2.default.createElement(
+	            'div',
+	            { style: { marginBottom: "20px" } },
+	            _react2.default.createElement(_src.MediaCard, {
+	                image: _react2.default.createElement(_src.Avitar, {
+	                    size: 40,
+	                    color: '#de3894',
+	                    name: "MediaCard Example"
+	                }),
+	                title: "MediaCard Example",
+	                subTitle: "So much to say",
+	                titleInfo: _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'span',
+	                        { style: { marginRight: "10px" } },
+	                        _react2.default.createElement(
+	                            _src.Badge,
+	                            null,
+	                            'Featured'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        _src.Badge,
+	                        null,
+	                        '23'
+	                    ),
+	                    _react2.default.createElement(_icons.PersonIcon, {
+	                        size: 15,
+	                        color: _variables2.default.grey.xDark
+	                    })
+	                ),
+	                detail: this.state.isExpanded ? _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak. Cupim bresaola brisket beef pork belly turkey meatball ground round beef ribs tenderloin ham hock shankle swine chuck. Andouille short loin tail doner leberkas chicken cow venison shankle cupim hamburger beef ribs. Pastrami doner bacon, spare ribs prosciutto capicola andouille boudin.'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'Turkey biltong filet mignon meatloaf picanha. Turkey rump swine cupim porchetta beef shoulder shank beef ribs pork. Turducken corned beef ground round leberkas strip steak beef rump. Biltong swine corned beef, shankle andouille bacon tenderloin cow ball tip pancetta salami. Alcatra beef picanha short ribs chicken turducken ground round flank shankle pancetta. Meatball bacon biltong turducken.'
+	                    )
+	                ) : "Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak.",
+	                contextualMenu: [{ render: "red" }, { render: "yellow" }, { render: "green" }],
+	                color: "#0971AB",
+	                onExpand: this.onExpand,
+	                isExpanded: this.state.isExpanded
+	            })
+	        );
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            this.Example(),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. 
+	                 * It is not indented because it messes up the formating in render.     
+	                 * Initially used `toJSX(Example())` which was an awesome solution but it renders the Radium wrapper instead of Button :( */
+	                '<div style={{marginBottom: "20px"}}>\n    <MediaCard \n        image={\n            <Avitar \n                size={40} \n                color="#de3894" \n                name={"MediaCard Example"}\n            />\n        }\n        title={"MediaCard Example"}\n        subTitle={"So much to say"}\n        titleInfo= { \n            <div>\n                <span style={{marginRight: "10px"}}>\n                    <Badge>Featured</Badge>\n                </span>\n                <Badge>23</Badge>\n                <PersonIcon \n                    size={ 15 }\n                    color={ v.grey.xDark }\n                />\n            </div>\n        }\n        detail={\n            this.state.isExpanded ? (\n                <div>\n                        <p>Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak. Cupim bresaola brisket beef pork belly turkey meatball ground round beef ribs tenderloin ham hock shankle swine chuck. Andouille short loin tail doner leberkas chicken cow venison shankle cupim hamburger beef ribs. Pastrami doner bacon, spare ribs prosciutto capicola andouille boudin.</p>\n\n                        <p>Turkey biltong filet mignon meatloaf picanha. Turkey rump swine cupim porchetta beef shoulder shank beef ribs pork. Turducken corned beef ground round leberkas strip steak beef rump. Biltong swine corned beef, shankle andouille bacon tenderloin cow ball tip pancetta salami. Alcatra beef picanha short ribs chicken turducken ground round flank shankle pancetta. Meatball bacon biltong turducken.</p>\n                </div>\n            ) : \n            "Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak." \n        } \n        contextualMenu = {[{render: "red"},{render: "yellow"},{render: "green"}]}\n        color={"#0971AB"}\n        onExpand={this.onExpand} \n        isExpanded={this.state.isExpanded}\n    />\n</div>'
+	                /* Code string ends here */
+	            })
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MediaCardEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 430 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _src = __webpack_require__(347);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'AvitarEx',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'div',
+	                { style: { fontSize: "18px" } },
+	                _react2.default.createElement(_src.Avitar, {
+	                    name: 'Megatron',
+	                    size: 30,
+	                    color: '#a9cc66',
+	                    style: { margin: "10px" }
+	                }),
+	                'Megatron'
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { style: { fontSize: "22px" } },
+	                _react2.default.createElement(_src.Avitar, {
+	                    name: 'Cobra Commander',
+	                    size: 40,
+	                    color: '#87a8f0',
+	                    style: { margin: "10px" }
+	                }),
+	                'Cobra Commander'
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { style: { fontSize: "28px", marginBottom: "20px" } },
+	                _react2.default.createElement(_src.Avitar, {
+	                    name: 'Skeletor',
+	                    size: 50,
+	                    color: '#29eded',
+	                    style: { margin: "10px" }
+	                }),
+	                'Skelletor'
+	            ),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
+	                '<div style={{fontSize: "18px"}}>\n    <Avitar\n        name="Megatron"\n        size={ 30 }\n        color="#29eded"\n        style={{ margin: "10px" }}\n    />\n    Megatron\n</div>\n<div style={{fontSize: "22px"}}>\n    <Avitar\n        name="Cobra Commander"\n        size={ 40 }\n        color="#97f811"\n        style={{ margin: "10px" }}\n    />\n    Cobra Commander\n</div>\n<div style={{fontSize: "28px"}}>\n    <Avitar\n        name="Skeletor"\n        size={ 50 }\n        color="#87a8f0"\n        style={{ margin: "10px" }}\n    />\n    Skelletor\n</div>'
+	                /* Code string ends here */
+	            })
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "AvitarEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 431 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _variables = __webpack_require__(410);
+
+	var _variables2 = _interopRequireDefault(_variables);
+
+	var _src = __webpack_require__(347);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'TooltipEx',
+	    Example: function Example() {
+	        return _react2.default.createElement(
+	            'div',
+	            { style: { marginBottom: "20px" } },
+	            _react2.default.createElement(
+	                _src.Tooltip,
+	                { message: 'Tooltips are Awesome!' },
+	                _react2.default.createElement(_src.Button, {
+	                    children: 'Hover over me',
+	                    color: _variables2.default.grey.xXLight
+	                })
+	            )
+	        );
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            this.Example(),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. 
+	                 * It is not indented because it messes up the formating in render.     
+	                 * Initially used `toJSX(Example())` which was an awesome solution but it renders the Radium wrapper instead of Button :( */
+	                '<div style={{marginBottom: "20px"}}>\n    <Tooltip message="Tooltips are Awesome!">\n        <Button \n            children="Hover over me"\n            color={ v.grey.xXLight }\n        />\n    </Tooltip>\n</div>'
+	                /* Code string ends here */
+	            })
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TooltipEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 432 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _icons = __webpack_require__(418);
+
+	var _mini_logo = __webpack_require__(433);
+
+	var _mini_logo2 = _interopRequireDefault(_mini_logo);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'Header',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'header',
+	            {
+	                style: {
+	                    padding: "10px 20px",
+	                    background: "#0971AB",
+	                    position: "fixed",
+	                    width: "100%",
+	                    zIndex: "99999"
+	                }
+	            },
+	            _react2.default.createElement('img', { width: '150px', src: _mini_logo2.default }),
+	            _react2.default.createElement(
+	                'div',
+	                { style: { float: "right" } },
+	                _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://github.com/cyverse/troposphere-ui' },
+	                    _react2.default.createElement(_icons.GithubIcon, { size: '30', fill: 'white' })
+	                )
+	            )
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Header.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 433 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "23f3befae9ff10e18035797c949a8a16.svg";
+
+/***/ },
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(419);
+	var content = __webpack_require__(435);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(421)(content, {});
+	var update = __webpack_require__(437)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -47271,10 +48622,10 @@
 	}
 
 /***/ },
-/* 419 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(420)();
+	exports = module.exports = __webpack_require__(436)();
 	// imports
 
 
@@ -47285,7 +48636,7 @@
 
 
 /***/ },
-/* 420 */
+/* 436 */
 /***/ function(module, exports) {
 
 	/*
@@ -47341,7 +48692,7 @@
 
 
 /***/ },
-/* 421 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -47593,16 +48944,16 @@
 
 
 /***/ },
-/* 422 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(423);
+	var content = __webpack_require__(439);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(421)(content, {});
+	var update = __webpack_require__(437)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -47619,15 +48970,15 @@
 	}
 
 /***/ },
-/* 423 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(420)();
+	exports = module.exports = __webpack_require__(436)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "* { box-sizing: border-box }\n\n", ""]);
+	exports.push([module.id, "* { box-sizing: border-box; }\nbody { font-family: 'Roboto', sans-sarif;}\np { \n    max-width: 600px; \n    line-height: 1.5;\n}\n", ""]);
 
 	// exports
 

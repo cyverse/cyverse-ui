@@ -1,38 +1,24 @@
 import React from 'react';
+import radium from 'radium';
 
-export default React.createClass({
-    getInitialState: function() {
-        return {
-            isHovered: false
-        }
-    },
-
-    onEnter: function() {
-        console.log("hovered");
-        this.setState({
-            isHovered: true
-        })
-    },
-
-    onLeave: function() {
-        console.log("left");
-        this.setState({
-            isHovered: false
-        })
-    },
+const ShowMoreEllipsis = React.createClass({
 
     render: function() {
-        let background = this.state.isHovered ? "lightgrey" : "#EFEFEF";
         return (
-                <div onMouseEnter={this.onEnter} onMouseLeave={this.onLeave} style={{
-                        background: background,
+                <div style={{
+                        background: "#EFEFEF",
                         borderRadius: "8px", 
                         padding: "0 3px 12px", 
                         display: "inline-block",
                         lineHeight: "0",
                         verticalAlign: "middle",
                         fontSize: "22px",
+                        ':hover': {
+                            background: "lightgrey",
+                        }
                     }}>...</div>
         )
     }
-})
+});
+
+export default radium(ShowMoreEllipsis);

@@ -17,7 +17,6 @@ export default React.createClass({
         let detailPadding = "0 50px 0 0";
         let titleMarg = "";
         let openStyle = {};
-        let openClass = "";
         let HeaderRule = null;
 
         if (this.props.isExpanded) {
@@ -44,6 +43,7 @@ export default React.createClass({
                     position: "relative",
                     transition: "all ease .1s",
                     cursor: "pointer",
+                    background: "white",
                     padding: "20px",
                     ...shadow,
                 }}
@@ -68,14 +68,6 @@ export default React.createClass({
                             }}
                         >
                             {this.props.image}
-                        </div>
-                        <div style={{
-                                position: "absolute",
-                                top:"0",
-                                right: "0",
-                            }}
-                        >
-                            {this.props.imageBadge}
                         </div>
                     </div>
 
@@ -112,18 +104,18 @@ export default React.createClass({
                         {this.props.detail}
                     </div>
                 </div>
-                    <div
-                        style={{
-                            position: "absolute",
-                            right: "10px",
-                            top: "10px",
-                        }}
-                    >
-                        <VerticalMenu
-                            menuItemList={this.props.contextualMenu}
-                        />
-                    </div>
+                <div
+                    style={{
+                        position: "absolute",
+                        right: "10px",
+                        top: "10px",
+                    }}
+                >
+                    <VerticalMenu
+                        menuItemList={this.props.contextualMenu}
+                    />
+                </div>
             </div>
         )
     }
-})
+});

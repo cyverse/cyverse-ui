@@ -4,8 +4,7 @@
   "description": "A UI library for Troposphere",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel --presets es2015,react src --out-dir dist",
-    "buildDocs": "webpack",
+    "build": "babel --presets es2015,react src --out-dir dist; webpack",
     "dev": "webpack-dev-server --hot --inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
