@@ -1,6 +1,8 @@
 import React from 'react';
 import {
-    ButtonEx
+    ButtonEx,
+    MediaCardEx,
+    AvitarEx,
 } from './examples';
 
 const ExampleList = [
@@ -8,7 +10,17 @@ const ExampleList = [
         name: "Button",
         desc: "A Button is raised, use it for the more important functions on the page",
         render: ButtonEx,
-    }    
+    },
+    {
+        name: "MediaCard",
+        desc: "MediaCards are used for things like Project and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menue is attached to the card that contains all of the actions for that card.",
+        render: MediaCardEx,
+    },
+    {
+        name: "Avitar",
+        desc: "An Avitar provides variation within a list of cards as to provide some visual distinction between them. The letter makes it easier to quickly scan for a particular title.",
+        render: AvitarEx,
+    },
 ];
 
 export default ExampleList;

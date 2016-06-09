@@ -3,6 +3,7 @@ import React from 'react';
 export default React.createClass({
     style() {
         return {
+            ...this.props.style,
             border:"0", 
             height: "1px", 
             background: "rgba( 0, 0, 0, .1 )"

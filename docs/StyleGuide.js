@@ -22,10 +22,14 @@ const ExampleSection = Examples
         let Description = Component.desc;
         let Render = Component.render;
             return (
-                <section 
-                    id={ Name.replace(/\s+/g, '-')
-                        .toLowerCase()}
+                <section  
+                    style={{position: "relative", marginBottom: "50px"}}
                 >
+                    <div
+                        style={{position: "absolute", top:"-50px" }}
+                        id={ Name.replace(/\s+/g, '-')
+                        .toLowerCase()}
+                    />
                     <Hr/>
                     <h2> { Name } </h2>
                     <p> { Description } </p>
@@ -83,7 +87,7 @@ export default React.createClass({
                     <p>
                     Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
                     </p>
-                    { ExampleSection } 
+                        { ExampleSection } 
                 </main>
                 <footer/>
             </div>

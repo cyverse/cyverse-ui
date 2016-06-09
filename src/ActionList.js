@@ -26,6 +26,7 @@ const ActionList = React.createClass({
                 return (
                     <li style={{listStyle: "none"}}>
                         <a 
+                            key={ option.href }
                             style={ style.listItem }
                             href={option.href}
                         >

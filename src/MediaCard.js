@@ -1,5 +1,7 @@
 import React from 'react';
-import VerticalMenu from 'components/common/ui/VerticalMenu.react';
+import VerticalMenu from './VerticalMenu';
+import Hr from './Hr';
+import styles from './styles/styles';
 
 export default React.createClass({
     onExpand() {
@@ -10,6 +12,7 @@ export default React.createClass({
     },
 
     render() {
+        let shadow = styles.boxShadow.li 
         let detailWidth = "";
         let detailPadding = "0 50px 0 0";
         let titleMarg = "";
@@ -18,12 +21,12 @@ export default React.createClass({
         let HeaderRule = null;
 
         if (this.props.isExpanded) {
+            shadow = styles.boxShadow.lg
             detailWidth = "100%";
             detailPadding = "0";
             titleMarg = "20px";
             openStyle = { margin: "50px -20px" };
-            openClass = "CardList--expanded";
-            HeaderRule = (<hr style={{margin: "0 -20px 20px"}}/>);
+            HeaderRule = (<Hr style={{margin: "0 -20px 20px"}}/>);
         }
 
         let headerIcons = (icon) => {
@@ -34,33 +37,19 @@ export default React.createClass({
             )
         };
 
-        let header = this.props.header ?
-            (
-                <div className="clearfix"
-                    style={{
-                        position: "absolute",
-                        top: "0",
-                        right: "0",
-                        left: "0",
-                        padding: "3px"
-                    }}
-                >
-                    {this.props.header.map(headerIcons)}
-                </div>
-            ) : null;
-
         return (
-            <div className={`CardList ${openClass}`}
+            <div
                 style={{
                     ...openStyle,
                     position: "relative",
                     transition: "all ease .1s",
                     cursor: "pointer",
+                    padding: "20px",
+                    ...shadow,
                 }}
                 onClick={this.onExpand}
             >
-                {header}
-                <div className="t-wordBreaker"
+                <div
                     style={{
                         padding: detailPadding,
                         display: "flex",
@@ -96,17 +85,27 @@ export default React.createClass({
                             marginBottom: `${titleMarg}`
                         }}
                     >
+                        <div style={{
+                                ...styles.t.body2,
+                                color: this.props.color,
+                            }}
+                        >
                         {this.props.title}
-                        <span className="t-caption">
+                        </div>
+                        <div style={{
+                                ...styles.t.caption,
+                            }}
+                        >
                             {this.props.subTitle}
-                        </span>
+                        </div>
                         <div>
                             {this.props.titleInfo}
                         </div>
                     </div>
                     <div 
                         style={{
-                            flex: `1 0 ${detailWidth}`
+                            flex: `1 0 ${detailWidth}`,
+                            ...styles.t.body1,
                         }}
                     >
                         {HeaderRule}
@@ -116,8 +115,8 @@ export default React.createClass({
                     <div
                         style={{
                             position: "absolute",
-                            right: "20px",
-                            top: "20px",
+                            right: "10px",
+                            top: "10px",
                         }}
                     >
                         <VerticalMenu

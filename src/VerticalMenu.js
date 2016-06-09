@@ -1,6 +1,8 @@
 import React from 'react';
+import radium from 'radium';
+import { VerticalMenuIcon } from './icons';
 
-export default React.createClass({
+const VerticalMenu = React.createClass({
     getInitialState() {
         return({
             isOpen: false,
@@ -29,7 +31,6 @@ export default React.createClass({
             false : true;
         this.setState({
             isOpen,
-            itemHoverd: null,
         })
     },
 
@@ -44,30 +45,19 @@ export default React.createClass({
         })
     },
 
-    onItemEnter(item) {
-        this.setState({
-            itemHovered: item
-        })
-    },
-
-    onItemLeave() {
-        this.setState({
-            itemHovered: null
-        });
-    },
-
     renderMenuItem(item) {
-        let isHoveredStyle = this.state.itemHovered === item ?
-            { background: "#EFEFEF" } :
-            {}
+        let key = 0;
+        key += 1;
         return (
-            <li onMouseEnter={ this.onItemEnter.bind(this, item) }
-                onMouseLeave={ this.onItemLeave }
+            <li
+                key={key}
                 style={{
                     display: "block",
                     padding: "10px 14px",
                     listStyle: "none",
-                    ...isHoveredStyle,
+                    ':hover': {
+                        background: "#EFEFEF"          
+                    },
                 }}
                 onClick={this.onSelectOption.bind(this, item.action)}
             >
@@ -97,7 +87,6 @@ export default React.createClass({
                         alignItems: "center",
                         justifyContent: "center",
                         fontSize: "17px",
-                        paddingLeft: "2px",
                         borderRadius: "50%",
                         border: "solid 1px rgba(0,0,0,.1)",
                         height: "35px",
@@ -105,7 +94,7 @@ export default React.createClass({
                     }}
                     onClick={this.onTouch}
                 >
-                    <i style={{top:"0"}} className="glyphicon glyphicon-option-vertical"/>
+                    <VerticalMenuIcon size={24} style={{top:"0"}} />
                 </div>
                 <ul 
                     style={{
@@ -114,7 +103,7 @@ export default React.createClass({
                         position: "absolute",
                         background: "white",
                         right: "0",
-                        top: "40px",
+                        top: "0",
                         padding: "6px 0",
                         zIndex: "200",
                         boxShadow: "0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24)",
@@ -126,3 +115,5 @@ export default React.createClass({
         )
     },
 });
+
+export default radium(VerticalMenu);
