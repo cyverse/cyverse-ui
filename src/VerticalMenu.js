@@ -18,7 +18,7 @@ const VerticalMenu = React.createClass({
     },
 
     handleDocumentClick: function(e) {
-        let menu = this.refs.root.getDOMNode();
+        let menu = this.refs.root;
         if (!menu.contains(e.target) && this.state.isOpen) {
             this.setState({ isOpen: false });
         }
@@ -91,7 +91,7 @@ const VerticalMenu = React.createClass({
                     }}
                     onClick={this.onTouch}
                 >
-                    <VerticalMenuIcon size={24} style={{top:"0"}} />
+                    <VerticalMenuIcon size={24} style={{top:"0px"}} />
                 </div>
                 <ul 
                     style={{
@@ -100,10 +100,10 @@ const VerticalMenu = React.createClass({
                         position: "absolute",
                         background: "white",
                         right: "40px",
-                        top: "0",
-                        padding: "6px 0",
+                        top: "0px",
+                        padding: "6px 0px",
                         zIndex: "200",
-                        boxShadow: "0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24)",
+                        boxShadow: "0px -1px 0 #e5e5e5, 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.24)",
                     }}
                 >
                     {menuItemList}

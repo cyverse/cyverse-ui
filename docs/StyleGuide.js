@@ -7,7 +7,7 @@ import 'normalize.css';
 import './base.css';
 
 const ExampleLinks = Examples
-    .map( (Component) => {
+    .map( (Component, i) => {
         let Name = Component.name;
             return {
                 label: Name,
@@ -17,12 +17,13 @@ const ExampleLinks = Examples
     });
 
 const ExampleSection = Examples
-    .map( (Component) => {
+    .map( (Component, i) => {
         let Name = Component.name;
         let Description = Component.desc;
         let Render = Component.render;
             return (
-                <section  
+                <section
+                    key={i}
                     style={{position: "relative", marginBottom: "50px"}}
                 >
                     <div
@@ -54,8 +55,8 @@ export default React.createClass({
                 <div id="sideBar" 
                     style={{
                         position: "fixed",
-                        top: "0",
-                        bottom: "0",
+                        top: "0px",
+                        bottom: "0px",
                         minWidth: "250px",
                         marginTop: "50px",
                         padding: "20px",

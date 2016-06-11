@@ -61,8 +61,8 @@ export default React.createClass({
             display: "inline-block",
             transition: "all ease .2s",
             position: "absolute",
-            right: "0",
-            left: "0",
+            right: "0px",
+            left: "0px",
             margin: "auto",
             bottom: "50px",
             padding: "10px",
@@ -76,8 +76,8 @@ export default React.createClass({
 
         originPoint: {
             position: "absolute",
-            right: "0",
-            left: "0",
+            right: "0px",
+            left: "0px",
             bottom: "-20px",
             margin:"auto",
             width: "10px",

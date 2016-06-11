@@ -4,6 +4,7 @@ import {
     MediaCardEx,
     AvitarEx,
     TooltipEx,
+    TransitionEx,
 } from './examples';
 
 const ExampleList = [
@@ -26,6 +27,11 @@ const ExampleList = [
         name: "Tooltip",
         desc: "Tooltips are used to offer the user information about a function or graph when hovered. An Icon on a Button with no text should use a Tooltip to let the user know the function of the Button",
         render: TooltipEx,
+    },
+    {
+        name: "Transition",
+        desc: "Tooltips are used to offer the user information about a function or graph when hovered. An Icon on a Button with no text should use a Tooltip to let the user know the function of the Button",
+        render: TransitionEx,
     },
 ];
 

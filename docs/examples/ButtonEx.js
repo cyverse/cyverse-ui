@@ -1,5 +1,4 @@
 import React from 'react';
-import toJsx from 'react-element-to-jsx-string';
 import { Button, Code } from '../../src';
 import { WarningIcon } from '../../src/icons';
 

@@ -1,7 +1,8 @@
-import React from "react";
+import ReactDOM from "react-dom";
+import React from 'react';
 import StyleGuide from "./StyleGuide.js";
 
-React.render(
+ReactDOM.render(
     <StyleGuide/>,
     document.getElementById('app')
 );

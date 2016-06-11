@@ -7,7 +7,7 @@ const ActionList = React.createClass({
         
         let style = {
             list: {
-                padding: "6px 0"
+                padding: "6px 0px"
             },
             listItem: {
                 cursor: "pointer",
@@ -21,10 +21,12 @@ const ActionList = React.createClass({
             }
         };
 
-        let List = this.props.list.map((option) => {
+        let List = this.props.list.map((option, i) => {
             if (option.href) {
                 return (
-                    <li style={{listStyle: "none"}}>
+                    <li 
+                        key={i}
+                        style={{listStyle: "none"}}>
                         <a 
                             key={ option.href }
                             style={ style.listItem }
