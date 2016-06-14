@@ -1,17 +1,23 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = require("react");
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _utils = require('./utils');
+
+var _reactMotion = require('react-motion');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _react2.default.createClass({
-    displayName: "ToolTip",
+    displayName: 'ToolTip',
 
     propTypes: {
         message: _react2.default.PropTypes.string
@@ -22,7 +28,6 @@ exports.default = _react2.default.createClass({
             showTooltip: false
         };
     },
-
     showTooltip: function showTooltip() {
         this.setState({
             showTooltip: true
@@ -30,11 +35,7 @@ exports.default = _react2.default.createClass({
     },
     hideTooltip: function hideTooltip() {
         this.setState({
-            showTooltip: false,
-            animate: {
-                opacity: "0",
-                bottom: "50px"
-            }
+            showTooltip: false
         });
     },
     onMouseEnter: function onMouseEnter() {
@@ -53,64 +54,92 @@ exports.default = _react2.default.createClass({
             return _this.hideTooltip();
         }, 2000);
     },
-    tooltip: function tooltip() {
-        var message = this.props.message;
-        if (this.state.showTooltip) {
-            return _react2.default.createElement(
-                "span",
-                { style: this.style.content },
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    message
-                ),
-                _react2.default.createElement("div", { style: this.style.originPoint })
-            );
+    directionStyle: function directionStyle() {
+        var direction = this.props.direction;
+        switch (direction) {
+            case "top":
+                return {
+                    transformOrigin: "0% 100%",
+                    bottom: "calc(100% + 5px)"
+                };
+            case "right":
+                return {
+                    transformOrigin: "0% 50%",
+                    bottom: "10%",
+                    left: "calc(100% + 5px)"
+                };
+            case "bottom":
+                return {
+                    transformOrigin: "0% 0%",
+                    top: "calc(100% + 5px)"
+                };
+            case "left":
+                return {
+                    transformOrigin: "100% 50%",
+                    bottom: "10%",
+                    right: "calc(100% + 5px)"
+                };
+            default:
+                return {
+                    transformOrigin: "0 100%",
+                    bottom: "calc(100% + 5px)"
+                };
         }
     },
-
-
-    style: {
-        content: {
-            display: "inline-block",
-            transition: "all ease .2s",
-            position: "absolute",
-            right: "0px",
-            left: "0px",
-            margin: "auto",
-            bottom: "50px",
-            padding: "10px",
-            background: "black",
-            boxShadow: "0px 2px 5px 0px rgba(0,0,0,.6)",
-            borderRadius: "3px",
-            color: "white",
-            textAlign: "center"
-
-        },
-
-        originPoint: {
-            position: "absolute",
-            right: "0px",
-            left: "0px",
-            bottom: "-20px",
-            margin: "auto",
-            width: "10px",
-            border: "solid 10px rgba(0,0,0,0)",
-            borderTop: "solid 10px black"
-        }
+    style: function style() {
+        return {
+            content: _extends({}, this.directionStyle(), {
+                display: "block",
+                padding: "5px",
+                background: "black",
+                boxShadow: "0px 2px 5px 0px rgba(0,0,0,.6)",
+                borderRadius: "3px",
+                color: "white",
+                fontSize: "11px",
+                textAlign: "center",
+                whiteSpace: "nowrap",
+                position: "absolute"
+            })
+        };
     },
-
     render: function render() {
+        var _this2 = this;
 
         return _react2.default.createElement(
-            "span",
+            'span',
             {
-                style: { position: "relative" },
+                style: {
+                    position: "relative",
+                    display: "inline-block"
+                },
                 onMouseEnter: this.onMouseEnter,
                 onMouseLeave: this.onMouseLeave
             },
             this.props.children,
-            this.tooltip()
+            _react2.default.createElement(
+                _reactMotion.Motion,
+                {
+                    style: {
+                        x: (0, _reactMotion.spring)(this.state.showTooltip ? 1 : 0, {
+                            stiffness: 360,
+                            damping: 16
+                        })
+                    }
+                },
+                function (_ref) {
+                    var x = _ref.x;
+
+                    return _react2.default.createElement(
+                        'span',
+                        { style: _extends({}, _this2.style().content, { opacity: x, transform: 'scale(' + x + ')' }) },
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            _this2.props.message
+                        )
+                    );
+                }
+            )
         );
     }
 });

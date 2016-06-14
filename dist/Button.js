@@ -47,6 +47,7 @@ var Button = _react2.default.createClass({
             borderRadius: "2px",
             color: txtColor,
             fontSize: "14px",
+            textTransform: "uppercase",
             transition: "all ease .2s"
         }, _styles2.default.boxShadow.sm, {
             ':hover': _extends({

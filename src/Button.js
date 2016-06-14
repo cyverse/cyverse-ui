@@ -24,6 +24,7 @@ const Button = React.createClass({
             borderRadius: "2px",
             color: txtColor,
             fontSize: "14px",
+            textTransform: "uppercase",
             transition: "all ease .2s",
             ...styles.boxShadow.sm,
             ':hover': {

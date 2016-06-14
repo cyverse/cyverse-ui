@@ -1,11 +1,13 @@
 import React from 'react';
+import { ClearFix } from './utils';
+import { Motion, spring } from 'react-motion';
 
 export default React.createClass({
     propTypes: {
         message: React.PropTypes.string,
     },
 
-    getInitialState: function() {
+    getInitialState() {
         return ({
             showTooltip: false,
         })
@@ -20,10 +22,6 @@ export default React.createClass({
     hideTooltip() {
         this.setState({
             showTooltip: false,
-            animate: {
-                opacity: "0",
-                bottom: "50px",
-            }
         });
     },
 
@@ -42,60 +40,93 @@ export default React.createClass({
         setTimeout( ()=> this.hideTooltip(), 2000);
     },
 
-    tooltip() {
-        let message = this.props.message;
-        if (this.state.showTooltip) {
-            return (
-                <span style={this.style.content}>
-                    <div>
-                        {message}
-                    </div>
-                    <div style={this.style.originPoint}/>
-                </span>
-            )
+    directionStyle() {
+        let direction = this.props.direction;
+        switch(direction) {
+            case "top":
+                return {
+                    transformOrigin: "0% 100%",
+                    bottom: "calc(100% + 5px)",
+                }
+            case "right":
+                return {
+                    transformOrigin: "0% 50%",
+                    bottom: "10%",
+                    left: "calc(100% + 5px)",
+                }
+            case "bottom":
+                return {
+                    transformOrigin: "0% 0%",
+                    top: "calc(100% + 5px)",
+                }
+            case "left":
+                return {
+                    transformOrigin: "100% 50%",
+                    bottom: "10%",
+                    right: "calc(100% + 5px)",
+                }
+            default:
+                return {
+                    transformOrigin: "0 100%",
+                    bottom: "calc(100% + 5px)",
+                }
         }
-    }, 
-
-    style: {
-        content: {
-            display: "inline-block",
-            transition: "all ease .2s",
-            position: "absolute",
-            right: "0px",
-            left: "0px",
-            margin: "auto",
-            bottom: "50px",
-            padding: "10px",
-            background: "black",
-            boxShadow: "0px 2px 5px 0px rgba(0,0,0,.6)",
-            borderRadius: "3px",
-            color: "white",
-            textAlign: "center",
-
-        },
-
-        originPoint: {
-            position: "absolute",
-            right: "0px",
-            left: "0px",
-            bottom: "-20px",
-            margin:"auto",
-            width: "10px",
-            border: "solid 10px rgba(0,0,0,0)",
-            borderTop: "solid 10px black",
-        },
     },
 
-    render: function() {
+    style() {
+        return {
+            content: {
+                ...this.directionStyle(),
+                display: "block",
+                padding: "5px",
+                background: "black",
+                boxShadow: "0px 2px 5px 0px rgba(0,0,0,.6)",
+                borderRadius: "3px",
+                color: "white",
+                fontSize: "11px",
+                textAlign: "center",
+                whiteSpace: "nowrap",
+                position: "absolute",
+            }
+        }
+    },
+
+    render() {
 
         return (
-                <span 
-                     style={{position: "relative"}}
-                     onMouseEnter={ this.onMouseEnter }
-                     onMouseLeave={ this.onMouseLeave }
+                <span
+                    style={{
+                        position: "relative",
+                        display: "inline-block"
+                    }}
+                    onMouseEnter={ this.onMouseEnter }
+                    onMouseLeave={ this.onMouseLeave }
                 > 
-                    { this.props.children }
-                    { this.tooltip() }
+                        { this.props.children }
+                        <Motion
+                            style={{
+                                x: spring(
+                                    (
+                                        this.state.showTooltip ? 
+                                            1 : 0
+                                    ), 
+                                    { 
+                                        stiffness: 360, 
+                                        damping: 16 
+                                    }
+                                ) 
+                            }}
+                        >
+                            {({x})=> {
+                                return (
+                                    <span style={{ ...this.style().content, opacity: x, transform: `scale(${x})`}}>
+                                        <div>
+                                            { this.props.message }
+                                        </div>
+                                    </span>
+                                )
+                            }}
+                        </Motion>
                 </span>
         )
     }
