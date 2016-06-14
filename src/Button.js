@@ -16,7 +16,6 @@ const Button = React.createClass({
             cursor: "pointer",
             display: "inline-block", 
             position: "relative", 
-            marginRight: "20px",
             padding: "10px 15px", 
             background: btnColor,
             outline: "none",
@@ -37,7 +36,10 @@ const Button = React.createClass({
     render() {
         return (
                 <button 
-                    style={this.style()} 
+                    style={{
+                        ...this.style(),
+                        ...this.props.style,
+                    }} 
                     onClick={this.props.onTouchTap}
                 >
                     {this.props.children}
