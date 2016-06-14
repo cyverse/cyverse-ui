@@ -7,7 +7,7 @@ import { GithubIcon } from '../../src/icons';
 export default React.createClass({
     Example() {
         return (
-            <ClearFix style={{marginBottom: "20px"}}>
+            <div style={{marginBottom: "20px"}}>
                 <div style={{marginBottom: "20px"}}>
                     <Tooltip message="Default Direction">
                         <Button 
@@ -21,7 +21,10 @@ export default React.createClass({
                         message="Direction Right"
                         direction="right"
                     >
-                        <a href="#">Me Too</a>
+                        <Button 
+                            children="Direction Right"
+                            color={ v.grey.xXLight }
+                        />
                     </Tooltip>
                 </div>
                 <div style={{marginBottom: "20px"}}>
@@ -29,9 +32,9 @@ export default React.createClass({
                         message="Direction Bottom"
                         direction="bottom"
                     >
-                        <GithubIcon 
-                            children="Hover over me"
-                            size="40"
+                        <Button 
+                            children="Direction Bottom"
+                            color={ v.grey.xXLight }
                         />
                     </Tooltip>
                 </div>
@@ -40,13 +43,13 @@ export default React.createClass({
                         message="Direction Left"
                         direction="left"
                     >
-                        <GithubIcon 
-                            children="Hover over me"
-                            size="40"
+                        <Button 
+                            children="Direction Left"
+                            color={ v.grey.xXLight }
                         />
                     </Tooltip>
                 </div>
-            </ClearFix>
+            </div>
         )
     },
 
@@ -59,32 +62,46 @@ export default React.createClass({
                      * It is not indented because it messes up the formating in render.     
                      * Initially used `toJSX(Example())` which was an awesome solution but it renders the Radium wrapper instead of Button :( */
 `<div style={{marginBottom: "20px"}}>
-    <ClearFix>
-        <div style={{float: "left", width: "33%"}}>
-            <Tooltip message="I'm a Link">
-                <a href="#">A Link</a>
-            </Tooltip>
-        </div>
-        <div style={{float: "left", width: "33%"}}>
-            <Tooltip message="I'm a Button">
-                <Button 
-                    children="Hover over me"
-                    color={ v.grey.xXLight }
-                />
-            </Tooltip>
-        </div>
-        <div style={{float: "right"}}>
-            <Tooltip 
-                message="Direction Left"
-                direction="left"
-            >
-                <GithubIcon 
-                    children="Hover over me"
-                    size="40"
-                />
-            </Tooltip>
-        </div>
-    </ClearFix>
+    <div style={{marginBottom: "20px"}}>
+        <Tooltip message="Default Direction">
+            <Button 
+                children="Hover over me"
+                color={ v.grey.xXLight }
+            />
+        </Tooltip>
+    </div>
+    <div style={{marginBottom: "20px"}}>
+        <Tooltip 
+            message="Direction Right"
+            direction="right"
+        >
+            <Button 
+                children="Hover over me"
+                color={ v.grey.xXLight }
+            />
+    </div>
+    <div style={{marginBottom: "20px"}}>
+        <Tooltip 
+            message="Direction Bottom"
+            direction="bottom"
+        >
+            <Button 
+                children="Hover over me"
+                color={ v.grey.xXLight }
+            />
+        </Tooltip>
+    </div>
+    <div>
+        <Tooltip 
+            message="Direction Left"
+            direction="left"
+        >
+            <Button 
+                children="Hover over me"
+                color={ v.grey.xXLight }
+            />
+        </Tooltip>
+    </div>
 </div>`
         /* Code string ends here */
     }/>
