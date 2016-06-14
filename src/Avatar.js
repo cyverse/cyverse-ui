@@ -3,14 +3,14 @@ import radium from 'radium';
 import tinyColor from "tinycolor2";
 
 const Button = React.createClass({
-    displayName: "Avitar",
+    displayName: "Avatar",
 
     render: function() {
         let letter = this.props.name[0].toUpperCase();
         let size = this.props.size;
         let color = this.props.color;
 
-        return ( 
+        return (
             <div style={{
                     display: "inline-block",
                     textAlign: "center",
@@ -26,7 +26,7 @@ const Button = React.createClass({
             >
                 { letter }
             </div>
-        )
+        );
     }
 
 });

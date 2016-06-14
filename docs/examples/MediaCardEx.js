@@ -1,7 +1,7 @@
 import React from 'react';
 import v from '../../src/styles/variables';
 import { PersonIcon } from '../../src/icons';
-import { MediaCard, Code, Avitar, Badge } from '../../src';
+import { MediaCard, Code, Avatar, Badge } from '../../src';
 
 
 export default React.createClass({
@@ -23,7 +23,7 @@ export default React.createClass({
             <div style={{marginBottom: "20px"}}>
                 <MediaCard 
                     image={
-                        <Avitar 
+                        <Avatar 
                             size={40} 
                             color="#de3894" 
                             name={"MediaCard Example"}
@@ -66,7 +66,7 @@ export default React.createClass({
 `<div style={{marginBottom: "20px"}}>
     <MediaCard 
         image={
-            <Avitar 
+            <Avatar 
                 size={40} 
                 color="#de3894" 
                 name={"MediaCard Example"}

@@ -2,7 +2,7 @@ import React from 'react';
 import {
     ButtonEx,
     MediaCardEx,
-    AvitarEx,
+    AvatarEx,
     TooltipEx,
     TransitionEx,
 } from './examples';
@@ -19,9 +19,9 @@ const ExampleList = [
         render: MediaCardEx,
     },
     {
-        name: "Avitar",
-        desc: "An Avitar provides variation within a list of cards as to provide some visual distinction between them. The letter makes it easier to quickly scan for a particular title.",
-        render: AvitarEx,
+        name: "Avatar",
+        desc: "An Avatar provides variation within a list of cards as to provide some visual distinction between them. The letter makes it easier to quickly scan for a particular title.",
+        render: AvatarEx,
     },
     {
         name: "Tooltip",
