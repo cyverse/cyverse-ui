@@ -1,4 +1,5 @@
 import React from 'react';
+import Ink from 'react-ink';
 import radium from 'radium';
 
 const ActionList = React.createClass({
@@ -26,13 +27,18 @@ const ActionList = React.createClass({
                 return (
                     <li 
                         key={i}
-                        style={{listStyle: "none"}}>
+                        style={{
+                            listStyle: "none", 
+                            position: "relative"
+                        }}
+                    >
                         <a 
                             key={ option.href }
                             style={ style.listItem }
                             href={option.href}
                         >
-                            { option.label } 
+                            { option.label }
+                            <Ink/>
                         </a>    
                     </li>
                 )
