@@ -39,7 +39,6 @@ var Button = _react2.default.createClass({
             cursor: "pointer",
             display: "inline-block",
             position: "relative",
-            marginRight: "20px",
             padding: "10px 15px",
             background: btnColor,
             outline: "none",
@@ -59,7 +58,7 @@ var Button = _react2.default.createClass({
         return _react2.default.createElement(
             'button',
             {
-                style: this.style(),
+                style: _extends({}, this.style(), this.props.style),
                 onClick: this.props.onTouchTap
             },
             this.props.children,

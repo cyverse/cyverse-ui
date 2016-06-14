@@ -8,6 +8,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactInk = require('react-ink');
+
+var _reactInk2 = _interopRequireDefault(_reactInk);
+
 var _radium = require('radium');
 
 var _radium2 = _interopRequireDefault(_radium);
@@ -40,7 +44,11 @@ var ActionList = _react2.default.createClass({
                     'li',
                     {
                         key: i,
-                        style: { listStyle: "none" } },
+                        style: {
+                            listStyle: "none",
+                            position: "relative"
+                        }
+                    },
                     _react2.default.createElement(
                         'a',
                         {
@@ -48,7 +56,8 @@ var ActionList = _react2.default.createClass({
                             style: style.listItem,
                             href: option.href
                         },
-                        option.label
+                        option.label,
+                        _react2.default.createElement(_reactInk2.default, null)
                     )
                 );
             }

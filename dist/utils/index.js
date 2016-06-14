@@ -13,4 +13,13 @@ Object.defineProperty(exports, 'ClearFix', {
   }
 });
 
+var _ButtonGroup = require('./ButtonGroup.js');
+
+Object.defineProperty(exports, 'ButtonGroup', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_ButtonGroup).default;
+  }
+});
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
