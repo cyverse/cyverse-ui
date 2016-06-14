@@ -77,6 +77,7 @@ export default React.createClass({
         return {
             content: {
                 ...this.directionStyle(),
+                zIndex: "999999999999",
                 display: "block",
                 padding: "5px",
                 background: "black",
