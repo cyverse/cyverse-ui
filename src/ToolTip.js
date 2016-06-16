@@ -14,9 +14,11 @@ export default React.createClass({
     },
 
     showTooltip() {
-        this.setState({
-            showTooltip: true,
-        });
+        if (this.props.message) {
+            this.setState({
+                showTooltip: true,
+            });
+        }
     },
 
     hideTooltip() {
