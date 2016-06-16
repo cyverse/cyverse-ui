@@ -8,4 +8,4 @@ export { default as Badge } from './Badge';
 export { default as ShowMoreEllipsis } from './ShowMoreEllipsis';
 export { default as VerticalMenu } from './VerticalMenu';
 export { default as Tooltip } from './Tooltip';
-
+export { default as Tabs } from './Tabs';
