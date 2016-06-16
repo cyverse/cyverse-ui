@@ -115,7 +115,7 @@ export default React.createClass({
                                     ), 
                                     { 
                                         stiffness: 360, 
-                                        damping: 16 
+                                        damping: 18 
                                     }
                                 ) 
                             }}
