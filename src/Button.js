@@ -7,7 +7,7 @@ import { variables, styles } from './styles';
 
 const Button = React.createClass({
     displayName: "Button",
-
+    
     onTouchTap() {
         if (this.props.onTouchTap) {
             this.props.onTouchTap()
