@@ -5,6 +5,7 @@ import {
     AvitarEx,
     TooltipEx,
     TransitionEx,
+    TabsEx,
 } from './examples';
 
 const ExampleList = [
@@ -28,6 +29,11 @@ const ExampleList = [
         desc: "Tooltips are used to offer the user information about a function or graph when hovered. An Icon on a Button with no text should use a Tooltip to let the user know the function of the Button",
         render: TooltipEx,
     },
+    {
+        name: "Tabs",
+        desc: "Tabs are used to change views within a specific scope. Filtering a list is a common use for tabs in Troposphere.", 
+        render: TabsEx,
+    }
 ];
 
 export default ExampleList;

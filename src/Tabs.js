@@ -1,40 +1,108 @@
 import React from 'react';
+import { ClearFix } from './utils';
+import { styles, variables } from './styles';
 
 export default React.createClass({
-    displayName: "TabLinks",
+    displayName: "Tabs",
 
     propTypes: {
-        currentView: React.PropTypes.string.isRequired,
-        linkList: React.PropTypes.array.isRequired,
-        onChangeView: React.PropTypes.func.isRequired
+        current: React.PropTypes.number.isRequired,
+        tabList: React.PropTypes.array.isRequired,
+        onChangeView: React.PropTypes.func
     },
 
-    onChangeView: function(item) {
-        this.props.onChangeView(item);
+    onTabClick(i) {
+        this.props.onTabClick(i);
     },
 
-    renderLinks: function(item, i) {
-        let active = "";
-        if (item === this.props.currentView) {
-            active = "TabLinks--active";
+    UnderLine(isActive) {
+        let width = "0%";
+        if (isActive) {
+            width = "100%";
         }
 
         return (
-            <li key={i} className="TabLinks-link">
-                <a className={active}
-                    onClick={this.onChangeView.bind(this, item)}
-                >
+            <div style={{
+                    transition: "all 0.2s ease",
+                    position: "absolute",
+                    bottom: "0px",
+                    right: "0px",
+                    left: "0px",
+                    margin: "auto",
+                    height: "3px",
+                    background: this.props.color,
+                    width,
+                }}
+            />
+        )          
+    },
+
+
+    renderLink(item, i) {
+        
+        let isActive = i === this.props.current;
+        let onTabClick = this.onTabClick.bind(this, i);
+
+        let activeStyle = isActive ?
+            {
+                color: "black",   
+            } :
+            {
+                color: variables.grey.mid,
+            };
+
+        return (
+            <li key={i}
+                style={{
+                    ...this.style().listItem,
+                    ...activeStyle,
+                }}
+                onClick={onTabClick}
+            >
                     {item}
-                </a>
+                    { this.UnderLine(isActive) }
             </li>
+        )
+        
+
+    },
+
+    render() {
+        return (
+            <ClearFix>
+                <ul style={this.style().list}>
+                    {
+                        this.props.tabList
+                            .map(this.renderLink)
+                    }
+                </ul>
+            </ClearFix>
         )
     },
 
-    render: function() {
-        return (
-            <ul className="TabLinks clearFix">
-                {this.props.linkList.map(this.renderLinks)}
-            </ul>
-        )
-    }
+    style(i) {
+        let s = styles;
+        let v = variables;
+
+        return {
+            list: {
+                ...s.boxShadow.sm,   
+                display: "block",
+                position: "relative",
+                padding: "0px 10px",
+
+            },
+            listItem: {
+                ...s.t.body1,
+                cursor: "pointer",
+                display: "inline-block",
+                position: "relative",
+                listStyle: "none",
+                padding: "10px 0px",
+                marginRight: "15px",
+                textTransform: "uppercase",
+                transition: "all 0.2s ease",
+            },
+        }
+    },
 });
