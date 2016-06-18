@@ -42,6 +42,7 @@ export default React.createClass({
             "Green Fish",
         ]}
         current={0}
+        color={ theme.color.primary }
         onTabClick={ this.onTabClick }
     />
 </div>`

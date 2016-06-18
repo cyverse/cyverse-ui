@@ -9,3 +9,4 @@ export { default as ShowMoreEllipsis } from './ShowMoreEllipsis';
 export { default as VerticalMenu } from './VerticalMenu';
 export { default as Tooltip } from './Tooltip';
 export { default as Tabs } from './Tabs';
+export { default as MeterGauge } from './MeterGauge';

@@ -6,6 +6,7 @@ import {
     TooltipEx,
     TransitionEx,
     TabsEx,
+    MeterGaugeEx,
 } from './examples';
 
 const ExampleList = [
@@ -33,7 +34,12 @@ const ExampleList = [
         name: "Tabs",
         desc: "Tabs are used to change views within a specific scope. Filtering a list is a common use for tabs in Troposphere.", 
         render: TabsEx,
-    }
+    },
+    {
+        name: "MeterGauge",
+        desc: "ProgressBars are used to show quantities in percentage form. A common use in Troposphere however is to show how much of a total resoource a user has consumed or will consume.",
+        render: MeterGaugeEx,
+    },
 ];
 
 export default ExampleList;
