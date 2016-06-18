@@ -7,6 +7,7 @@ import {
     TransitionEx,
     TabsEx,
     MeterGaugeEx,
+    SelectMenuEx,
 } from './examples';
 
 const ExampleList = [
@@ -39,6 +40,11 @@ const ExampleList = [
         name: "MeterGauge",
         desc: "ProgressBars are used to show quantities in percentage form. A common use in Troposphere however is to show how much of a total resoource a user has consumed or will consume.",
         render: MeterGaugeEx,
+    },
+    {
+        name: "SelectMenu",
+        desc: "A SelectMenu is used for providing the user a set of options they can select for a given task. Troposphere for example, uses SelectMenu to provide the user a way to select the provider they wish to lauch an instance on.",
+        render: SelectMenuEx,
     },
 ];
 

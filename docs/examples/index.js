@@ -4,3 +4,4 @@ export { default as AvitarEx } from './AvitarEx';
 export { default as TooltipEx } from './TooltipEx';
 export { default as TabsEx } from './TabsEx';
 export { default as MeterGaugeEx } from './MeterGaugeEx';
+export { default as SelectMenuEx } from './SelectMenuEx';
