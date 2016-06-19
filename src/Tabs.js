@@ -1,8 +1,10 @@
 import React from 'react';
+import radium from 'radium';
 import { ClearFix } from './utils';
+import Ink from 'react-ink';
 import { styles, variables } from './styles';
 
-export default React.createClass({
+const Tabs = React.createClass({
     displayName: "Tabs",
 
     propTypes: {
@@ -61,6 +63,8 @@ export default React.createClass({
             >
                     {item}
                     { this.UnderLine(isActive) }
+                    <Ink
+                        background={false}/>
             </li>
         )
         
@@ -98,11 +102,17 @@ export default React.createClass({
                 display: "inline-block",
                 position: "relative",
                 listStyle: "none",
-                padding: "10px 0px",
+                padding: "15px 0px",
                 marginRight: "15px",
                 textTransform: "uppercase",
                 transition: "all 0.2s ease",
+                ':hover': {
+                    color: "black",
+                    transition: "all 0.2s ease",
+                },
             },
         }
     },
 });
+
+export default radium(Tabs);
