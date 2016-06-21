@@ -8,6 +8,7 @@ import {
     TabsEx,
     MeterGaugeEx,
     SelectMenuEx,
+    ShowMoreEllipsisEx,
 } from './examples';
 
 const ExampleList = [
@@ -45,6 +46,11 @@ const ExampleList = [
         name: "SelectMenu",
         desc: "A SelectMenu is used for providing the user a set of options they can select for a given task. Troposphere for example, uses SelectMenu to provide the user a way to select the provider they wish to lauch an instance on.",
         render: SelectMenuEx,
+    },
+    {
+        name: "ShowMoreEllipsis",
+        desc: "ShowMoreEllipsis is used to show he user that there that there is more content to see that has been hidden by the UI. It has a hover but takes no callbacks or any other props. Generally it is unecessary as it is used on cards or other comonents which expand when the user clicks anywhere inside the card.",
+        render: ShowMoreEllipsisEx,
     },
 ];
 
