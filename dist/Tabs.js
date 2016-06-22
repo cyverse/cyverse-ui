@@ -10,13 +10,21 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _radium = require('radium');
+
+var _radium2 = _interopRequireDefault(_radium);
+
 var _utils = require('./utils');
+
+var _reactInk = require('react-ink');
+
+var _reactInk2 = _interopRequireDefault(_reactInk);
 
 var _styles = require('./styles');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = _react2.default.createClass({
+var Tabs = _react2.default.createClass({
     displayName: "Tabs",
 
     propTypes: {
@@ -65,7 +73,9 @@ exports.default = _react2.default.createClass({
                 onClick: onTabClick
             },
             item,
-            this.UnderLine(isActive)
+            this.UnderLine(isActive),
+            _react2.default.createElement(_reactInk2.default, {
+                background: false })
         );
     },
     render: function render() {
@@ -95,11 +105,17 @@ exports.default = _react2.default.createClass({
                 display: "inline-block",
                 position: "relative",
                 listStyle: "none",
-                padding: "10px 0px",
+                padding: "15px 0px",
                 marginRight: "15px",
                 textTransform: "uppercase",
-                transition: "all 0.2s ease"
+                transition: "all 0.2s ease",
+                ':hover': {
+                    color: "black",
+                    transition: "all 0.2s ease"
+                }
             })
         };
     }
 });
+
+exports.default = (0, _radium2.default)(Tabs);

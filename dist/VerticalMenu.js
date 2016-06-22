@@ -14,6 +14,10 @@ var _radium = require('radium');
 
 var _radium2 = _interopRequireDefault(_radium);
 
+var _reactInk = require('react-ink');
+
+var _reactInk2 = _interopRequireDefault(_reactInk);
+
 var _icons = require('./icons');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -65,6 +69,7 @@ var VerticalMenu = _react2.default.createClass({
             {
                 key: i,
                 style: {
+                    position: "relative",
                     display: "block",
                     padding: "10px 14px",
                     listStyle: "none",
@@ -74,7 +79,8 @@ var VerticalMenu = _react2.default.createClass({
                 },
                 onClick: this.onSelectOption.bind(this, item.action)
             },
-            item.render
+            item.render,
+            _react2.default.createElement(_reactInk2.default, null)
         );
     },
     render: function render() {
