@@ -6,3 +6,4 @@ export { default as TabsEx } from './TabsEx';
 export { default as MeterGaugeEx } from './MeterGaugeEx';
 export { default as SelectMenuEx } from './SelectMenuEx';
 export { default as ShowMoreEllipsisEx } from './ShowMoreEllipsisEx';
+export { default as ToggleEx } from './ToggleEx';

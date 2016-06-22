@@ -22,6 +22,13 @@ let styleVariables = {
 
     t: {
 
+        label: {
+            display: "block",
+            fontSize: "12px",
+            fontWeight: "600",
+            margin: "0px 0px 8px",
+        },
+
         caption: {
             fontSize: "12px",
             fontWeight: "400",
@@ -105,8 +112,13 @@ let styleVariables = {
         greyXxlight: {
             background: v.grey.xXLight,
         },
-        
     },
+    u: {
+        kHide: {
+            position: "fixed",
+            top: "9999px",
+        }
+    }
 };
 
 export default styleVariables; 

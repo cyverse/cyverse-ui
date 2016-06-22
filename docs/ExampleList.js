@@ -9,6 +9,7 @@ import {
     MeterGaugeEx,
     SelectMenuEx,
     ShowMoreEllipsisEx,
+    ToggleEx,
 } from './examples';
 
 const ExampleList = [
@@ -51,6 +52,11 @@ const ExampleList = [
         name: "ShowMoreEllipsis",
         desc: "ShowMoreEllipsis is used to show he user that there that there is more content to see that has been hidden by the UI. It has a hover but takes no callbacks or any other props. Generally it is unecessary as it is used on cards or other comonents which expand when the user clicks anywhere inside the card.",
         render: ShowMoreEllipsisEx,
+    },
+    {
+        name: "Toggle",
+        desc: "Toggle can be used for `on or off` and `yes or no` user input. By default the label is hidden beccause in most cases we are going to use Toggle in a row or on a card such that it will indicate to the user it's function in a different way. For better accessibility however we still render it to the DOM just moving it's position out of the viewport boundery",
+        render: ToggleEx,
     },
 ];
 

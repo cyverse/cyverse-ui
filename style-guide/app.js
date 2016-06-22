@@ -20354,15 +20354,15 @@
 
 	var _ExampleList2 = _interopRequireDefault(_ExampleList);
 
-	var _Header = __webpack_require__(278);
+	var _Header = __webpack_require__(282);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
 	var _src = __webpack_require__(172);
 
-	__webpack_require__(280);
-
 	__webpack_require__(284);
+
+	__webpack_require__(288);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20521,6 +20521,14 @@
 	    name: "Tabs",
 	    desc: "Tabs are used to change views within a specific scope. Filtering a list is a common use for tabs in Troposphere.",
 	    render: _examples.TabsEx
+	}, {
+	    name: "MeterGauge",
+	    desc: "ProgressBars are used to show quantities in percentage form. A common use in Troposphere however is to show how much of a total resoource a user has consumed or will consume.",
+	    render: _examples.MeterGaugeEx
+	}, {
+	    name: "SelectMenu",
+	    desc: "A SelectMenu is used for providing the user a set of options they can select for a given task. Troposphere for example, uses SelectMenu to provide the user a way to select the provider they wish to lauch an instance on.",
+	    render: _examples.SelectMenuEx
 	}];
 
 	exports.default = ExampleList;
@@ -20548,7 +20556,7 @@
 	  }
 	});
 
-	var _MediaCardEx = __webpack_require__(274);
+	var _MediaCardEx = __webpack_require__(276);
 
 	Object.defineProperty(exports, 'MediaCardEx', {
 	  enumerable: true,
@@ -20557,7 +20565,7 @@
 	  }
 	});
 
-	var _AvitarEx = __webpack_require__(275);
+	var _AvitarEx = __webpack_require__(277);
 
 	Object.defineProperty(exports, 'AvitarEx', {
 	  enumerable: true,
@@ -20566,7 +20574,7 @@
 	  }
 	});
 
-	var _TooltipEx = __webpack_require__(276);
+	var _TooltipEx = __webpack_require__(278);
 
 	Object.defineProperty(exports, 'TooltipEx', {
 	  enumerable: true,
@@ -20575,12 +20583,30 @@
 	  }
 	});
 
-	var _TabsEx = __webpack_require__(277);
+	var _TabsEx = __webpack_require__(279);
 
 	Object.defineProperty(exports, 'TabsEx', {
 	  enumerable: true,
 	  get: function get() {
 	    return _interopRequireDefault(_TabsEx).default;
+	  }
+	});
+
+	var _MeterGaugeEx = __webpack_require__(280);
+
+	Object.defineProperty(exports, 'MeterGaugeEx', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_MeterGaugeEx).default;
+	  }
+	});
+
+	var _SelectMenuEx = __webpack_require__(281);
+
+	Object.defineProperty(exports, 'SelectMenuEx', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_SelectMenuEx).default;
 	  }
 	});
 
@@ -20610,7 +20636,7 @@
 
 	var _utils = __webpack_require__(237);
 
-	var _theme = __webpack_require__(273);
+	var _theme = __webpack_require__(275);
 
 	var _theme2 = _interopRequireDefault(_theme);
 
@@ -20782,6 +20808,24 @@
 	  enumerable: true,
 	  get: function get() {
 	    return _interopRequireDefault(_Tabs).default;
+	  }
+	});
+
+	var _MeterGauge = __webpack_require__(273);
+
+	Object.defineProperty(exports, 'MeterGauge', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_MeterGauge).default;
+	  }
+	});
+
+	var _SelectMenu = __webpack_require__(274);
+
+	Object.defineProperty(exports, 'SelectMenu', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_SelectMenu).default;
 	  }
 	});
 
@@ -29090,6 +29134,198 @@
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utils = __webpack_require__(237);
+
+	var _styles = __webpack_require__(254);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// TODO To be semantic this should be implemented with the Meter element. Support is strong enough for production and there are fall backs. It is a browser styled element however so it will require some style hacks to make it look good across all browsers. Since these style properties are browser specific vendor prefixing is used it is unknown to me without experimenting what autoprefixer will do to the styles or if this will require css over inline styles.
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'MeterGauge',
+
+
+	    render: function render() {
+	        var startValue = this.props.startValue;
+	        var afterValue = this.props.afterValue;
+	        var startColor = this.props.color;
+
+	        if (startValue >= 100) {
+	            startValue = 100;
+	            startColor = "red";
+	        }
+
+	        if (startValue + afterValue >= 100) {
+	            afterValue = 100 - startValue;
+	            startColor = "red";
+	        }
+
+	        return _react2.default.createElement(
+	            'dl',
+	            null,
+	            _react2.default.createElement(
+	                'dt',
+	                {
+	                    style: {
+	                        fontSize: "12px",
+	                        fontWeight: "600",
+	                        margin: "0 0 10px"
+	                    }
+	                },
+	                this.props.label
+	            ),
+	            _react2.default.createElement(
+	                'dd',
+	                { style: { margin: "0px" } },
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: _extends({}, _styles.styles.t.caption, {
+	                            fontSize: "10px",
+	                            margin: "0px 0px 3px"
+	                        })
+	                    },
+	                    this.props.data
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: { background: _styles.variables.grey.xLight } },
+	                    _react2.default.createElement(
+	                        _utils.ClearFix,
+	                        null,
+	                        _react2.default.createElement('div', {
+	                            style: {
+	                                transition: "all ease .3s",
+	                                height: "10px",
+	                                float: "left",
+	                                width: startValue + "%",
+	                                background: startColor
+	                            }
+	                        }),
+	                        _react2.default.createElement('div', {
+	                            style: {
+	                                transition: "all ease .3s",
+	                                height: "10px",
+	                                float: "left",
+	                                width: afterValue + "%",
+	                                background: startColor,
+	                                opacity: ".5"
+	                            }
+	                        })
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MeterGauge.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: "SelectMenu",
+
+	    propTypes: {
+	        defaultId: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]),
+	        optionName: _react2.default.PropTypes.func.isRequired,
+	        onSelectChange: _react2.default.PropTypes.func.isRequired,
+	        list: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.array]),
+
+	        hintText: _react2.default.PropTypes.string
+	    },
+
+	    onSelectChange: function onSelectChange(e) {
+	        var i = e.target.value;
+	        var list = this.props.list;
+	        var selected = list[i];
+
+	        this.props.onSelectChange(selected);
+	    },
+
+	    hintText: function hintText() {
+	        if (this.props.hintText) {
+
+	            return _react2.default.createElement(
+	                "option",
+	                { value: "hint", disabled: true, hidden: true },
+	                this.props.hintText
+	            );
+	        }
+	    },
+
+	    renderOption: function renderOption(item, i) {
+	        return _react2.default.createElement(
+	            "option",
+	            { key: i, value: i },
+	            this.props.optionName(i)
+	        );
+	    },
+
+	    render: function render() {
+	        var value = this.props.defaultId;
+	        if (this.props.hintText) {
+	            value = "hint";
+	        }
+	        if (this.props.list) {
+	            var options = this.props.list.map(this.renderOption);
+
+	            return _react2.default.createElement(
+	                "select",
+	                { value: value, className: "form-control", onChange: this.onSelectChange },
+	                this.hintText(),
+	                options
+	            );
+	        }
+
+	        return _react2.default.createElement(
+	            "select",
+	            { value: this.props.defaultId, className: "form-control" },
+	            _react2.default.createElement(
+	                "option",
+	                { key: "1", value: "1" },
+	                " Loading... "
+	            )
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SelectMenu.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -29098,7 +29334,8 @@
 	var theme = {
 	    color: {
 	        primary: "#0971ab",
-	        danger: "#ea5050"
+	        danger: "#ea5050",
+	        success: "#5cb85c"
 	    }
 	};
 
@@ -29107,7 +29344,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "theme.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -29219,7 +29456,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MediaCardEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 275 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -29290,7 +29527,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "AvitarEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 276 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -29401,7 +29638,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TooltipEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 277 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -29418,7 +29655,7 @@
 
 	var _src = __webpack_require__(172);
 
-	var _theme = __webpack_require__(273);
+	var _theme = __webpack_require__(275);
 
 	var _theme2 = _interopRequireDefault(_theme);
 
@@ -29454,7 +29691,7 @@
 	            _react2.default.createElement(_src.Code, { children:
 	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
 	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
-	                '<div style={{marginBottom: "20px"}}>\n    <Tabs \n        tabList={[\n            "Red Fish", \n            "Blue Fish", \n            "Green Fish",\n        ]}\n        current={0}\n        onTabClick={ this.onTabClick }\n    />\n</div>'
+	                '<div style={{marginBottom: "20px"}}>\n    <Tabs \n        tabList={[\n            "Red Fish", \n            "Blue Fish", \n            "Green Fish",\n        ]}\n        current={0}\n        color={ theme.color.primary }\n        onTabClick={ this.onTabClick }\n    />\n</div>'
 	                /* Code string ends here */
 	            })
 	        );
@@ -29464,7 +29701,171 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TabsEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 278 */
+/* 280 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _src = __webpack_require__(172);
+
+	var _theme = __webpack_require__(275);
+
+	var _theme2 = _interopRequireDefault(_theme);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'MeterGaugeEx',
+	    getInitialState: function getInitialState() {
+	        return {
+	            currentValue: 0
+	        };
+	    },
+	    onTabClick: function onTabClick(currentTab) {
+	        this.setState({
+	            currentTab: currentTab
+	        });
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        marginBottom: "20px",
+	                        maxWidth: "300px"
+	                    }
+	                },
+	                _react2.default.createElement(_src.MeterGauge, {
+	                    label: 'Thing Usage',
+	                    data: 'Will total 40kg 0f 130kg',
+	                    startValue: 5,
+	                    afterValue: 20,
+	                    color: _theme2.default.color.success,
+	                    overColor: _theme2.default.color.danger
+	                })
+	            ),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
+	                '<div \n    style={{ \n        marginBottom: "20px",\n        maxWidth: "300px",\n    }}\n>\n    <ProgressBar\n        label="Thing Usage"\n        data="Will total 40kg 0f 130kg"\n        startValue={5}\n        afterValue={20}\n        color={ theme.color.success }\n        overColor={ theme.color.danger }\n    />\n</div>'
+	                /* Code string ends here */
+	            })
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MeterGaugeEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _src = __webpack_require__(172);
+
+	var _theme = __webpack_require__(275);
+
+	var _theme2 = _interopRequireDefault(_theme);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'SelectMenuEx',
+	    getInitialState: function getInitialState() {
+	        return {
+	            selected: 0
+	        };
+	    },
+
+
+	    things: [{
+	        fish1: {
+	            name: "Red Fish",
+	            color: "Red",
+	            home: "Ocean"
+	        }
+	    }, {
+	        fish2: {
+	            name: "Blue Fish",
+	            color: "Blue",
+	            home: "Lake"
+	        }
+	    }, {
+	        fish3: {
+	            name: "Green Fish",
+	            color: "Green",
+	            home: "Pond"
+	        }
+	    }],
+
+	    optionName: function optionName(i) {
+	        debugger;
+	        return;
+	        this.things[i].name;
+	    },
+	    onSelectChange: function onSelectChange(selected) {
+	        this.setState({
+	            selected: selected
+	        });
+	    },
+	    render: function render() {
+
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        marginBottom: "20px",
+	                        maxWidth: "300px"
+	                    }
+	                },
+	                _react2.default.createElement(_src.SelectMenu, {
+	                    list: this.things,
+	                    optionName: this.optionName(),
+	                    selected: this.state.selected,
+	                    onSelectChange: this.onSelectChange
+	                })
+	            ),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
+	                '<div \n    style={{ \n        marginBottom: "20px",\n        maxWidth: "300px",\n    }}\n>\n    <ProgressBar\n        label="Thing Usage"\n        data="Will total 40kg 0f 130kg"\n        startValue={5}\n        afterValue={20}\n        color={ theme.color.success }\n        overColor={ theme.color.danger }\n    />\n</div>'
+	                /* Code string ends here */
+	            })
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SelectMenuEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -29481,7 +29882,7 @@
 
 	var _icons = __webpack_require__(262);
 
-	var _mini_logo = __webpack_require__(279);
+	var _mini_logo = __webpack_require__(283);
 
 	var _mini_logo2 = _interopRequireDefault(_mini_logo);
 
@@ -29518,22 +29919,22 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tharon/atmo/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Header.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 279 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "23f3befae9ff10e18035797c949a8a16.svg";
 
 /***/ },
-/* 280 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(281);
+	var content = __webpack_require__(285);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(283)(content, {});
+	var update = __webpack_require__(287)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -29550,10 +29951,10 @@
 	}
 
 /***/ },
-/* 281 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(282)();
+	exports = module.exports = __webpack_require__(286)();
 	// imports
 
 
@@ -29564,7 +29965,7 @@
 
 
 /***/ },
-/* 282 */
+/* 286 */
 /***/ function(module, exports) {
 
 	/*
@@ -29620,7 +30021,7 @@
 
 
 /***/ },
-/* 283 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -29872,16 +30273,16 @@
 
 
 /***/ },
-/* 284 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(285);
+	var content = __webpack_require__(289);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(283)(content, {});
+	var update = __webpack_require__(287)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -29898,10 +30299,10 @@
 	}
 
 /***/ },
-/* 285 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(282)();
+	exports = module.exports = __webpack_require__(286)();
 	// imports
 
 
