@@ -1,5 +1,6 @@
 import React from 'react';
 import radium from 'radium';
+import Ink from 'react-ink';
 import { VerticalMenuIcon } from './icons';
 
 const VerticalMenu = React.createClass({
@@ -50,6 +51,7 @@ const VerticalMenu = React.createClass({
             <li
                 key={i}
                 style={{
+                    position: "relative",
                     display: "block",
                     padding: "10px 14px",
                     listStyle: "none",
@@ -60,6 +62,7 @@ const VerticalMenu = React.createClass({
                 onClick={this.onSelectOption.bind(this, item.action)}
             >
                 {item.render}
+                <Ink/>
             </li>
         )
     },

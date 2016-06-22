@@ -29,9 +29,11 @@ exports.default = _react2.default.createClass({
         };
     },
     showTooltip: function showTooltip() {
-        this.setState({
-            showTooltip: true
-        });
+        if (this.props.message) {
+            this.setState({
+                showTooltip: true
+            });
+        }
     },
     hideTooltip: function hideTooltip() {
         this.setState({
@@ -89,6 +91,7 @@ exports.default = _react2.default.createClass({
     style: function style() {
         return {
             content: _extends({}, this.directionStyle(), {
+                zIndex: "999999999999",
                 display: "block",
                 padding: "5px",
                 background: "black",
@@ -122,7 +125,7 @@ exports.default = _react2.default.createClass({
                     style: {
                         x: (0, _reactMotion.spring)(this.state.showTooltip ? 1 : 0, {
                             stiffness: 360,
-                            damping: 16
+                            damping: 18
                         })
                     }
                 },

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Code } from '../../src';
+import { Button, Code, Tooltip } from '../../src';
 import { WarningIcon } from '../../src/icons';
 import { ButtonGroup } from '../../src/utils';
-
+import theme from '../theme.js';
 
 const Example = () => {
     return (
@@ -10,24 +10,35 @@ const Example = () => {
             <ButtonGroup>
                 <Button
                     children="Default"
-                    color="#EEEEEE"
-                    tooltip="I'm a tooltip"
                 />
                 <Button
+                    tooltipMessage="I have a Tooltip!"
                     children="Primary"
-                    color="#0971ab"
+                    color={ theme.color.primary }
                 />
                 <Button
                     children="Danger"
-                    color="#EA5050"
+                    color={ theme.color.danger }
                 >
-                    <WarningIcon size={15} style={{position: "relative", top: "-2px"}} /> Danger
+                    <WarningIcon
+                        size={15}
+                        style={{
+                            position: "relative", 
+                            top: "-2px",
+                        }} 
+                    /> 
+                        Danger
                 </Button>
+                <Button
+                    children="Im Disabled"
+                    color={ theme.color.primary }
+                    disabled
+                />
             </ButtonGroup>
         </div>
     )
 };
-
+        
 export default React.createClass({
     render() {
         return (
@@ -40,23 +51,30 @@ export default React.createClass({
     <ButtonGroup>
         <Button
             children="Default"
-            color="#EEEEEE"
-            tooltip="I'm a tooltip"
         />
         <Button
+            tooltipMessage="I have a Tooltip!"
             children="Primary"
-            color="#0971ab"
+            color={ theme.color.primary }
         />
         <Button
             children="Danger"
-            color="#EA5050"
+            color={ theme.color.danger }
         >
-            <WarningIcon 
-                size={15} 
-                style={{position: "relative", top: "-2px"}} 
+            <WarningIcon
+                size={15}
+                style={{
+                    position: "relative", 
+                    top: "-2px",
+                }} 
             /> 
-            Danger
+                Danger
         </Button>
+        <Button
+            children="Im Disabled"
+            color={ theme.color.primary }
+            disabled
+        />
     </ButtonGroup>
 </div>`
                     /* Code string ends here */
