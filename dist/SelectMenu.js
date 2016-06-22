@@ -8,37 +8,32 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _backbone = require('backbone');
+var _radium = require('radium');
 
-var _backbone2 = _interopRequireDefault(_backbone);
+var _radium2 = _interopRequireDefault(_radium);
 
-var _underscore = require('underscore');
-
-var _underscore2 = _interopRequireDefault(_underscore);
+var _styles = require('./styles');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = _react2.default.createClass({
+var SelectMenu = _react2.default.createClass({
     displayName: "SelectMenu",
 
     propTypes: {
         defaultId: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]),
         optionName: _react2.default.PropTypes.func.isRequired,
         onSelectChange: _react2.default.PropTypes.func.isRequired,
-        list: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.instanceOf(_backbone2.default.Collection), _react2.default.PropTypes.array]),
+        list: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.array]),
+
         hintText: _react2.default.PropTypes.string
     },
 
     onSelectChange: function onSelectChange(e) {
-        var val = e.target.value;
-        var list = this.props.list;
-        var obj = list.get(val);
-
-        this.props.onSelectChange(obj);
+        var i = e.target.value;
+        this.props.onSelectChange(i);
     },
 
     hintText: function hintText() {
-
         if (this.props.hintText) {
 
             return _react2.default.createElement(
@@ -49,12 +44,11 @@ exports.default = _react2.default.createClass({
         }
     },
 
-    renderOption: function renderOption(item) {
-
+    renderOption: function renderOption(item, i) {
         return _react2.default.createElement(
             'option',
-            { key: item.id, value: item.id },
-            this.props.optionName(item)
+            { key: i, value: i },
+            this.props.optionName(i)
         );
     },
 
@@ -68,8 +62,10 @@ exports.default = _react2.default.createClass({
 
             return _react2.default.createElement(
                 'select',
-                { value: value, className: 'form-control', onChange: this.onSelectChange },
-                this.hintText(),
+                {
+                    style: this.style().select,
+                    value: value,
+                    onChange: this.onSelectChange },
                 options
             );
         }
@@ -83,5 +79,29 @@ exports.default = _react2.default.createClass({
                 ' Loading... '
             )
         );
+    },
+
+    style: function style() {
+        var borderColor = "rgba(0,0,0,.15)";
+        return {
+            select: {
+                cursor: "pointer",
+                width: "100%",
+                border: "none",
+                borderBottom: 'solid 3px ' + borderColor,
+                fontSize: "14px",
+                borderRadius: "0px",
+                appearance: "none",
+                MozAppearance: "none",
+                background: "rgba(255,255,255,0)",
+                backgroundPosition: "right 50%",
+                backgroundRepeat: "no-repeat",
+                backgroundImage: 'url(\'data:image/svg+xml;utf8, <svg fill="' + borderColor + '" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>\')',
+                padding: "8px 8px 8px 0px",
+                paddingRight: "1.5em"
+            }
+        };
     }
 });
+
+exports.default = (0, _radium2.default)(SelectMenu);

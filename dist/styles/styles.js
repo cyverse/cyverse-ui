@@ -31,6 +31,13 @@ var styleVariables = {
 
     t: {
 
+        label: {
+            display: "block",
+            fontSize: "12px",
+            fontWeight: "600",
+            margin: "0px 0px 8px"
+        },
+
         caption: {
             fontSize: "12px",
             fontWeight: "400",
@@ -114,7 +121,12 @@ var styleVariables = {
         greyXxlight: {
             background: _variables2.default.grey.xXLight
         }
-
+    },
+    u: {
+        kHide: {
+            position: "fixed",
+            top: "9999px"
+        }
     }
 };
 

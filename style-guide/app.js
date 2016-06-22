@@ -20379,15 +20379,15 @@
 
 	var _ExampleList2 = _interopRequireDefault(_ExampleList);
 
-	var _Header = __webpack_require__(282);
+	var _Header = __webpack_require__(285);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
 	var _src = __webpack_require__(172);
 
-	__webpack_require__(284);
+	__webpack_require__(287);
 
-	__webpack_require__(288);
+	__webpack_require__(291);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20542,6 +20542,26 @@
 	    name: "Tooltip",
 	    desc: "Tooltips are used to offer the user information about a function or graph when hovered. An Icon on a Button with no text should use a Tooltip to let the user know the function of the Button",
 	    render: _examples.TooltipEx
+	}, {
+	    name: "Tabs",
+	    desc: "Tabs are used to change views within a specific scope. Filtering a list is a common use for tabs in Troposphere.",
+	    render: _examples.TabsEx
+	}, {
+	    name: "MeterGauge",
+	    desc: "ProgressBars are used to show quantities in percentage form. A common use in Troposphere however is to show how much of a total resoource a user has consumed or will consume.",
+	    render: _examples.MeterGaugeEx
+	}, {
+	    name: "SelectMenu",
+	    desc: "A SelectMenu is used for providing the user a set of options they can select for a given task. Troposphere for example, uses SelectMenu to provide the user a way to select the provider they wish to lauch an instance on.",
+	    render: _examples.SelectMenuEx
+	}, {
+	    name: "ShowMoreEllipsis",
+	    desc: "ShowMoreEllipsis is used to show he user that there that there is more content to see that has been hidden by the UI. It has a hover but takes no callbacks or any other props. Generally it is unecessary as it is used on cards or other comonents which expand when the user clicks anywhere inside the card.",
+	    render: _examples.ShowMoreEllipsisEx
+	}, {
+	    name: "Toggle",
+	    desc: "Toggle can be used for `on or off` and `yes or no` user input. By default the label is hidden beccause in most cases we are going to use Toggle in a row or on a card such that it will indicate to the user it's function in a different way. For better accessibility however we still render it to the DOM just moving it's position out of the viewport boundery",
+	    render: _examples.ToggleEx
 	}];
 
 	exports.default = ExampleList;
@@ -20569,7 +20589,7 @@
 	  }
 	});
 
-	var _MediaCardEx = __webpack_require__(271);
+	var _MediaCardEx = __webpack_require__(277);
 
 	Object.defineProperty(exports, 'MediaCardEx', {
 	  enumerable: true,
@@ -20578,7 +20598,7 @@
 	  }
 	});
 
-	var _AvatarEx = __webpack_require__(272);
+	var _AvatarEx = __webpack_require__(278);
 
 	Object.defineProperty(exports, 'AvatarEx', {
 	  enumerable: true,
@@ -20587,7 +20607,7 @@
 	  }
 	});
 
-	var _TooltipEx = __webpack_require__(273);
+	var _TooltipEx = __webpack_require__(279);
 
 	Object.defineProperty(exports, 'TooltipEx', {
 	  enumerable: true,
@@ -20596,12 +20616,48 @@
 	  }
 	});
 
-	var _TransitionEx = __webpack_require__(274);
+	var _TabsEx = __webpack_require__(280);
 
-	Object.defineProperty(exports, 'TransitionEx', {
+	Object.defineProperty(exports, 'TabsEx', {
 	  enumerable: true,
 	  get: function get() {
-	    return _interopRequireDefault(_TransitionEx).default;
+	    return _interopRequireDefault(_TabsEx).default;
+	  }
+	});
+
+	var _MeterGaugeEx = __webpack_require__(281);
+
+	Object.defineProperty(exports, 'MeterGaugeEx', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_MeterGaugeEx).default;
+	  }
+	});
+
+	var _SelectMenuEx = __webpack_require__(282);
+
+	Object.defineProperty(exports, 'SelectMenuEx', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_SelectMenuEx).default;
+	  }
+	});
+
+	var _ShowMoreEllipsisEx = __webpack_require__(283);
+
+	Object.defineProperty(exports, 'ShowMoreEllipsisEx', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_ShowMoreEllipsisEx).default;
+	  }
+	});
+
+	var _ToggleEx = __webpack_require__(284);
+
+	Object.defineProperty(exports, 'ToggleEx', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_ToggleEx).default;
 	  }
 	});
 
@@ -20627,9 +20683,13 @@
 
 	var _src = __webpack_require__(172);
 
-	var _icons = __webpack_require__(243);
+	var _icons = __webpack_require__(262);
 
-	var _utils = __webpack_require__(254);
+	var _utils = __webpack_require__(237);
+
+	var _theme = __webpack_require__(276);
+
+	var _theme2 = _interopRequireDefault(_theme);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20641,23 +20701,33 @@
 	            _utils.ButtonGroup,
 	            null,
 	            _react2.default.createElement(_src.Button, {
-	                children: 'Default',
-	                color: '#EEEEEE',
-	                tooltip: 'I\'m a tooltip'
+	                children: 'Default'
 	            }),
 	            _react2.default.createElement(_src.Button, {
+	                tooltipMessage: 'I have a Tooltip!',
 	                children: 'Primary',
-	                color: '#0971ab'
+	                color: _theme2.default.color.primary
 	            }),
 	            _react2.default.createElement(
 	                _src.Button,
 	                {
 	                    children: 'Danger',
-	                    color: '#EA5050'
+	                    color: _theme2.default.color.danger
 	                },
-	                _react2.default.createElement(_icons.WarningIcon, { size: 15, style: { position: "relative", top: "-2px" } }),
-	                ' Danger'
-	            )
+	                _react2.default.createElement(_icons.WarningIcon, {
+	                    size: 15,
+	                    style: {
+	                        position: "relative",
+	                        top: "-2px"
+	                    }
+	                }),
+	                'Danger'
+	            ),
+	            _react2.default.createElement(_src.Button, {
+	                children: 'Im Disabled',
+	                color: _theme2.default.color.primary,
+	                disabled: true
+	            })
 	        )
 	    );
 	};
@@ -20672,7 +20742,7 @@
 	            _react2.default.createElement(_src.Code, { children:
 	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
 	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
-	                '<div style={{marginBottom: "20px"}}>\n    <ButtonGroup>\n        <Button\n            children="Default"\n            color="#EEEEEE"\n            tooltip="I\'m a tooltip"\n        />\n        <Button\n            children="Primary"\n            color="#0971ab"\n        />\n        <Button\n            children="Danger"\n            color="#EA5050"\n        >\n            <WarningIcon \n                size={15} \n                style={{position: "relative", top: "-2px"}} \n            /> \n            Danger\n        </Button>\n    </ButtonGroup>\n</div>'
+	                '<div style={{marginBottom: "20px"}}>\n    <ButtonGroup>\n        <Button\n            children="Default"\n        />\n        <Button\n            tooltipMessage="I have a Tooltip!"\n            children="Primary"\n            color={ theme.color.primary }\n        />\n        <Button\n            children="Danger"\n            color={ theme.color.danger }\n        >\n            <WarningIcon\n                size={15}\n                style={{\n                    position: "relative", \n                    top: "-2px",\n                }} \n            /> \n                Danger\n        </Button>\n        <Button\n            children="Im Disabled"\n            color={ theme.color.primary }\n            disabled\n        />\n    </ButtonGroup>\n</div>'
 	                /* Code string ends here */
 	            })
 	        );
@@ -20702,7 +20772,7 @@
 	  }
 	});
 
-	var _Code = __webpack_require__(238);
+	var _Code = __webpack_require__(257);
 
 	Object.defineProperty(exports, 'Code', {
 	  enumerable: true,
@@ -20711,7 +20781,7 @@
 	  }
 	});
 
-	var _Hr = __webpack_require__(239);
+	var _Hr = __webpack_require__(258);
 
 	Object.defineProperty(exports, 'Hr', {
 	  enumerable: true,
@@ -20720,7 +20790,7 @@
 	  }
 	});
 
-	var _ActionList = __webpack_require__(240);
+	var _ActionList = __webpack_require__(259);
 
 	Object.defineProperty(exports, 'ActionList', {
 	  enumerable: true,
@@ -20729,7 +20799,7 @@
 	  }
 	});
 
-	var _MediaCard = __webpack_require__(241);
+	var _MediaCard = __webpack_require__(260);
 
 	Object.defineProperty(exports, 'MediaCard', {
 	  enumerable: true,
@@ -20738,7 +20808,7 @@
 	  }
 	});
 
-	var _Avatar = __webpack_require__(250);
+	var _Avatar = __webpack_require__(269);
 
 	Object.defineProperty(exports, 'Avatar', {
 	  enumerable: true,
@@ -20747,7 +20817,7 @@
 	  }
 	});
 
-	var _Badge = __webpack_require__(251);
+	var _Badge = __webpack_require__(270);
 
 	Object.defineProperty(exports, 'Badge', {
 	  enumerable: true,
@@ -20756,7 +20826,7 @@
 	  }
 	});
 
-	var _ShowMoreEllipsis = __webpack_require__(252);
+	var _ShowMoreEllipsis = __webpack_require__(271);
 
 	Object.defineProperty(exports, 'ShowMoreEllipsis', {
 	  enumerable: true,
@@ -20765,7 +20835,7 @@
 	  }
 	});
 
-	var _VerticalMenu = __webpack_require__(242);
+	var _VerticalMenu = __webpack_require__(261);
 
 	Object.defineProperty(exports, 'VerticalMenu', {
 	  enumerable: true,
@@ -20774,12 +20844,48 @@
 	  }
 	});
 
-	var _Tooltip = __webpack_require__(253);
+	var _Tooltip = __webpack_require__(236);
 
 	Object.defineProperty(exports, 'Tooltip', {
 	  enumerable: true,
 	  get: function get() {
 	    return _interopRequireDefault(_Tooltip).default;
+	  }
+	});
+
+	var _Tabs = __webpack_require__(272);
+
+	Object.defineProperty(exports, 'Tabs', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Tabs).default;
+	  }
+	});
+
+	var _MeterGauge = __webpack_require__(273);
+
+	Object.defineProperty(exports, 'MeterGauge', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_MeterGauge).default;
+	  }
+	});
+
+	var _SelectMenu = __webpack_require__(274);
+
+	Object.defineProperty(exports, 'SelectMenu', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_SelectMenu).default;
+	  }
+	});
+
+	var _Toggle = __webpack_require__(275);
+
+	Object.defineProperty(exports, 'Toggle', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Toggle).default;
 	  }
 	});
 
@@ -20793,7 +20899,7 @@
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -20809,29 +20915,47 @@
 
 	var _radium2 = _interopRequireDefault(_radium);
 
-	var _styles = __webpack_require__(234);
-
-	var _styles2 = _interopRequireDefault(_styles);
-
-	var _tinycolor = __webpack_require__(236);
+	var _tinycolor = __webpack_require__(234);
 
 	var _tinycolor2 = _interopRequireDefault(_tinycolor);
 
-	var _reactInk = __webpack_require__(237);
+	var _reactInk = __webpack_require__(235);
 
 	var _reactInk2 = _interopRequireDefault(_reactInk);
+
+	var _Tooltip = __webpack_require__(236);
+
+	var _Tooltip2 = _interopRequireDefault(_Tooltip);
+
+	var _styles = __webpack_require__(254);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Button = _react2.default.createClass({
 	    displayName: "Button",
 
+	    onTouchTap: function onTouchTap() {
+	        if (this.props.onTouchTap) {
+	            this.props.onTouchTap();
+	        }
+	    },
 	    style: function style() {
-	        var btnColor = this.props.color;
+	        var btnColor = this.props.color ? this.props.color : _styles.variables.grey.xXLight;
+
 	        var txtColor = (0, _tinycolor2.default)(btnColor).isLight() ? "#55555" : "white";
 
+	        var disabledStyle = this.props.disabled ? {
+	            cursor: "not-allowed",
+	            opacity: ".5"
+	        } : {
+	            cursor: "pointer"
+	        };
+
+	        var hoverStyle = this.props.disabled ? null : _extends({
+	            background: (0, _tinycolor2.default)(btnColor).darken(5).toString()
+	        }, _styles.styles.boxShadow.md);
+
 	        return _extends({
-	            cursor: "pointer",
 	            display: "inline-block",
 	            position: "relative",
 	            padding: "10px 15px",
@@ -20843,21 +20967,33 @@
 	            fontSize: "14px",
 	            textTransform: "uppercase",
 	            transition: "all ease .2s"
-	        }, _styles2.default.boxShadow.sm, {
-	            ':hover': _extends({
-	                background: (0, _tinycolor2.default)(this.props.color).darken(5).toString()
-	            }, _styles2.default.boxShadow.md)
+	        }, disabledStyle, _styles.styles.boxShadow.sm, {
+	            ':hover': _extends({}, hoverStyle)
 	        });
 	    },
+	    ink: function ink() {
+	        if (this.props.disabled) return;
+	        return _react2.default.createElement(_reactInk2.default, null);
+	    },
 	    render: function render() {
+	        var disabled = this.props.isdisabled;
 	        return _react2.default.createElement(
-	            'button',
+	            _Tooltip2.default,
 	            {
-	                style: _extends({}, this.style(), this.props.style),
-	                onClick: this.props.onTouchTap
+	                message: this.props.tooltipMessage,
+	                direction: this.props.tooltipDirection
 	            },
-	            this.props.children,
-	            _react2.default.createElement(_reactInk2.default, null)
+	            _react2.default.createElement(
+	                "button",
+	                {
+	                    style: _extends({}, this.style(), this.props.style),
+	                    type: "button",
+	                    onClick: this.onTouchTap,
+	                    disabled: this.props.disabled
+	                },
+	                this.props.children,
+	                this.ink()
+	            )
 	        );
 	    }
 	});
@@ -24736,165 +24872,6 @@
 /* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _variables = __webpack_require__(235);
-
-	var _variables2 = _interopRequireDefault(_variables);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var styleVariables = {
-	    boxShadow: {
-	        sm: {
-	            boxShadow: "0 1px 4px rgba(0, 0, 0, .5)"
-	        },
-
-	        md: {
-	            boxShadow: "0 1px 10px rgba(0, 0, 0, .5)"
-	        },
-
-	        lg: {
-	            boxShadow: "0 5px 15px rgba(0,0,0,.5)"
-	        },
-
-	        li: {
-	            boxShadow: "0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24)"
-	        }
-	    },
-
-	    t: {
-
-	        caption: {
-	            fontSize: "12px",
-	            fontWeight: "400",
-	            color: _variables2.default.grey.dark
-	        },
-
-	        display4: {
-	            fontSize: "112px",
-	            fontWeight: "300"
-	        },
-
-	        display3: {
-	            fontSize: "56px",
-	            fontWeight: "400px"
-	        },
-
-	        display2: {
-	            fontSize: "45px",
-	            fontWeight: "400"
-	        },
-
-	        display1: {
-	            fontSize: "34px",
-	            fontWeight: "400"
-	        },
-
-	        headline: {
-	            fontSize: "24px",
-	            fontWeight: "500",
-	            margin: "0 0 10px"
-	        },
-
-	        title: {
-	            fontSize: "20px",
-	            fontWeight: "50px",
-	            margin: "0 0 10px"
-	        },
-
-	        subheading: {
-	            fontSize: "16px",
-	            fontWeight: "400",
-	            margin: "0 0 10px"
-	        },
-
-	        body2: {
-	            fontSize: "14px",
-	            fontWeight: "500"
-	        },
-
-	        body1: {
-	            fontSize: "14px",
-	            fontWeight: "400"
-	        }
-
-	    },
-	    BgColors: {
-	        greyXxDark: {
-	            background: _variables2.default.grey.xXDark
-	        },
-	        greyXDark: {
-	            background: _variables2.default.grey.xDark
-	        },
-	        greyDark: {
-	            background: _variables2.default.grey.dark
-	        },
-	        greyDarkMid: {
-	            background: _variables2.default.grey.darkMid
-	        },
-	        greyMid: {
-	            background: _variables2.default.grey.mid
-	        },
-	        greyLightMid: {
-	            background: _variables2.default.grey.lightMid
-	        },
-	        greyLight: {
-	            background: _variables2.default.grey.light
-	        },
-	        greyXLight: {
-	            background: _variables2.default.grey.xLight
-	        },
-	        greyXxlight: {
-	            background: _variables2.default.grey.xXLight
-	        }
-
-	    }
-	};
-
-	exports.default = styleVariables;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "styles.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	var variables = {
-	    grey: {
-	        xXDark: "#52595E",
-	        xDark: "#58646E",
-	        dark: "#8C9296",
-	        darkMid: "#D1D5D9",
-	        mid: "#C9CED5",
-	        lightMid: "#D8DDE2",
-	        light: "#E5E7EA",
-	        xLight: "#EFF1F2",
-	        xXLight: "#F7F8F8"
-	    }
-	};
-
-	exports.default = variables;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "variables.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var __WEBPACK_AMD_DEFINE_RESULT__;// TinyColor v1.3.0
 	// https://github.com/bgrins/TinyColor
 	// Brian Grinstead, MIT License
@@ -26064,181 +26041,14 @@
 
 
 /***/ },
-/* 237 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports=function(t){function e(n){if(o[n])return o[n].exports;var i=o[n]={exports:{},id:n,loaded:!1};return t[n].call(i.exports,i,i.exports,e),i.loaded=!0,i.exports}var o={};return e.m=t,e.c=o,e.p="",e(0)}([function(t,e,o){"use strict";var n=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var o=arguments[e];for(var n in o)Object.prototype.hasOwnProperty.call(o,n)&&(t[n]=o[n])}return t},i=o(4),r=0,a=o(5),s=o(8),u=o(2),c=o(7),l=s.PropTypes,h=2*Math.PI,p=o(1),f=o(6),d=s.createClass({displayName:"Ink",shouldComponentUpdate:f,propTypes:{background:l.bool,duration:l.number,opacity:l.number,radius:l.number,recenter:l.bool,hasTouch:l.bool},getDefaultProps:function(){return{background:!0,duration:1e3,opacity:.25,radius:150,recenter:!0,hasTouch:i}},getInitialState:function(){return{color:"transparent",density:1,height:0,store:c(this.tick),touchEvents:this.touchEvents(),width:0}},touchEvents:function(){return this.props.hasTouch?{onTouchStart:this._onPress,onTouchEnd:this._onRelease,onTouchCancel:this._onRelease,onTouchLeave:this._onRelease}:{onMouseDown:this._onPress,onMouseUp:this._onRelease,onMouseLeave:this._onRelease}},tick:function(){var t=this.state,e=t.ctx,o=t.color,n=t.density,i=t.height,r=t.width,a=t.store;e.save(),e.scale(n,n),e.clearRect(0,0,r,i),e.fillStyle=o,this.props.background&&(e.globalAlpha=a.getTotalOpacity(this.props.opacity),e.fillRect(0,0,r,i)),a.each(this.makeBlot,this),e.restore()},makeBlot:function(t){var e=this.state,o=e.ctx,n=e.height,i=e.width,r=t.x,a=t.y,s=t.radius;if(o.globalAlpha=p.getBlotOpacity(t,this.props.opacity),o.beginPath(),this.props.recenter){var u=Math.max(n,i);r+=p.getBlotShiftX(t,u,i),a+=p.getBlotShiftY(t,u,n)}o.arc(r,a,s*p.getBlotScale(t),0,h),o.closePath(),o.fill()},componentWillUnmount:function(){this.state.store.stop()},pushBlot:function(t,e,o){var n=this,i=this.refs.canvas;i instanceof window.HTMLCanvasElement==!1&&(i=i.getDOMNode());var r=i.getBoundingClientRect(),s=r.top,u=r.bottom,c=r.left,l=r.right,h=window.getComputedStyle(i),f=h.color,d=this.state.ctx||i.getContext("2d"),g=a(d),v=u-s,m=l-c,x=p.getMaxRadius(v,m,this.props.radius);this.setState({color:f,ctx:d,density:g,height:v,width:m},function(){n.state.store.add({duration:n.props.duration,mouseDown:t,mouseUp:0,radius:x,x:e-c,y:o-s})})},render:function(){var t=this.state,e=t.density,o=t.height,i=t.width,r=t.touchEvents;return s.createElement("canvas",n({className:"ink",ref:"canvas",style:n({},u,this.props.style),height:o*e,width:i*e,onDragOver:this._onRelease},r))},_onPress:function(t){var e=t.button,o=t.ctrlKey,n=t.clientX,i=t.clientY,a=t.changedTouches,s=Date.now();if(a)for(var u=0;u<a.length;u++){var c=a[u],l=c.clientX,h=c.clientY;this.pushBlot(s,l,h)}else e!==r||o||this.pushBlot(s,n,i)},_onRelease:function(){this.state.store.release(Date.now())}});t.exports=d},function(t,e,o){"use strict";function n(t){return l(t.duration,Date.now()-t.mouseDown)}function i(t){return t.mouseUp>0?Date.now()-t.mouseUp:0}function r(t){var e=t.duration,o=t.radius,r=.85*a(n(t),0,o,e),s=.15*a(i(t),0,o,e),l=.02*o*u(Date.now()/e);return c(0,r+s+l)}var a=o(3),s=Math.sqrt(2),u=Math.cos,c=Math.max,l=Math.min;t.exports={getMaxRadius:function(t,e,o){return l(.5*c(t,e),o)},getBlotOpacity:function(t,e){return a(i(t),e,-e,t.duration)},getBlotOuterOpacity:function(t,e){return l(this.getBlotOpacity(t,e),a(n(t),0,.3,3*t.duration))},getBlotShiftX:function(t,e,o){return l(1,r(t)/e*2/s)*(o/2-t.x)},getBlotShiftY:function(t,e,o){return l(1,r(t)/e*2/s)*(o/2-t.y)},getBlotScale:function(t){return r(t)/t.radius}}},function(t,e){"use strict";t.exports={borderRadius:"inherit",height:"100%",left:0,position:"absolute",top:0,width:"100%"}},function(t,e){"use strict";t.exports=function(t,e,o,n){return o*((t=t/n-1)*t*t*t*t+1)+e}},function(t,e){"use strict";var o=!1;"undefined"!=typeof window&&(o="ontouchstart"in window||window.DocumentTouch&&document instanceof DocumentTouch),t.exports=o},function(t,e){"use strict";e.__esModule=!0,e["default"]=function(t){var e=window.devicePixelRatio||1,o=t.webkitBackingStorePixelRatio||t.mozBackingStorePixelRatio||t.msBackingStorePixelRatio||t.oBackingStorePixelRatio||t.backingStorePixelRatio||1;return e/o},t.exports=e["default"]},function(t,e){"use strict";function o(t,e){for(var o in t)if(this.props[o]!==t[o])return!0;for(var n in e)if(this.state[n]!==e[n])return!0;return!1}e.__esModule=!0,e["default"]=o,t.exports=e["default"]},function(t,e,o){"use strict";var n=o(1),i=function(t){var e=t.mouseUp,o=t.duration;return!e||Date.now()-e<o};t.exports=function(t){var e=[],o=!1,r=void 0,a={each:function(t,o){for(var n=0,i=e.length;i>n;n++)t.call(o,e[n])},play:function(){o||(o=!0,a.update())},stop:function(){o=!1,cancelAnimationFrame(r)},getTotalOpacity:function(t){for(var o=0,i=0,r=e.length;r>i;i++)o+=n.getBlotOuterOpacity(e[i],t);return o},update:function(){e=e.filter(i),e.length?(r=requestAnimationFrame(a.update),t()):a.stop()},add:function(t){e.push(t),a.play()},release:function(t){for(var o=e.length-1;o>=0;o--)if(!e[o].mouseUp)return e[o].mouseUp=t}};return a}},function(t,e){t.exports=__webpack_require__(162)}]);
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vaW5rLmpzIiwid2VicGFjazovLy93ZWJwYWNrL2Jvb3RzdHJhcCBjMjhmMWNkM2E2NzYwNTczMDg2OCIsIndlYnBhY2s6Ly8vLi9zcmMvaW5kZXguanN4Iiwid2VicGFjazovLy8uL3NyYy91dGlsL2VxdWF0aW9ucy5qcyIsIndlYnBhY2s6Ly8vLi9zcmMvc3R5bGUuanMiLCJ3ZWJwYWNrOi8vLy4vc3JjL3V0aWwvZWFzaW5nLmpzIiwid2VicGFjazovLy8uL3NyYy91dGlsL2hhc1RvdWNoLmpzIiwid2VicGFjazovLy8uL3NyYy91dGlsL3BpeGVsUmF0aW8uanMiLCJ3ZWJwYWNrOi8vLy4vc3JjL3V0aWwvcHVyZS5qcyIsIndlYnBhY2s6Ly8vLi9zcmMvdXRpbC9zdG9yZS5qcyIsIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJyZWFjdFwiIl0sIm5hbWVzIjpbIm1vZHVsZSIsImV4cG9ydHMiLCJtb2R1bGVzIiwiX193ZWJwYWNrX3JlcXVpcmVfXyIsIm1vZHVsZUlkIiwiaW5zdGFsbGVkTW9kdWxlcyIsImlkIiwibG9hZGVkIiwiY2FsbCIsIm0iLCJjIiwicCIsIl9leHRlbmRzIiwiT2JqZWN0IiwiYXNzaWduIiwidGFyZ2V0IiwiaSIsImFyZ3VtZW50cyIsImxlbmd0aCIsInNvdXJjZSIsImtleSIsInByb3RvdHlwZSIsImhhc093blByb3BlcnR5IiwiSEFTX1RPVUNIIiwiTU9VU0VfTEVGVCIsInBpeGVsUmF0aW8iLCJSZWFjdCIsIlNUWUxFIiwiU3RvcmUiLCJUeXBlcyIsIlByb3BUeXBlcyIsIlRBVSIsIk1hdGgiLCJQSSIsIkVxdWF0aW9ucyIsIlB1cmUiLCJJbmsiLCJjcmVhdGVDbGFzcyIsImRpc3BsYXlOYW1lIiwic2hvdWxkQ29tcG9uZW50VXBkYXRlIiwicHJvcFR5cGVzIiwiYmFja2dyb3VuZCIsImJvb2wiLCJkdXJhdGlvbiIsIm51bWJlciIsIm9wYWNpdHkiLCJyYWRpdXMiLCJyZWNlbnRlciIsImhhc1RvdWNoIiwiZ2V0RGVmYXVsdFByb3BzIiwiZ2V0SW5pdGlhbFN0YXRlIiwiY29sb3IiLCJkZW5zaXR5IiwiaGVpZ2h0Iiwic3RvcmUiLCJ0aGlzIiwidGljayIsInRvdWNoRXZlbnRzIiwid2lkdGgiLCJwcm9wcyIsIm9uVG91Y2hTdGFydCIsIl9vblByZXNzIiwib25Ub3VjaEVuZCIsIl9vblJlbGVhc2UiLCJvblRvdWNoQ2FuY2VsIiwib25Ub3VjaExlYXZlIiwib25Nb3VzZURvd24iLCJvbk1vdXNlVXAiLCJvbk1vdXNlTGVhdmUiLCJfc3RhdGUiLCJzdGF0ZSIsImN0eCIsInNhdmUiLCJzY2FsZSIsImNsZWFyUmVjdCIsImZpbGxTdHlsZSIsImdsb2JhbEFscGhhIiwiZ2V0VG90YWxPcGFjaXR5IiwiZmlsbFJlY3QiLCJlYWNoIiwibWFrZUJsb3QiLCJyZXN0b3JlIiwiYmxvdCIsIl9zdGF0ZTIiLCJ4IiwieSIsImdldEJsb3RPcGFjaXR5IiwiYmVnaW5QYXRoIiwic2l6ZSIsIm1heCIsImdldEJsb3RTaGlmdFgiLCJnZXRCbG90U2hpZnRZIiwiYXJjIiwiZ2V0QmxvdFNjYWxlIiwiY2xvc2VQYXRoIiwiZmlsbCIsImNvbXBvbmVudFdpbGxVbm1vdW50Iiwic3RvcCIsInB1c2hCbG90IiwidGltZVN0YW1wIiwiY2xpZW50WCIsImNsaWVudFkiLCJfdGhpcyIsImVsIiwicmVmcyIsImNhbnZhcyIsIndpbmRvdyIsIkhUTUxDYW52YXNFbGVtZW50IiwiZ2V0RE9NTm9kZSIsIl9lbCRnZXRCb3VuZGluZ0NsaWVudFJlY3QiLCJnZXRCb3VuZGluZ0NsaWVudFJlY3QiLCJ0b3AiLCJib3R0b20iLCJsZWZ0IiwicmlnaHQiLCJfd2luZG93JGdldENvbXB1dGVkU3R5bGUiLCJnZXRDb21wdXRlZFN0eWxlIiwiZ2V0Q29udGV4dCIsImdldE1heFJhZGl1cyIsInNldFN0YXRlIiwiYWRkIiwibW91c2VEb3duIiwibW91c2VVcCIsInJlbmRlciIsIl9zdGF0ZTMiLCJjcmVhdGVFbGVtZW50IiwiY2xhc3NOYW1lIiwicmVmIiwic3R5bGUiLCJvbkRyYWdPdmVyIiwiZSIsImJ1dHRvbiIsImN0cmxLZXkiLCJjaGFuZ2VkVG91Y2hlcyIsIkRhdGUiLCJub3ciLCJfY2hhbmdlZFRvdWNoZXMkaSIsIl9jbGllbnRYIiwiX2NsaWVudFkiLCJyZWxlYXNlIiwiZ2V0UHJlc3MiLCJtaW4iLCJnZXRSZWxlYXNlIiwiZ2V0UmFkaXVzIiwiZG93biIsImVhc2luZyIsInVwIiwidW5kdWxhdGlvbiIsImNvcyIsIlNRUlRfMiIsInNxcnQiLCJnZXRCbG90T3V0ZXJPcGFjaXR5IiwiYm9yZGVyUmFkaXVzIiwicG9zaXRpb24iLCJ0IiwiYiIsImQiLCJEb2N1bWVudFRvdWNoIiwiZG9jdW1lbnQiLCJfX2VzTW9kdWxlIiwiY29udGV4dCIsImRldmljZVBpeGVsUmF0aW8iLCJiYWNraW5nU3RvcmVSYXRpbyIsIndlYmtpdEJhY2tpbmdTdG9yZVBpeGVsUmF0aW8iLCJtb3pCYWNraW5nU3RvcmVQaXhlbFJhdGlvIiwibXNCYWNraW5nU3RvcmVQaXhlbFJhdGlvIiwib0JhY2tpbmdTdG9yZVBpeGVsUmF0aW8iLCJiYWNraW5nU3RvcmVQaXhlbFJhdGlvIiwicyIsImtpbGxTdGFsZSIsIl9yZWYiLCJwdWJsaWNpemUiLCJfZGF0YSIsIl9wbGF5aW5nIiwiX2ZyYW1lIiwidW5kZWZpbmVkIiwiY2FsbGJhY2siLCJzY29wZSIsImwiLCJwbGF5IiwidXBkYXRlIiwiY2FuY2VsQW5pbWF0aW9uRnJhbWUiLCJhbnN3ZXIiLCJmaWx0ZXIiLCJyZXF1ZXN0QW5pbWF0aW9uRnJhbWUiLCJwdXNoIiwidGltZSIsInJlcXVpcmUiXSwibWFwcGluZ3MiOiJBQUFBQSxPQUFPQyxRQUNFLFNBQVVDLEdDR25CLFFBQUFDLEdBQUFDLEdBR0EsR0FBQUMsRUFBQUQsR0FDQSxNQUFBQyxHQUFBRCxHQUFBSCxPQUdBLElBQUFELEdBQUFLLEVBQUFELElBQ0FILFdBQ0FLLEdBQUFGLEVBQ0FHLFFBQUEsRUFVQSxPQU5BTCxHQUFBRSxHQUFBSSxLQUFBUixFQUFBQyxRQUFBRCxJQUFBQyxRQUFBRSxHQUdBSCxFQUFBTyxRQUFBLEVBR0FQLEVBQUFDLFFBdkJBLEdBQUFJLEtBcUNBLE9BVEFGLEdBQUFNLEVBQUFQLEVBR0FDLEVBQUFPLEVBQUFMLEVBR0FGLEVBQUFRLEVBQUEsR0FHQVIsRUFBQSxLRE9NLFNBQVNILEVBQVFDLEVBQVNFLEdBUS9CLFlBRUEsSUFBSVMsR0FBV0MsT0FBT0MsUUFBVSxTQUFVQyxHQUFVLElBQUssR0FBSUMsR0FBSSxFQUFHQSxFQUFJQyxVQUFVQyxPQUFRRixJQUFLLENBQUUsR0FBSUcsR0FBU0YsVUFBVUQsRUFBSSxLQUFLLEdBQUlJLEtBQU9ELEdBQWNOLE9BQU9RLFVBQVVDLGVBQWVkLEtBQUtXLEVBQVFDLEtBQVFMLEVBQU9LLEdBQU9ELEVBQU9DLElBQVksTUFBT0wsSUVqRHBQUSxFQUFhcEIsRUFBUSxHQUNyQnFCLEVBQWEsRUFDYkMsRUFBYXRCLEVBQVEsR0FDckJ1QixFQUFhdkIsRUFBUSxHQUNyQndCLEVBQWF4QixFQUFRLEdBQ3JCeUIsRUFBYXpCLEVBQVEsR0FDckIwQixFQUFhSCxFQUFNSSxVQUNuQkMsRUFBdUIsRUFBVkMsS0FBS0MsR0FDbEJDLEVBQWEvQixFQUFRLEdBQ3JCZ0MsRUFBYWhDLEVBQVEsR0FFckJpQyxFQUFNVixFQUFNVyxhRm9EYkMsWUFBYSxNRWxEZEMsc0JBQXVCSixFQUV2QkssV0FDRUMsV0FBYVosRUFBTWEsS0FDbkJDLFNBQWFkLEVBQU1lLE9BQ25CQyxRQUFhaEIsRUFBTWUsT0FDbkJFLE9BQWFqQixFQUFNZSxPQUNuQkcsU0FBYWxCLEVBQU1hLEtBQ25CTSxTQUFhbkIsRUFBTWEsTUFHckJPLGdCQUFlLFdBQ2IsT0FDRVIsWUFBYSxFQUNiRSxTQUFhLElBQ2JFLFFBQWEsSUFDYkMsT0FBYSxJQUNiQyxVQUFhLEVBQ2JDLFNBQWF6QixJQUlqQjJCLGdCQUFlLFdBQ2IsT0FDRUMsTUFBYyxjQUNkQyxRQUFjLEVBQ2RDLE9BQWMsRUFDZEMsTUFBYzFCLEVBQU0yQixLQUFLQyxNQUN6QkMsWUFBY0YsS0FBS0UsY0FDbkJDLE1BQWMsSUFJbEJELFlBQVcsV0FDVCxNQUFJRixNQUFLSSxNQUFNWCxVQUVYWSxhQUFnQkwsS0FBS00sU0FDckJDLFdBQWdCUCxLQUFLUSxXQUNyQkMsY0FBZ0JULEtBQUtRLFdBQ3JCRSxhQUFnQlYsS0FBS1EsYUFJckJHLFlBQWdCWCxLQUFLTSxTQUNyQk0sVUFBZ0JaLEtBQUtRLFdBQ3JCSyxhQUFnQmIsS0FBS1EsYUFLM0JQLEtBQUksV0ZxREQsR0FBSWEsR0VwRCtDZCxLQUFLZSxNQUFuREMsRUFBR0YsRUFBSEUsSUFBS3BCLEVBQUtrQixFQUFMbEIsTUFBT0MsRUFBT2lCLEVBQVBqQixRQUFTQyxFQUFNZ0IsRUFBTmhCLE9BQVFLLEVBQUtXLEVBQUxYLE1BQU9KLEVBQUtlLEVBQUxmLEtBRTFDaUIsR0FBSUMsT0FFSkQsRUFBSUUsTUFBTXJCLEVBQVNBLEdBRW5CbUIsRUFBSUcsVUFBVSxFQUFHLEVBQUdoQixFQUFPTCxHQUUzQmtCLEVBQUlJLFVBQVl4QixFQUVaSSxLQUFLSSxNQUFNbEIsYUFDYjhCLEVBQUlLLFlBQWN0QixFQUFNdUIsZ0JBQWdCdEIsS0FBS0ksTUFBTWQsU0FDbkQwQixFQUFJTyxTQUFTLEVBQUcsRUFBR3BCLEVBQU9MLElBRzVCQyxFQUFNeUIsS0FBS3hCLEtBQUt5QixTQUFVekIsTUFFMUJnQixFQUFJVSxXQUdORCxTQUFRLFNBQUNFLEdGMkROLEdBQUlDLEdFMUR3QjVCLEtBQUtlLE1BQTVCQyxFQUFHWSxFQUFIWixJQUFLbEIsRUFBTThCLEVBQU45QixPQUFRSyxFQUFLeUIsRUFBTHpCLE1BQ2IwQixFQUFpQkYsRUFBakJFLEVBQUdDLEVBQWNILEVBQWRHLEVBQUd2QyxFQUFXb0MsRUFBWHBDLE1BS1osSUFIQXlCLEVBQUlLLFlBQWMxQyxFQUFVb0QsZUFBZUosRUFBTTNCLEtBQUtJLE1BQU1kLFNBQzVEMEIsRUFBSWdCLFlBRUFoQyxLQUFLSSxNQUFNWixTQUFVLENBQ3ZCLEdBQUl5QyxHQUFPeEQsS0FBS3lELElBQUlwQyxFQUFRSyxFQUU1QjBCLElBQUtsRCxFQUFVd0QsY0FBY1IsRUFBTU0sRUFBTTlCLEdBQ3pDMkIsR0FBS25ELEVBQVV5RCxjQUFjVCxFQUFNTSxFQUFNbkMsR0FHM0NrQixFQUFJcUIsSUFBSVIsRUFBR0MsRUFBR3ZDLEVBQVNaLEVBQVUyRCxhQUFhWCxHQUFPLEVBQUduRCxHQUV4RHdDLEVBQUl1QixZQUNKdkIsRUFBSXdCLFFBR05DLHFCQUFvQixXQUNsQnpDLEtBQUtlLE1BQU1oQixNQUFNMkMsUUFHbkJDLFNBQVEsU0FBQ0MsRUFBV0MsRUFBU0MsR0ZnRTFCLEdBQUlDLEdBQVEvQyxLRS9EVGdELEVBQUtoRCxLQUFLaUQsS0FBS0MsTUFHZkYsYUFBY0csUUFBT0Msb0JBQXNCLElBQzdDSixFQUFLQSxFQUFHSyxhRm9FVCxJQUFJQyxHRWpFOEJOLEVBQUdPLHdCQUFoQ0MsRUFBR0YsRUFBSEUsSUFBS0MsRUFBTUgsRUFBTkcsT0FBUUMsRUFBSUosRUFBSkksS0FBTUMsRUFBS0wsRUFBTEssTUZ3RXBCQyxFRXZFOEJULE9BQU9VLGlCQUFpQmIsR0FBckRwRCxFQUFLZ0UsRUFBTGhFLE1BRUZvQixFQUFVaEIsS0FBS2UsTUFBTUMsS0FBT2dDLEVBQUdjLFdBQVcsTUFDMUNqRSxFQUFVM0IsRUFBVzhDLEdBQ3JCbEIsRUFBVTJELEVBQVNELEVBQ25CckQsRUFBVXdELEVBQVFELEVBQ2xCbkUsRUFBVVosRUFBVW9GLGFBQWFqRSxFQUFRSyxFQUFPSCxLQUFLSSxNQUFNYixPQUUvRFMsTUFBS2dFLFVBQVdwRSxRQUFPb0IsTUFBS25CLFVBQVNDLFNBQVFLLFNBQVMsV0FDcEQ0QyxFQUFLaEMsTUFBTWhCLE1BQU1rRSxLQUNmN0UsU0FBWTJELEVBQUszQyxNQUFNaEIsU0FDdkI4RSxVQUFZdEIsRUFDWnVCLFFBQVksRUFDWjVFLE9BQVlBLEVBQ1pzQyxFQUFZZ0IsRUFBVWEsRUFDdEI1QixFQUFZZ0IsRUFBVVUsT0FLNUJZLE9BQU0sV0YwRUgsR0FBSUMsR0V6RXlDckUsS0FBS2UsTUFBN0NsQixFQUFPd0UsRUFBUHhFLFFBQVNDLEVBQU11RSxFQUFOdkUsT0FBUUssRUFBS2tFLEVBQUxsRSxNQUFPRCxFQUFXbUUsRUFBWG5FLFdBRTlCLE9BQ0UvQixHQUFBbUcsY0FBQSxTQUFBakgsR0FBUWtILFVBQVUsTUFDVkMsSUFBSSxTQUNKQyxNQUFLcEgsS0FBT2UsRUFBVTRCLEtBQUtJLE1BQU1xRSxPQUNqQzNFLE9BQVNBLEVBQVNELEVBQ2xCTSxNQUFRQSxFQUFRTixFQUNoQjZFLFdBQWExRSxLQUFLUSxZQUNiTixLQUlqQkksU0FBUSxTQUFDcUUsR0Y0RU4sR0UzRUtDLEdBQXNERCxFQUF0REMsT0FBUUMsRUFBOENGLEVBQTlDRSxRQUFTaEMsRUFBcUM4QixFQUFyQzlCLFFBQVNDLEVBQTRCNkIsRUFBNUI3QixRQUFTZ0MsRUFBbUJILEVBQW5CRyxlQUNyQ2xDLEVBQVltQyxLQUFLQyxLQUVyQixJQUFJRixFQUNGLElBQUssR0FBSXJILEdBQUksRUFBR0EsRUFBSXFILEVBQWVuSCxPQUFRRixJQUFLLENGaUY3QyxHQUFJd0gsR0VoRnNCSCxFQUFlckgsR0FBcEN5SCxFQUFPRCxFQUFQcEMsUUFBU3NDLEVBQU9GLEVBQVBuQyxPQUNmOUMsTUFBSzJDLFNBQVNDLEVBQVdzQyxFQUFTQyxPQUUzQlAsS0FBVzNHLEdBQWU0RyxHQUNuQzdFLEtBQUsyQyxTQUFTQyxFQUFXQyxFQUFTQyxJQUl0Q3RDLFdBQVUsV0FDUlIsS0FBS2UsTUFBTWhCLE1BQU1xRixRQUFRTCxLQUFLQyxTQUlsQ3ZJLEdBQU9DLFFBQVVtQyxHRnVGWCxTQUFTcEMsRUFBUUMsRUFBU0UsR0FFL0IsWUdyUUQsU0FBU3lJLEdBQVMxRCxHQUNoQixNQUFPMkQsR0FBSTNELEVBQUt2QyxTQUFVMkYsS0FBS0MsTUFBUXJELEVBQUt1QyxXQUc5QyxRQUFTcUIsR0FBVzVELEdBQ2xCLE1BQU9BLEdBQUt3QyxRQUFVLEVBQUlZLEtBQUtDLE1BQVFyRCxFQUFLd0MsUUFBVSxFQUd4RCxRQUFTcUIsR0FBVTdELEdIOFFoQixHRzdRS3ZDLEdBQXFCdUMsRUFBckJ2QyxTQUFVRyxFQUFXb0MsRUFBWHBDLE9BRVprRyxFQUEyRCxJQUE5Q0MsRUFBT0wsRUFBUzFELEdBQU8sRUFBR3BDLEVBQVFILEdBQy9DdUcsRUFBNkQsSUFBaERELEVBQU9ILEVBQVc1RCxHQUFPLEVBQUdwQyxFQUFRSCxHQUNqRHdHLEVBQXNCLElBQVRyRyxFQUFnQnNHLEVBQUlkLEtBQUtDLE1BQVE1RixFQUVsRCxPQUFPOEMsR0FBSSxFQUFHdUQsRUFBT0UsRUFBS0MsR0FuQjVCLEdBQUlGLEdBQVM5SSxFQUFRLEdBQ2pCa0osRUFBU3JILEtBQUtzSCxLQUFLLEdBQ2pCRixFQUFrQnBILEtBQWxCb0gsSUFBSzNELEVBQWF6RCxLQUFieUQsSUFBS29ELEVBQVE3RyxLQUFSNkcsR0FvQmhCN0ksR0FBT0MsU0FFTHFILGFBQVksU0FBQ2pFLEVBQVFLLEVBQU9aLEdBQzFCLE1BQU8rRixHQUF5QixHQUFyQnBELEVBQUlwQyxFQUFRSyxHQUFjWixJQUd2Q3dDLGVBQWMsU0FBQ0osRUFBTXJDLEdBQ25CLE1BQU9vRyxHQUFPSCxFQUFXNUQsR0FBT3JDLEdBQVVBLEVBQVNxQyxFQUFLdkMsV0FHMUQ0RyxvQkFBbUIsU0FBQ3JFLEVBQU1yQyxHQUN4QixNQUFPZ0csR0FBSXRGLEtBQUsrQixlQUFlSixFQUFNckMsR0FDMUJvRyxFQUFPTCxFQUFTMUQsR0FBTyxFQUFHLEdBQXFCLEVBQWhCQSxFQUFLdkMsWUFHakQrQyxjQUFhLFNBQUNSLEVBQU1NLEVBQU05QixHQUN4QixNQUFPbUYsR0FBSSxFQUNBRSxFQUFVN0QsR0FBUU0sRUFBTyxFQUFJNkQsSUFBVzNGLEVBQVEsRUFBSXdCLEVBQUtFLElBR3RFTyxjQUFhLFNBQUNULEVBQU1NLEVBQU1uQyxHQUN4QixNQUFPd0YsR0FBSSxFQUNBRSxFQUFVN0QsR0FBUU0sRUFBTyxFQUFJNkQsSUFBV2hHLEVBQVMsRUFBSTZCLEVBQUtHLElBR3ZFUSxhQUFZLFNBQUNYLEdBQ1gsTUFBTzZELEdBQVU3RCxHQUFRQSxFQUFLcEMsVUhpUjVCLFNBQVM5QyxFQUFRQyxHQUV0QixZSW5VREQsR0FBT0MsU0FDTHVKLGFBQWMsVUFDZG5HLE9BQVEsT0FDUjRELEtBQU0sRUFDTndDLFNBQVUsV0FDVjFDLElBQUssRUFDTHJELE1BQU8sU0owVUgsU0FBUzFELEVBQVFDLEdBU3RCLFlLbFZERCxHQUFPQyxRQUFVLFNBQXVCeUosRUFBR0MsRUFBR2pKLEVBQUdrSixHQUMvQyxNQUFPbEosS0FBSWdKLEVBQUVBLEVBQUVFLEVBQUUsR0FBR0YsRUFBRUEsRUFBRUEsRUFBRUEsRUFBSSxHQUFLQyxJTHlWL0IsU0FBUzNKLEVBQVFDLEdBRXRCLFlNbldELElBQUl5QyxJQUFPLENBRVcsb0JBQVhnRSxVQUNUaEUsRUFBUSxnQkFBa0JnRSxTQUFXQSxPQUFPbUQsZUFBaUJDLG1CQUFvQkQsZ0JBR25GN0osRUFBT0MsUUFBVXlDLEdOeVdYLFNBQVMxQyxFQUFRQyxHQUt0QixZQUVBQSxHQUFROEosWUFBYSxFQUVyQjlKLEVBQVEsV09yWE0sU0FBQStKLEdBQ2IsR0FBSUMsR0FBb0J2RCxPQUFPdUQsa0JBQW9CLEVBQy9DQyxFQUFvQkYsRUFBUUcsOEJBQ1JILEVBQVFJLDJCQUNSSixFQUFRSywwQkFDUkwsRUFBUU0seUJBQ1JOLEVBQVFPLHdCQUFnQyxDQUVoRSxPQUFPTixHQUFtQkMsR1BvWDNCbEssRUFBT0MsUUFBVUEsRUFBUSxZQUlwQixTQUFTRCxFQUFRQyxHQUV0QixZUXJZYyxTQUFTa0MsR0FBTXdCLEVBQU9XLEdBQ25DLElBQUssR0FBSTNELEtBQUtnRCxHQUNaLEdBQUlKLEtBQUtJLE1BQU1oRCxLQUFPZ0QsRUFBTWhELEdBQUksT0FBTyxDQUd6QyxLQUFLLEdBQUk2SixLQUFLbEcsR0FDWixHQUFJZixLQUFLZSxNQUFNa0csS0FBT2xHLEVBQU1rRyxHQUFJLE9BQU8sQ0FHekMsUUFBTyxFUjhYUnZLLEVBQVE4SixZQUFhLEVBQ3JCOUosRUFBUSxXUXhZZWtDLEVSc1p2Qm5DLEVBQU9DLFFBQVVBLEVBQVEsWUFJcEIsU0FBU0QsRUFBUUMsRUFBU0UsR0FRL0IsWVM1WkQsSUFBSStCLEdBQVkvQixFQUFRLEdBRXBCc0ssRUFBWSxTQUFDQyxHVCtaZCxHUy9aZ0JoRCxHQUFGZ0QsRUFBRWhELFFBQVMvRSxFQUFYK0gsRUFBVy9ILFFUaWF6QixRU2pheUMrRSxHQUFZWSxLQUFLQyxNQUFRYixFQUFXL0UsRUFFaEYzQyxHQUFPQyxRQUFVLFNBQVMwSyxHQUN4QixHQUFJQyxNQUNBQyxHQUFXLEVBQ1hDLEVBQU1DLE9BRU5uSixHQUVGbUQsS0FBSSxTQUFDaUcsRUFBVUMsR0FDYixJQUFLLEdBQUlqSyxHQUFJLEVBQUdrSyxFQUFJTixFQUFNMUosT0FBWWdLLEVBQUpsSyxFQUFPQSxJQUN2Q2dLLEVBQVN4SyxLQUFLeUssRUFBT0wsRUFBTTVKLEtBSS9CbUssS0FBSSxXQUNHTixJQUNIQSxHQUFXLEVBQ1hqSixFQUFNd0osV0FJVm5GLEtBQUksV0FDRjRFLEdBQVcsRUFDWFEscUJBQXFCUCxJQUd2QmpHLGdCQUFlLFNBQUNoQyxHQUdkLElBQUssR0FGRHlJLEdBQVMsRUFFSnRLLEVBQUksRUFBR2tLLEVBQUlOLEVBQU0xSixPQUFZZ0ssRUFBSmxLLEVBQU9BLElBQ3ZDc0ssR0FBVXBKLEVBQVVxSCxvQkFBb0JxQixFQUFNNUosR0FBSTZCLEVBR3BELE9BQU95SSxJQUdURixPQUFNLFdBQ0pSLEVBQVFBLEVBQU1XLE9BQU9kLEdBRWpCRyxFQUFNMUosUUFDUjRKLEVBQVNVLHNCQUFzQjVKLEVBQU13SixRQUNyQ1QsS0FFQS9JLEVBQU1xRSxRQUlWdUIsSUFBRyxTQUFDN0QsR0FDRmlILEVBQU1hLEtBQUs5SCxHQUNYL0IsRUFBTXVKLFFBR1J4QyxRQUFPLFNBQUMrQyxHQUNOLElBQUssR0FBSTFLLEdBQUk0SixFQUFNMUosT0FBUyxFQUFHRixHQUFLLEVBQUdBLElBQ3JDLElBQUs0SixFQUFNNUosR0FBRzBHLFFBQ1osTUFBT2tELEdBQU01SixHQUFHMEcsUUFBVWdFLEdBT2xDLE9BQU85SixLVHVhSCxTQUFTNUIsRUFBUUMsR1U5ZXZCRCxFQUFBQyxRQUFBMEwsUUFBQSIsImZpbGUiOiJpbmsuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9XG4vKioqKioqLyAoZnVuY3Rpb24obW9kdWxlcykgeyAvLyB3ZWJwYWNrQm9vdHN0cmFwXG4vKioqKioqLyBcdC8vIFRoZSBtb2R1bGUgY2FjaGVcbi8qKioqKiovIFx0dmFyIGluc3RhbGxlZE1vZHVsZXMgPSB7fTtcbi8qKioqKiovXG4vKioqKioqLyBcdC8vIFRoZSByZXF1aXJlIGZ1bmN0aW9uXG4vKioqKioqLyBcdGZ1bmN0aW9uIF9fd2VicGFja19yZXF1aXJlX18obW9kdWxlSWQpIHtcbi8qKioqKiovXG4vKioqKioqLyBcdFx0Ly8gQ2hlY2sgaWYgbW9kdWxlIGlzIGluIGNhY2hlXG4vKioqKioqLyBcdFx0aWYoaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0pXG4vKioqKioqLyBcdFx0XHRyZXR1cm4gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0uZXhwb3J0cztcbi8qKioqKiovXG4vKioqKioqLyBcdFx0Ly8gQ3JlYXRlIGEgbmV3IG1vZHVsZSAoYW5kIHB1dCBpdCBpbnRvIHRoZSBjYWNoZSlcbi8qKioqKiovIFx0XHR2YXIgbW9kdWxlID0gaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0gPSB7XG4vKioqKioqLyBcdFx0XHRleHBvcnRzOiB7fSxcbi8qKioqKiovIFx0XHRcdGlkOiBtb2R1bGVJZCxcbi8qKioqKiovIFx0XHRcdGxvYWRlZDogZmFsc2Vcbi8qKioqKiovIFx0XHR9O1xuLyoqKioqKi9cbi8qKioqKiovIFx0XHQvLyBFeGVjdXRlIHRoZSBtb2R1bGUgZnVuY3Rpb25cbi8qKioqKiovIFx0XHRtb2R1bGVzW21vZHVsZUlkXS5jYWxsKG1vZHVsZS5leHBvcnRzLCBtb2R1bGUsIG1vZHVsZS5leHBvcnRzLCBfX3dlYnBhY2tfcmVxdWlyZV9fKTtcbi8qKioqKiovXG4vKioqKioqLyBcdFx0Ly8gRmxhZyB0aGUgbW9kdWxlIGFzIGxvYWRlZFxuLyoqKioqKi8gXHRcdG1vZHVsZS5sb2FkZWQgPSB0cnVlO1xuLyoqKioqKi9cbi8qKioqKiovIFx0XHQvLyBSZXR1cm4gdGhlIGV4cG9ydHMgb2YgdGhlIG1vZHVsZVxuLyoqKioqKi8gXHRcdHJldHVybiBtb2R1bGUuZXhwb3J0cztcbi8qKioqKiovIFx0fVxuLyoqKioqKi9cbi8qKioqKiovXG4vKioqKioqLyBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlcyBvYmplY3QgKF9fd2VicGFja19tb2R1bGVzX18pXG4vKioqKioqLyBcdF9fd2VicGFja19yZXF1aXJlX18ubSA9IG1vZHVsZXM7XG4vKioqKioqL1xuLyoqKioqKi8gXHQvLyBleHBvc2UgdGhlIG1vZHVsZSBjYWNoZVxuLyoqKioqKi8gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLmMgPSBpbnN0YWxsZWRNb2R1bGVzO1xuLyoqKioqKi9cbi8qKioqKiovIFx0Ly8gX193ZWJwYWNrX3B1YmxpY19wYXRoX19cbi8qKioqKiovIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5wID0gXCJcIjtcbi8qKioqKiovXG4vKioqKioqLyBcdC8vIExvYWQgZW50cnkgbW9kdWxlIGFuZCByZXR1cm4gZXhwb3J0c1xuLyoqKioqKi8gXHRyZXR1cm4gX193ZWJwYWNrX3JlcXVpcmVfXygwKTtcbi8qKioqKiovIH0pXG4vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqL1xuLyoqKioqKi8gKFtcbi8qIDAgKi9cbi8qKiovIGZ1bmN0aW9uKG1vZHVsZSwgZXhwb3J0cywgX193ZWJwYWNrX3JlcXVpcmVfXykge1xuXG5cdC8qKlxuXHQgKiBJbmtcblx0ICogRmlsbHMgYSBjb250YWluZXIgd2l0aCBhbiBTVkcgb2JqZWN0IHRoYXQgcHJvdmlkZXMgZmVlZGJhY2sgb24gbW91c2UvdG91Y2hcblx0ICogZXZlbnRzIHdpdGggYSByaXBwbGluZyBwb29sLlxuXHQgKi9cblx0XG5cdCd1c2Ugc3RyaWN0Jztcblx0XG5cdHZhciBfZXh0ZW5kcyA9IE9iamVjdC5hc3NpZ24gfHwgZnVuY3Rpb24gKHRhcmdldCkgeyBmb3IgKHZhciBpID0gMTsgaSA8IGFyZ3VtZW50cy5sZW5ndGg7IGkrKykgeyB2YXIgc291cmNlID0gYXJndW1lbnRzW2ldOyBmb3IgKHZhciBrZXkgaW4gc291cmNlKSB7IGlmIChPYmplY3QucHJvdG90eXBlLmhhc093blByb3BlcnR5LmNhbGwoc291cmNlLCBrZXkpKSB7IHRhcmdldFtrZXldID0gc291cmNlW2tleV07IH0gfSB9IHJldHVybiB0YXJnZXQ7IH07XG5cdFxuXHR2YXIgSEFTX1RPVUNIID0gX193ZWJwYWNrX3JlcXVpcmVfXyg0KTtcblx0dmFyIE1PVVNFX0xFRlQgPSAwO1xuXHR2YXIgcGl4ZWxSYXRpbyA9IF9fd2VicGFja19yZXF1aXJlX18oNSk7XG5cdHZhciBSZWFjdCA9IF9fd2VicGFja19yZXF1aXJlX18oOCk7XG5cdHZhciBTVFlMRSA9IF9fd2VicGFja19yZXF1aXJlX18oMik7XG5cdHZhciBTdG9yZSA9IF9fd2VicGFja19yZXF1aXJlX18oNyk7XG5cdHZhciBUeXBlcyA9IFJlYWN0LlByb3BUeXBlcztcblx0dmFyIFRBVSA9IE1hdGguUEkgKiAyO1xuXHR2YXIgRXF1YXRpb25zID0gX193ZWJwYWNrX3JlcXVpcmVfXygxKTtcblx0dmFyIFB1cmUgPSBfX3dlYnBhY2tfcmVxdWlyZV9fKDYpO1xuXHRcblx0dmFyIEluayA9IFJlYWN0LmNyZWF0ZUNsYXNzKHtcblx0ICBkaXNwbGF5TmFtZTogJ0luaycsXG5cdFxuXHQgIHNob3VsZENvbXBvbmVudFVwZGF0ZTogUHVyZSxcblx0XG5cdCAgcHJvcFR5cGVzOiB7XG5cdCAgICBiYWNrZ3JvdW5kOiBUeXBlcy5ib29sLFxuXHQgICAgZHVyYXRpb246IFR5cGVzLm51bWJlcixcblx0ICAgIG9wYWNpdHk6IFR5cGVzLm51bWJlcixcblx0ICAgIHJhZGl1czogVHlwZXMubnVtYmVyLFxuXHQgICAgcmVjZW50ZXI6IFR5cGVzLmJvb2wsXG5cdCAgICBoYXNUb3VjaDogVHlwZXMuYm9vbFxuXHQgIH0sXG5cdFxuXHQgIGdldERlZmF1bHRQcm9wczogZnVuY3Rpb24gZ2V0RGVmYXVsdFByb3BzKCkge1xuXHQgICAgcmV0dXJuIHtcblx0ICAgICAgYmFja2dyb3VuZDogdHJ1ZSxcblx0ICAgICAgZHVyYXRpb246IDEwMDAsXG5cdCAgICAgIG9wYWNpdHk6IDAuMjUsXG5cdCAgICAgIHJhZGl1czogMTUwLFxuXHQgICAgICByZWNlbnRlcjogdHJ1ZSxcblx0ICAgICAgaGFzVG91Y2g6IEhBU19UT1VDSFxuXHQgICAgfTtcblx0ICB9LFxuXHRcblx0ICBnZXRJbml0aWFsU3RhdGU6IGZ1bmN0aW9uIGdldEluaXRpYWxTdGF0ZSgpIHtcblx0ICAgIHJldHVybiB7XG5cdCAgICAgIGNvbG9yOiAndHJhbnNwYXJlbnQnLFxuXHQgICAgICBkZW5zaXR5OiAxLFxuXHQgICAgICBoZWlnaHQ6IDAsXG5cdCAgICAgIHN0b3JlOiBTdG9yZSh0aGlzLnRpY2spLFxuXHQgICAgICB0b3VjaEV2ZW50czogdGhpcy50b3VjaEV2ZW50cygpLFxuXHQgICAgICB3aWR0aDogMFxuXHQgICAgfTtcblx0ICB9LFxuXHRcblx0ICB0b3VjaEV2ZW50czogZnVuY3Rpb24gdG91Y2hFdmVudHMoKSB7XG5cdCAgICBpZiAodGhpcy5wcm9wcy5oYXNUb3VjaCkge1xuXHQgICAgICByZXR1cm4ge1xuXHQgICAgICAgIG9uVG91Y2hTdGFydDogdGhpcy5fb25QcmVzcyxcblx0ICAgICAgICBvblRvdWNoRW5kOiB0aGlzLl9vblJlbGVhc2UsXG5cdCAgICAgICAgb25Ub3VjaENhbmNlbDogdGhpcy5fb25SZWxlYXNlLFxuXHQgICAgICAgIG9uVG91Y2hMZWF2ZTogdGhpcy5fb25SZWxlYXNlXG5cdCAgICAgIH07XG5cdCAgICB9IGVsc2Uge1xuXHQgICAgICByZXR1cm4ge1xuXHQgICAgICAgIG9uTW91c2VEb3duOiB0aGlzLl9vblByZXNzLFxuXHQgICAgICAgIG9uTW91c2VVcDogdGhpcy5fb25SZWxlYXNlLFxuXHQgICAgICAgIG9uTW91c2VMZWF2ZTogdGhpcy5fb25SZWxlYXNlXG5cdCAgICAgIH07XG5cdCAgICB9XG5cdCAgfSxcblx0XG5cdCAgdGljazogZnVuY3Rpb24gdGljaygpIHtcblx0ICAgIHZhciBfc3RhdGUgPSB0aGlzLnN0YXRlO1xuXHQgICAgdmFyIGN0eCA9IF9zdGF0ZS5jdHg7XG5cdCAgICB2YXIgY29sb3IgPSBfc3RhdGUuY29sb3I7XG5cdCAgICB2YXIgZGVuc2l0eSA9IF9zdGF0ZS5kZW5zaXR5O1xuXHQgICAgdmFyIGhlaWdodCA9IF9zdGF0ZS5oZWlnaHQ7XG5cdCAgICB2YXIgd2lkdGggPSBfc3RhdGUud2lkdGg7XG5cdCAgICB2YXIgc3RvcmUgPSBfc3RhdGUuc3RvcmU7XG5cdFxuXHQgICAgY3R4LnNhdmUoKTtcblx0XG5cdCAgICBjdHguc2NhbGUoZGVuc2l0eSwgZGVuc2l0eSk7XG5cdFxuXHQgICAgY3R4LmNsZWFyUmVjdCgwLCAwLCB3aWR0aCwgaGVpZ2h0KTtcblx0XG5cdCAgICBjdHguZmlsbFN0eWxlID0gY29sb3I7XG5cdFxuXHQgICAgaWYgKHRoaXMucHJvcHMuYmFja2dyb3VuZCkge1xuXHQgICAgICBjdHguZ2xvYmFsQWxwaGEgPSBzdG9yZS5nZXRUb3RhbE9wYWNpdHkodGhpcy5wcm9wcy5vcGFjaXR5KTtcblx0ICAgICAgY3R4LmZpbGxSZWN0KDAsIDAsIHdpZHRoLCBoZWlnaHQpO1xuXHQgICAgfVxuXHRcblx0ICAgIHN0b3JlLmVhY2godGhpcy5tYWtlQmxvdCwgdGhpcyk7XG5cdFxuXHQgICAgY3R4LnJlc3RvcmUoKTtcblx0ICB9LFxuXHRcblx0ICBtYWtlQmxvdDogZnVuY3Rpb24gbWFrZUJsb3QoYmxvdCkge1xuXHQgICAgdmFyIF9zdGF0ZTIgPSB0aGlzLnN0YXRlO1xuXHQgICAgdmFyIGN0eCA9IF9zdGF0ZTIuY3R4O1xuXHQgICAgdmFyIGhlaWdodCA9IF9zdGF0ZTIuaGVpZ2h0O1xuXHQgICAgdmFyIHdpZHRoID0gX3N0YXRlMi53aWR0aDtcblx0ICAgIHZhciB4ID0gYmxvdC54O1xuXHQgICAgdmFyIHkgPSBibG90Lnk7XG5cdCAgICB2YXIgcmFkaXVzID0gYmxvdC5yYWRpdXM7XG5cdFxuXHQgICAgY3R4Lmdsb2JhbEFscGhhID0gRXF1YXRpb25zLmdldEJsb3RPcGFjaXR5KGJsb3QsIHRoaXMucHJvcHMub3BhY2l0eSk7XG5cdCAgICBjdHguYmVnaW5QYXRoKCk7XG5cdFxuXHQgICAgaWYgKHRoaXMucHJvcHMucmVjZW50ZXIpIHtcblx0ICAgICAgdmFyIHNpemUgPSBNYXRoLm1heChoZWlnaHQsIHdpZHRoKTtcblx0XG5cdCAgICAgIHggKz0gRXF1YXRpb25zLmdldEJsb3RTaGlmdFgoYmxvdCwgc2l6ZSwgd2lkdGgpO1xuXHQgICAgICB5ICs9IEVxdWF0aW9ucy5nZXRCbG90U2hpZnRZKGJsb3QsIHNpemUsIGhlaWdodCk7XG5cdCAgICB9XG5cdFxuXHQgICAgY3R4LmFyYyh4LCB5LCByYWRpdXMgKiBFcXVhdGlvbnMuZ2V0QmxvdFNjYWxlKGJsb3QpLCAwLCBUQVUpO1xuXHRcblx0ICAgIGN0eC5jbG9zZVBhdGgoKTtcblx0ICAgIGN0eC5maWxsKCk7XG5cdCAgfSxcblx0XG5cdCAgY29tcG9uZW50V2lsbFVubW91bnQ6IGZ1bmN0aW9uIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuXHQgICAgdGhpcy5zdGF0ZS5zdG9yZS5zdG9wKCk7XG5cdCAgfSxcblx0XG5cdCAgcHVzaEJsb3Q6IGZ1bmN0aW9uIHB1c2hCbG90KHRpbWVTdGFtcCwgY2xpZW50WCwgY2xpZW50WSkge1xuXHQgICAgdmFyIF90aGlzID0gdGhpcztcblx0XG5cdCAgICB2YXIgZWwgPSB0aGlzLnJlZnMuY2FudmFzO1xuXHRcblx0ICAgIC8vIDAuMTMgc3VwcG9ydFxuXHQgICAgaWYgKGVsIGluc3RhbmNlb2Ygd2luZG93LkhUTUxDYW52YXNFbGVtZW50ID09PSBmYWxzZSkge1xuXHQgICAgICBlbCA9IGVsLmdldERPTU5vZGUoKTtcblx0ICAgIH1cblx0XG5cdCAgICB2YXIgX2VsJGdldEJvdW5kaW5nQ2xpZW50UmVjdCA9IGVsLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpO1xuXHRcblx0ICAgIHZhciB0b3AgPSBfZWwkZ2V0Qm91bmRpbmdDbGllbnRSZWN0LnRvcDtcblx0ICAgIHZhciBib3R0b20gPSBfZWwkZ2V0Qm91bmRpbmdDbGllbnRSZWN0LmJvdHRvbTtcblx0ICAgIHZhciBsZWZ0ID0gX2VsJGdldEJvdW5kaW5nQ2xpZW50UmVjdC5sZWZ0O1xuXHQgICAgdmFyIHJpZ2h0ID0gX2VsJGdldEJvdW5kaW5nQ2xpZW50UmVjdC5yaWdodDtcblx0XG5cdCAgICB2YXIgX3dpbmRvdyRnZXRDb21wdXRlZFN0eWxlID0gd2luZG93LmdldENvbXB1dGVkU3R5bGUoZWwpO1xuXHRcblx0ICAgIHZhciBjb2xvciA9IF93aW5kb3ckZ2V0Q29tcHV0ZWRTdHlsZS5jb2xvcjtcblx0XG5cdCAgICB2YXIgY3R4ID0gdGhpcy5zdGF0ZS5jdHggfHwgZWwuZ2V0Q29udGV4dCgnMmQnKTtcblx0ICAgIHZhciBkZW5zaXR5ID0gcGl4ZWxSYXRpbyhjdHgpO1xuXHQgICAgdmFyIGhlaWdodCA9IGJvdHRvbSAtIHRvcDtcblx0ICAgIHZhciB3aWR0aCA9IHJpZ2h0IC0gbGVmdDtcblx0ICAgIHZhciByYWRpdXMgPSBFcXVhdGlvbnMuZ2V0TWF4UmFkaXVzKGhlaWdodCwgd2lkdGgsIHRoaXMucHJvcHMucmFkaXVzKTtcblx0XG5cdCAgICB0aGlzLnNldFN0YXRlKHsgY29sb3I6IGNvbG9yLCBjdHg6IGN0eCwgZGVuc2l0eTogZGVuc2l0eSwgaGVpZ2h0OiBoZWlnaHQsIHdpZHRoOiB3aWR0aCB9LCBmdW5jdGlvbiAoKSB7XG5cdCAgICAgIF90aGlzLnN0YXRlLnN0b3JlLmFkZCh7XG5cdCAgICAgICAgZHVyYXRpb246IF90aGlzLnByb3BzLmR1cmF0aW9uLFxuXHQgICAgICAgIG1vdXNlRG93bjogdGltZVN0YW1wLFxuXHQgICAgICAgIG1vdXNlVXA6IDAsXG5cdCAgICAgICAgcmFkaXVzOiByYWRpdXMsXG5cdCAgICAgICAgeDogY2xpZW50WCAtIGxlZnQsXG5cdCAgICAgICAgeTogY2xpZW50WSAtIHRvcFxuXHQgICAgICB9KTtcblx0ICAgIH0pO1xuXHQgIH0sXG5cdFxuXHQgIHJlbmRlcjogZnVuY3Rpb24gcmVuZGVyKCkge1xuXHQgICAgdmFyIF9zdGF0ZTMgPSB0aGlzLnN0YXRlO1xuXHQgICAgdmFyIGRlbnNpdHkgPSBfc3RhdGUzLmRlbnNpdHk7XG5cdCAgICB2YXIgaGVpZ2h0ID0gX3N0YXRlMy5oZWlnaHQ7XG5cdCAgICB2YXIgd2lkdGggPSBfc3RhdGUzLndpZHRoO1xuXHQgICAgdmFyIHRvdWNoRXZlbnRzID0gX3N0YXRlMy50b3VjaEV2ZW50cztcblx0XG5cdCAgICByZXR1cm4gUmVhY3QuY3JlYXRlRWxlbWVudCgnY2FudmFzJywgX2V4dGVuZHMoeyBjbGFzc05hbWU6ICdpbmsnLFxuXHQgICAgICByZWY6ICdjYW52YXMnLFxuXHQgICAgICBzdHlsZTogX2V4dGVuZHMoe30sIFNUWUxFLCB0aGlzLnByb3BzLnN0eWxlKSxcblx0ICAgICAgaGVpZ2h0OiBoZWlnaHQgKiBkZW5zaXR5LFxuXHQgICAgICB3aWR0aDogd2lkdGggKiBkZW5zaXR5LFxuXHQgICAgICBvbkRyYWdPdmVyOiB0aGlzLl9vblJlbGVhc2Vcblx0ICAgIH0sIHRvdWNoRXZlbnRzKSk7XG5cdCAgfSxcblx0XG5cdCAgX29uUHJlc3M6IGZ1bmN0aW9uIF9vblByZXNzKGUpIHtcblx0ICAgIHZhciBidXR0b24gPSBlLmJ1dHRvbjtcblx0ICAgIHZhciBjdHJsS2V5ID0gZS5jdHJsS2V5O1xuXHQgICAgdmFyIGNsaWVudFggPSBlLmNsaWVudFg7XG5cdCAgICB2YXIgY2xpZW50WSA9IGUuY2xpZW50WTtcblx0ICAgIHZhciBjaGFuZ2VkVG91Y2hlcyA9IGUuY2hhbmdlZFRvdWNoZXM7XG5cdFxuXHQgICAgdmFyIHRpbWVTdGFtcCA9IERhdGUubm93KCk7XG5cdFxuXHQgICAgaWYgKGNoYW5nZWRUb3VjaGVzKSB7XG5cdCAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgY2hhbmdlZFRvdWNoZXMubGVuZ3RoOyBpKyspIHtcblx0ICAgICAgICB2YXIgX2NoYW5nZWRUb3VjaGVzJGkgPSBjaGFuZ2VkVG91Y2hlc1tpXTtcblx0ICAgICAgICB2YXIgX2NsaWVudFggPSBfY2hhbmdlZFRvdWNoZXMkaS5jbGllbnRYO1xuXHQgICAgICAgIHZhciBfY2xpZW50WSA9IF9jaGFuZ2VkVG91Y2hlcyRpLmNsaWVudFk7XG5cdFxuXHQgICAgICAgIHRoaXMucHVzaEJsb3QodGltZVN0YW1wLCBfY2xpZW50WCwgX2NsaWVudFkpO1xuXHQgICAgICB9XG5cdCAgICB9IGVsc2UgaWYgKGJ1dHRvbiA9PT0gTU9VU0VfTEVGVCAmJiAhY3RybEtleSkge1xuXHQgICAgICB0aGlzLnB1c2hCbG90KHRpbWVTdGFtcCwgY2xpZW50WCwgY2xpZW50WSk7XG5cdCAgICB9XG5cdCAgfSxcblx0XG5cdCAgX29uUmVsZWFzZTogZnVuY3Rpb24gX29uUmVsZWFzZSgpIHtcblx0ICAgIHRoaXMuc3RhdGUuc3RvcmUucmVsZWFzZShEYXRlLm5vdygpKTtcblx0ICB9XG5cdH0pO1xuXHRcblx0bW9kdWxlLmV4cG9ydHMgPSBJbms7XG5cbi8qKiovIH0sXG4vKiAxICovXG4vKioqLyBmdW5jdGlvbihtb2R1bGUsIGV4cG9ydHMsIF9fd2VicGFja19yZXF1aXJlX18pIHtcblxuXHQndXNlIHN0cmljdCc7XG5cdFxuXHR2YXIgZWFzaW5nID0gX193ZWJwYWNrX3JlcXVpcmVfXygzKTtcblx0dmFyIFNRUlRfMiA9IE1hdGguc3FydCgyKTtcblx0dmFyIGNvcyA9IE1hdGguY29zO1xuXHR2YXIgbWF4ID0gTWF0aC5tYXg7XG5cdHZhciBtaW4gPSBNYXRoLm1pbjtcblx0XG5cdGZ1bmN0aW9uIGdldFByZXNzKGJsb3QpIHtcblx0ICByZXR1cm4gbWluKGJsb3QuZHVyYXRpb24sIERhdGUubm93KCkgLSBibG90Lm1vdXNlRG93bik7XG5cdH1cblx0XG5cdGZ1bmN0aW9uIGdldFJlbGVhc2UoYmxvdCkge1xuXHQgIHJldHVybiBibG90Lm1vdXNlVXAgPiAwID8gRGF0ZS5ub3coKSAtIGJsb3QubW91c2VVcCA6IDA7XG5cdH1cblx0XG5cdGZ1bmN0aW9uIGdldFJhZGl1cyhibG90KSB7XG5cdCAgdmFyIGR1cmF0aW9uID0gYmxvdC5kdXJhdGlvbjtcblx0ICB2YXIgcmFkaXVzID0gYmxvdC5yYWRpdXM7XG5cdFxuXHQgIHZhciBkb3duID0gZWFzaW5nKGdldFByZXNzKGJsb3QpLCAwLCByYWRpdXMsIGR1cmF0aW9uKSAqIDAuODU7XG5cdCAgdmFyIHVwID0gZWFzaW5nKGdldFJlbGVhc2UoYmxvdCksIDAsIHJhZGl1cywgZHVyYXRpb24pICogMC4xNTtcblx0ICB2YXIgdW5kdWxhdGlvbiA9IHJhZGl1cyAqIDAuMDIgKiBjb3MoRGF0ZS5ub3coKSAvIGR1cmF0aW9uKTtcblx0XG5cdCAgcmV0dXJuIG1heCgwLCBkb3duICsgdXAgKyB1bmR1bGF0aW9uKTtcblx0fVxuXHRcblx0bW9kdWxlLmV4cG9ydHMgPSB7XG5cdFxuXHQgIGdldE1heFJhZGl1czogZnVuY3Rpb24gZ2V0TWF4UmFkaXVzKGhlaWdodCwgd2lkdGgsIHJhZGl1cykge1xuXHQgICAgcmV0dXJuIG1pbihtYXgoaGVpZ2h0LCB3aWR0aCkgKiAwLjUsIHJhZGl1cyk7XG5cdCAgfSxcblx0XG5cdCAgZ2V0QmxvdE9wYWNpdHk6IGZ1bmN0aW9uIGdldEJsb3RPcGFjaXR5KGJsb3QsIG9wYWNpdHkpIHtcblx0ICAgIHJldHVybiBlYXNpbmcoZ2V0UmVsZWFzZShibG90KSwgb3BhY2l0eSwgLW9wYWNpdHksIGJsb3QuZHVyYXRpb24pO1xuXHQgIH0sXG5cdFxuXHQgIGdldEJsb3RPdXRlck9wYWNpdHk6IGZ1bmN0aW9uIGdldEJsb3RPdXRlck9wYWNpdHkoYmxvdCwgb3BhY2l0eSkge1xuXHQgICAgcmV0dXJuIG1pbih0aGlzLmdldEJsb3RPcGFjaXR5KGJsb3QsIG9wYWNpdHkpLCBlYXNpbmcoZ2V0UHJlc3MoYmxvdCksIDAsIDAuMywgYmxvdC5kdXJhdGlvbiAqIDMpKTtcblx0ICB9LFxuXHRcblx0ICBnZXRCbG90U2hpZnRYOiBmdW5jdGlvbiBnZXRCbG90U2hpZnRYKGJsb3QsIHNpemUsIHdpZHRoKSB7XG5cdCAgICByZXR1cm4gbWluKDEsIGdldFJhZGl1cyhibG90KSAvIHNpemUgKiAyIC8gU1FSVF8yKSAqICh3aWR0aCAvIDIgLSBibG90LngpO1xuXHQgIH0sXG5cdFxuXHQgIGdldEJsb3RTaGlmdFk6IGZ1bmN0aW9uIGdldEJsb3RTaGlmdFkoYmxvdCwgc2l6ZSwgaGVpZ2h0KSB7XG5cdCAgICByZXR1cm4gbWluKDEsIGdldFJhZGl1cyhibG90KSAvIHNpemUgKiAyIC8gU1FSVF8yKSAqIChoZWlnaHQgLyAyIC0gYmxvdC55KTtcblx0ICB9LFxuXHRcblx0ICBnZXRCbG90U2NhbGU6IGZ1bmN0aW9uIGdldEJsb3RTY2FsZShibG90KSB7XG5cdCAgICByZXR1cm4gZ2V0UmFkaXVzKGJsb3QpIC8gYmxvdC5yYWRpdXM7XG5cdCAgfVxuXHR9O1xuXG4vKioqLyB9LFxuLyogMiAqL1xuLyoqKi8gZnVuY3Rpb24obW9kdWxlLCBleHBvcnRzKSB7XG5cblx0XCJ1c2Ugc3RyaWN0XCI7XG5cdFxuXHRtb2R1bGUuZXhwb3J0cyA9IHtcblx0ICBib3JkZXJSYWRpdXM6IFwiaW5oZXJpdFwiLFxuXHQgIGhlaWdodDogXCIxMDAlXCIsXG5cdCAgbGVmdDogMCxcblx0ICBwb3NpdGlvbjogXCJhYnNvbHV0ZVwiLFxuXHQgIHRvcDogMCxcblx0ICB3aWR0aDogXCIxMDAlXCJcblx0fTtcblxuLyoqKi8gfSxcbi8qIDMgKi9cbi8qKiovIGZ1bmN0aW9uKG1vZHVsZSwgZXhwb3J0cykge1xuXG5cdC8qKlxuXHQgKiBAdCBpcyB0aGUgY3VycmVudCB0aW1lIChvciBwb3NpdGlvbikgb2YgdGhlIHR3ZWVuLiBUaGlzIGNhbiBiZSBzZWNvbmRzIG9yIGZyYW1lcywgc3RlcHMsIHNlY29uZHMsIG1zLCB3aGF0ZXZlciDigJMgYXMgbG9uZyBhcyB0aGUgdW5pdCBpcyB0aGUgc2FtZSBhcyBpcyB1c2VkIGZvciB0aGUgdG90YWwgdGltZSBbM10uXG5cdCAqIEBiIGlzIHRoZSBiZWdpbm5pbmcgdmFsdWUgb2YgdGhlIHByb3BlcnR5LlxuXHQgKiBAYyBpcyB0aGUgY2hhbmdlIGJldHdlZW4gdGhlIGJlZ2lubmluZyBhbmQgZGVzdGluYXRpb24gdmFsdWUgb2YgdGhlIHByb3BlcnR5LlxuXHQgKiBAZCBpcyB0aGUgdG90YWwgdGltZSBvZiB0aGUgdHdlZW4uXG5cdCAqL1xuXHRcblx0XCJ1c2Ugc3RyaWN0XCI7XG5cdFxuXHRtb2R1bGUuZXhwb3J0cyA9IGZ1bmN0aW9uIGVhc2VPdXRRdWludCh0LCBiLCBjLCBkKSB7XG5cdCAgcmV0dXJuIGMgKiAoKHQgPSB0IC8gZCAtIDEpICogdCAqIHQgKiB0ICogdCArIDEpICsgYjtcblx0fTtcblxuLyoqKi8gfSxcbi8qIDQgKi9cbi8qKiovIGZ1bmN0aW9uKG1vZHVsZSwgZXhwb3J0cykge1xuXG5cdCd1c2Ugc3RyaWN0Jztcblx0XG5cdHZhciBib29sID0gZmFsc2U7XG5cdFxuXHRpZiAodHlwZW9mIHdpbmRvdyAhPT0gJ3VuZGVmaW5lZCcpIHtcblx0ICBib29sID0gJ29udG91Y2hzdGFydCcgaW4gd2luZG93IHx8IHdpbmRvdy5Eb2N1bWVudFRvdWNoICYmIGRvY3VtZW50IGluc3RhbmNlb2YgRG9jdW1lbnRUb3VjaDtcblx0fVxuXHRcblx0bW9kdWxlLmV4cG9ydHMgPSBib29sO1xuXG4vKioqLyB9LFxuLyogNSAqL1xuLyoqKi8gZnVuY3Rpb24obW9kdWxlLCBleHBvcnRzKSB7XG5cblx0Ly8gR29vZCBzdHVmZiBoZXJlOlxuXHQvLyBodHRwOi8vd3d3Lmh0bWw1cm9ja3MuY29tL2VuL3R1dG9yaWFscy9jYW52YXMvaGlkcGkvXG5cdFxuXHRcInVzZSBzdHJpY3RcIjtcblx0XG5cdGV4cG9ydHMuX19lc01vZHVsZSA9IHRydWU7XG5cdFxuXHRleHBvcnRzW1wiZGVmYXVsdFwiXSA9IGZ1bmN0aW9uIChjb250ZXh0KSB7XG5cdCAgICAgICAgICAgICAgICAgICAgICAgIHZhciBkZXZpY2VQaXhlbFJhdGlvID0gd2luZG93LmRldmljZVBpeGVsUmF0aW8gfHwgMTtcblx0ICAgICAgICAgICAgICAgICAgICAgICAgdmFyIGJhY2tpbmdTdG9yZVJhdGlvID0gY29udGV4dC53ZWJraXRCYWNraW5nU3RvcmVQaXhlbFJhdGlvIHx8IGNvbnRleHQubW96QmFja2luZ1N0b3JlUGl4ZWxSYXRpbyB8fCBjb250ZXh0Lm1zQmFja2luZ1N0b3JlUGl4ZWxSYXRpbyB8fCBjb250ZXh0Lm9CYWNraW5nU3RvcmVQaXhlbFJhdGlvIHx8IGNvbnRleHQuYmFja2luZ1N0b3JlUGl4ZWxSYXRpbyB8fCAxO1xuXHRcblx0ICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGRldmljZVBpeGVsUmF0aW8gLyBiYWNraW5nU3RvcmVSYXRpbztcblx0fTtcblx0XG5cdG1vZHVsZS5leHBvcnRzID0gZXhwb3J0c1tcImRlZmF1bHRcIl07XG5cbi8qKiovIH0sXG4vKiA2ICovXG4vKioqLyBmdW5jdGlvbihtb2R1bGUsIGV4cG9ydHMpIHtcblxuXHRcInVzZSBzdHJpY3RcIjtcblx0XG5cdGV4cG9ydHMuX19lc01vZHVsZSA9IHRydWU7XG5cdGV4cG9ydHNbXCJkZWZhdWx0XCJdID0gUHVyZTtcblx0XG5cdGZ1bmN0aW9uIFB1cmUocHJvcHMsIHN0YXRlKSB7XG5cdCAgZm9yICh2YXIgcCBpbiBwcm9wcykge1xuXHQgICAgaWYgKHRoaXMucHJvcHNbcF0gIT09IHByb3BzW3BdKSByZXR1cm4gdHJ1ZTtcblx0ICB9XG5cdFxuXHQgIGZvciAodmFyIHMgaW4gc3RhdGUpIHtcblx0ICAgIGlmICh0aGlzLnN0YXRlW3NdICE9PSBzdGF0ZVtzXSkgcmV0dXJuIHRydWU7XG5cdCAgfVxuXHRcblx0ICByZXR1cm4gZmFsc2U7XG5cdH1cblx0XG5cdG1vZHVsZS5leHBvcnRzID0gZXhwb3J0c1tcImRlZmF1bHRcIl07XG5cbi8qKiovIH0sXG4vKiA3ICovXG4vKioqLyBmdW5jdGlvbihtb2R1bGUsIGV4cG9ydHMsIF9fd2VicGFja19yZXF1aXJlX18pIHtcblxuXHQvKipcblx0ICogSW5rIFN0b3JlXG5cdCAqIEtlZXBzIHRyYWNrIG9mIGNoYW5nZXMgdG8gcmlwcGxlIGVwaWNlbnRlcnNcblx0ICogc28gdGhhdCA8SW5rIC8+IGNhbiBmb2N1cyBvbiByZW5kZXJpbmcgdGhlbS5cblx0ICovXG5cdFxuXHQndXNlIHN0cmljdCc7XG5cdFxuXHR2YXIgRXF1YXRpb25zID0gX193ZWJwYWNrX3JlcXVpcmVfXygxKTtcblx0XG5cdHZhciBraWxsU3RhbGUgPSBmdW5jdGlvbiBraWxsU3RhbGUoX3JlZikge1xuXHQgIHZhciBtb3VzZVVwID0gX3JlZi5tb3VzZVVwO1xuXHQgIHZhciBkdXJhdGlvbiA9IF9yZWYuZHVyYXRpb247XG5cdCAgcmV0dXJuICFtb3VzZVVwIHx8IERhdGUubm93KCkgLSBtb3VzZVVwIDwgZHVyYXRpb247XG5cdH07XG5cdFxuXHRtb2R1bGUuZXhwb3J0cyA9IGZ1bmN0aW9uIChwdWJsaWNpemUpIHtcblx0ICB2YXIgX2RhdGEgPSBbXTtcblx0ICB2YXIgX3BsYXlpbmcgPSBmYWxzZTtcblx0ICB2YXIgX2ZyYW1lID0gdW5kZWZpbmVkO1xuXHRcblx0ICB2YXIgU3RvcmUgPSB7XG5cdFxuXHQgICAgZWFjaDogZnVuY3Rpb24gZWFjaChjYWxsYmFjaywgc2NvcGUpIHtcblx0ICAgICAgZm9yICh2YXIgaSA9IDAsIGwgPSBfZGF0YS5sZW5ndGg7IGkgPCBsOyBpKyspIHtcblx0ICAgICAgICBjYWxsYmFjay5jYWxsKHNjb3BlLCBfZGF0YVtpXSk7XG5cdCAgICAgIH1cblx0ICAgIH0sXG5cdFxuXHQgICAgcGxheTogZnVuY3Rpb24gcGxheSgpIHtcblx0ICAgICAgaWYgKCFfcGxheWluZykge1xuXHQgICAgICAgIF9wbGF5aW5nID0gdHJ1ZTtcblx0ICAgICAgICBTdG9yZS51cGRhdGUoKTtcblx0ICAgICAgfVxuXHQgICAgfSxcblx0XG5cdCAgICBzdG9wOiBmdW5jdGlvbiBzdG9wKCkge1xuXHQgICAgICBfcGxheWluZyA9IGZhbHNlO1xuXHQgICAgICBjYW5jZWxBbmltYXRpb25GcmFtZShfZnJhbWUpO1xuXHQgICAgfSxcblx0XG5cdCAgICBnZXRUb3RhbE9wYWNpdHk6IGZ1bmN0aW9uIGdldFRvdGFsT3BhY2l0eShvcGFjaXR5KSB7XG5cdCAgICAgIHZhciBhbnN3ZXIgPSAwO1xuXHRcblx0ICAgICAgZm9yICh2YXIgaSA9IDAsIGwgPSBfZGF0YS5sZW5ndGg7IGkgPCBsOyBpKyspIHtcblx0ICAgICAgICBhbnN3ZXIgKz0gRXF1YXRpb25zLmdldEJsb3RPdXRlck9wYWNpdHkoX2RhdGFbaV0sIG9wYWNpdHkpO1xuXHQgICAgICB9XG5cdFxuXHQgICAgICByZXR1cm4gYW5zd2VyO1xuXHQgICAgfSxcblx0XG5cdCAgICB1cGRhdGU6IGZ1bmN0aW9uIHVwZGF0ZSgpIHtcblx0ICAgICAgX2RhdGEgPSBfZGF0YS5maWx0ZXIoa2lsbFN0YWxlKTtcblx0XG5cdCAgICAgIGlmIChfZGF0YS5sZW5ndGgpIHtcblx0ICAgICAgICBfZnJhbWUgPSByZXF1ZXN0QW5pbWF0aW9uRnJhbWUoU3RvcmUudXBkYXRlKTtcblx0ICAgICAgICBwdWJsaWNpemUoKTtcblx0ICAgICAgfSBlbHNlIHtcblx0ICAgICAgICBTdG9yZS5zdG9wKCk7XG5cdCAgICAgIH1cblx0ICAgIH0sXG5cdFxuXHQgICAgYWRkOiBmdW5jdGlvbiBhZGQocHJvcHMpIHtcblx0ICAgICAgX2RhdGEucHVzaChwcm9wcyk7XG5cdCAgICAgIFN0b3JlLnBsYXkoKTtcblx0ICAgIH0sXG5cdFxuXHQgICAgcmVsZWFzZTogZnVuY3Rpb24gcmVsZWFzZSh0aW1lKSB7XG5cdCAgICAgIGZvciAodmFyIGkgPSBfZGF0YS5sZW5ndGggLSAxOyBpID49IDA7IGktLSkge1xuXHQgICAgICAgIGlmICghX2RhdGFbaV0ubW91c2VVcCkge1xuXHQgICAgICAgICAgcmV0dXJuIF9kYXRhW2ldLm1vdXNlVXAgPSB0aW1lO1xuXHQgICAgICAgIH1cblx0ICAgICAgfVxuXHQgICAgfVxuXHRcblx0ICB9O1xuXHRcblx0ICByZXR1cm4gU3RvcmU7XG5cdH07XG5cbi8qKiovIH0sXG4vKiA4ICovXG4vKioqLyBmdW5jdGlvbihtb2R1bGUsIGV4cG9ydHMpIHtcblxuXHRtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCJyZWFjdFwiKTtcblxuLyoqKi8gfVxuLyoqKioqKi8gXSk7XG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogaW5rLmpzXG4gKiovIiwiIFx0Ly8gVGhlIG1vZHVsZSBjYWNoZVxuIFx0dmFyIGluc3RhbGxlZE1vZHVsZXMgPSB7fTtcblxuIFx0Ly8gVGhlIHJlcXVpcmUgZnVuY3Rpb25cbiBcdGZ1bmN0aW9uIF9fd2VicGFja19yZXF1aXJlX18obW9kdWxlSWQpIHtcblxuIFx0XHQvLyBDaGVjayBpZiBtb2R1bGUgaXMgaW4gY2FjaGVcbiBcdFx0aWYoaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0pXG4gXHRcdFx0cmV0dXJuIGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdLmV4cG9ydHM7XG5cbiBcdFx0Ly8gQ3JlYXRlIGEgbmV3IG1vZHVsZSAoYW5kIHB1dCBpdCBpbnRvIHRoZSBjYWNoZSlcbiBcdFx0dmFyIG1vZHVsZSA9IGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdID0ge1xuIFx0XHRcdGV4cG9ydHM6IHt9LFxuIFx0XHRcdGlkOiBtb2R1bGVJZCxcbiBcdFx0XHRsb2FkZWQ6IGZhbHNlXG4gXHRcdH07XG5cbiBcdFx0Ly8gRXhlY3V0ZSB0aGUgbW9kdWxlIGZ1bmN0aW9uXG4gXHRcdG1vZHVsZXNbbW9kdWxlSWRdLmNhbGwobW9kdWxlLmV4cG9ydHMsIG1vZHVsZSwgbW9kdWxlLmV4cG9ydHMsIF9fd2VicGFja19yZXF1aXJlX18pO1xuXG4gXHRcdC8vIEZsYWcgdGhlIG1vZHVsZSBhcyBsb2FkZWRcbiBcdFx0bW9kdWxlLmxvYWRlZCA9IHRydWU7XG5cbiBcdFx0Ly8gUmV0dXJuIHRoZSBleHBvcnRzIG9mIHRoZSBtb2R1bGVcbiBcdFx0cmV0dXJuIG1vZHVsZS5leHBvcnRzO1xuIFx0fVxuXG5cbiBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlcyBvYmplY3QgKF9fd2VicGFja19tb2R1bGVzX18pXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLm0gPSBtb2R1bGVzO1xuXG4gXHQvLyBleHBvc2UgdGhlIG1vZHVsZSBjYWNoZVxuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5jID0gaW5zdGFsbGVkTW9kdWxlcztcblxuIFx0Ly8gX193ZWJwYWNrX3B1YmxpY19wYXRoX19cbiBcdF9fd2VicGFja19yZXF1aXJlX18ucCA9IFwiXCI7XG5cbiBcdC8vIExvYWQgZW50cnkgbW9kdWxlIGFuZCByZXR1cm4gZXhwb3J0c1xuIFx0cmV0dXJuIF9fd2VicGFja19yZXF1aXJlX18oMCk7XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiB3ZWJwYWNrL2Jvb3RzdHJhcCBjMjhmMWNkM2E2NzYwNTczMDg2OFxuICoqLyIsIi8qKlxuICogSW5rXG4gKiBGaWxscyBhIGNvbnRhaW5lciB3aXRoIGFuIFNWRyBvYmplY3QgdGhhdCBwcm92aWRlcyBmZWVkYmFjayBvbiBtb3VzZS90b3VjaFxuICogZXZlbnRzIHdpdGggYSByaXBwbGluZyBwb29sLlxuICovXG5cbmxldCBIQVNfVE9VQ0ggID0gcmVxdWlyZSgnLi91dGlsL2hhc1RvdWNoJylcbmxldCBNT1VTRV9MRUZUID0gMFxubGV0IHBpeGVsUmF0aW8gPSByZXF1aXJlKCcuL3V0aWwvcGl4ZWxSYXRpbycpXG5sZXQgUmVhY3QgICAgICA9IHJlcXVpcmUoJ3JlYWN0JylcbmxldCBTVFlMRSAgICAgID0gcmVxdWlyZSgnLi9zdHlsZScpXG5sZXQgU3RvcmUgICAgICA9IHJlcXVpcmUoJy4vdXRpbC9zdG9yZScpXG5sZXQgVHlwZXMgICAgICA9IFJlYWN0LlByb3BUeXBlc1xubGV0IFRBVSAgICAgICAgPSBNYXRoLlBJICogMlxubGV0IEVxdWF0aW9ucyAgPSByZXF1aXJlKCcuL3V0aWwvZXF1YXRpb25zJylcbmxldCBQdXJlICAgICAgID0gcmVxdWlyZSgnLi91dGlsL3B1cmUnKVxuXG5sZXQgSW5rID0gUmVhY3QuY3JlYXRlQ2xhc3Moe1xuXG4gIHNob3VsZENvbXBvbmVudFVwZGF0ZTogUHVyZSxcblxuICBwcm9wVHlwZXM6IHtcbiAgICBiYWNrZ3JvdW5kIDogVHlwZXMuYm9vbCxcbiAgICBkdXJhdGlvbiAgIDogVHlwZXMubnVtYmVyLFxuICAgIG9wYWNpdHkgICAgOiBUeXBlcy5udW1iZXIsXG4gICAgcmFkaXVzICAgICA6IFR5cGVzLm51bWJlcixcbiAgICByZWNlbnRlciAgIDogVHlwZXMuYm9vbCxcbiAgICBoYXNUb3VjaCAgIDogVHlwZXMuYm9vbFxuICB9LFxuXG4gIGdldERlZmF1bHRQcm9wcygpIHtcbiAgICByZXR1cm4ge1xuICAgICAgYmFja2dyb3VuZCA6IHRydWUsXG4gICAgICBkdXJhdGlvbiAgIDogMTAwMCxcbiAgICAgIG9wYWNpdHkgICAgOiAwLjI1LFxuICAgICAgcmFkaXVzICAgICA6IDE1MCxcbiAgICAgIHJlY2VudGVyICAgOiB0cnVlLFxuICAgICAgaGFzVG91Y2ggICA6IEhBU19UT1VDSFxuICAgIH1cbiAgfSxcblxuICBnZXRJbml0aWFsU3RhdGUoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIGNvbG9yICAgICAgIDogJ3RyYW5zcGFyZW50JyxcbiAgICAgIGRlbnNpdHkgICAgIDogMSxcbiAgICAgIGhlaWdodCAgICAgIDogMCxcbiAgICAgIHN0b3JlICAgICAgIDogU3RvcmUodGhpcy50aWNrKSxcbiAgICAgIHRvdWNoRXZlbnRzIDogdGhpcy50b3VjaEV2ZW50cygpLFxuICAgICAgd2lkdGggICAgICAgOiAwXG4gICAgfVxuICB9LFxuXG4gIHRvdWNoRXZlbnRzKCkge1xuICAgIGlmICh0aGlzLnByb3BzLmhhc1RvdWNoKSB7XG4gICAgICByZXR1cm4ge1xuICAgICAgICBvblRvdWNoU3RhcnQgIDogdGhpcy5fb25QcmVzcyxcbiAgICAgICAgb25Ub3VjaEVuZCAgICA6IHRoaXMuX29uUmVsZWFzZSxcbiAgICAgICAgb25Ub3VjaENhbmNlbCA6IHRoaXMuX29uUmVsZWFzZSxcbiAgICAgICAgb25Ub3VjaExlYXZlICA6IHRoaXMuX29uUmVsZWFzZVxuICAgICAgfVxuICAgIH0gZWxzZSB7XG4gICAgICByZXR1cm4ge1xuICAgICAgICBvbk1vdXNlRG93biAgIDogdGhpcy5fb25QcmVzcyxcbiAgICAgICAgb25Nb3VzZVVwICAgICA6IHRoaXMuX29uUmVsZWFzZSxcbiAgICAgICAgb25Nb3VzZUxlYXZlICA6IHRoaXMuX29uUmVsZWFzZVxuICAgICAgfVxuICAgIH1cbiAgfSxcblxuICB0aWNrKCkge1xuICAgIGxldCB7IGN0eCwgY29sb3IsIGRlbnNpdHksIGhlaWdodCwgd2lkdGgsIHN0b3JlIH0gPSB0aGlzLnN0YXRlXG5cbiAgICBjdHguc2F2ZSgpXG5cbiAgICBjdHguc2NhbGUoZGVuc2l0eSwgZGVuc2l0eSlcblxuICAgIGN0eC5jbGVhclJlY3QoMCwgMCwgd2lkdGgsIGhlaWdodClcblxuICAgIGN0eC5maWxsU3R5bGUgPSBjb2xvclxuXG4gICAgaWYgKHRoaXMucHJvcHMuYmFja2dyb3VuZCkge1xuICAgICAgY3R4Lmdsb2JhbEFscGhhID0gc3RvcmUuZ2V0VG90YWxPcGFjaXR5KHRoaXMucHJvcHMub3BhY2l0eSlcbiAgICAgIGN0eC5maWxsUmVjdCgwLCAwLCB3aWR0aCwgaGVpZ2h0KVxuICAgIH1cblxuICAgIHN0b3JlLmVhY2godGhpcy5tYWtlQmxvdCwgdGhpcylcblxuICAgIGN0eC5yZXN0b3JlKClcbiAgfSxcblxuICBtYWtlQmxvdChibG90KSB7XG4gICAgbGV0IHsgY3R4LCBoZWlnaHQsIHdpZHRoIH0gPSB0aGlzLnN0YXRlXG4gICAgbGV0IHsgeCwgeSwgcmFkaXVzIH0gPSBibG90XG5cbiAgICBjdHguZ2xvYmFsQWxwaGEgPSBFcXVhdGlvbnMuZ2V0QmxvdE9wYWNpdHkoYmxvdCwgdGhpcy5wcm9wcy5vcGFjaXR5KVxuICAgIGN0eC5iZWdpblBhdGgoKVxuXG4gICAgaWYgKHRoaXMucHJvcHMucmVjZW50ZXIpIHtcbiAgICAgIGxldCBzaXplID0gTWF0aC5tYXgoaGVpZ2h0LCB3aWR0aClcblxuICAgICAgeCArPSBFcXVhdGlvbnMuZ2V0QmxvdFNoaWZ0WChibG90LCBzaXplLCB3aWR0aClcbiAgICAgIHkgKz0gRXF1YXRpb25zLmdldEJsb3RTaGlmdFkoYmxvdCwgc2l6ZSwgaGVpZ2h0KVxuICAgIH1cblxuICAgIGN0eC5hcmMoeCwgeSwgcmFkaXVzICogRXF1YXRpb25zLmdldEJsb3RTY2FsZShibG90KSwgMCwgVEFVKVxuXG4gICAgY3R4LmNsb3NlUGF0aCgpXG4gICAgY3R4LmZpbGwoKVxuICB9LFxuXG4gIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgIHRoaXMuc3RhdGUuc3RvcmUuc3RvcCgpXG4gIH0sXG5cbiAgcHVzaEJsb3QodGltZVN0YW1wLCBjbGllbnRYLCBjbGllbnRZKSB7XG4gICAgbGV0IGVsID0gdGhpcy5yZWZzLmNhbnZhc1xuXG4gICAgLy8gMC4xMyBzdXBwb3J0XG4gICAgaWYgKGVsIGluc3RhbmNlb2Ygd2luZG93LkhUTUxDYW52YXNFbGVtZW50ID09PSBmYWxzZSkge1xuICAgICAgZWwgPSBlbC5nZXRET01Ob2RlKClcbiAgICB9XG5cbiAgICBsZXQgeyB0b3AsIGJvdHRvbSwgbGVmdCwgcmlnaHQgfSA9IGVsLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpXG4gICAgbGV0IHsgY29sb3IgfSAgICAgICAgICAgICAgICAgICAgPSB3aW5kb3cuZ2V0Q29tcHV0ZWRTdHlsZShlbClcblxuICAgIGxldCBjdHggICAgID0gdGhpcy5zdGF0ZS5jdHggfHwgZWwuZ2V0Q29udGV4dCgnMmQnKTtcbiAgICBsZXQgZGVuc2l0eSA9IHBpeGVsUmF0aW8oY3R4KVxuICAgIGxldCBoZWlnaHQgID0gYm90dG9tIC0gdG9wXG4gICAgbGV0IHdpZHRoICAgPSByaWdodCAtIGxlZnRcbiAgICBsZXQgcmFkaXVzICA9IEVxdWF0aW9ucy5nZXRNYXhSYWRpdXMoaGVpZ2h0LCB3aWR0aCwgdGhpcy5wcm9wcy5yYWRpdXMpXG5cbiAgICB0aGlzLnNldFN0YXRlKHsgY29sb3IsIGN0eCwgZGVuc2l0eSwgaGVpZ2h0LCB3aWR0aCB9LCAoKSA9PiB7XG4gICAgICB0aGlzLnN0YXRlLnN0b3JlLmFkZCh7XG4gICAgICAgIGR1cmF0aW9uICA6IHRoaXMucHJvcHMuZHVyYXRpb24sXG4gICAgICAgIG1vdXNlRG93biA6IHRpbWVTdGFtcCxcbiAgICAgICAgbW91c2VVcCAgIDogMCxcbiAgICAgICAgcmFkaXVzICAgIDogcmFkaXVzLFxuICAgICAgICB4ICAgICAgICAgOiBjbGllbnRYIC0gbGVmdCxcbiAgICAgICAgeSAgICAgICAgIDogY2xpZW50WSAtIHRvcFxuICAgICAgfSlcbiAgICB9KVxuICB9LFxuXG4gIHJlbmRlcigpIHtcbiAgICBsZXQgeyBkZW5zaXR5LCBoZWlnaHQsIHdpZHRoLCB0b3VjaEV2ZW50cyB9ID0gdGhpcy5zdGF0ZVxuXG4gICAgcmV0dXJuIChcbiAgICAgIDxjYW52YXMgY2xhc3NOYW1lPVwiaW5rXCJcbiAgICAgICAgICAgICAgcmVmPVwiY2FudmFzXCJcbiAgICAgICAgICAgICAgc3R5bGU9e3sgLi4uU1RZTEUsIC4uLnRoaXMucHJvcHMuc3R5bGUgfX1cbiAgICAgICAgICAgICAgaGVpZ2h0PXsgaGVpZ2h0ICogZGVuc2l0eSB9XG4gICAgICAgICAgICAgIHdpZHRoPXsgd2lkdGggKiBkZW5zaXR5IH1cbiAgICAgICAgICAgICAgb25EcmFnT3Zlcj17IHRoaXMuX29uUmVsZWFzZSB9XG4gICAgICAgICAgICAgIHsgLi4udG91Y2hFdmVudHMgfSAvPlxuICAgIClcbiAgfSxcblxuICBfb25QcmVzcyhlKSB7XG4gICAgbGV0IHsgYnV0dG9uLCBjdHJsS2V5LCBjbGllbnRYLCBjbGllbnRZLCBjaGFuZ2VkVG91Y2hlcyB9ID0gZVxuICAgIGxldCB0aW1lU3RhbXAgPSBEYXRlLm5vdygpXG5cbiAgICBpZiAoY2hhbmdlZFRvdWNoZXMpIHtcbiAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgY2hhbmdlZFRvdWNoZXMubGVuZ3RoOyBpKyspIHtcbiAgICAgICAgbGV0IHsgY2xpZW50WCwgY2xpZW50WSB9ID0gY2hhbmdlZFRvdWNoZXNbaV1cbiAgICAgICAgdGhpcy5wdXNoQmxvdCh0aW1lU3RhbXAsIGNsaWVudFgsIGNsaWVudFkpXG4gICAgICB9XG4gICAgfSBlbHNlIGlmIChidXR0b24gPT09IE1PVVNFX0xFRlQgJiYgIWN0cmxLZXkpIHtcbiAgICAgIHRoaXMucHVzaEJsb3QodGltZVN0YW1wLCBjbGllbnRYLCBjbGllbnRZKVxuICAgIH1cbiAgfSxcblxuICBfb25SZWxlYXNlKCkge1xuICAgIHRoaXMuc3RhdGUuc3RvcmUucmVsZWFzZShEYXRlLm5vdygpKVxuICB9XG59KVxuXG5tb2R1bGUuZXhwb3J0cyA9IElua1xuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi9zcmMvaW5kZXguanN4XG4gKiovIiwibGV0IGVhc2luZyA9IHJlcXVpcmUoJy4vZWFzaW5nJylcbmxldCBTUVJUXzIgPSBNYXRoLnNxcnQoMilcbmxldCB7IGNvcywgbWF4LCBtaW4gfSA9IE1hdGhcblxuZnVuY3Rpb24gZ2V0UHJlc3MoYmxvdCkge1xuICByZXR1cm4gbWluKGJsb3QuZHVyYXRpb24sIERhdGUubm93KCkgLSBibG90Lm1vdXNlRG93bilcbn1cblxuZnVuY3Rpb24gZ2V0UmVsZWFzZShibG90KSB7XG4gIHJldHVybiBibG90Lm1vdXNlVXAgPiAwID8gRGF0ZS5ub3coKSAtIGJsb3QubW91c2VVcCA6IDBcbn1cblxuZnVuY3Rpb24gZ2V0UmFkaXVzKGJsb3QpIHtcbiAgbGV0IHsgZHVyYXRpb24sIHJhZGl1cyB9ID0gYmxvdFxuXG4gIGxldCBkb3duICAgICAgID0gZWFzaW5nKGdldFByZXNzKGJsb3QpLCAwLCByYWRpdXMsIGR1cmF0aW9uKSAqIDAuODVcbiAgbGV0IHVwICAgICAgICAgPSBlYXNpbmcoZ2V0UmVsZWFzZShibG90KSwgMCwgcmFkaXVzLCBkdXJhdGlvbikgKiAwLjE1XG4gIGxldCB1bmR1bGF0aW9uID0gcmFkaXVzICogMC4wMiAqIGNvcyhEYXRlLm5vdygpIC8gZHVyYXRpb24pXG5cbiAgcmV0dXJuIG1heCgwLCBkb3duICsgdXAgKyB1bmR1bGF0aW9uKVxufVxuXG5tb2R1bGUuZXhwb3J0cyA9IHtcblxuICBnZXRNYXhSYWRpdXMoaGVpZ2h0LCB3aWR0aCwgcmFkaXVzKSB7XG4gICAgcmV0dXJuIG1pbihtYXgoaGVpZ2h0LCB3aWR0aCkgKiAwLjUsIHJhZGl1cylcbiAgfSxcblxuICBnZXRCbG90T3BhY2l0eShibG90LCBvcGFjaXR5KSB7XG4gICAgcmV0dXJuIGVhc2luZyhnZXRSZWxlYXNlKGJsb3QpLCBvcGFjaXR5LCAtb3BhY2l0eSwgYmxvdC5kdXJhdGlvbilcbiAgfSxcblxuICBnZXRCbG90T3V0ZXJPcGFjaXR5KGJsb3QsIG9wYWNpdHkpIHtcbiAgICByZXR1cm4gbWluKHRoaXMuZ2V0QmxvdE9wYWNpdHkoYmxvdCwgb3BhY2l0eSksXG4gICAgICAgICAgICAgICBlYXNpbmcoZ2V0UHJlc3MoYmxvdCksIDAsIDAuMywgYmxvdC5kdXJhdGlvbiAqIDMpKVxuICB9LFxuXG4gIGdldEJsb3RTaGlmdFgoYmxvdCwgc2l6ZSwgd2lkdGgpIHtcbiAgICByZXR1cm4gbWluKDEsXG4gICAgICAgICAgICAgICBnZXRSYWRpdXMoYmxvdCkgLyBzaXplICogMiAvIFNRUlRfMikgKiAod2lkdGggLyAyIC0gYmxvdC54KVxuICB9LFxuXG4gIGdldEJsb3RTaGlmdFkoYmxvdCwgc2l6ZSwgaGVpZ2h0KSB7XG4gICAgcmV0dXJuIG1pbigxLFxuICAgICAgICAgICAgICAgZ2V0UmFkaXVzKGJsb3QpIC8gc2l6ZSAqIDIgLyBTUVJUXzIpICogKGhlaWdodCAvIDIgLSBibG90LnkpXG4gIH0sXG5cbiAgZ2V0QmxvdFNjYWxlKGJsb3QpIHtcbiAgICByZXR1cm4gZ2V0UmFkaXVzKGJsb3QpIC8gYmxvdC5yYWRpdXNcbiAgfVxufVxuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi9zcmMvdXRpbC9lcXVhdGlvbnMuanNcbiAqKi8iLCJtb2R1bGUuZXhwb3J0cyA9IHtcbiAgYm9yZGVyUmFkaXVzOiBcImluaGVyaXRcIixcbiAgaGVpZ2h0OiBcIjEwMCVcIixcbiAgbGVmdDogMCxcbiAgcG9zaXRpb246IFwiYWJzb2x1dGVcIixcbiAgdG9wOiAwLFxuICB3aWR0aDogXCIxMDAlXCJcbn1cblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4vc3JjL3N0eWxlLmpzXG4gKiovIiwiLyoqXG4gKiBAdCBpcyB0aGUgY3VycmVudCB0aW1lIChvciBwb3NpdGlvbikgb2YgdGhlIHR3ZWVuLiBUaGlzIGNhbiBiZSBzZWNvbmRzIG9yIGZyYW1lcywgc3RlcHMsIHNlY29uZHMsIG1zLCB3aGF0ZXZlciDigJMgYXMgbG9uZyBhcyB0aGUgdW5pdCBpcyB0aGUgc2FtZSBhcyBpcyB1c2VkIGZvciB0aGUgdG90YWwgdGltZSBbM10uXG4gKiBAYiBpcyB0aGUgYmVnaW5uaW5nIHZhbHVlIG9mIHRoZSBwcm9wZXJ0eS5cbiAqIEBjIGlzIHRoZSBjaGFuZ2UgYmV0d2VlbiB0aGUgYmVnaW5uaW5nIGFuZCBkZXN0aW5hdGlvbiB2YWx1ZSBvZiB0aGUgcHJvcGVydHkuXG4gKiBAZCBpcyB0aGUgdG90YWwgdGltZSBvZiB0aGUgdHdlZW4uXG4gKi9cblxubW9kdWxlLmV4cG9ydHMgPSBmdW5jdGlvbiBlYXNlT3V0UXVpbnQgKHQsIGIsIGMsIGQpIHtcbiAgcmV0dXJuIGMqKCh0PXQvZC0xKSp0KnQqdCp0ICsgMSkgKyBiXG59XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuL3NyYy91dGlsL2Vhc2luZy5qc1xuICoqLyIsInZhciBib29sID0gZmFsc2VcblxuaWYgKHR5cGVvZiB3aW5kb3cgIT09ICd1bmRlZmluZWQnKSB7XG4gIGJvb2wgPSAoJ29udG91Y2hzdGFydCcgaW4gd2luZG93KSB8fCB3aW5kb3cuRG9jdW1lbnRUb3VjaCAmJiBkb2N1bWVudCBpbnN0YW5jZW9mIERvY3VtZW50VG91Y2hcbn1cblxubW9kdWxlLmV4cG9ydHMgPSBib29sXG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuL3NyYy91dGlsL2hhc1RvdWNoLmpzXG4gKiovIiwiLy8gR29vZCBzdHVmZiBoZXJlOlxuLy8gaHR0cDovL3d3dy5odG1sNXJvY2tzLmNvbS9lbi90dXRvcmlhbHMvY2FudmFzL2hpZHBpL1xuXG5leHBvcnQgZGVmYXVsdCBjb250ZXh0ID0+IHtcbiAgbGV0IGRldmljZVBpeGVsUmF0aW8gID0gd2luZG93LmRldmljZVBpeGVsUmF0aW8gfHwgMVxuICBsZXQgYmFja2luZ1N0b3JlUmF0aW8gPSBjb250ZXh0LndlYmtpdEJhY2tpbmdTdG9yZVBpeGVsUmF0aW8gfHxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgY29udGV4dC5tb3pCYWNraW5nU3RvcmVQaXhlbFJhdGlvICAgIHx8XG4gICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRleHQubXNCYWNraW5nU3RvcmVQaXhlbFJhdGlvICAgICB8fFxuICAgICAgICAgICAgICAgICAgICAgICAgICBjb250ZXh0Lm9CYWNraW5nU3RvcmVQaXhlbFJhdGlvICAgICAgfHxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgY29udGV4dC5iYWNraW5nU3RvcmVQaXhlbFJhdGlvICAgICAgIHx8IDFcblxuICByZXR1cm4gZGV2aWNlUGl4ZWxSYXRpbyAvIGJhY2tpbmdTdG9yZVJhdGlvXG59XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuL3NyYy91dGlsL3BpeGVsUmF0aW8uanNcbiAqKi8iLCJleHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBQdXJlIChwcm9wcywgc3RhdGUpIHtcbiAgZm9yIChsZXQgcCBpbiBwcm9wcykge1xuICAgIGlmICh0aGlzLnByb3BzW3BdICE9PSBwcm9wc1twXSkgcmV0dXJuIHRydWVcbiAgfVxuXG4gIGZvciAobGV0IHMgaW4gc3RhdGUpIHtcbiAgICBpZiAodGhpcy5zdGF0ZVtzXSAhPT0gc3RhdGVbc10pIHJldHVybiB0cnVlXG4gIH1cblxuICByZXR1cm4gZmFsc2Vcbn1cblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4vc3JjL3V0aWwvcHVyZS5qc1xuICoqLyIsIi8qKlxuICogSW5rIFN0b3JlXG4gKiBLZWVwcyB0cmFjayBvZiBjaGFuZ2VzIHRvIHJpcHBsZSBlcGljZW50ZXJzXG4gKiBzbyB0aGF0IDxJbmsgLz4gY2FuIGZvY3VzIG9uIHJlbmRlcmluZyB0aGVtLlxuICovXG5cbnZhciBFcXVhdGlvbnMgPSByZXF1aXJlKCcuL2VxdWF0aW9ucycpXG5cbmxldCBraWxsU3RhbGUgPSAoeyBtb3VzZVVwLCBkdXJhdGlvbiB9KSA9PiAhbW91c2VVcCB8fCAoRGF0ZS5ub3coKSAtIG1vdXNlVXApIDwgZHVyYXRpb25cblxubW9kdWxlLmV4cG9ydHMgPSBmdW5jdGlvbihwdWJsaWNpemUpIHtcbiAgbGV0IF9kYXRhICAgID0gW11cbiAgbGV0IF9wbGF5aW5nID0gZmFsc2VcbiAgbGV0IF9mcmFtZVxuXG4gIGxldCBTdG9yZSA9IHtcblxuICAgIGVhY2goY2FsbGJhY2ssIHNjb3BlKSB7XG4gICAgICBmb3IgKHZhciBpID0gMCwgbCA9IF9kYXRhLmxlbmd0aDsgaSA8IGw7IGkrKykge1xuICAgICAgICBjYWxsYmFjay5jYWxsKHNjb3BlLCBfZGF0YVtpXSlcbiAgICAgIH1cbiAgICB9LFxuXG4gICAgcGxheSgpIHtcbiAgICAgIGlmICghX3BsYXlpbmcpIHtcbiAgICAgICAgX3BsYXlpbmcgPSB0cnVlXG4gICAgICAgIFN0b3JlLnVwZGF0ZSgpXG4gICAgICB9XG4gICAgfSxcblxuICAgIHN0b3AoKSB7XG4gICAgICBfcGxheWluZyA9IGZhbHNlO1xuICAgICAgY2FuY2VsQW5pbWF0aW9uRnJhbWUoX2ZyYW1lKVxuICAgIH0sXG5cbiAgICBnZXRUb3RhbE9wYWNpdHkob3BhY2l0eSkge1xuICAgICAgbGV0IGFuc3dlciA9IDBcblxuICAgICAgZm9yICh2YXIgaSA9IDAsIGwgPSBfZGF0YS5sZW5ndGg7IGkgPCBsOyBpKyspIHtcbiAgICAgICAgYW5zd2VyICs9IEVxdWF0aW9ucy5nZXRCbG90T3V0ZXJPcGFjaXR5KF9kYXRhW2ldLCBvcGFjaXR5KVxuICAgICAgfVxuXG4gICAgICByZXR1cm4gYW5zd2VyXG4gICAgfSxcblxuICAgIHVwZGF0ZSgpIHtcbiAgICAgIF9kYXRhID0gX2RhdGEuZmlsdGVyKGtpbGxTdGFsZSlcblxuICAgICAgaWYgKF9kYXRhLmxlbmd0aCkge1xuICAgICAgICBfZnJhbWUgPSByZXF1ZXN0QW5pbWF0aW9uRnJhbWUoU3RvcmUudXBkYXRlKVxuICAgICAgICBwdWJsaWNpemUoKVxuICAgICAgfSBlbHNlIHtcbiAgICAgICAgU3RvcmUuc3RvcCgpXG4gICAgICB9XG4gICAgfSxcblxuICAgIGFkZChwcm9wcykge1xuICAgICAgX2RhdGEucHVzaChwcm9wcylcbiAgICAgIFN0b3JlLnBsYXkoKVxuICAgIH0sXG5cbiAgICByZWxlYXNlKHRpbWUpIHtcbiAgICAgIGZvciAobGV0IGkgPSBfZGF0YS5sZW5ndGggLSAxOyBpID49IDA7IGktLSkge1xuICAgICAgICBpZiAoIV9kYXRhW2ldLm1vdXNlVXApIHtcbiAgICAgICAgICByZXR1cm4gX2RhdGFbaV0ubW91c2VVcCA9IHRpbWVcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cblxuICB9XG5cbiAgcmV0dXJuIFN0b3JlXG59XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuL3NyYy91dGlsL3N0b3JlLmpzXG4gKiovIiwibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwicmVhY3RcIik7XG5cblxuLyoqKioqKioqKioqKioqKioqXG4gKiogV0VCUEFDSyBGT09URVJcbiAqKiBleHRlcm5hbCBcInJlYWN0XCJcbiAqKiBtb2R1bGUgaWQgPSA4XG4gKiogbW9kdWxlIGNodW5rcyA9IDBcbiAqKi8iXSwic291cmNlUm9vdCI6IiJ9
 
 /***/ },
-/* 238 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-	    displayName: "Code",
-	    style: function style() {
-	        return {
-	            display: "block",
-	            whiteSpace: "pre-wrap",
-	            padding: "20px",
-	            color: "darkgrey",
-	            borderLeft: "solid darkgrey 5px"
-	        };
-	    },
-	    render: function render() {
-	        return _react2.default.createElement("code", {
-	            style: _extends({}, this.style()),
-	            children: this.props.children
-	        });
-	    }
-	});
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Code.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-	    displayName: "Hr",
-	    style: function style() {
-	        return _extends({}, this.props.style, {
-	            border: "0px",
-	            height: "1px",
-	            background: "rgba( 0, 0, 0, .1 )"
-	        });
-	    },
-	    render: function render() {
-	        return _react2.default.createElement("hr", { style: this.style() });
-	    }
-	});
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Hr.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 240 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactInk = __webpack_require__(237);
-
-	var _reactInk2 = _interopRequireDefault(_reactInk);
-
-	var _radium = __webpack_require__(174);
-
-	var _radium2 = _interopRequireDefault(_radium);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var ActionList = _react2.default.createClass({
-	    displayName: 'ActionList',
-	    render: function render() {
-
-	        var style = {
-	            list: {
-	                padding: "6px 0px"
-	            },
-	            listItem: {
-	                cursor: "pointer",
-	                display: "block",
-	                padding: "10px 14px",
-	                textDecoration: "none",
-	                color: "#444444",
-	                ':hover': {
-	                    background: "rgba(0,0,0,.1)"
-	                }
-	            }
-	        };
-
-	        var List = this.props.list.map(function (option, i) {
-	            if (option.href) {
-	                return _react2.default.createElement(
-	                    'li',
-	                    {
-	                        key: i,
-	                        style: {
-	                            listStyle: "none",
-	                            position: "relative"
-	                        }
-	                    },
-	                    _react2.default.createElement(
-	                        'a',
-	                        {
-	                            key: option.href,
-	                            style: style.listItem,
-	                            href: option.href
-	                        },
-	                        option.label,
-	                        _react2.default.createElement(_reactInk2.default, null)
-	                    )
-	                );
-	            }
-
-	            return _react2.default.createElement(
-	                'li',
-	                { style: [style.listItem, { listStyle: "none" }] },
-	                ' ',
-	                option.label,
-	                ' '
-	            );
-	        });
-	        return _react2.default.createElement(
-	            'ul',
-	            { style: style.list },
-	            List
-	        );
-	    }
-	});
-
-	exports.default = (0, _radium2.default)(ActionList);
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ActionList.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 241 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -26255,907 +26065,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _VerticalMenu = __webpack_require__(242);
+	var _utils = __webpack_require__(237);
 
-	var _VerticalMenu2 = _interopRequireDefault(_VerticalMenu);
-
-	var _Hr = __webpack_require__(239);
-
-	var _Hr2 = _interopRequireDefault(_Hr);
-
-	var _styles = __webpack_require__(234);
-
-	var _styles2 = _interopRequireDefault(_styles);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-	    displayName: 'MediaCard',
-	    onExpand: function onExpand() {
-	        this.props.onExpand();
-	        var scrollAmount = this.props.isExpanded ? -50 : 50;
-	        window.scrollBy(0, scrollAmount);
-	    },
-	    render: function render() {
-	        var shadow = _styles2.default.boxShadow.li;
-	        var detailWidth = "";
-	        var detailPadding = "0 50px 0 0";
-	        var titleMarg = "";
-	        var openStyle = {};
-	        var HeaderRule = null;
-
-	        if (this.props.isExpanded) {
-	            shadow = _styles2.default.boxShadow.lg;
-	            detailWidth = "100%";
-	            detailPadding = "0";
-	            titleMarg = "20px";
-	            openStyle = { margin: "50px -20px" };
-	            HeaderRule = _react2.default.createElement(_Hr2.default, { style: { margin: "0 -20px 20px" } });
-	        }
-
-	        var headerIcons = function headerIcons(icon) {
-	            return _react2.default.createElement(
-	                'div',
-	                { style: { float: "right", marginLeft: "5px" } },
-	                icon
-	            );
-	        };
-
-	        return _react2.default.createElement(
-	            'div',
-	            {
-	                style: _extends({}, openStyle, {
-	                    position: "relative",
-	                    transition: "all ease .1s",
-	                    cursor: "pointer",
-	                    background: "white",
-	                    padding: "20px"
-	                }, shadow),
-	                onClick: this.onExpand
-	            },
-	            _react2.default.createElement(
-	                'div',
-	                {
-	                    style: {
-	                        padding: detailPadding,
-	                        display: "flex",
-	                        flexFlow: "row wrap"
-	                    }
-	                },
-	                _react2.default.createElement(
-	                    'div',
-	                    { style: {
-	                            position: "relative",
-	                            marginRight: "10px",
-	                            alignSelf: "flex-start"
-	                        }
-	                    },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { style: {
-	                                borderRadius: "50%",
-	                                overflow: "hidden"
-	                            }
-	                        },
-	                        this.props.image
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    {
-	                        style: {
-	                            flex: "0 300px",
-	                            marginBottom: '' + titleMarg
-	                        }
-	                    },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { style: _extends({}, _styles2.default.t.body2, {
-	                                color: this.props.color
-	                            })
-	                        },
-	                        this.props.title
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { style: _extends({}, _styles2.default.t.caption)
-	                        },
-	                        this.props.subTitle
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        null,
-	                        this.props.titleInfo
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    {
-	                        style: _extends({
-	                            flex: '1 0 ' + detailWidth
-	                        }, _styles2.default.t.body1)
-	                    },
-	                    HeaderRule,
-	                    this.props.detail
-	                )
-	            ),
-	            _react2.default.createElement(
-	                'div',
-	                {
-	                    style: {
-	                        position: "absolute",
-	                        right: "10px",
-	                        top: "10px"
-	                    }
-	                },
-	                _react2.default.createElement(_VerticalMenu2.default, {
-	                    menuItemList: this.props.contextualMenu
-	                })
-	            )
-	        );
-	    }
-	});
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MediaCard.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _radium = __webpack_require__(174);
-
-	var _radium2 = _interopRequireDefault(_radium);
-
-	var _icons = __webpack_require__(243);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var VerticalMenu = _react2.default.createClass({
-	    displayName: 'VerticalMenu',
-	    getInitialState: function getInitialState() {
-	        return {
-	            isOpen: false
-	        };
-	    },
-
-
-	    componentDidMount: function componentDidMount() {
-	        document.addEventListener('click', this.handleDocumentClick, false);
-	    },
-
-	    componentWillUnmount: function componentWillUnmount() {
-	        document.removeEventListener('click', this.handleDocumentClick, false);
-	    },
-
-	    handleDocumentClick: function handleDocumentClick(e) {
-	        var menu = this.refs.root;
-	        if (!menu.contains(e.target) && this.state.isOpen) {
-	            this.setState({ isOpen: false });
-	        }
-	    },
-
-	    onTouch: function onTouch(e) {
-	        e.stopPropagation();
-	        e.preventDefault();
-	        var isOpen = this.state.isOpen ? false : true;
-	        this.setState({
-	            isOpen: isOpen
-	        });
-	    },
-	    onSelectOption: function onSelectOption(action, e) {
-	        e.stopPropagation();
-	        e.preventDefault();
-	        action();
-	        var isOpen = this.state.isOpen ? false : true;
-	        this.setState({
-	            isOpen: isOpen
-	        });
-	    },
-	    renderMenuItem: function renderMenuItem(item, i) {
-	        return _react2.default.createElement(
-	            'li',
-	            {
-	                key: i,
-	                style: {
-	                    display: "block",
-	                    padding: "10px 14px",
-	                    listStyle: "none",
-	                    ':hover': {
-	                        background: "#EFEFEF"
-	                    }
-	                },
-	                onClick: this.onSelectOption.bind(this, item.action)
-	            },
-	            item.render
-	        );
-	    },
-	    render: function render() {
-	        var menuItemList = this.props.menuItemList.map(this.renderMenuItem);
-	        var showList = this.state.isOpen ? "block" : "none";
-	        var openMenuStyle = this.state.isOpen ? {
-	            background: "#EFEFEF",
-	            color: "black"
-	        } : { color: "grey" };
-
-	        return _react2.default.createElement(
-	            'div',
-	            { ref: 'root' },
-	            _react2.default.createElement(
-	                'div',
-	                {
-	                    style: _extends({}, openMenuStyle, {
-	                        cursor: "pointer",
-	                        display: "flex",
-	                        alignItems: "center",
-	                        justifyContent: "center",
-	                        fontSize: "17px",
-	                        borderRadius: "50%",
-	                        height: "35px",
-	                        width: "35px"
-	                    }),
-	                    onClick: this.onTouch
-	                },
-	                _react2.default.createElement(_icons.VerticalMenuIcon, { size: 24, style: { top: "0px" } })
-	            ),
-	            _react2.default.createElement(
-	                'ul',
-	                {
-	                    style: {
-	                        display: showList,
-	                        width: "200px",
-	                        position: "absolute",
-	                        background: "white",
-	                        right: "40px",
-	                        top: "0px",
-	                        padding: "6px 0px",
-	                        zIndex: "200",
-	                        boxShadow: "0px -1px 0 #e5e5e5, 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.24)"
-	                    }
-	                },
-	                menuItemList
-	            )
-	        );
-	    }
-	});
-
-	exports.default = (0, _radium2.default)(VerticalMenu);
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "VerticalMenu.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 243 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _GithubIcon = __webpack_require__(244);
-
-	Object.defineProperty(exports, 'GithubIcon', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_GithubIcon).default;
-	  }
-	});
-
-	var _WarningIcon = __webpack_require__(246);
-
-	Object.defineProperty(exports, 'WarningIcon', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_WarningIcon).default;
-	  }
-	});
-
-	var _CyverseLogo = __webpack_require__(247);
-
-	Object.defineProperty(exports, 'CyverseLogo', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_CyverseLogo).default;
-	  }
-	});
-
-	var _VerticalMenuIcon = __webpack_require__(248);
-
-	Object.defineProperty(exports, 'VerticalMenuIcon', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_VerticalMenuIcon).default;
-	  }
-	});
-
-	var _PersonIcon = __webpack_require__(249);
-
-	Object.defineProperty(exports, 'PersonIcon', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_PersonIcon).default;
-	  }
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _IconBase = __webpack_require__(245);
-
-	var _IconBase2 = _interopRequireDefault(_IconBase);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Github = function (_React$Component) {
-	    _inherits(Github, _React$Component);
-
-	    function Github() {
-	        _classCallCheck(this, Github);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Github).apply(this, arguments));
-	    }
-
-	    _createClass(Github, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _IconBase2.default,
-	                _extends({ viewBox: '0 0 40 40' }, this.props),
-	                _react2.default.createElement(
-	                    'g',
-	                    null,
-	                    _react2.default.createElement('path', { d: 'm20.1 2.9q4.7 0 8.6 2.3t6.3 6.2 2.3 8.6q0 5.6-3.3 10.1t-8.4 6.2q-0.6 0.1-0.9-0.2t-0.3-0.7q0 0 0-1.7t0-3q0-2.1-1.2-3.1 1.3-0.2 2.3-0.4t2.1-0.9 1.8-1.5 1.2-2.3 0.5-3.4q0-2.7-1.8-4.6 0.8-2-0.2-4.5-0.6-0.2-1.8 0.2t-2 1l-0.9 0.5q-2-0.6-4.3-0.6t-4.2 0.6q-0.4-0.2-1-0.6t-1.9-0.8-1.9-0.3q-1 2.5-0.1 4.5-1.8 1.9-1.8 4.6 0 1.9 0.5 3.4t1.1 2.3 1.8 1.5 2.1 0.9 2.3 0.4q-0.9 0.8-1.1 2.3-0.4 0.2-1 0.3t-1.3 0.1-1.4-0.5-1.3-1.4q-0.4-0.7-1-1.1t-1.1-0.6l-0.5 0q-0.5 0-0.6 0.1t-0.1 0.2 0.2 0.3 0.2 0.3l0.2 0.1q0.5 0.2 1 0.9t0.7 1.1l0.2 0.5q0.3 0.9 1 1.4t1.5 0.7 1.5 0.1 1.3-0.1l0.5 0q0 0.8 0 1.9t0 1.2q0 0.5-0.3 0.7t-0.9 0.2q-5.2-1.7-8.4-6.2t-3.3-10.1q0-4.7 2.3-8.6t6.2-6.2 8.6-2.3z m-10.6 24.6q0.1-0.2-0.2-0.3-0.2-0.1-0.2 0.1-0.1 0.1 0.1 0.2 0.2 0.2 0.3 0z m0.7 0.7q0.1-0.1-0.1-0.3-0.2-0.2-0.3-0.1-0.2 0.1 0 0.4 0.3 0.2 0.4 0z m0.7 1q0.2-0.1 0-0.4-0.2-0.3-0.4-0.1-0.2 0.1 0 0.4t0.4 0.1z m0.9 1q0.2-0.2-0.1-0.4-0.3-0.3-0.4-0.1-0.2 0.2 0 0.4 0.3 0.3 0.5 0.1z m1.3 0.5q0-0.2-0.3-0.3-0.4-0.1-0.4 0.1t0.2 0.4q0.4 0.1 0.5-0.2z m1.4 0.1q0-0.2-0.4-0.2-0.4 0-0.4 0.2 0 0.3 0.4 0.3 0.4 0 0.4-0.3z m1.3-0.2q-0.1-0.2-0.4-0.2-0.4 0.1-0.3 0.4t0.4 0.1 0.3-0.3z' })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Github;
-	}(_react2.default.Component);
-
-	exports.default = Github;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "GithubIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	var defaultSize = '1em';
-
-	var IconBase = function IconBase(_ref, _ref2) {
-	    var children = _ref.children;
-	    var size = _ref.size;
-	    var style = _ref.style;
-
-	    var props = _objectWithoutProperties(_ref, ['children', 'size', 'style']);
-
-	    var reactIconBase = _ref2.reactIconBase;
-
-	    var computedSize = size ? size : reactIconBase && reactIconBase.size || defaultSize;
-	    var computedStyle = _extends({
-	        verticalAlign: "middle"
-	    }, reactIconBase && reactIconBase.style || {}, style);
-	    return _react2.default.createElement(
-	        'svg',
-	        _extends({
-	            fill: 'currentColor',
-	            fit: true,
-	            preserveAspectRatio: 'xMidYMid meet',
-	            height: computedSize,
-	            width: computedSize
-	        }, reactIconBase, props, {
-	            style: computedStyle
-	        }),
-	        children
-	    );
-	};
-
-	IconBase.contextTypes = {
-	    reactIconBase: _react.PropTypes.object
-	};
-
-	IconBase.propTypes = {
-	    size: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
-	    style: _react.PropTypes.object
-	};
-
-	exports.default = IconBase;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "IconBase.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 246 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _IconBase = __webpack_require__(245);
-
-	var _IconBase2 = _interopRequireDefault(_IconBase);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Warning = function (_React$Component) {
-	    _inherits(Warning, _React$Component);
-
-	    function Warning() {
-	        _classCallCheck(this, Warning);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Warning).apply(this, arguments));
-	    }
-
-	    _createClass(Warning, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _IconBase2.default,
-	                _extends({ viewBox: '0 0 24 24' }, this.props),
-	                _react2.default.createElement('path', { xmlns: 'http://www.w3.org/2000/svg', d: 'M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z' })
-	            );
-	        }
-	    }]);
-
-	    return Warning;
-	}(_react2.default.Component);
-
-	exports.default = Warning;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "WarningIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 247 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _IconBase = __webpack_require__(245);
-
-	var _IconBase2 = _interopRequireDefault(_IconBase);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Github = function (_React$Component) {
-	    _inherits(Github, _React$Component);
-
-	    function Github() {
-	        _classCallCheck(this, Github);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Github).apply(this, arguments));
-	    }
-
-	    _createClass(Github, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _IconBase2.default,
-	                _extends({ viewBox: '0 0 40 40' }, this.props),
-	                _react2.default.createElement(
-	                    'g',
-	                    null,
-	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M90.35,37.62c-15.84-3.18-37-1.32-49.6,11.59C35.42,54.69,31.34,60.62,30.21,69c-0.39,2.91-2.4-.32-2.4-5.77,0-2.19,1.84-7.39,3-10.14,4.53-10.6,22.27-24.41,59.52-15.47', transform: 'translate(-27.82 -20.99)' }),
-	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M88.31,101.22c4.22-.74,5-4.48,3.19-5.63a4,4,0,0,0-2.7-.31C54.25,98.83,35.12,85.2,30.77,72c-0.47-1.44-2.18-7-2.88-9.92C27,86.91,54,107.21,88.31,101.22', transform: 'translate(-27.82 -20.99)' }),
-	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M82.77,29.7c-11.51-2.39-49.19,3-53.22,21.87a22.19,22.19,0,0,0-.93,5.73c0.09-1.37.16-2.43,0.23-3.33,0.2-1.78.45-3.79,0.77-5.55,0.08-.43.18-0.9,0.29-1.42h0l0.44-1.78v0h0c0.06-.21.11-0.41,0.18-0.62a31,31,0,0,1,3.33-6.94c2-3.33,16.51-14.89,48.89-7.92', transform: 'translate(-27.82 -20.99)' }),
-	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M29.89,46.52c-0.4,2.21-.65,3.61-0.83,4.86-0.09.67-.16,1.34-0.23,2a17.79,17.79,0,0,0-.21,3.55C31.13,88.57,83,95.35,112.81,83.38c4.53-1.82,3.85-7.72,1.24-8.18a3.85,3.85,0,0,0-2,.41C72.58,90.18,28.22,78.48,29.62,51.28a32.82,32.82,0,0,1,.69-6.56Z', transform: 'translate(-27.82 -20.99)' }),
-	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M34.55,34.33c1-1.57,2.46-3.59,3.56-5.1,0.78-1,1.44-1.76,2.19-2.54C49,17.57,64,21.58,71.08,23.86c-8.92-1.13-25.39-4-36.53,10.48', transform: 'translate(-27.82 -20.99)' }),
-	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M37.46,30.05c-0.94,1.34-2.15,3.08-3.09,4.55-0.38.63-.76,1.3-1.13,2-5.56,10.86-1.5,23.19,12.1,31.59C64.45,80,95.2,79.57,114,67.23a36.54,36.54,0,0,0,8.73-7.8c2.16-3.55-.89-7.95-2.59-7.87a2.34,2.34,0,0,0-1.3.63,33.33,33.33,0,0,1-8,7.12c-17.16,11.25-45.21,11.63-62.66.85-14.39-8.89-17.07-22.6-7.93-33.45l-0.09.1c-1,1.09-2,2.24-2.74,3.25', transform: 'translate(-27.82 -20.99)' }),
-	                    'i',
-	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M173.25,71.93a14.78,14.78,0,0,1-10.41,4.29c-9,0-15.13-7.44-15.13-16.33s6.18-16.4,15.13-16.4a14.78,14.78,0,0,1,10.41,4.29l2-2.77s-4-4.92-12.49-4.92c-11.1,0-18.79,8.58-18.79,19.8s7.69,19.74,18.79,19.74c8.45,0,12.49-5,12.49-5Zm22.54-13.24L194.66,61h-0.19l-1.07-2.27L182.86,40.9h-4.22L192.7,64.17V78.74h3.59V64.17L210.36,40.9H206.2Zm32.5,20.05h6.31L250.11,40.9h-6.56L231.45,71.55l-12-30.65h-6.62Zm51.12-21.82H261.83V46.45h20.68V40.9H255.58V78.74h26.93V73.19H261.83v-11h17.59v-5.3Zm10.89-16V78.74h6.24V66.25h9l9,12.49h6.87V77.85l-9.08-12.3V65.24a11.79,11.79,0,0,0,8-11.67c0-7.88-5.61-12.67-14.5-12.67H290.31ZM313.9,53.64c0,4.79-3.34,7.06-7.95,7.06h-9.4V46.45h9c5,0,8.32,2.33,8.32,7.19m12.4,21.25s4.6,4.73,14.31,4.73c9.46,0,14.06-5,14.06-11.48,0-5.86-3.66-9.21-12.8-11.79-6.37-1.89-8.39-3.15-8.39-5.74,0-3,2.71-4.73,7-4.73A15.63,15.63,0,0,1,350.26,49l3.41-5.11s-3.78-3.85-13.18-3.85c-9,0-13.87,4.29-13.87,10.78,0,5.93,4.1,8.77,12.55,11.29,6.81,2.08,8.58,3.53,8.58,6.43,0,3.09-2.21,5.23-7.31,5.23a18.25,18.25,0,0,1-10.72-3.66Zm59.64-18H368.34V46.45H389V40.9H362.1V78.74H389V73.19H368.34v-11h17.59v-5.3Z', transform: 'translate(-27.82 -20.99)' }),
-	                    _react2.default.createElement('polygon', { 'class': 'cls-5', points: '362.62 20.21 367.23 20.21 367.23 21.43 365.69 21.43 365.69 25.12 364.17 25.12 364.17 21.43 362.62 21.43 362.62 20.21' }),
-	                    _react2.default.createElement('polygon', { 'class': 'cls-5', points: '367.9 20.21 369.89 20.21 370.66 23.2 371.43 20.21 373.42 20.21 373.42 25.12 372.18 25.12 372.18 21.38 371.22 25.12 370.1 25.12 369.14 21.38 369.14 25.12 367.9 25.12 367.9 20.21' })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Github;
-	}(_react2.default.Component);
-
-	exports.default = Github;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "CyverseLogo.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 248 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _IconBase = __webpack_require__(245);
-
-	var _IconBase2 = _interopRequireDefault(_IconBase);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Github = function (_React$Component) {
-	    _inherits(Github, _React$Component);
-
-	    function Github() {
-	        _classCallCheck(this, Github);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Github).apply(this, arguments));
-	    }
-
-	    _createClass(Github, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _IconBase2.default,
-	                _extends({ viewBox: '0 0 24 24' }, this.props),
-	                _react2.default.createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' }),
-	                _react2.default.createElement('path', { d: 'M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z' })
-	            );
-	        }
-	    }]);
-
-	    return Github;
-	}(_react2.default.Component);
-
-	exports.default = Github;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "VerticalMenuIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 249 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _IconBase = __webpack_require__(245);
-
-	var _IconBase2 = _interopRequireDefault(_IconBase);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var PersonIcon = function (_React$Component) {
-	    _inherits(PersonIcon, _React$Component);
-
-	    function PersonIcon() {
-	        _classCallCheck(this, PersonIcon);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(PersonIcon).apply(this, arguments));
-	    }
-
-	    _createClass(PersonIcon, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _IconBase2.default,
-	                _extends({ viewBox: '0 0 24 24' }, this.props),
-	                _react2.default.createElement('path', { d: 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z' }),
-	                _react2.default.createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' })
-	            );
-	        }
-	    }]);
-
-	    return PersonIcon;
-	}(_react2.default.Component);
-
-	exports.default = PersonIcon;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PersonIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 250 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _radium = __webpack_require__(174);
-
-	var _radium2 = _interopRequireDefault(_radium);
-
-	var _tinycolor = __webpack_require__(236);
-
-	var _tinycolor2 = _interopRequireDefault(_tinycolor);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Button = _react2.default.createClass({
-	    displayName: "Avatar",
-
-	    render: function render() {
-	        var letter = this.props.name[0].toUpperCase();
-	        var size = this.props.size;
-	        var color = this.props.color;
-
-	        return _react2.default.createElement(
-	            "div",
-	            { style: _extends({
-	                    display: "inline-block",
-	                    textAlign: "center",
-	                    width: size + "px",
-	                    height: size + "px",
-	                    borderRadius: "999px",
-	                    background: color,
-	                    fontSize: size * .7 + "px",
-	                    lineHeight: size + 2 + "px",
-	                    color: "rgba(255,255,255,.7)"
-	                }, this.props.style)
-	            },
-	            letter
-	        );
-	    }
-
-	});
-
-	exports.default = (0, _radium2.default)(Button);
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Avatar.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 251 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _styles = __webpack_require__(234);
-
-	var _styles2 = _interopRequireDefault(_styles);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-	    displayName: 'Badge',
-	    render: function render() {
-	        var bg = this.props.color ? { background: this.props.color } : _styles2.default.BgColors.greyXDark;
-
-	        return _react2.default.createElement(
-	            'div',
-	            {
-	                style: _extends({
-	                    display: "inline-block",
-	                    verticalAlign: "middle",
-	                    padding: "3px",
-	                    lineHeight: "74%",
-	                    fontSize: "8px",
-	                    borderRadius: "9999px",
-	                    color: "white"
-	                }, bg)
-	            },
-	            this.props.children
-	        );
-	    }
-	});
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Badge.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 252 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _radium = __webpack_require__(174);
-
-	var _radium2 = _interopRequireDefault(_radium);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var ShowMoreEllipsis = _react2.default.createClass({
-	    displayName: 'ShowMoreEllipsis',
-
-
-	    render: function render() {
-	        return _react2.default.createElement(
-	            'div',
-	            { style: {
-	                    background: "#EFEFEF",
-	                    borderRadius: "8px",
-	                    padding: "0 3px 12px",
-	                    display: "inline-block",
-	                    lineHeight: "0",
-	                    verticalAlign: "middle",
-	                    fontSize: "22px",
-	                    ':hover': {
-	                        background: "lightgrey"
-	                    }
-	                } },
-	            '...'
-	        );
-	    }
-	});
-
-	exports.default = (0, _radium2.default)(ShowMoreEllipsis);
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ShowMoreEllipsis.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 253 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(162);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _utils = __webpack_require__(254);
-
-	var _reactMotion = __webpack_require__(257);
+	var _reactMotion = __webpack_require__(240);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27172,9 +26084,11 @@
 	        };
 	    },
 	    showTooltip: function showTooltip() {
-	        this.setState({
-	            showTooltip: true
-	        });
+	        if (this.props.message) {
+	            this.setState({
+	                showTooltip: true
+	            });
+	        }
 	    },
 	    hideTooltip: function hideTooltip() {
 	        this.setState({
@@ -27232,6 +26146,7 @@
 	    style: function style() {
 	        return {
 	            content: _extends({}, this.directionStyle(), {
+	                zIndex: "999999999999",
 	                display: "block",
 	                padding: "5px",
 	                background: "black",
@@ -27265,7 +26180,7 @@
 	                    style: {
 	                        x: (0, _reactMotion.spring)(this.state.showTooltip ? 1 : 0, {
 	                            stiffness: 360,
-	                            damping: 16
+	                            damping: 18
 	                        })
 	                    }
 	                },
@@ -27290,7 +26205,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Tooltip.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 254 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -27301,7 +26216,7 @@
 	  value: true
 	});
 
-	var _ClearFix = __webpack_require__(255);
+	var _ClearFix = __webpack_require__(238);
 
 	Object.defineProperty(exports, 'ClearFix', {
 	  enumerable: true,
@@ -27310,7 +26225,7 @@
 	  }
 	});
 
-	var _ButtonGroup = __webpack_require__(256);
+	var _ButtonGroup = __webpack_require__(239);
 
 	Object.defineProperty(exports, 'ButtonGroup', {
 	  enumerable: true,
@@ -27324,7 +26239,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 255 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -27389,7 +26304,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ClearFix.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 256 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -27404,7 +26319,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ClearFix = __webpack_require__(255);
+	var _ClearFix = __webpack_require__(238);
 
 	var _ClearFix2 = _interopRequireDefault(_ClearFix);
 
@@ -27429,7 +26344,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ButtonGroup.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 257 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27438,34 +26353,34 @@
 
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
 
-	var _Motion = __webpack_require__(258);
+	var _Motion = __webpack_require__(241);
 
 	exports.Motion = _interopRequire(_Motion);
 
-	var _StaggeredMotion = __webpack_require__(265);
+	var _StaggeredMotion = __webpack_require__(248);
 
 	exports.StaggeredMotion = _interopRequire(_StaggeredMotion);
 
-	var _TransitionMotion = __webpack_require__(266);
+	var _TransitionMotion = __webpack_require__(249);
 
 	exports.TransitionMotion = _interopRequire(_TransitionMotion);
 
-	var _spring = __webpack_require__(268);
+	var _spring = __webpack_require__(251);
 
 	exports.spring = _interopRequire(_spring);
 
-	var _presets = __webpack_require__(269);
+	var _presets = __webpack_require__(252);
 
 	exports.presets = _interopRequire(_presets);
 
 	// deprecated, dummy warning function
 
-	var _reorderKeys = __webpack_require__(270);
+	var _reorderKeys = __webpack_require__(253);
 
 	exports.reorderKeys = _interopRequire(_reorderKeys);
 
 /***/ },
-/* 258 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27476,27 +26391,27 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _mapToZero = __webpack_require__(259);
+	var _mapToZero = __webpack_require__(242);
 
 	var _mapToZero2 = _interopRequireDefault(_mapToZero);
 
-	var _stripStyle = __webpack_require__(260);
+	var _stripStyle = __webpack_require__(243);
 
 	var _stripStyle2 = _interopRequireDefault(_stripStyle);
 
-	var _stepper3 = __webpack_require__(261);
+	var _stepper3 = __webpack_require__(244);
 
 	var _stepper4 = _interopRequireDefault(_stepper3);
 
-	var _performanceNow = __webpack_require__(262);
+	var _performanceNow = __webpack_require__(245);
 
 	var _performanceNow2 = _interopRequireDefault(_performanceNow);
 
-	var _raf = __webpack_require__(263);
+	var _raf = __webpack_require__(246);
 
 	var _raf2 = _interopRequireDefault(_raf);
 
-	var _shouldStopAnimation = __webpack_require__(264);
+	var _shouldStopAnimation = __webpack_require__(247);
 
 	var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
 
@@ -27711,7 +26626,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 259 */
+/* 242 */
 /***/ function(module, exports) {
 
 	
@@ -27735,7 +26650,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 260 */
+/* 243 */
 /***/ function(module, exports) {
 
 	
@@ -27761,7 +26676,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 261 */
+/* 244 */
 /***/ function(module, exports) {
 
 	
@@ -27809,7 +26724,7 @@
 	// array reference around.
 
 /***/ },
-/* 262 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.7.1
@@ -27848,10 +26763,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 263 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(262)
+	/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(245)
 	  , root = typeof window === 'undefined' ? global : window
 	  , vendors = ['moz', 'webkit']
 	  , suffix = 'AnimationFrame'
@@ -27927,7 +26842,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 264 */
+/* 247 */
 /***/ function(module, exports) {
 
 	
@@ -27963,7 +26878,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 265 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27974,27 +26889,27 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _mapToZero = __webpack_require__(259);
+	var _mapToZero = __webpack_require__(242);
 
 	var _mapToZero2 = _interopRequireDefault(_mapToZero);
 
-	var _stripStyle = __webpack_require__(260);
+	var _stripStyle = __webpack_require__(243);
 
 	var _stripStyle2 = _interopRequireDefault(_stripStyle);
 
-	var _stepper3 = __webpack_require__(261);
+	var _stepper3 = __webpack_require__(244);
 
 	var _stepper4 = _interopRequireDefault(_stepper3);
 
-	var _performanceNow = __webpack_require__(262);
+	var _performanceNow = __webpack_require__(245);
 
 	var _performanceNow2 = _interopRequireDefault(_performanceNow);
 
-	var _raf = __webpack_require__(263);
+	var _raf = __webpack_require__(246);
 
 	var _raf2 = _interopRequireDefault(_raf);
 
-	var _shouldStopAnimation = __webpack_require__(264);
+	var _shouldStopAnimation = __webpack_require__(247);
 
 	var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
 
@@ -28230,7 +27145,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 266 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28241,31 +27156,31 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _mapToZero = __webpack_require__(259);
+	var _mapToZero = __webpack_require__(242);
 
 	var _mapToZero2 = _interopRequireDefault(_mapToZero);
 
-	var _stripStyle = __webpack_require__(260);
+	var _stripStyle = __webpack_require__(243);
 
 	var _stripStyle2 = _interopRequireDefault(_stripStyle);
 
-	var _stepper3 = __webpack_require__(261);
+	var _stepper3 = __webpack_require__(244);
 
 	var _stepper4 = _interopRequireDefault(_stepper3);
 
-	var _mergeDiff = __webpack_require__(267);
+	var _mergeDiff = __webpack_require__(250);
 
 	var _mergeDiff2 = _interopRequireDefault(_mergeDiff);
 
-	var _performanceNow = __webpack_require__(262);
+	var _performanceNow = __webpack_require__(245);
 
 	var _performanceNow2 = _interopRequireDefault(_performanceNow);
 
-	var _raf = __webpack_require__(263);
+	var _raf = __webpack_require__(246);
 
 	var _raf2 = _interopRequireDefault(_raf);
 
-	var _shouldStopAnimation = __webpack_require__(264);
+	var _shouldStopAnimation = __webpack_require__(247);
 
 	var _shouldStopAnimation2 = _interopRequireDefault(_shouldStopAnimation);
 
@@ -28723,7 +27638,7 @@
 	// that you've unmounted but that's still animating. This is where it lives
 
 /***/ },
-/* 267 */
+/* 250 */
 /***/ function(module, exports) {
 
 	
@@ -28836,7 +27751,7 @@
 	// to loop through and find a key's index each time), but I no longer care
 
 /***/ },
-/* 268 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28849,7 +27764,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _presets = __webpack_require__(269);
+	var _presets = __webpack_require__(252);
 
 	var _presets2 = _interopRequireDefault(_presets);
 
@@ -28864,7 +27779,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 269 */
+/* 252 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -28879,7 +27794,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 270 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -28902,6 +27817,1232 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _variables = __webpack_require__(255);
+
+	Object.defineProperty(exports, 'variables', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_variables).default;
+	  }
+	});
+
+	var _styles = __webpack_require__(256);
+
+	Object.defineProperty(exports, 'styles', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_styles).default;
+	  }
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var variables = {
+	    grey: {
+	        xXDark: "#52595E",
+	        xDark: "#58646E",
+	        dark: "#8C9296",
+	        darkMid: "#D1D5D9",
+	        mid: "#C9CED5",
+	        lightMid: "#D8DDE2",
+	        light: "#E5E7EA",
+	        xLight: "#EFF1F2",
+	        xXLight: "#F7F8F8"
+	    }
+	};
+
+	exports.default = variables;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "variables.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _variables = __webpack_require__(255);
+
+	var _variables2 = _interopRequireDefault(_variables);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styleVariables = {
+	    boxShadow: {
+	        sm: {
+	            boxShadow: "0 1px 4px rgba(0, 0, 0, .5)"
+	        },
+
+	        md: {
+	            boxShadow: "0 1px 10px rgba(0, 0, 0, .5)"
+	        },
+
+	        lg: {
+	            boxShadow: "0 5px 15px rgba(0,0,0,.5)"
+	        },
+
+	        li: {
+	            boxShadow: "0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24)"
+	        }
+	    },
+
+	    t: {
+
+	        label: {
+	            display: "block",
+	            fontSize: "12px",
+	            fontWeight: "600",
+	            margin: "0px 0px 8px"
+	        },
+
+	        caption: {
+	            fontSize: "12px",
+	            fontWeight: "400",
+	            color: _variables2.default.grey.dark
+	        },
+
+	        display4: {
+	            fontSize: "112px",
+	            fontWeight: "300"
+	        },
+
+	        display3: {
+	            fontSize: "56px",
+	            fontWeight: "400px"
+	        },
+
+	        display2: {
+	            fontSize: "45px",
+	            fontWeight: "400"
+	        },
+
+	        display1: {
+	            fontSize: "34px",
+	            fontWeight: "400"
+	        },
+
+	        headline: {
+	            fontSize: "24px",
+	            fontWeight: "500",
+	            margin: "0 0 10px"
+	        },
+
+	        title: {
+	            fontSize: "20px",
+	            fontWeight: "50px",
+	            margin: "0 0 10px"
+	        },
+
+	        subheading: {
+	            fontSize: "16px",
+	            fontWeight: "400",
+	            margin: "0 0 10px"
+	        },
+
+	        body2: {
+	            fontSize: "14px",
+	            fontWeight: "500"
+	        },
+
+	        body1: {
+	            fontSize: "14px",
+	            fontWeight: "400"
+	        }
+
+	    },
+	    BgColors: {
+	        greyXxDark: {
+	            background: _variables2.default.grey.xXDark
+	        },
+	        greyXDark: {
+	            background: _variables2.default.grey.xDark
+	        },
+	        greyDark: {
+	            background: _variables2.default.grey.dark
+	        },
+	        greyDarkMid: {
+	            background: _variables2.default.grey.darkMid
+	        },
+	        greyMid: {
+	            background: _variables2.default.grey.mid
+	        },
+	        greyLightMid: {
+	            background: _variables2.default.grey.lightMid
+	        },
+	        greyLight: {
+	            background: _variables2.default.grey.light
+	        },
+	        greyXLight: {
+	            background: _variables2.default.grey.xLight
+	        },
+	        greyXxlight: {
+	            background: _variables2.default.grey.xXLight
+	        }
+	    },
+	    u: {
+	        kHide: {
+	            position: "fixed",
+	            top: "9999px"
+	        }
+	    }
+	};
+
+	exports.default = styleVariables;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "styles.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: "Code",
+	    style: function style() {
+	        return {
+	            display: "block",
+	            whiteSpace: "pre-wrap",
+	            padding: "20px",
+	            color: "darkgrey",
+	            borderLeft: "solid darkgrey 5px"
+	        };
+	    },
+	    render: function render() {
+	        return _react2.default.createElement("code", {
+	            style: _extends({}, this.style()),
+	            children: this.props.children
+	        });
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Code.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: "Hr",
+	    style: function style() {
+	        return _extends({}, this.props.style, {
+	            border: "0px",
+	            height: "1px",
+	            background: "rgba( 0, 0, 0, .1 )"
+	        });
+	    },
+	    render: function render() {
+	        return _react2.default.createElement("hr", { style: this.style() });
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Hr.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactInk = __webpack_require__(235);
+
+	var _reactInk2 = _interopRequireDefault(_reactInk);
+
+	var _radium = __webpack_require__(174);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ActionList = _react2.default.createClass({
+	    displayName: 'ActionList',
+	    render: function render() {
+
+	        var style = {
+	            list: {
+	                padding: "6px 0px"
+	            },
+	            listItem: {
+	                cursor: "pointer",
+	                display: "block",
+	                padding: "10px 14px",
+	                textDecoration: "none",
+	                color: "#444444",
+	                ':hover': {
+	                    background: "rgba(0,0,0,.1)"
+	                }
+	            }
+	        };
+
+	        var List = this.props.list.map(function (option, i) {
+	            if (option.href) {
+	                return _react2.default.createElement(
+	                    'li',
+	                    {
+	                        key: i,
+	                        style: {
+	                            listStyle: "none",
+	                            position: "relative"
+	                        }
+	                    },
+	                    _react2.default.createElement(
+	                        'a',
+	                        {
+	                            key: option.href,
+	                            style: style.listItem,
+	                            href: option.href
+	                        },
+	                        option.label,
+	                        _react2.default.createElement(_reactInk2.default, null)
+	                    )
+	                );
+	            }
+
+	            return _react2.default.createElement(
+	                'li',
+	                { style: [style.listItem, { listStyle: "none" }] },
+	                ' ',
+	                option.label,
+	                ' '
+	            );
+	        });
+	        return _react2.default.createElement(
+	            'ul',
+	            { style: style.list },
+	            List
+	        );
+	    }
+	});
+
+	exports.default = (0, _radium2.default)(ActionList);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ActionList.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _VerticalMenu = __webpack_require__(261);
+
+	var _VerticalMenu2 = _interopRequireDefault(_VerticalMenu);
+
+	var _Hr = __webpack_require__(258);
+
+	var _Hr2 = _interopRequireDefault(_Hr);
+
+	var _styles = __webpack_require__(256);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'MediaCard',
+	    onExpand: function onExpand() {
+	        this.props.onExpand();
+	        var scrollAmount = this.props.isExpanded ? -50 : 50;
+	        window.scrollBy(0, scrollAmount);
+	    },
+	    render: function render() {
+	        var shadow = _styles2.default.boxShadow.li;
+	        var detailWidth = "";
+	        var detailPadding = "0 50px 0 0";
+	        var titleMarg = "";
+	        var openStyle = {};
+	        var HeaderRule = null;
+
+	        if (this.props.isExpanded) {
+	            shadow = _styles2.default.boxShadow.lg;
+	            detailWidth = "100%";
+	            detailPadding = "0";
+	            titleMarg = "20px";
+	            openStyle = { margin: "50px -20px" };
+	            HeaderRule = _react2.default.createElement(_Hr2.default, { style: { margin: "0 -20px 20px" } });
+	        }
+
+	        var headerIcons = function headerIcons(icon) {
+	            return _react2.default.createElement(
+	                'div',
+	                { style: { float: "right", marginLeft: "5px" } },
+	                icon
+	            );
+	        };
+
+	        return _react2.default.createElement(
+	            'div',
+	            {
+	                style: _extends({}, openStyle, {
+	                    position: "relative",
+	                    transition: "all ease .1s",
+	                    cursor: "pointer",
+	                    background: "white",
+	                    padding: "20px"
+	                }, shadow),
+	                onClick: this.onExpand
+	            },
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        padding: detailPadding,
+	                        display: "flex",
+	                        flexFlow: "row wrap"
+	                    }
+	                },
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: {
+	                            position: "relative",
+	                            marginRight: "10px",
+	                            alignSelf: "flex-start"
+	                        }
+	                    },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { style: {
+	                                borderRadius: "50%",
+	                                overflow: "hidden"
+	                            }
+	                        },
+	                        this.props.image
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    {
+	                        style: {
+	                            flex: "0 300px",
+	                            marginBottom: '' + titleMarg
+	                        }
+	                    },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { style: _extends({}, _styles2.default.t.body2, {
+	                                color: this.props.color
+	                            })
+	                        },
+	                        this.props.title
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { style: _extends({}, _styles2.default.t.caption)
+	                        },
+	                        this.props.subTitle
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        this.props.titleInfo
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    {
+	                        style: _extends({
+	                            flex: '1 0 ' + detailWidth
+	                        }, _styles2.default.t.body1)
+	                    },
+	                    HeaderRule,
+	                    this.props.detail
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        position: "absolute",
+	                        right: "10px",
+	                        top: "10px"
+	                    }
+	                },
+	                _react2.default.createElement(_VerticalMenu2.default, {
+	                    menuItemList: this.props.contextualMenu
+	                })
+	            )
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MediaCard.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _radium = __webpack_require__(174);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
+	var _reactInk = __webpack_require__(235);
+
+	var _reactInk2 = _interopRequireDefault(_reactInk);
+
+	var _icons = __webpack_require__(262);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var VerticalMenu = _react2.default.createClass({
+	    displayName: 'VerticalMenu',
+	    getInitialState: function getInitialState() {
+	        return {
+	            isOpen: false
+	        };
+	    },
+
+
+	    componentDidMount: function componentDidMount() {
+	        document.addEventListener('click', this.handleDocumentClick, false);
+	    },
+
+	    componentWillUnmount: function componentWillUnmount() {
+	        document.removeEventListener('click', this.handleDocumentClick, false);
+	    },
+
+	    handleDocumentClick: function handleDocumentClick(e) {
+	        var menu = this.refs.root;
+	        if (!menu.contains(e.target) && this.state.isOpen) {
+	            this.setState({ isOpen: false });
+	        }
+	    },
+
+	    onTouch: function onTouch(e) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	        var isOpen = this.state.isOpen ? false : true;
+	        this.setState({
+	            isOpen: isOpen
+	        });
+	    },
+	    onSelectOption: function onSelectOption(action, e) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	        action();
+	        var isOpen = this.state.isOpen ? false : true;
+	        this.setState({
+	            isOpen: isOpen
+	        });
+	    },
+	    renderMenuItem: function renderMenuItem(item, i) {
+	        return _react2.default.createElement(
+	            'li',
+	            {
+	                key: i,
+	                style: {
+	                    position: "relative",
+	                    display: "block",
+	                    padding: "10px 14px",
+	                    listStyle: "none",
+	                    ':hover': {
+	                        background: "#EFEFEF"
+	                    }
+	                },
+	                onClick: this.onSelectOption.bind(this, item.action)
+	            },
+	            item.render,
+	            _react2.default.createElement(_reactInk2.default, null)
+	        );
+	    },
+	    render: function render() {
+	        var menuItemList = this.props.menuItemList.map(this.renderMenuItem);
+	        var showList = this.state.isOpen ? "block" : "none";
+	        var openMenuStyle = this.state.isOpen ? {
+	            background: "#EFEFEF",
+	            color: "black"
+	        } : { color: "grey" };
+
+	        return _react2.default.createElement(
+	            'div',
+	            { ref: 'root' },
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: _extends({}, openMenuStyle, {
+	                        cursor: "pointer",
+	                        display: "flex",
+	                        alignItems: "center",
+	                        justifyContent: "center",
+	                        fontSize: "17px",
+	                        borderRadius: "50%",
+	                        height: "35px",
+	                        width: "35px"
+	                    }),
+	                    onClick: this.onTouch
+	                },
+	                _react2.default.createElement(_icons.VerticalMenuIcon, { size: 24, style: { top: "0px" } })
+	            ),
+	            _react2.default.createElement(
+	                'ul',
+	                {
+	                    style: {
+	                        display: showList,
+	                        width: "200px",
+	                        position: "absolute",
+	                        background: "white",
+	                        right: "40px",
+	                        top: "0px",
+	                        padding: "6px 0px",
+	                        zIndex: "200",
+	                        boxShadow: "0px -1px 0 #e5e5e5, 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.24)"
+	                    }
+	                },
+	                menuItemList
+	            )
+	        );
+	    }
+	});
+
+	exports.default = (0, _radium2.default)(VerticalMenu);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "VerticalMenu.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _GithubIcon = __webpack_require__(263);
+
+	Object.defineProperty(exports, 'GithubIcon', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_GithubIcon).default;
+	  }
+	});
+
+	var _WarningIcon = __webpack_require__(265);
+
+	Object.defineProperty(exports, 'WarningIcon', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_WarningIcon).default;
+	  }
+	});
+
+	var _CyverseLogo = __webpack_require__(266);
+
+	Object.defineProperty(exports, 'CyverseLogo', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_CyverseLogo).default;
+	  }
+	});
+
+	var _VerticalMenuIcon = __webpack_require__(267);
+
+	Object.defineProperty(exports, 'VerticalMenuIcon', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_VerticalMenuIcon).default;
+	  }
+	});
+
+	var _PersonIcon = __webpack_require__(268);
+
+	Object.defineProperty(exports, 'PersonIcon', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_PersonIcon).default;
+	  }
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _IconBase = __webpack_require__(264);
+
+	var _IconBase2 = _interopRequireDefault(_IconBase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Github = function (_React$Component) {
+	    _inherits(Github, _React$Component);
+
+	    function Github() {
+	        _classCallCheck(this, Github);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Github).apply(this, arguments));
+	    }
+
+	    _createClass(Github, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _IconBase2.default,
+	                _extends({ viewBox: '0 0 40 40' }, this.props),
+	                _react2.default.createElement(
+	                    'g',
+	                    null,
+	                    _react2.default.createElement('path', { d: 'm20.1 2.9q4.7 0 8.6 2.3t6.3 6.2 2.3 8.6q0 5.6-3.3 10.1t-8.4 6.2q-0.6 0.1-0.9-0.2t-0.3-0.7q0 0 0-1.7t0-3q0-2.1-1.2-3.1 1.3-0.2 2.3-0.4t2.1-0.9 1.8-1.5 1.2-2.3 0.5-3.4q0-2.7-1.8-4.6 0.8-2-0.2-4.5-0.6-0.2-1.8 0.2t-2 1l-0.9 0.5q-2-0.6-4.3-0.6t-4.2 0.6q-0.4-0.2-1-0.6t-1.9-0.8-1.9-0.3q-1 2.5-0.1 4.5-1.8 1.9-1.8 4.6 0 1.9 0.5 3.4t1.1 2.3 1.8 1.5 2.1 0.9 2.3 0.4q-0.9 0.8-1.1 2.3-0.4 0.2-1 0.3t-1.3 0.1-1.4-0.5-1.3-1.4q-0.4-0.7-1-1.1t-1.1-0.6l-0.5 0q-0.5 0-0.6 0.1t-0.1 0.2 0.2 0.3 0.2 0.3l0.2 0.1q0.5 0.2 1 0.9t0.7 1.1l0.2 0.5q0.3 0.9 1 1.4t1.5 0.7 1.5 0.1 1.3-0.1l0.5 0q0 0.8 0 1.9t0 1.2q0 0.5-0.3 0.7t-0.9 0.2q-5.2-1.7-8.4-6.2t-3.3-10.1q0-4.7 2.3-8.6t6.2-6.2 8.6-2.3z m-10.6 24.6q0.1-0.2-0.2-0.3-0.2-0.1-0.2 0.1-0.1 0.1 0.1 0.2 0.2 0.2 0.3 0z m0.7 0.7q0.1-0.1-0.1-0.3-0.2-0.2-0.3-0.1-0.2 0.1 0 0.4 0.3 0.2 0.4 0z m0.7 1q0.2-0.1 0-0.4-0.2-0.3-0.4-0.1-0.2 0.1 0 0.4t0.4 0.1z m0.9 1q0.2-0.2-0.1-0.4-0.3-0.3-0.4-0.1-0.2 0.2 0 0.4 0.3 0.3 0.5 0.1z m1.3 0.5q0-0.2-0.3-0.3-0.4-0.1-0.4 0.1t0.2 0.4q0.4 0.1 0.5-0.2z m1.4 0.1q0-0.2-0.4-0.2-0.4 0-0.4 0.2 0 0.3 0.4 0.3 0.4 0 0.4-0.3z m1.3-0.2q-0.1-0.2-0.4-0.2-0.4 0.1-0.3 0.4t0.4 0.1 0.3-0.3z' })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Github;
+	}(_react2.default.Component);
+
+	exports.default = Github;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "GithubIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	var defaultSize = '1em';
+
+	var IconBase = function IconBase(_ref, _ref2) {
+	    var children = _ref.children;
+	    var size = _ref.size;
+	    var style = _ref.style;
+
+	    var props = _objectWithoutProperties(_ref, ['children', 'size', 'style']);
+
+	    var reactIconBase = _ref2.reactIconBase;
+
+	    var computedSize = size ? size : reactIconBase && reactIconBase.size || defaultSize;
+	    var computedStyle = _extends({
+	        verticalAlign: "middle"
+	    }, reactIconBase && reactIconBase.style || {}, style);
+	    return _react2.default.createElement(
+	        'svg',
+	        _extends({
+	            fill: 'currentColor',
+	            fit: true,
+	            preserveAspectRatio: 'xMidYMid meet',
+	            height: computedSize,
+	            width: computedSize
+	        }, reactIconBase, props, {
+	            style: computedStyle
+	        }),
+	        children
+	    );
+	};
+
+	IconBase.contextTypes = {
+	    reactIconBase: _react.PropTypes.object
+	};
+
+	IconBase.propTypes = {
+	    size: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
+	    style: _react.PropTypes.object
+	};
+
+	exports.default = IconBase;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "IconBase.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _IconBase = __webpack_require__(264);
+
+	var _IconBase2 = _interopRequireDefault(_IconBase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Warning = function (_React$Component) {
+	    _inherits(Warning, _React$Component);
+
+	    function Warning() {
+	        _classCallCheck(this, Warning);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Warning).apply(this, arguments));
+	    }
+
+	    _createClass(Warning, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _IconBase2.default,
+	                _extends({ viewBox: '0 0 24 24' }, this.props),
+	                _react2.default.createElement('path', { xmlns: 'http://www.w3.org/2000/svg', d: 'M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z' })
+	            );
+	        }
+	    }]);
+
+	    return Warning;
+	}(_react2.default.Component);
+
+	exports.default = Warning;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "WarningIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _IconBase = __webpack_require__(264);
+
+	var _IconBase2 = _interopRequireDefault(_IconBase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Github = function (_React$Component) {
+	    _inherits(Github, _React$Component);
+
+	    function Github() {
+	        _classCallCheck(this, Github);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Github).apply(this, arguments));
+	    }
+
+	    _createClass(Github, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _IconBase2.default,
+	                _extends({ viewBox: '0 0 40 40' }, this.props),
+	                _react2.default.createElement(
+	                    'g',
+	                    null,
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M90.35,37.62c-15.84-3.18-37-1.32-49.6,11.59C35.42,54.69,31.34,60.62,30.21,69c-0.39,2.91-2.4-.32-2.4-5.77,0-2.19,1.84-7.39,3-10.14,4.53-10.6,22.27-24.41,59.52-15.47', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M88.31,101.22c4.22-.74,5-4.48,3.19-5.63a4,4,0,0,0-2.7-.31C54.25,98.83,35.12,85.2,30.77,72c-0.47-1.44-2.18-7-2.88-9.92C27,86.91,54,107.21,88.31,101.22', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M82.77,29.7c-11.51-2.39-49.19,3-53.22,21.87a22.19,22.19,0,0,0-.93,5.73c0.09-1.37.16-2.43,0.23-3.33,0.2-1.78.45-3.79,0.77-5.55,0.08-.43.18-0.9,0.29-1.42h0l0.44-1.78v0h0c0.06-.21.11-0.41,0.18-0.62a31,31,0,0,1,3.33-6.94c2-3.33,16.51-14.89,48.89-7.92', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M29.89,46.52c-0.4,2.21-.65,3.61-0.83,4.86-0.09.67-.16,1.34-0.23,2a17.79,17.79,0,0,0-.21,3.55C31.13,88.57,83,95.35,112.81,83.38c4.53-1.82,3.85-7.72,1.24-8.18a3.85,3.85,0,0,0-2,.41C72.58,90.18,28.22,78.48,29.62,51.28a32.82,32.82,0,0,1,.69-6.56Z', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M34.55,34.33c1-1.57,2.46-3.59,3.56-5.1,0.78-1,1.44-1.76,2.19-2.54C49,17.57,64,21.58,71.08,23.86c-8.92-1.13-25.39-4-36.53,10.48', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M37.46,30.05c-0.94,1.34-2.15,3.08-3.09,4.55-0.38.63-.76,1.3-1.13,2-5.56,10.86-1.5,23.19,12.1,31.59C64.45,80,95.2,79.57,114,67.23a36.54,36.54,0,0,0,8.73-7.8c2.16-3.55-.89-7.95-2.59-7.87a2.34,2.34,0,0,0-1.3.63,33.33,33.33,0,0,1-8,7.12c-17.16,11.25-45.21,11.63-62.66.85-14.39-8.89-17.07-22.6-7.93-33.45l-0.09.1c-1,1.09-2,2.24-2.74,3.25', transform: 'translate(-27.82 -20.99)' }),
+	                    'i',
+	                    _react2.default.createElement('path', { 'class': 'cls-4', d: 'M173.25,71.93a14.78,14.78,0,0,1-10.41,4.29c-9,0-15.13-7.44-15.13-16.33s6.18-16.4,15.13-16.4a14.78,14.78,0,0,1,10.41,4.29l2-2.77s-4-4.92-12.49-4.92c-11.1,0-18.79,8.58-18.79,19.8s7.69,19.74,18.79,19.74c8.45,0,12.49-5,12.49-5Zm22.54-13.24L194.66,61h-0.19l-1.07-2.27L182.86,40.9h-4.22L192.7,64.17V78.74h3.59V64.17L210.36,40.9H206.2Zm32.5,20.05h6.31L250.11,40.9h-6.56L231.45,71.55l-12-30.65h-6.62Zm51.12-21.82H261.83V46.45h20.68V40.9H255.58V78.74h26.93V73.19H261.83v-11h17.59v-5.3Zm10.89-16V78.74h6.24V66.25h9l9,12.49h6.87V77.85l-9.08-12.3V65.24a11.79,11.79,0,0,0,8-11.67c0-7.88-5.61-12.67-14.5-12.67H290.31ZM313.9,53.64c0,4.79-3.34,7.06-7.95,7.06h-9.4V46.45h9c5,0,8.32,2.33,8.32,7.19m12.4,21.25s4.6,4.73,14.31,4.73c9.46,0,14.06-5,14.06-11.48,0-5.86-3.66-9.21-12.8-11.79-6.37-1.89-8.39-3.15-8.39-5.74,0-3,2.71-4.73,7-4.73A15.63,15.63,0,0,1,350.26,49l3.41-5.11s-3.78-3.85-13.18-3.85c-9,0-13.87,4.29-13.87,10.78,0,5.93,4.1,8.77,12.55,11.29,6.81,2.08,8.58,3.53,8.58,6.43,0,3.09-2.21,5.23-7.31,5.23a18.25,18.25,0,0,1-10.72-3.66Zm59.64-18H368.34V46.45H389V40.9H362.1V78.74H389V73.19H368.34v-11h17.59v-5.3Z', transform: 'translate(-27.82 -20.99)' }),
+	                    _react2.default.createElement('polygon', { 'class': 'cls-5', points: '362.62 20.21 367.23 20.21 367.23 21.43 365.69 21.43 365.69 25.12 364.17 25.12 364.17 21.43 362.62 21.43 362.62 20.21' }),
+	                    _react2.default.createElement('polygon', { 'class': 'cls-5', points: '367.9 20.21 369.89 20.21 370.66 23.2 371.43 20.21 373.42 20.21 373.42 25.12 372.18 25.12 372.18 21.38 371.22 25.12 370.1 25.12 369.14 21.38 369.14 25.12 367.9 25.12 367.9 20.21' })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Github;
+	}(_react2.default.Component);
+
+	exports.default = Github;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "CyverseLogo.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _IconBase = __webpack_require__(264);
+
+	var _IconBase2 = _interopRequireDefault(_IconBase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Github = function (_React$Component) {
+	    _inherits(Github, _React$Component);
+
+	    function Github() {
+	        _classCallCheck(this, Github);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Github).apply(this, arguments));
+	    }
+
+	    _createClass(Github, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _IconBase2.default,
+	                _extends({ viewBox: '0 0 24 24' }, this.props),
+	                _react2.default.createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' }),
+	                _react2.default.createElement('path', { d: 'M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z' })
+	            );
+	        }
+	    }]);
+
+	    return Github;
+	}(_react2.default.Component);
+
+	exports.default = Github;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "VerticalMenuIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _IconBase = __webpack_require__(264);
+
+	var _IconBase2 = _interopRequireDefault(_IconBase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PersonIcon = function (_React$Component) {
+	    _inherits(PersonIcon, _React$Component);
+
+	    function PersonIcon() {
+	        _classCallCheck(this, PersonIcon);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(PersonIcon).apply(this, arguments));
+	    }
+
+	    _createClass(PersonIcon, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _IconBase2.default,
+	                _extends({ viewBox: '0 0 24 24' }, this.props),
+	                _react2.default.createElement('path', { d: 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z' }),
+	                _react2.default.createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' })
+	            );
+	        }
+	    }]);
+
+	    return PersonIcon;
+	}(_react2.default.Component);
+
+	exports.default = PersonIcon;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PersonIcon.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _radium = __webpack_require__(174);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
+	var _tinycolor = __webpack_require__(234);
+
+	var _tinycolor2 = _interopRequireDefault(_tinycolor);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Button = _react2.default.createClass({
+	    displayName: "Avatar",
+
+	    render: function render() {
+	        var letter = this.props.name[0].toUpperCase();
+	        var size = this.props.size;
+	        var color = this.props.color;
+
+	        return _react2.default.createElement(
+	            "div",
+	            { style: _extends({
+	                    display: "inline-block",
+	                    textAlign: "center",
+	                    width: size + "px",
+	                    height: size + "px",
+	                    borderRadius: "999px",
+	                    background: color,
+	                    fontSize: size * .7 + "px",
+	                    lineHeight: size + 2 + "px",
+	                    color: "rgba(255,255,255,.7)"
+	                }, this.props.style)
+	            },
+	            letter
+	        );
+	    }
+
+	});
+
+	exports.default = (0, _radium2.default)(Button);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Avatar.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styles = __webpack_require__(256);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'Badge',
+	    render: function render() {
+	        var bg = this.props.color ? { background: this.props.color } : _styles2.default.BgColors.greyXDark;
+
+	        return _react2.default.createElement(
+	            'div',
+	            {
+	                style: _extends({
+	                    display: "inline-block",
+	                    verticalAlign: "middle",
+	                    padding: "3px",
+	                    lineHeight: "74%",
+	                    fontSize: "8px",
+	                    borderRadius: "9999px",
+	                    color: "white"
+	                }, bg)
+	            },
+	            this.props.children
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Badge.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
 /* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28917,11 +29058,584 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _variables = __webpack_require__(235);
+	var _radium = __webpack_require__(174);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ShowMoreEllipsis = _react2.default.createClass({
+	    displayName: 'ShowMoreEllipsis',
+
+
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            { style: {
+	                    background: "#EFEFEF",
+	                    borderRadius: "8px",
+	                    padding: "0 3px 12px",
+	                    display: "inline-block",
+	                    lineHeight: "0",
+	                    verticalAlign: "middle",
+	                    fontSize: "22px",
+	                    ':hover': {
+	                        background: "lightgrey"
+	                    }
+	                } },
+	            '...'
+	        );
+	    }
+	});
+
+	exports.default = (0, _radium2.default)(ShowMoreEllipsis);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ShowMoreEllipsis.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _radium = __webpack_require__(174);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
+	var _utils = __webpack_require__(237);
+
+	var _reactInk = __webpack_require__(235);
+
+	var _reactInk2 = _interopRequireDefault(_reactInk);
+
+	var _styles = __webpack_require__(254);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Tabs = _react2.default.createClass({
+	    displayName: "Tabs",
+
+	    propTypes: {
+	        current: _react2.default.PropTypes.number.isRequired,
+	        tabList: _react2.default.PropTypes.array.isRequired,
+	        onChangeView: _react2.default.PropTypes.func
+	    },
+
+	    onTabClick: function onTabClick(i) {
+	        this.props.onTabClick(i);
+	    },
+	    UnderLine: function UnderLine(isActive) {
+	        var width = "0%";
+	        if (isActive) {
+	            width = "100%";
+	        }
+
+	        return _react2.default.createElement('div', { style: {
+	                transition: "all 0.2s ease",
+	                position: "absolute",
+	                bottom: "0px",
+	                right: "0px",
+	                left: "0px",
+	                margin: "auto",
+	                height: "3px",
+	                background: this.props.color,
+	                width: width
+	            }
+	        });
+	    },
+	    renderLink: function renderLink(item, i) {
+
+	        var isActive = i === this.props.current;
+	        var onTabClick = this.onTabClick.bind(this, i);
+
+	        var activeStyle = isActive ? {
+	            color: "black"
+	        } : {
+	            color: _styles.variables.grey.mid
+	        };
+
+	        return _react2.default.createElement(
+	            'li',
+	            { key: i,
+	                style: _extends({}, this.style().listItem, activeStyle),
+	                onClick: onTabClick
+	            },
+	            item,
+	            this.UnderLine(isActive),
+	            _react2.default.createElement(_reactInk2.default, {
+	                background: false })
+	        );
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            _utils.ClearFix,
+	            null,
+	            _react2.default.createElement(
+	                'ul',
+	                { style: this.style().list },
+	                this.props.tabList.map(this.renderLink)
+	            )
+	        );
+	    },
+	    style: function style(i) {
+	        var s = _styles.styles;
+	        var v = _styles.variables;
+
+	        return {
+	            list: _extends({}, s.boxShadow.sm, {
+	                display: "block",
+	                position: "relative",
+	                padding: "0px 10px"
+
+	            }),
+	            listItem: _extends({}, s.t.body1, {
+	                cursor: "pointer",
+	                display: "inline-block",
+	                position: "relative",
+	                listStyle: "none",
+	                padding: "15px 0px",
+	                marginRight: "15px",
+	                textTransform: "uppercase",
+	                transition: "all 0.2s ease",
+	                ':hover': {
+	                    color: "black",
+	                    transition: "all 0.2s ease"
+	                }
+	            })
+	        };
+	    }
+	});
+
+	exports.default = (0, _radium2.default)(Tabs);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Tabs.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utils = __webpack_require__(237);
+
+	var _styles = __webpack_require__(254);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// TODO To be semantic this should be implemented with the Meter element. Support is strong enough for production and there are fall backs. It is a browser styled element however so it will require some style hacks to make it look good across all browsers. Since these style properties are browser specific vendor prefixing is used it is unknown to me without experimenting what autoprefixer will do to the styles or if this will require css over inline styles.
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'MeterGauge',
+
+
+	    render: function render() {
+	        var startValue = this.props.startValue;
+	        var afterValue = this.props.afterValue;
+	        var startColor = this.props.color;
+
+	        if (startValue >= 100) {
+	            startValue = 100;
+	            startColor = "red";
+	        }
+
+	        if (startValue + afterValue >= 100) {
+	            afterValue = 100 - startValue;
+	            startColor = "red";
+	        }
+
+	        return _react2.default.createElement(
+	            'dl',
+	            null,
+	            _react2.default.createElement(
+	                'dt',
+	                {
+	                    style: {
+	                        fontSize: "12px",
+	                        fontWeight: "600",
+	                        margin: "0 0 10px"
+	                    }
+	                },
+	                this.props.label
+	            ),
+	            _react2.default.createElement(
+	                'dd',
+	                { style: { margin: "0px" } },
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: _extends({}, _styles.styles.t.caption, {
+	                            fontSize: "10px",
+	                            margin: "0px 0px 3px"
+	                        })
+	                    },
+	                    this.props.data
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: { background: _styles.variables.grey.xLight } },
+	                    _react2.default.createElement(
+	                        _utils.ClearFix,
+	                        null,
+	                        _react2.default.createElement('div', {
+	                            style: {
+	                                transition: "all ease .3s",
+	                                height: "10px",
+	                                float: "left",
+	                                width: startValue + "%",
+	                                background: startColor
+	                            }
+	                        }),
+	                        _react2.default.createElement('div', {
+	                            style: {
+	                                transition: "all ease .3s",
+	                                height: "10px",
+	                                float: "left",
+	                                width: afterValue + "%",
+	                                background: startColor,
+	                                opacity: ".5"
+	                            }
+	                        })
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MeterGauge.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _radium = __webpack_require__(174);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
+	var _styles = __webpack_require__(254);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SelectMenu = _react2.default.createClass({
+	    displayName: "SelectMenu",
+
+	    propTypes: {
+	        defaultId: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]),
+	        optionName: _react2.default.PropTypes.func.isRequired,
+	        onSelectChange: _react2.default.PropTypes.func.isRequired,
+	        list: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.array]),
+
+	        hintText: _react2.default.PropTypes.string
+	    },
+
+	    onSelectChange: function onSelectChange(e) {
+	        var i = e.target.value;
+	        this.props.onSelectChange(i);
+	    },
+
+	    hintText: function hintText() {
+	        if (this.props.hintText) {
+
+	            return _react2.default.createElement(
+	                'option',
+	                { value: 'hint', disabled: true, hidden: true },
+	                this.props.hintText
+	            );
+	        }
+	    },
+
+	    renderOption: function renderOption(item, i) {
+	        return _react2.default.createElement(
+	            'option',
+	            { key: i, value: i },
+	            this.props.optionName(i)
+	        );
+	    },
+
+	    render: function render() {
+	        var value = this.props.defaultId;
+	        if (this.props.hintText) {
+	            value = "hint";
+	        }
+	        if (this.props.list) {
+	            var options = this.props.list.map(this.renderOption);
+
+	            return _react2.default.createElement(
+	                'select',
+	                {
+	                    style: this.style().select,
+	                    value: value,
+	                    onChange: this.onSelectChange },
+	                options
+	            );
+	        }
+
+	        return _react2.default.createElement(
+	            'select',
+	            { value: this.props.defaultId, className: 'form-control' },
+	            _react2.default.createElement(
+	                'option',
+	                { key: '1', value: '1' },
+	                ' Loading... '
+	            )
+	        );
+	    },
+
+	    style: function style() {
+	        var borderColor = "rgba(0,0,0,.15)";
+	        return {
+	            select: {
+	                cursor: "pointer",
+	                width: "100%",
+	                border: "none",
+	                borderBottom: 'solid 3px ' + borderColor,
+	                fontSize: "14px",
+	                borderRadius: "0px",
+	                appearance: "none",
+	                MozAppearance: "none",
+	                background: "rgba(255,255,255,0)",
+	                backgroundPosition: "right 50%",
+	                backgroundRepeat: "no-repeat",
+	                backgroundImage: 'url(\'data:image/svg+xml;utf8, <svg fill="' + borderColor + '" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>\')',
+	                padding: "8px 8px 8px 0px",
+	                paddingRight: "1.5em"
+	            }
+	        };
+	    }
+	});
+
+	exports.default = (0, _radium2.default)(SelectMenu);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SelectMenu.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styles = __webpack_require__(254);
+
+	var _tinycolor = __webpack_require__(234);
+
+	var _tinycolor2 = _interopRequireDefault(_tinycolor);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'Toggle',
+	    getInitialState: function getInitialState() {
+	        var isToggled = this.props.defaultToggled ? true : false;
+	        var isDisabled = this.props.disabled ? true : false;
+
+	        return {
+	            isToggled: isToggled,
+	            isDisabled: isDisabled
+	        };
+	    },
+	    onToggle: function onToggle() {
+	        var isToggled = !this.state.isToggled;
+	        if (!this.state.isDisabled) {
+	            if (this.props.onChange) {
+	                this.props.onChange(isToggled);
+	            }
+	            this.setState({
+	                isToggled: isToggled
+	            });
+	        }
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'fieldset',
+	            {
+	                style: _extends({}, this.style().fieldset)
+	            },
+	            _react2.default.createElement(
+	                'label',
+	                {
+	                    style: this.style().label,
+	                    'for': this.props.id
+	                },
+	                this.props.label
+	            ),
+	            _react2.default.createElement('input', {
+	                style: _styles.styles.u.kHide,
+	                id: this.props.id,
+	                type: 'checkbox',
+	                checked: this.state.isToggled,
+	                onChange: this.onToggle
+	            }),
+	            _react2.default.createElement(
+	                'span',
+	                {
+	                    style: _extends({}, this.style().toggleSlide, this.style().isToggledSlide, this.style().isDisabled),
+	                    onClick: this.onToggle
+	                },
+	                _react2.default.createElement('span', {
+	                    style: _extends({}, this.style().toggleSwitch, this.style().isToggledSwitch)
+	                })
+	            )
+	        );
+	    },
+	    style: function style() {
+	        var size = 20;
+
+	        var switchColor = this.props.color;
+
+	        var slideColor = (0, _tinycolor2.default)(switchColor).lighten(50).toString();
+
+	        var isDisabled = !this.state.isDisabled ? {
+	            opacitiy: 1,
+	            cursor: "pointer"
+	        } : {
+	            opacity: .3,
+	            cursor: "not-allowed"
+	        };
+
+	        var label = this.props.showLabel ? _styles.styles.t.label : _styles.styles.u.kHide;
+
+	        var isToggled = !this.state.isToggled;
+
+	        var isToggledSwitch = isToggled ? {
+	            left: "0%",
+	            background: _styles.variables.grey.xXLight
+	        } : {
+	            left: 'calc(100% - ' + size + 'px)',
+	            background: switchColor
+	        };
+
+	        var isToggledSlide = isToggled ? {
+	            background: "lightgrey"
+	        } : {
+	            background: slideColor
+	        };
+
+	        return {
+	            fieldset: {
+	                border: "none",
+	                margin: "0px",
+	                padding: "10px"
+	            },
+
+	            label: label,
+
+	            toggleSlide: {
+	                display: "block",
+	                position: "relative",
+	                height: size - size * .33 + 'px',
+	                width: size * 2 + 'px',
+	                borderRadius: "999px"
+	            },
+
+	            toggleSwitch: _extends({
+	                transition: "all 0.2s ease",
+	                display: "block",
+	                position: "absolute",
+	                top: '-' + size * .15 + 'px',
+	                height: size + 'px',
+	                width: size + 'px',
+	                borderRadius: "999px"
+	            }, _styles.styles.boxShadow.sm),
+	            isDisabled: isDisabled,
+	            isToggledSwitch: isToggledSwitch,
+	            isToggledSlide: isToggledSlide
+	        };
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Toggle.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var theme = {
+	    color: {
+	        primary: "#0971ab",
+	        danger: "#ea5050",
+	        success: "#5cb85c"
+	    }
+	};
+
+	exports.default = theme;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "theme.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _variables = __webpack_require__(255);
 
 	var _variables2 = _interopRequireDefault(_variables);
 
-	var _icons = __webpack_require__(243);
+	var _icons = __webpack_require__(262);
 
 	var _src = __webpack_require__(172);
 
@@ -29014,7 +29728,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MediaCardEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 272 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -29085,7 +29799,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "AvatarEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 273 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -29100,15 +29814,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _variables = __webpack_require__(235);
+	var _variables = __webpack_require__(255);
 
 	var _variables2 = _interopRequireDefault(_variables);
 
 	var _src = __webpack_require__(172);
 
-	var _utils = __webpack_require__(254);
+	var _utils = __webpack_require__(237);
 
-	var _icons = __webpack_require__(243);
+	var _icons = __webpack_require__(262);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29196,7 +29910,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TooltipEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 274 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -29204,722 +29918,128 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(162);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(1);
+	var _src = __webpack_require__(172);
 
-	var _reactDom2 = _interopRequireDefault(_reactDom);
+	var _theme = __webpack_require__(276);
 
-	var _reactInlineTransitionGroup = __webpack_require__(275);
-
-	var _reactInlineTransitionGroup2 = _interopRequireDefault(_reactInlineTransitionGroup);
+	var _theme2 = _interopRequireDefault(_theme);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
-	  displayName: 'TransitionEx',
+	    displayName: 'TabsEx',
+	    getInitialState: function getInitialState() {
 
-
-	  getInitialState: function getInitialState() {
-	    return { count: 1 };
-	  },
-
-	  handleAdd: function handleAdd() {
-	    this.setState(function (previousState) {
-	      return { count: previousState.count + 1 };
-	    });
-	  },
-
-	  handleRemove: function handleRemove() {
-	    this.setState(function (previousState) {
-	      return { count: Math.max(previousState.count - 1, 0) };
-	    });
-	  },
-
-	  leaveCallback: function leaveCallback(id) {
-	    console.log(id + ' left');
-	  },
-
-	  render: function render() {
-	    var styles = {
-	      base: {
-	        background: '#F00',
-	        width: '500px',
-	        height: '50px'
-	      },
-
-	      appear: {
-	        background: '#FF0',
-	        transition: 'all 500ms'
-	      },
-
-	      leave: {
-	        background: '#F00',
-	        transition: 'all 250ms'
-	      }
-	    };
-
-	    var elems = [];
-
-	    for (var i = 0; i < this.state.count; i++) {
-	      elems.push(_react2.default.createElement(
-	        'div',
-	        { key: i, id: i },
-	        i
-	      ));
-	    }return _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: this.handleAdd },
-	          'Add'
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: this.handleRemove },
-	          'Remove'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        _reactInlineTransitionGroup2.default,
-	        {
-	          childrenBaseStyle: styles.before,
-	          childrenAppearStyle: styles.appear,
-	          childrenEnterStyle: styles.appear,
-	          childrenLeaveStyle: styles.leave,
-	          onChildLeft: this.leaveCallback
-	        },
-	        elems
-	      )
-	    );
-	  }
-	});
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TransitionEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(276);
-
-/***/ },
-/* 276 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	var React = __webpack_require__(162);
-	var ReactTransitionGroup = __webpack_require__(277);
-	var TransitionContainer = __webpack_require__(280);
-
-	var Transition = React.createClass({
-	  displayName: 'Transition',
-
-	  propTypes: {
-	    children: React.PropTypes.node,
-	    childrenAppearStyle: React.PropTypes.object,
-	    childrenBaseStyle: React.PropTypes.object,
-	    childrenEnterStyle: React.PropTypes.object,
-	    childrenLeaveStyle: React.PropTypes.object,
-	    component: React.PropTypes.string,
-	    onChildAppeared: React.PropTypes.func,
-	    onChildEntered: React.PropTypes.func,
-	    onChildLeft: React.PropTypes.func,
-	    onChildStartAppear: React.PropTypes.func,
-	    onChildStartEnter: React.PropTypes.func,
-	    onChildStartLeave: React.PropTypes.func
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      component: 'div'
-	    };
-	  },
-
-	  render: function render() {
-	    var _props = this.props;
-	    var children = _props.children;
-	    var childrenAppearStyle = _props.childrenAppearStyle;
-	    var childrenBaseStyle = _props.childrenBaseStyle;
-	    var childrenEnterStyle = _props.childrenEnterStyle;
-	    var childrenLeaveStyle = _props.childrenLeaveStyle;
-	    var component = _props.component;
-	    var onChildAppeared = _props.onChildAppeared;
-	    var onChildEntered = _props.onChildEntered;
-	    var onChildLeft = _props.onChildLeft;
-	    var onChildStartAppear = _props.onChildStartAppear;
-	    var onChildStartEnter = _props.onChildStartEnter;
-	    var onChildStartLeave = _props.onChildStartLeave;
-
-	    var others = _objectWithoutProperties(_props, ['children', 'childrenAppearStyle', 'childrenBaseStyle', 'childrenEnterStyle', 'childrenLeaveStyle', 'component', 'onChildAppeared', 'onChildEntered', 'onChildLeft', 'onChildStartAppear', 'onChildStartEnter', 'onChildStartLeave']);
-
-	    return React.createElement(
-	      ReactTransitionGroup,
-	      _extends({
-	        component: component
-	      }, others),
-	      React.Children.map(children, function (child, i) {
-	        return React.createElement(
-	          TransitionContainer,
-	          {
-	            key: i,
-	            id: ((child || {}).props || {}).id,
-	            childrenBaseStyle: childrenBaseStyle,
-	            childrenAppearStyle: childrenAppearStyle,
-	            childrenEnterStyle: childrenEnterStyle,
-	            childrenLeaveStyle: childrenLeaveStyle,
-	            onChildAppeared: onChildAppeared,
-	            onChildEntered: onChildEntered,
-	            onChildLeft: onChildLeft,
-	            onChildStartAppear: onChildStartAppear,
-	            onChildStartEnter: onChildStartEnter,
-	            onChildStartLeave: onChildStartLeave
-	          },
-	          child
+	        return {
+	            currentTab: 0
+	        };
+	    },
+	    onTabClick: function onTabClick(currentTab) {
+	        this.setState({
+	            currentTab: currentTab
+	        });
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'div',
+	                { style: { marginBottom: "20px" } },
+	                _react2.default.createElement(_src.Tabs, {
+	                    tabList: ["Red Fish", "Blue Fish", "Green Fish"],
+	                    current: this.state.currentTab,
+	                    color: _theme2.default.color.primary,
+	                    onTabClick: this.onTabClick
+	                })
+	            ),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
+	                '<div style={{marginBottom: "20px"}}>\n    <Tabs \n        tabList={[\n            "Red Fish", \n            "Blue Fish", \n            "Green Fish",\n        ]}\n        current={0}\n        color={ theme.color.primary }\n        onTabClick={ this.onTabClick }\n    />\n</div>'
+	                /* Code string ends here */
+	            })
 	        );
-	      }, this)
-	    );
-	  }
-
+	    }
 	});
 
-	module.exports = Transition;
-
-/***/ },
-/* 277 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(278);
-
-/***/ },
-/* 278 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactTransitionGroup
-	 */
-
-	'use strict';
-
-	var _assign = __webpack_require__(23);
-
-	var React = __webpack_require__(163);
-	var ReactTransitionChildMapping = __webpack_require__(279);
-
-	var emptyFunction = __webpack_require__(18);
-
-	/**
-	 * A basis for animatins. When children are declaratively added or removed,
-	 * special lifecycle hooks are called.
-	 * See https://facebook.github.io/react/docs/animation.html#low-level-api-reacttransitiongroup
-	 */
-	var ReactTransitionGroup = React.createClass({
-	  displayName: 'ReactTransitionGroup',
-
-	  propTypes: {
-	    component: React.PropTypes.any,
-	    childFactory: React.PropTypes.func
-	  },
-
-	  getDefaultProps: function () {
-	    return {
-	      component: 'span',
-	      childFactory: emptyFunction.thatReturnsArgument
-	    };
-	  },
-
-	  getInitialState: function () {
-	    return {
-	      children: ReactTransitionChildMapping.getChildMapping(this.props.children)
-	    };
-	  },
-
-	  componentWillMount: function () {
-	    this.currentlyTransitioningKeys = {};
-	    this.keysToEnter = [];
-	    this.keysToLeave = [];
-	  },
-
-	  componentDidMount: function () {
-	    var initialChildMapping = this.state.children;
-	    for (var key in initialChildMapping) {
-	      if (initialChildMapping[key]) {
-	        this.performAppear(key);
-	      }
-	    }
-	  },
-
-	  componentWillReceiveProps: function (nextProps) {
-	    var nextChildMapping = ReactTransitionChildMapping.getChildMapping(nextProps.children);
-	    var prevChildMapping = this.state.children;
-
-	    this.setState({
-	      children: ReactTransitionChildMapping.mergeChildMappings(prevChildMapping, nextChildMapping)
-	    });
-
-	    var key;
-
-	    for (key in nextChildMapping) {
-	      var hasPrev = prevChildMapping && prevChildMapping.hasOwnProperty(key);
-	      if (nextChildMapping[key] && !hasPrev && !this.currentlyTransitioningKeys[key]) {
-	        this.keysToEnter.push(key);
-	      }
-	    }
-
-	    for (key in prevChildMapping) {
-	      var hasNext = nextChildMapping && nextChildMapping.hasOwnProperty(key);
-	      if (prevChildMapping[key] && !hasNext && !this.currentlyTransitioningKeys[key]) {
-	        this.keysToLeave.push(key);
-	      }
-	    }
-
-	    // If we want to someday check for reordering, we could do it here.
-	  },
-
-	  componentDidUpdate: function () {
-	    var keysToEnter = this.keysToEnter;
-	    this.keysToEnter = [];
-	    keysToEnter.forEach(this.performEnter);
-
-	    var keysToLeave = this.keysToLeave;
-	    this.keysToLeave = [];
-	    keysToLeave.forEach(this.performLeave);
-	  },
-
-	  performAppear: function (key) {
-	    this.currentlyTransitioningKeys[key] = true;
-
-	    var component = this.refs[key];
-
-	    if (component.componentWillAppear) {
-	      component.componentWillAppear(this._handleDoneAppearing.bind(this, key));
-	    } else {
-	      this._handleDoneAppearing(key);
-	    }
-	  },
-
-	  _handleDoneAppearing: function (key) {
-	    var component = this.refs[key];
-	    if (component.componentDidAppear) {
-	      component.componentDidAppear();
-	    }
-
-	    delete this.currentlyTransitioningKeys[key];
-
-	    var currentChildMapping = ReactTransitionChildMapping.getChildMapping(this.props.children);
-
-	    if (!currentChildMapping || !currentChildMapping.hasOwnProperty(key)) {
-	      // This was removed before it had fully appeared. Remove it.
-	      this.performLeave(key);
-	    }
-	  },
-
-	  performEnter: function (key) {
-	    this.currentlyTransitioningKeys[key] = true;
-
-	    var component = this.refs[key];
-
-	    if (component.componentWillEnter) {
-	      component.componentWillEnter(this._handleDoneEntering.bind(this, key));
-	    } else {
-	      this._handleDoneEntering(key);
-	    }
-	  },
-
-	  _handleDoneEntering: function (key) {
-	    var component = this.refs[key];
-	    if (component.componentDidEnter) {
-	      component.componentDidEnter();
-	    }
-
-	    delete this.currentlyTransitioningKeys[key];
-
-	    var currentChildMapping = ReactTransitionChildMapping.getChildMapping(this.props.children);
-
-	    if (!currentChildMapping || !currentChildMapping.hasOwnProperty(key)) {
-	      // This was removed before it had fully entered. Remove it.
-	      this.performLeave(key);
-	    }
-	  },
-
-	  performLeave: function (key) {
-	    this.currentlyTransitioningKeys[key] = true;
-
-	    var component = this.refs[key];
-	    if (component.componentWillLeave) {
-	      component.componentWillLeave(this._handleDoneLeaving.bind(this, key));
-	    } else {
-	      // Note that this is somewhat dangerous b/c it calls setState()
-	      // again, effectively mutating the component before all the work
-	      // is done.
-	      this._handleDoneLeaving(key);
-	    }
-	  },
-
-	  _handleDoneLeaving: function (key) {
-	    var component = this.refs[key];
-
-	    if (component.componentDidLeave) {
-	      component.componentDidLeave();
-	    }
-
-	    delete this.currentlyTransitioningKeys[key];
-
-	    var currentChildMapping = ReactTransitionChildMapping.getChildMapping(this.props.children);
-
-	    if (currentChildMapping && currentChildMapping.hasOwnProperty(key)) {
-	      // This entered again before it fully left. Add it again.
-	      this.performEnter(key);
-	    } else {
-	      this.setState(function (state) {
-	        var newChildren = _assign({}, state.children);
-	        delete newChildren[key];
-	        return { children: newChildren };
-	      });
-	    }
-	  },
-
-	  render: function () {
-	    // TODO: we could get rid of the need for the wrapper node
-	    // by cloning a single child
-	    var childrenToRender = [];
-	    for (var key in this.state.children) {
-	      var child = this.state.children[key];
-	      if (child) {
-	        // You may need to apply reactive updates to a child as it is leaving.
-	        // The normal React way to do it won't work since the child will have
-	        // already been removed. In case you need this behavior you can provide
-	        // a childFactory function to wrap every child, even the ones that are
-	        // leaving.
-	        childrenToRender.push(React.cloneElement(this.props.childFactory(child), { ref: key, key: key }));
-	      }
-	    }
-	    return React.createElement(this.props.component, this.props, childrenToRender);
-	  }
-	});
-
-	module.exports = ReactTransitionGroup;
-
-/***/ },
-/* 279 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactTransitionChildMapping
-	 */
-
-	'use strict';
-
-	var flattenChildren = __webpack_require__(117);
-
-	var ReactTransitionChildMapping = {
-	  /**
-	   * Given `this.props.children`, return an object mapping key to child. Just
-	   * simple syntactic sugar around flattenChildren().
-	   *
-	   * @param {*} children `this.props.children`
-	   * @return {object} Mapping of key to child
-	   */
-	  getChildMapping: function (children) {
-	    if (!children) {
-	      return children;
-	    }
-	    return flattenChildren(children);
-	  },
-
-	  /**
-	   * When you're adding or removing children some may be added or removed in the
-	   * same render pass. We want to show *both* since we want to simultaneously
-	   * animate elements in and out. This function takes a previous set of keys
-	   * and a new set of keys and merges them with its best guess of the correct
-	   * ordering. In the future we may expose some of the utilities in
-	   * ReactMultiChild to make this easy, but for now React itself does not
-	   * directly have this concept of the union of prevChildren and nextChildren
-	   * so we implement it here.
-	   *
-	   * @param {object} prev prev children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @param {object} next next children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @return {object} a key set that contains all keys in `prev` and all keys
-	   * in `next` in a reasonable order.
-	   */
-	  mergeChildMappings: function (prev, next) {
-	    prev = prev || {};
-	    next = next || {};
-
-	    function getValueForKey(key) {
-	      if (next.hasOwnProperty(key)) {
-	        return next[key];
-	      } else {
-	        return prev[key];
-	      }
-	    }
-
-	    // For each key of `next`, the list of keys to insert before that key in
-	    // the combined list
-	    var nextKeysPending = {};
-
-	    var pendingKeys = [];
-	    for (var prevKey in prev) {
-	      if (next.hasOwnProperty(prevKey)) {
-	        if (pendingKeys.length) {
-	          nextKeysPending[prevKey] = pendingKeys;
-	          pendingKeys = [];
-	        }
-	      } else {
-	        pendingKeys.push(prevKey);
-	      }
-	    }
-
-	    var i;
-	    var childMapping = {};
-	    for (var nextKey in next) {
-	      if (nextKeysPending.hasOwnProperty(nextKey)) {
-	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
-	          var pendingNextKey = nextKeysPending[nextKey][i];
-	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(pendingNextKey);
-	        }
-	      }
-	      childMapping[nextKey] = getValueForKey(nextKey);
-	    }
-
-	    // Finally, add the keys which didn't appear before any key in `next`
-	    for (i = 0; i < pendingKeys.length; i++) {
-	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
-	    }
-
-	    return childMapping;
-	  }
-	};
-
-	module.exports = ReactTransitionChildMapping;
-
-/***/ },
-/* 280 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(162);
-	var ReactDOM = __webpack_require__(1);
-	var hyphenateStyleName = __webpack_require__(77);
-	var merge = __webpack_require__(281);
-
-	var TransitionContainer = React.createClass({
-	  displayName: 'TransitionContainer',
-
-	  propTypes: {
-	    children: React.PropTypes.any,
-	    childrenAppearStyle: React.PropTypes.object,
-	    childrenBaseStyle: React.PropTypes.object,
-	    childrenEnterStyle: React.PropTypes.object,
-	    childrenLeaveStyle: React.PropTypes.object,
-	    id: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-	    onChildAppeared: React.PropTypes.func,
-	    onChildEntered: React.PropTypes.func,
-	    onChildLeft: React.PropTypes.func,
-	    onChildStartAppear: React.PropTypes.func,
-	    onChildStartEnter: React.PropTypes.func,
-	    onChildStartLeave: React.PropTypes.func
-	  },
-
-	  componentWillMount: function componentWillMount() {
-	    this._dispatchTimeout = null;
-	    this._callbackTimeout = null;
-	    this._tick = 17;
-	  },
-
-	  componentDidMount: function componentDidMount() {
-	    var node = ReactDOM.findDOMNode(this);
-	    if (!node) return;
-	    node.setAttribute('style', this._computeNewStyle());
-	  },
-
-	  componentWillUnmount: function componentWillUnmount() {
-	    clearTimeout(this._dispatchTimeout);
-	    clearTimeout(this._callbackTimeout);
-	  },
-
-	  componentWillAppear: function componentWillAppear(callback) {
-	    this._transition(callback, 'appear');
-
-	    if (this.props.onChildStartAppear) {
-	      this.props.onChildStartAppear(this.props.id);
-	    }
-	  },
-
-	  componentDidAppear: function componentDidAppear() {
-	    if (this.props.onChildAppeared) {
-	      this.props.onChildAppeared(this.props.id);
-	    }
-
-	    this._appeared = true;
-	  },
-
-	  componentWillEnter: function componentWillEnter(callback) {
-	    this._transition(callback, 'enter');
-
-	    if (this.props.onChildStartEnter) {
-	      this.props.onChildStartEnter(this.props.id);
-	    }
-	  },
-
-	  componentDidEnter: function componentDidEnter() {
-	    if (this.props.onChildEntered) {
-	      this.props.onChildEntered(this.props.id);
-	    }
-	  },
-
-	  componentWillLeave: function componentWillLeave(callback) {
-	    this._transition(callback, 'leave');
-
-	    if (this.props.onChildStartLeave) {
-	      this.props.onChildStartLeave(this.props.id);
-	    }
-	  },
-
-	  componentDidLeave: function componentDidLeave() {
-	    if (this.props.onChildLeft) this.props.onChildLeft(this.props.id);
-	  },
-
-	  _getTransitionProperties: function _getTransitionProperties(computedStyle) {
-	    var properties = {};
-
-	    properties.transitionDuration = computedStyle.transitionDuration || computedStyle.WebkitTransitionDuration || computedStyle.MozTransitionDuration || computedStyle.msTransitionDuration;
-
-	    properties.transitionDelay = computedStyle.transitionDelay || computedStyle.WebkitTransitionDelay || computedStyle.MozTransitionDelay || computedStyle.msTransitionDelay;
-
-	    properties.transitionProperty = computedStyle.transitionProperty || computedStyle.WebkitTransitionProperty || computedStyle.msTransitionProperty || computedStyle.MozTransitionProperty;
-
-	    return properties;
-	  },
-
-	  // Specs: https://www.w3.org/TR/css3-transitions/
-	  // A lot of assumptions could be made here, like that probably the duration
-	  // and delay lists are already truncated by the size of the property list
-	  // or that values will be returned by window.getComputedStyle in seconds,
-	  // but I prefer to make this function less vulnerable to changes.
-	  _getTransitionMaximumTime: function _getTransitionMaximumTime(property, duration, delay) {
-	    var durationArray = duration.split(',');
-	    var delayArray = delay.split(',');
-	    var propertyArray = property.split(',');
-	    var longestTime = 0;
-	    var re = /([0-9]*\.?[0-9]+)(m?s)/;
-	    var durationFactor;
-	    var delayFactor;
-	    var durationGroups;
-	    var delayGroups;
-
-	    for (var i = 0; i < propertyArray.length; i++) {
-	      durationGroups = durationArray[i].match(re);
-	      if (durationGroups[2] === 's') durationFactor = 1000;else durationFactor = 1;
-
-	      delayGroups = delayArray[i].match(re);
-	      if (delayGroups[2] === 's') delayFactor = 1000;else delayFactor = 1;
-
-	      longestTime = Math.max(parseFloat(durationGroups[1] * durationFactor + delayGroups[1] * delayFactor), longestTime);
-	    }
-
-	    return longestTime;
-	  },
-
-	  _computeNewStyle: function _computeNewStyle(phase) {
-	    var currentStyle;
-	    if (phase === 'appear') currentStyle = this.props.childrenAppearStyle;else if (phase === 'enter') currentStyle = this.props.childrenEnterStyle;else if (phase === 'leave') currentStyle = this.props.childrenLeaveStyle;else currentStyle = this.props.childrenBaseStyle;
-
-	    var mergedStyle = phase ? merge(this.props.childrenBaseStyle, currentStyle) : currentStyle;
-
-	    var styleStr = '';
-	    Object.keys(mergedStyle).forEach(function (key) {
-	      styleStr += hyphenateStyleName(key) + ':' + mergedStyle[key] + ';';
-	    });
-
-	    return styleStr;
-	  },
-
-	  _registerCallbackTimeout: function _registerCallbackTimeout(callback, maxTransitionTime) {
-	    this._callbackTimeout = setTimeout(function () {
-	      callback();
-	    }, maxTransitionTime);
-	  },
-
-	  _transition: function _transition(callback, phase) {
-	    if (phase === 'appear' && !this.props.childrenAppearStyle || phase === 'enter' && !this.props.childrenEnterStyle || phase === 'leave' && !this.props.childrenLeaveStyle) {
-	      callback();
-	    } else {
-	      this._dispatchTimeout = setTimeout(this._executeTransition.bind(this, callback, phase), this._tick);
-	    }
-	  },
-
-	  _executeTransition: function _executeTransition(callback, phase) {
-	    var node = ReactDOM.findDOMNode(this);
-
-	    if (!node) return;
-
-	    node.setAttribute('style', this._computeNewStyle(phase));
-	    var properties = this._getTransitionProperties(getComputedStyle(node));
-
-	    var maxTransitionTime = this._getTransitionMaximumTime(properties.transitionProperty, properties.transitionDuration, properties.transitionDelay);
-
-	    this._registerCallbackTimeout(callback, maxTransitionTime);
-	  },
-
-	  render: function render() {
-	    return React.Children.only(this.props.children);
-	  }
-
-	});
-
-	module.exports = TransitionContainer;
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TabsEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 281 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	var merge = function merge() {
-	  var res = {};
+	'use strict';
 
-	  for (var i = 0; i < arguments.length; i++) {
-	    if (arguments[i]) {
-	      Object.assign(res, arguments[i]);
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _src = __webpack_require__(172);
+
+	var _theme = __webpack_require__(276);
+
+	var _theme2 = _interopRequireDefault(_theme);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'MeterGaugeEx',
+	    getInitialState: function getInitialState() {
+	        return {
+	            currentValue: 0
+	        };
+	    },
+	    onTabClick: function onTabClick(currentTab) {
+	        this.setState({
+	            currentTab: currentTab
+	        });
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        marginBottom: "20px",
+	                        maxWidth: "300px"
+	                    }
+	                },
+	                _react2.default.createElement(_src.MeterGauge, {
+	                    label: 'Thing Usage',
+	                    data: 'Will total 40kg 0f 130kg',
+	                    startValue: 5,
+	                    afterValue: 20,
+	                    color: _theme2.default.color.success,
+	                    overColor: _theme2.default.color.danger
+	                })
+	            ),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
+	                '<div \n    style={{ \n        marginBottom: "20px",\n        maxWidth: "300px",\n    }}\n>\n    <ProgressBar\n        label="Thing Usage"\n        data="Will total 40kg 0f 130kg"\n        startValue={5}\n        afterValue={20}\n        color={ theme.color.success }\n        overColor={ theme.color.danger }\n    />\n</div>'
+	                /* Code string ends here */
+	            })
+	        );
 	    }
-	  }
+	});
 
-	  return res;
-	};
-
-	module.exports = merge;
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MeterGaugeEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 282 */
@@ -29937,9 +30057,239 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _icons = __webpack_require__(243);
+	var _src = __webpack_require__(172);
 
-	var _mini_logo = __webpack_require__(283);
+	var _theme = __webpack_require__(276);
+
+	var _theme2 = _interopRequireDefault(_theme);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'SelectMenuEx',
+	    getInitialState: function getInitialState() {
+	        return {
+	            selected: 0
+	        };
+	    },
+
+
+	    things: [{
+	        name: "Red Fish",
+	        color: "Red",
+	        home: "Ocean"
+	    }, {
+	        name: "Blue Fish",
+	        color: "Blue",
+	        home: "Lake"
+	    }, {
+	        name: "Green Fish",
+	        color: "Green",
+	        home: "Pond"
+	    }],
+
+	    optionName: function optionName(i) {
+	        return this.things[i].name;
+	    },
+	    onSelectChange: function onSelectChange(selected) {
+	        this.setState({
+	            selected: selected
+	        });
+	    },
+	    render: function render() {
+
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        marginBottom: "20px",
+	                        maxWidth: "300px"
+	                    }
+	                },
+	                _react2.default.createElement(_src.SelectMenu, {
+	                    list: this.things,
+	                    optionName: this.optionName,
+	                    selected: this.state.selected,
+	                    onSelectChange: this.onSelectChange
+	                })
+	            ),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
+	                '<div \n    style={{ \n        marginBottom: "20px",\n        maxWidth: "300px",\n    }}\n>\n    <SelectMenu\n        list={ this.things }\n        optionName={ this.optionName }\n        selected={ this.state.selected }\n        onSelectChange={ this.onSelectChange }\n    />\n</div>'
+	                /* Code string ends here */
+	            })
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "SelectMenuEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utils = __webpack_require__(237);
+
+	var _src = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'ShowMoreEllipsisEx',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        marginBottom: "20px"
+	                    }
+	                },
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Bacon ipsum dolor amet capicola boudin tongue, cow pork loin venison t-bone kielbasa corned beef rump short loin tri-tip.',
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(_src.ShowMoreEllipsis, null)
+	                )
+	            ),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
+	                '<div \n    style={{\n        marginBottom: "20px",\n    }}\n>\n    <p>\n        Bacon ipsum dolor amet capicola boudin tongue, cow pork loin venison t-bone kielbasa corned beef rump short loin tri-tip.\n        <br/>\n        <ShowMoreEllipsis/>\n    </p>\n</div>'
+	                /* Code string ends here */
+	            })
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ShowMoreEllipsisEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _theme = __webpack_require__(276);
+
+	var _theme2 = _interopRequireDefault(_theme);
+
+	var _src = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	    displayName: 'ToggleEx',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                'div',
+	                {
+	                    style: {
+	                        marginBottom: "20px"
+	                    }
+	                },
+	                _react2.default.createElement(_src.Toggle, {
+	                    color: _theme2.default.color.primary,
+	                    label: 'Basic Toggle',
+	                    id: 'toggle-without-label'
+	                }),
+	                _react2.default.createElement(_src.Toggle, {
+	                    color: _theme2.default.color.primary,
+	                    label: 'Defaulted to toggled',
+	                    id: 'toggle-defaulted-toggled',
+	                    defaultToggled: true
+	                }),
+	                _react2.default.createElement(_src.Toggle, {
+	                    color: _theme2.default.color.primary,
+	                    label: 'I\'m disabled',
+	                    id: 'toggle-disabled',
+	                    disabled: true
+	                })
+	            ),
+	            _react2.default.createElement(_src.Code, { children: '<div \n    style={{\n        marginBottom: "20px",\n    }}\n>\n    <Toggle\n        color={ theme.color.primary }\n        label="Toggle Example"\n        id="toggle-without-label"\n    />\n    <Toggle\n        color={ theme.color.primary }\n        label="Defaulted to Toggeled"\n        id="toggle-default-toggled"\n        defaultToggled\n    />\n    <Toggle\n        color={ theme.color.primary }\n        label="I\'m Disabled"\n        id="toggle-disabled"\n        disabled\n    />\n</div>'
+	            }),
+	            _react2.default.createElement(
+	                'div',
+	                { style: {
+	                        marginBottom: "20px"
+	                    }
+	                },
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Sometimes we it might make since to show the label. In that case just add the "showLabel" prop.                   '
+	                ),
+	                _react2.default.createElement(_src.Toggle, {
+	                    color: _theme2.default.color.primary,
+	                    label: 'Showing my label',
+	                    id: 'toggle-with-label',
+	                    showLabel: true
+	                })
+	            ),
+	            _react2.default.createElement(_src.Code, { children:
+	                /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+	                 * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
+	                '<div style={{\n        marginBottom: "20px",\n    }}\n>\n    <Toggle\n        color={ theme.color.primary }\n        label="Showing my label"\n        id="toggle-with-label"\n        showLabel\n    />\n</div>'
+
+	                /* Code string ends here */
+	            })
+	        );
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ToggleEx.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(162);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _icons = __webpack_require__(262);
+
+	var _mini_logo = __webpack_require__(286);
 
 	var _mini_logo2 = _interopRequireDefault(_mini_logo);
 
@@ -29976,22 +30326,22 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/lenards/devel/troposphere-ui/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Header.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 283 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "23f3befae9ff10e18035797c949a8a16.svg";
 
 /***/ },
-/* 284 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(285);
+	var content = __webpack_require__(288);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(287)(content, {});
+	var update = __webpack_require__(290)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -30008,10 +30358,10 @@
 	}
 
 /***/ },
-/* 285 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(286)();
+	exports = module.exports = __webpack_require__(289)();
 	// imports
 
 
@@ -30022,7 +30372,7 @@
 
 
 /***/ },
-/* 286 */
+/* 289 */
 /***/ function(module, exports) {
 
 	/*
@@ -30078,7 +30428,7 @@
 
 
 /***/ },
-/* 287 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -30330,16 +30680,16 @@
 
 
 /***/ },
-/* 288 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(289);
+	var content = __webpack_require__(292);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(287)(content, {});
+	var update = __webpack_require__(290)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -30356,10 +30706,10 @@
 	}
 
 /***/ },
-/* 289 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(286)();
+	exports = module.exports = __webpack_require__(289)();
 	// imports
 
 

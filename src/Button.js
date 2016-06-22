@@ -1,19 +1,43 @@
 import React from "react";
 import radium from 'radium';
-import styles from './styles/styles';
 import tinyColor from "tinycolor2";
 import Ink from 'react-ink';
+import Tooltip from './Tooltip';
+import { variables, styles } from './styles';
 
 const Button = React.createClass({
     displayName: "Button",
+    
+    onTouchTap() {
+        if (this.props.onTouchTap) {
+            this.props.onTouchTap()
+        }
+    },
 
     style() {
-        let btnColor = this.props.color;
+        let btnColor = this.props.color ? 
+            this.props.color : 
+            variables.grey.xXLight;
+
         let txtColor = tinyColor(btnColor).isLight() ? 
-            "#55555" : "white"; 
+            "#55555" : "white";
+        
+        let disabledStyle = this.props.disabled ? 
+            {
+                cursor: "not-allowed",
+                opacity: ".5",
+            } :
+            {
+                cursor: "pointer",
+            };
+
+        let hoverStyle = this.props.disabled ?
+            null : {
+                background: tinyColor(btnColor).darken(5).toString(),
+                ...styles.boxShadow.md,
+            };
 
         return {
-            cursor: "pointer",
             display: "inline-block", 
             position: "relative", 
             padding: "10px 15px", 
@@ -25,26 +49,41 @@ const Button = React.createClass({
             fontSize: "14px",
             textTransform: "uppercase",
             transition: "all ease .2s",
+            ...disabledStyle,
             ...styles.boxShadow.sm,
             ':hover': {
-                background: tinyColor(this.props.color).darken(5).toString(),
-                ...styles.boxShadow.md,
+                ...hoverStyle
             }
         }
     },
 
-    render() {
+    ink() {
+        if (this.props.disabled) return;
         return (
-                <button 
+            <Ink/>
+        )
+    },
+
+    render() {
+        let disabled = this.props.isdisabled
+        return (
+            <Tooltip 
+                message={ this.props.tooltipMessage }
+                direction={ this.props.tooltipDirection }
+            >
+                <button
                     style={{
                         ...this.style(),
                         ...this.props.style,
                     }} 
-                    onClick={this.props.onTouchTap}
+                    type="button"
+                    onClick={this.onTouchTap}
+                    disabled={this.props.disabled}
                 >
                     {this.props.children}
-                    <Ink/>
+                    { this.ink() }
                 </button>
+            </Tooltip>
         )
     }
 

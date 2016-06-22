@@ -8,4 +8,7 @@ export { default as Badge } from './Badge';
 export { default as ShowMoreEllipsis } from './ShowMoreEllipsis';
 export { default as VerticalMenu } from './VerticalMenu';
 export { default as Tooltip } from './Tooltip';
-
+export { default as Tabs } from './Tabs';
+export { default as MeterGauge } from './MeterGauge';
+export { default as SelectMenu } from './SelectMenu';
+export { default as Toggle } from './Toggle';
