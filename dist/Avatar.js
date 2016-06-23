@@ -21,7 +21,7 @@ var _tinycolor2 = _interopRequireDefault(_tinycolor);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Button = _react2.default.createClass({
-    displayName: "Avitar",
+    displayName: "Avatar",
 
     render: function render() {
         var letter = this.props.name[0].toUpperCase();

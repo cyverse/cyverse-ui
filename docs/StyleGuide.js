@@ -81,7 +81,7 @@ export default React.createClass({
                         padding: "20px 40px"
                     }}
                 >
-                    <h1>Troosphere UI</h1>
+                    <h1>Troposphere UI</h1>
                     <p>
                     A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
                     </p>

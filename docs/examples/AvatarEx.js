@@ -1,12 +1,12 @@
 import React from 'react';
-import { Avitar, Code } from '../../src';
+import { Avatar, Code } from '../../src';
 
 export default React.createClass({
     render() {
         return (
             <div>
                 <div style={{fontSize: "18px"}}>
-                    <Avitar
+                    <Avatar
                         name="Megatron"
                         size={ 30 }
                         color="#a9cc66"
@@ -15,7 +15,7 @@ export default React.createClass({
                     Megatron
                 </div>
                 <div style={{fontSize: "22px"}}>
-                    <Avitar
+                    <Avatar
                         name="Cobra Commander"
                         size={ 40 }
                         color="#87a8f0"
@@ -24,7 +24,7 @@ export default React.createClass({
                     Cobra Commander
                 </div>
                 <div style={{fontSize: "28px", marginBottom: "20px"}}>
-                    <Avitar
+                    <Avatar
                         name="Skeletor"
                         size={ 50 }
                         color="#29eded"
@@ -32,12 +32,12 @@ export default React.createClass({
                     />
                     Skelletor
                 </div>
-                    
+
                 <Code children={
-/* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+/* This is a string for our code snippt. It is not indented because it messes up the formating in render
  * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<div style={{fontSize: "18px"}}>
-    <Avitar
+    <Avatar
         name="Megatron"
         size={ 30 }
         color="#29eded"
@@ -46,7 +46,7 @@ export default React.createClass({
     Megatron
 </div>
 <div style={{fontSize: "22px"}}>
-    <Avitar
+    <Avatar
         name="Cobra Commander"
         size={ 40 }
         color="#97f811"
@@ -55,7 +55,7 @@ export default React.createClass({
     Cobra Commander
 </div>
 <div style={{fontSize: "28px"}}>
-    <Avitar
+    <Avatar
         name="Skeletor"
         size={ 50 }
         color="#87a8f0"

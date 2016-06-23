@@ -49,12 +49,12 @@ Object.defineProperty(exports, 'MediaCard', {
   }
 });
 
-var _Avitar = require('./Avitar');
+var _Avatar = require('./Avatar');
 
-Object.defineProperty(exports, 'Avitar', {
+Object.defineProperty(exports, 'Avatar', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_Avitar).default;
+    return _interopRequireDefault(_Avatar).default;
   }
 });
 
