@@ -48,12 +48,26 @@ export default React.createClass({
                         stroke={ 10 }
                     />
                 </div>
+                <div style={{marginBottom: "20px"}}>
+                    <Button
+                        onTouch={ this.startProccess }
+                    >
+                        Start Proccess
+                    </Button>
+                </div>
+                <Code 
+                    children={ 
 
-                <Button
-                    onTouch={ this.startProccess }
-                >
-                    Start Proccess
-                </Button>
+`<div style={{marginBottom: "20px"}}>
+    <CircleProgressBar
+        percent={ this.state.progress }
+        color={ theme.color.success }
+        size="50px"
+        stroke={ 10 }
+    />
+</div>`
+                    }
+                />
             </div>
         )
     }
