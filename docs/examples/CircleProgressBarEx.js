@@ -1,6 +1,8 @@
 import React from 'react';
 import theme from '../theme';
-import { CircleProgressBar, Code, Button } from '../../src';
+import { CircleProgressBar, Code, FlatButton } from '../../src';
+import { PlayIcon, ReplayIcon } from '../../src/icons';
+import { ButtonGroup } from '../../src/utils';
 
 export default React.createClass({
     getInitialState() {
@@ -32,9 +34,15 @@ export default React.createClass({
                             progress: 100
                         });
                     }, 2500);
-                }, 3500);
+                }, 3000);
             }, 2000);
         }, 1200);
+    },
+
+    replayProccess() {
+        this.setState({
+            progress: 0
+        });
     },
 
     render() {
@@ -49,11 +57,20 @@ export default React.createClass({
                     />
                 </div>
                 <div style={{marginBottom: "20px"}}>
-                    <Button
+                    <FlatButton
                         onTouch={ this.startProccess }
                     >
-                        Start Proccess
-                    </Button>
+                        <PlayIcon
+                            size={ 30 }    
+                        />
+                    </FlatButton>
+                    <FlatButton
+                        onTouch={ this.replayProccess }
+                    >
+                        <ReplayIcon
+                            size={ 30 }    
+                        />
+                    </FlatButton>
                 </div>
                 <Code 
                     children={ 
