@@ -10,6 +10,7 @@ import {
     SelectMenuEx,
     ShowMoreEllipsisEx,
     ToggleEx,
+    CircleProgressBarEx,
 } from './examples';
 
 const ExampleList = [
@@ -58,6 +59,11 @@ const ExampleList = [
         desc: "Toggle can be used for `on or off` and `yes or no` user input. By default the label is hidden beccause in most cases we are going to use Toggle in a row or on a card such that it will indicate to the user it's function in a different way. For better accessibility however we still render it to the DOM just moving it's position out of the viewport boundery",
         render: ToggleEx,
     },
+    {
+        name: "CircleProgressBar",
+        desc: "Ya ya",
+        render: CircleProgressBarEx,
+    }
 ];
 
 export default ExampleList;

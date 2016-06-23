@@ -8,9 +8,9 @@ import { variables, styles } from './styles';
 const Button = React.createClass({
     displayName: "Button",
     
-    onTouchTap() {
-        if (this.props.onTouchTap) {
-            this.props.onTouchTap()
+    onTouch() {
+        if (this.props.onTouch) {
+            this.props.onTouch()
         }
     },
 
@@ -77,7 +77,7 @@ const Button = React.createClass({
                         ...this.props.style,
                     }} 
                     type="button"
-                    onClick={this.onTouchTap}
+                    onClick={this.onTouch}
                     disabled={this.props.disabled}
                 >
                     {this.props.children}

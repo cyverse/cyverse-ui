@@ -50,6 +50,7 @@ export default React.createClass({
                     <SelectMenu
                         list={ this.things }
                         optionName={ this.optionName }
+                        color={ theme.color.primary }
                         selected={ this.state.selected }
                         onSelectChange={ this.onSelectChange }
                     />
