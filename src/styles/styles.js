@@ -57,13 +57,13 @@ let styleVariables = {
 
         headline: {
             fontSize: "24px",
-            fontWeight: "500",
+            fontWeight: "400",
             margin: "0 0 10px",
         },
 
         title: {
             fontSize: "20px",
-            fontWeight: "50px",
+            fontWeight: "400",
             margin: "0 0 10px",
         },
 
