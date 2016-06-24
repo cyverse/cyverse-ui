@@ -59,29 +59,15 @@ export default React.createClass({
                 <div style={{marginBottom: "20px"}}>
                     <ButtonGroup>
                         <FlatButton
+                            children="PLay"
                             onTouch={ this.startProccess }
-                        >
-                            <PlayIcon
-                                style={{
-                                    position: "relative", 
-                                    top: "-2px",
-                                }} 
-                                size={ 16 }    
-                            />
-                            Play
-                        </FlatButton>
+                            icon={ <PlayIcon/> }
+                        />
                         <FlatButton
+                            children="Reset"
                             onTouch={ this.replayProccess }
-                        >
-                            <ReplayIcon
-                                style={{
-                                    position: "relative", 
-                                    top: "-2px",
-                                }} 
-                                size={ 16 }    
-                            />
-                            Reset
-                        </FlatButton>
+                            icon={ <ReplayIcon/> }
+                        />
                     </ButtonGroup>
                 </div>
                 <Code 

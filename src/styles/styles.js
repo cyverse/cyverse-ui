@@ -80,9 +80,15 @@ let styleVariables = {
 
         body1: {
             fontSize: "14px",
-            fontWeight: "400",
+            fontWeight: "300",
         },
-        
+
+        button1: {
+            fontSize: "14px",
+            fontWeight: "400",
+            lineHeight: "1",
+            margin: "0px",
+        }
     },
     BgColors: {
         greyXxDark: {

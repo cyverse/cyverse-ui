@@ -1,4 +1,5 @@
 import React from 'react';
+import Scroll from 'react-scroll';
 import { styles } from '../src/styles';
 import Examples from './ExampleList';
 import Header from './Header';
@@ -8,22 +9,16 @@ import theme from './theme';
 import 'normalize.css';
 import './base.css';
 
-const ExampleLinks = Examples
-    .map( (Component, i) => {
-        let Name = Component.name;
-            return {
-                label: Name,
-                href: `#${Name.replace(/\s+/g, '-')
-                    .toLowerCase()}`
-            }
-    });
+const scroller = Scroll.scroller;
+const Element = Scroll.Element;
+
 
 const ExampleSection = Examples
     .map( (Component, i) => {
         let Name = Component.name;
         let Description = Component.desc;
         let Render = Component.render;
-            return (
+        return (
                 <section
                     key={i}
                     style={{
@@ -33,9 +28,11 @@ const ExampleSection = Examples
                 >
                     <div
                         style={{position: "absolute", top:"-50px" }}
-                        id={ Name.replace(/\s+/g, '-')
-                        .toLowerCase()}
-                    />
+                    >
+                        <Element
+                            name={ Name.replace(/\s+/g, '-') }
+                        />
+                    </div>
                     <Hr style={{ marginBottom: "50px" }}/>
                     <h2 style={ styles.t.headline }> { Name } </h2>
                     <p> { Description } </p>
@@ -62,7 +59,26 @@ const ExampleSection = Examples
 
 export default React.createClass({
     componentDidMount() {
-        console.log(ExampleLinks);
+        console.log(this.ExampleLinks());
+    },
+
+    scrollTo(i) {
+        let target = Examples[i].name.replace(/\s+/g, '-');
+        console.log(target);
+        scroller.scrollTo(target, {
+            duration: 1000,
+            smooth: true,
+        });
+    },
+
+    ExampleLinks() {
+        return Examples
+            .map( (Component, i) => {
+                let Name = Component.name;
+                    return {
+                        label: Name,
+                    }
+            });
     },
 
     render() {
@@ -86,7 +102,10 @@ export default React.createClass({
                 >
                     <h3 style={ styles.t.title }>Component List</h3>
                     <Hr/>
-                    <ActionList list={ ExampleLinks } />
+                    <ActionList 
+                        list={ this.ExampleLinks() } 
+                        onTouch={ this.scrollTo }
+                    />
                 </div>
                 
                 <div id="sideBarSpace"

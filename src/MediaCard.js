@@ -1,14 +1,20 @@
 import React from 'react';
+import Scroll from 'react-scroll';
 import VerticalMenu from './VerticalMenu';
 import Hr from './Hr';
+import Collapse from 'react-collapse';
 import styles from './styles/styles';
+
+const scroll = Scroll.animateScroll;
 
 export default React.createClass({
     onExpand() {
         this.props.onExpand();
         let scrollAmount = this.props.isExpanded ?
-            -50 : 50;
-        window.scrollBy(0,scrollAmount);
+            -30 : 30;
+        scroll.scrollMore(scrollAmount, {
+            duration: 95,
+        });
     },
 
     render() {
@@ -49,72 +55,74 @@ export default React.createClass({
                 }}
                 onClick={this.onExpand}
             >
-                <div
-                    style={{
-                        padding: detailPadding,
-                        display: "flex",
-                        flexFlow: "row wrap"
-                    }}
-                >
-                    <div style={{
-                            position: "relative",
-                            marginRight: "10px", 
-                            alignSelf: "flex-start", 
-                        }}
-                    >
-                        <div style={{
-                                borderRadius: "50%", 
-                                overflow: "hidden",
-                            }}
-                        >
-                            {this.props.image}
-                        </div>
-                    </div>
-
+                <Collapse isOpened={ true } springConfig={{stiffness: 320, damping: 30, precision: .001}}>
                     <div
                         style={{
-                            flex: "0 300px",
-                            marginBottom: `${titleMarg}`
+                            padding: detailPadding,
+                            display: "flex",
+                            flexFlow: "row wrap"
                         }}
                     >
                         <div style={{
-                                ...styles.t.body2,
-                                color: this.props.color,
+                                position: "relative",
+                                marginRight: "10px", 
+                                alignSelf: "flex-start", 
                             }}
                         >
-                        {this.props.title}
+                            <div style={{
+                                    borderRadius: "50%", 
+                                    overflow: "hidden",
+                                }}
+                            >
+                                {this.props.image}
+                            </div>
                         </div>
-                        <div style={{
-                                ...styles.t.caption,
+
+                        <div
+                            style={{
+                                flex: "0 300px",
+                                marginBottom: `${titleMarg}`
                             }}
                         >
-                            {this.props.subTitle}
+                            <div style={{
+                                    ...styles.t.body2,
+                                    color: this.props.color,
+                                }}
+                            >
+                            {this.props.title}
+                            </div>
+                            <div style={{
+                                    ...styles.t.caption,
+                                }}
+                            >
+                                {this.props.subTitle}
+                            </div>
+                            <div>
+                                {this.props.titleInfo}
+                            </div>
                         </div>
-                        <div>
-                            {this.props.titleInfo}
+                        <div 
+                            style={{
+                                flex: `1 0 ${detailWidth}`,
+                                ...styles.t.body1,
+                            }}
+                        >
+                            {HeaderRule}
+                            {this.props.detail}
                         </div>
                     </div>
-                    <div 
+                    <div
                         style={{
-                            flex: `1 0 ${detailWidth}`,
-                            ...styles.t.body1,
+                            position: "absolute",
+                            right: "10px",
+                            top: "10px",
                         }}
                     >
-                        {HeaderRule}
-                        {this.props.detail}
+                        <VerticalMenu
+                            menuItemList={this.props.contextualMenu}
+                        />
                     </div>
-                </div>
-                <div
-                    style={{
-                        position: "absolute",
-                        right: "10px",
-                        top: "10px",
-                    }}
-                >
-                    <VerticalMenu
-                        menuItemList={this.props.contextualMenu}
-                    />
-                </div>
+                </Collapse>
             </div>
         )
     }

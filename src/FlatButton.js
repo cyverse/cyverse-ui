@@ -14,6 +14,55 @@ const Button = React.createClass({
         }
     },
 
+
+    ink() {
+        if (this.props.disabled) return;
+        return (
+            <Ink/>
+        )
+    },
+
+    renderIcon() {
+        if ( this.props.icon ) {
+            let Icon = React.cloneElement(
+                this.props.icon, { size: 18 }
+            );
+            return (
+                <span style={ this.style().icon } >
+                    { Icon }
+                </span>
+            )
+        }
+    },
+
+    render() {
+        let disabled = this.props.isdisabled;
+
+        return (
+            <Tooltip 
+                message={ this.props.tooltipMessage }
+                direction={ this.props.tooltipDirection }
+            >
+                <button
+                    style={{
+                        ...this.style().button,
+                        ...this.props.style,
+                    }} 
+                    type="button"
+                    onClick={ this.onTouch }
+                    disabled={ this.props.disabled }
+                    id={ this.props.id }
+                >
+                    { this.renderIcon() }
+                    <span style={ this.style().label } >
+                        { this.props.children }
+                    </span>
+                    { this.ink() }
+                </button>
+            </Tooltip>
+        )
+    },
+
     style() {
         let txtColor = this.props.color || variables.grey.xDark;
         
@@ -26,6 +75,9 @@ const Button = React.createClass({
                 cursor: "pointer",
             };
 
+        let label = this.props.icon ? 
+            { marginLeft: "18px" } : {};
+
         let hoverStyle = this.props.disabled ?
             null : {
                 background: "rgba(0,0,0,0.08)",
@@ -33,53 +85,31 @@ const Button = React.createClass({
             };
 
         return {
-            display: "inline-block", 
-            position: "relative", 
-            background: "none",
-            padding: "5px", 
-            outline: "none",
-            border: "none",
-            borderRadius: "2px",
-            color: txtColor,
-            fontSize: "14px",
-            textTransform: "uppercase",
-            transition: "all ease .2s",
-            ...disabledStyle,
-            ':hover': {
-                ...hoverStyle
+            button: {
+                display: "inline-block", 
+                position: "relative", 
+                background: "none",
+                padding: "5px", 
+                outline: "none",
+                border: "none",
+                borderRadius: "2px",
+                color: txtColor,
+                textTransform: "uppercase",
+                transition: "all ease .2s",
+                ...styles.t.button1,
+                ...disabledStyle,
+                ':hover': {
+                    ...hoverStyle
+                }
+            },
+            label,
+            icon: {
+                position: "absolute",
+                top: "3px",
+                left: "3px",
             }
         }
     },
-
-    ink() {
-        if (this.props.disabled) return;
-        return (
-            <Ink/>
-        )
-    },
-
-    render() {
-        let disabled = this.props.isdisabled
-        return (
-            <Tooltip 
-                message={ this.props.tooltipMessage }
-                direction={ this.props.tooltipDirection }
-            >
-                <button
-                    style={{
-                        ...this.style(),
-                        ...this.props.style,
-                    }} 
-                    type="button"
-                    onClick={this.onTouch}
-                    disabled={this.props.disabled}
-                >
-                    {this.props.children}
-                    { this.ink() }
-                </button>
-            </Tooltip>
-        )
-    }
 
 });
 
