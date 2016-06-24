@@ -41,9 +41,9 @@ const Button = React.createClass({
             border: "none",
             borderRadius: "2px",
             color: txtColor,
-            fontSize: "14px",
             textTransform: "uppercase",
             transition: "all ease .2s",
+            ...styles.t.button1,
             ...disabledStyle,
             ':hover': {
                 ...hoverStyle
