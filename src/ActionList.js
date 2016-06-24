@@ -4,9 +4,59 @@ import radium from 'radium';
 
 const ActionList = React.createClass({
 
+    onTouch(i) {
+        this.props.onTouch(i)
+    },
+
+    List(option, i) {
+        if (option.href) {
+            return (
+                <li 
+                    key={i}
+                    style={{
+                        listStyle: "none", 
+                        position: "relative"
+                    }}
+                >
+                    <a 
+                        key={ option.href }
+                        style={ this.style().listItem }
+                        href={option.href}
+                    >
+                        { option.label }
+                        <Ink/>
+                    </a>    
+                </li>
+            )
+        }
+        return (
+            <li 
+                key={ i }
+                style={{ 
+                    ...this.style().listItem,  
+                    listStyle: "none"
+                }}
+                onClick={ this.onTouch.bind(this, i) }
+            > 
+                { option.label } 
+            </li>
+        )
+    },
+
     render() {
         
-        let style = {
+
+
+
+        return (
+            <ul style={ this.style().list }>
+                { this.props.list.map(this.List) }
+            </ul>
+        )
+    },
+
+    style() {
+        return {
             list: {
                 padding: "6px 0px"
             },
@@ -20,39 +70,7 @@ const ActionList = React.createClass({
                     background: "rgba(0,0,0,.1)"
                 }
             }
-        };
-
-        let List = this.props.list.map((option, i) => {
-            if (option.href) {
-                return (
-                    <li 
-                        key={i}
-                        style={{
-                            listStyle: "none", 
-                            position: "relative"
-                        }}
-                    >
-                        <a 
-                            key={ option.href }
-                            style={ style.listItem }
-                            href={option.href}
-                        >
-                            { option.label }
-                            <Ink/>
-                        </a>    
-                    </li>
-                )
-            }
-
-            return (
-                <li style={[ style.listItem,  {listStyle: "none"}]}> { option.label } </li>
-                          )
-        });
-        return (
-            <ul style={ style.list }>
-                { List }
-            </ul>
-        )
+        }
     }
 });
 
