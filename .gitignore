@@ -7,6 +7,9 @@
 # ignore all modules from npm
 /node_modules
 
+# ignore distribution files
+/dist
+
 # ignore built bundles
 style-guide/* # be specific for now
 
