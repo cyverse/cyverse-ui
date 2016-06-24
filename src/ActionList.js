@@ -1,4 +1,5 @@
 import React from 'react';
+import { styles } from './styles';
 import Ink from 'react-ink';
 import radium from 'radium';
 
@@ -39,6 +40,7 @@ const ActionList = React.createClass({
                 onClick={ this.onTouch.bind(this, i) }
             > 
                 { option.label } 
+                <Ink/>
             </li>
         )
     },
@@ -61,6 +63,8 @@ const ActionList = React.createClass({
                 padding: "6px 0px"
             },
             listItem: {
+                ...styles.t.button1,
+                position: "relative",
                 cursor: "pointer",
                 display: "block",
                 padding: "10px 14px",
