@@ -66,7 +66,7 @@ export default React.createClass({
         let target = Examples[i].name.replace(/\s+/g, '-');
         console.log(target);
         scroller.scrollTo(target, {
-            duration: 1500,
+            duration: 1000,
             smooth: true,
         });
     },
