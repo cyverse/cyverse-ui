@@ -9,27 +9,23 @@ const Example = () => {
         <div style={{marginBottom: "20px"}}>
             <ButtonGroup>
                 <Button
+                    id="default"
                     children="Default"
                 />
                 <Button
-                    tooltipMessage="I have a Tooltip!"
+                    id="primary"
                     children="Primary"
                     color={ theme.color.primary }
+                    tooltipMessage="I have a Tooltip!"
                 />
                 <Button
+                    id="danger"
                     children="Danger"
                     color={ theme.color.danger }
-                >
-                    <WarningIcon
-                        size={15}
-                        style={{
-                            position: "relative", 
-                            top: "-2px",
-                        }} 
-                    /> 
-                        Danger
-                </Button>
+                    icon={ <WarningIcon/> }
+                />
                 <Button
+                    id="disabled"
                     children="Im Disabled"
                     color={ theme.color.primary }
                     disabled
@@ -50,27 +46,23 @@ export default React.createClass({
 `<div style={{marginBottom: "20px"}}>
     <ButtonGroup>
         <Button
+            id="default"
             children="Default"
         />
         <Button
-            tooltipMessage="I have a Tooltip!"
+            id="primary"
             children="Primary"
             color={ theme.color.primary }
+            tooltipMessage="I have a Tooltip!"
         />
         <Button
+            id="danger"
             children="Danger"
             color={ theme.color.danger }
-        >
-            <WarningIcon
-                size={15}
-                style={{
-                    position: "relative", 
-                    top: "-2px",
-                }} 
-            /> 
-                Danger
-        </Button>
+            icon={ <WarningIcon/> }
+        />
         <Button
+            id="disabled"
             children="Im Disabled"
             color={ theme.color.primary }
             disabled

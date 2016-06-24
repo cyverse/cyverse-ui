@@ -13,6 +13,68 @@ const Button = React.createClass({
             this.props.onTouch()
         }
     },
+    
+    renderIcon() {
+        
+        if ( this.props.icon ) {
+            
+            let Icon = React.cloneElement( 
+                this.props.icon, { size: 18 }
+            );
+
+            return (
+                <span
+                    style={{
+                        position: "absolute",
+                        top: "8px",
+                        left: "12px",
+                    }}
+                >
+                     { Icon }
+                </span>
+            )
+        }
+
+        return 
+    },
+
+    renderInk() {
+        if ( this.props.disabled ) { return };
+        
+        return (
+            <Ink/>
+        )
+    },
+
+    render() {
+        let disabled = this.props.isdisabled;
+
+        return (
+            <Tooltip 
+                message={ this.props.tooltipMessage }
+                direction={ this.props.tooltipDirection }
+            >
+                <button
+                    style={{
+                        ...this.style().button,
+                        ...this.props.style,
+                    }} 
+                    type="button"
+                    onClick={ this.onTouch }
+                    disabled={ this.props.disabled }
+                    id={ this.props.id }
+                >
+                    { this.renderIcon() }
+                    <span 
+                        style={ this.style().label }
+                    >
+                        { this.props.children }
+                    </span>
+                    { this.renderInk() }
+                </button>
+            </Tooltip>
+        )
+    },
 
     style() {
         let btnColor = this.props.color ? 
@@ -30,62 +92,43 @@ const Button = React.createClass({
             {
                 cursor: "pointer",
             };
+        let withIcon = this.props.icon ?
+            {
+                marginLeft: "20px",
+            } : {};
 
         let hoverStyle = this.props.disabled ?
             null : {
-                background: tinyColor(btnColor).darken(5).toString(),
+                background: tinyColor(btnColor)
+                    .darken(5).toString(),
                 ...styles.boxShadow.md,
             };
 
         return {
-            display: "inline-block", 
-            position: "relative", 
-            padding: "10px 15px", 
-            background: btnColor,
-            outline: "none",
-            border: "none",
-            borderRadius: "2px",
-            color: txtColor,
-            textTransform: "uppercase",
-            transition: "all ease .2s",
-            ...disabledStyle,
-            ...styles.t.button1,
-            ...styles.boxShadow.sm,
-            ':hover': {
-                ...hoverStyle
+            button: {
+                display: "inline-block", 
+                position: "relative", 
+                padding: "10px 15px", 
+                background: btnColor,
+                outline: "none",
+                border: "none",
+                borderRadius: "2px",
+                color: txtColor,
+                textTransform: "uppercase",
+                transition: "all ease .2s",
+                ...disabledStyle,
+                ...styles.t.button1,
+                ...styles.boxShadow.sm,
+                ':hover': {
+                    ...hoverStyle
+                }
+            },
+            label: {
+                display: "inline-block",
+                ...withIcon,
             }
         }
     },
-
-    ink() {
-        if (this.props.disabled) return;
-        return (
-            <Ink/>
-        )
-    },
-
-    render() {
-        let disabled = this.props.isdisabled
-        return (
-            <Tooltip 
-                message={ this.props.tooltipMessage }
-                direction={ this.props.tooltipDirection }
-            >
-                <button
-                    style={{
-                        ...this.style(),
-                        ...this.props.style,
-                    }} 
-                    type="button"
-                    onClick={this.onTouch}
-                    disabled={this.props.disabled}
-                >
-                    {this.props.children}
-                    { this.ink() }
-                </button>
-            </Tooltip>
-        )
-    }
 
 });
 
