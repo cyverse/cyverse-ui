@@ -1,14 +1,19 @@
 import React from 'react';
+import Scroll from 'react-scroll';
 import VerticalMenu from './VerticalMenu';
 import Hr from './Hr';
 import styles from './styles/styles';
+
+const scroll = Scroll.animateScroll;
 
 export default React.createClass({
     onExpand() {
         this.props.onExpand();
         let scrollAmount = this.props.isExpanded ?
-            -50 : 50;
-        window.scrollBy(0,scrollAmount);
+            -30 : 30;
+        scroll.scrollMore(scrollAmount, {
+            duration: 100,
+        });
     },
 
     render() {
