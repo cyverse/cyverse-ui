@@ -5,18 +5,22 @@ const ShowMoreEllipsis = React.createClass({
 
     render: function() {
         return (
-                <div style={{
-                        background: "#EFEFEF",
-                        borderRadius: "8px", 
+                <span style={{
+                        cursor: "pointer",
+                        background: "rgba(0,0,0,0.1)",
+                        borderRadius: "3px", 
                         padding: "0 3px 12px", 
                         display: "inline-block",
+                        marginTop: "10px",
                         lineHeight: "0",
                         verticalAlign: "middle",
                         fontSize: "22px",
                         ':hover': {
-                            background: "lightgrey",
+                            background: "rgba(0,0,0,0.2)",
                         }
-                    }}>...</div>
+                }}>
+                    ...
+                </span>
         )
     }
 });
