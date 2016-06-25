@@ -14,3 +14,4 @@ export { default as SelectMenu } from './SelectMenu';
 export { default as Toggle } from './Toggle';
 export { default as CircleProgressBar } from './CircleProgressBar';
 export { default as FlatButton } from './FlatButton';
+export { default as P } from './P';
