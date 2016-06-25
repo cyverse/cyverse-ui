@@ -123,7 +123,7 @@ export default React.createClass({
             toggleSlide: {
                 display: "block",
                 position: "relative",
-                height: `${size - size * .33}px`,
+                height: `${size - size * .3}px`,
                 width: `${size * 2}px`,
                 borderRadius: "999px",
             },
