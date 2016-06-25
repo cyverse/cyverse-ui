@@ -1,5 +1,17 @@
-/node_modules
+# oh - the ignorez you'll see!
 /git
 *.swp
 *.swo
 *.~
+
+# ignore all modules from npm
+/node_modules
+
+# ignore distribution files
+/dist
+
+# ignore built bundles
+style-guide/* # be specific for now
+
+# ignore GitHub Pages root directory
+gh-pages
