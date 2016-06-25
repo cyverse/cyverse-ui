@@ -3,9 +3,3 @@ body {
     font-family: 'Roboto', sans-sarif;
     color: #212121;
 }
-p { 
-    max-width: 600px; 
-    line-height: 24px;
-    margin: 0;
-    margin-bottom: 34px;
-}

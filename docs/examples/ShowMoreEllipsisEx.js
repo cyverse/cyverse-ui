@@ -1,6 +1,6 @@
 import React from 'react';
 import { ClearFix } from '../../src/utils';
-import { ShowMoreEllipsis, Code } from '../../src';
+import { ShowMoreEllipsis, Code, P } from '../../src';
 
 export default React.createClass({
     render() {
@@ -11,11 +11,11 @@ export default React.createClass({
                         marginBottom: "20px",
                     }}
                 >
-                    <p>
+                    <P>
                         Bacon ipsum dolor amet capicola boudin tongue, cow pork loin venison t-bone kielbasa corned beef rump short loin tri-tip.
                         <br/>
                         <ShowMoreEllipsis/>
-                    </p>
+                    </P>
                 </div>
 
                 <Code children={

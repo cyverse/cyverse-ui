@@ -1,7 +1,7 @@
 import React from 'react';
-import v from '../../src/styles/variables';
+import { styles, variables } from '../../src/styles';
 import { PersonIcon } from '../../src/icons';
-import { MediaCard, Code, Avatar, Badge } from '../../src';
+import { MediaCard, Code, Avatar, Badge, P } from '../../src';
 
 
 export default React.createClass({
@@ -39,14 +39,32 @@ export default React.createClass({
                             <Badge>23</Badge>
                             <PersonIcon 
                                 size={ 15 }
-                                color={ v.grey.xDark }
+                                color={ variables.grey.xDark }
                             />
                         </div>
                     }
-                    detail={this.state.isExpanded ? (<div><p>Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak. Cupim bresaola brisket beef pork belly turkey meatball ground round beef ribs tenderloin ham hock shankle swine chuck. Andouille short loin tail doner leberkas chicken cow venison shankle cupim hamburger beef ribs. Pastrami doner bacon, spare ribs prosciutto capicola andouille boudin.</p>
-<p>Turkey biltong filet mignon meatloaf picanha. Turkey rump swine cupim porchetta beef shoulder shank beef ribs pork. Turducken corned beef ground round leberkas strip steak beef rump. Biltong swine corned beef, shankle andouille bacon tenderloin cow ball tip pancetta salami. Alcatra beef picanha short ribs chicken turducken ground round flank shankle pancetta. Meatball bacon biltong turducken.</p></div>) : 
-                        "Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak." } 
-                    contextualMenu = {[{render: "red"},{render: "yellow"},{render: "green"}]}
+                    detail={ this.state.isExpanded ? 
+                        (
+                            <div>
+                                <P>
+                                    Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak. Cupim bresaola brisket beef pork belly turkey meatball ground round beef ribs tenderloin ham hock shankle swine chuck. Andouille short loin tail doner leberkas chicken cow venison shankle cupim hamburger beef ribs. Pastrami doner bacon, spare ribs prosciutto capicola andouille boudin.
+                                </P>
+                                <P>
+                                    Turkey biltong filet mignon meatloaf picanha. Turkey rump swine cupim porchetta beef shoulder shank beef ribs pork. Turducken corned beef ground round leberkas strip steak beef rump. Biltong swine corned beef, shankle andouille bacon tenderloin cow ball tip pancetta salami. Alcatra beef picanha short ribs chicken turducken ground round flank shankle pancetta. Meatball bacon biltong turducken.
+                                </P>
+                            </div>
+                        ) : 
+                        (
+                            <span style={styles.t.body1}>
+                                Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak
+                            </span>
+                        )
+                    } 
+                    contextualMenu = {[
+                        {render: "red"},
+                        {render: "yellow"},
+                        {render: "green"}
+                    ]}
                     color={"#0971AB"}
                     onExpand={this.onExpand} 
                     isExpanded={this.state.isExpanded}
@@ -86,17 +104,28 @@ export default React.createClass({
                 />
             </div>
         }
-        detail={
-            this.state.isExpanded ? (
+        detail={ this.state.isExpanded ? 
+            (
                 <div>
-                        <p>Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak. Cupim bresaola brisket beef pork belly turkey meatball ground round beef ribs tenderloin ham hock shankle swine chuck. Andouille short loin tail doner leberkas chicken cow venison shankle cupim hamburger beef ribs. Pastrami doner bacon, spare ribs prosciutto capicola andouille boudin.</p>
-
-                        <p>Turkey biltong filet mignon meatloaf picanha. Turkey rump swine cupim porchetta beef shoulder shank beef ribs pork. Turducken corned beef ground round leberkas strip steak beef rump. Biltong swine corned beef, shankle andouille bacon tenderloin cow ball tip pancetta salami. Alcatra beef picanha short ribs chicken turducken ground round flank shankle pancetta. Meatball bacon biltong turducken.</p>
+                    <P>
+                        Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak. Cupim bresaola brisket beef pork belly turkey meatball ground round beef ribs tenderloin ham hock shankle swine chuck. Andouille short loin tail doner leberkas chicken cow venison shankle cupim hamburger beef ribs. Pastrami doner bacon, spare ribs prosciutto capicola andouille boudin.
+                    </P>
+                    <P>
+                        Turkey biltong filet mignon meatloaf picanha. Turkey rump swine cupim porchetta beef shoulder shank beef ribs pork. Turducken corned beef ground round leberkas strip steak beef rump. Biltong swine corned beef, shankle andouille bacon tenderloin cow ball tip pancetta salami. Alcatra beef picanha short ribs chicken turducken ground round flank shankle pancetta. Meatball bacon biltong turducken.
+                    </P>
                 </div>
             ) : 
-            "Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak." 
+            (
+                <P>
+                    Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak
+                </P>
+            )
         } 
-        contextualMenu = {[{render: "red"},{render: "yellow"},{render: "green"}]}
+        contextualMenu = {[
+            {render: "red"},
+            {render: "yellow"},
+            {render: "green"}
+        ]}
         color={"#0971AB"}
         onExpand={this.onExpand} 
         isExpanded={this.state.isExpanded}

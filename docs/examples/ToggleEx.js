@@ -60,7 +60,7 @@ export default React.createClass({
                     }}
                 >
                 <p>
-                        Sometimes we it might make since to show the label. In that case just add the "showLabel" prop.                   </p>
+                        Sometimes it might make since to show the label. In that case just add the "showLabel" prop.                   </p>
                     <Toggle
                         color={ theme.color.primary }
                         label="Showing my label"

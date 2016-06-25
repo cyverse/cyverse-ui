@@ -1,13 +1,14 @@
 import React from 'react';
 import Scroll from 'react-scroll';
+
 import { styles } from '../src/styles';
-import Examples from './ExampleList';
-import Header from './Header';
-import { ActionList } from '../src';
-import { Hr } from '../src';
 import theme from './theme';
 import 'normalize.css';
 import './base.css';
+
+import Examples from './ExampleList';
+import Header from './Header';
+import { ActionList, Hr, P } from '../src';
 
 const scroller = Scroll.scroller;
 const Element = Scroll.Element;
@@ -122,13 +123,25 @@ export default React.createClass({
                         padding: "20px 40px"
                     }}
                 >
-                    <h1 style={ styles.t.display1 }>Troposphere UI</h1>
-                    <p>
+                    <h1 
+                        style={{
+                            ...styles.t.display1,
+                            color: theme.color.primary,
+                        }}
+                    >
+                        Troposphere UI
+                    </h1>
+                    <P subheading>
                     A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
-                    </p>
-                    <p style={{ marginBottom: "100px" }}>
+                    </P>
+                    <P 
+                        style={{ 
+                            marginBottom: "100px" 
+                        }}
+                        subheading
+                    >
                     Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
-                    </p>
+                    </P>
                         { ExampleSection } 
                 </main>
                 <footer/>
