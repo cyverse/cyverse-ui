@@ -38,33 +38,39 @@ let styleVariables = {
         display4: {
             fontSize: "112px",
             fontWeight: "300",
+            letterSpacing: "1px",
         },
 
         display3: {
             fontSize: "56px",
             fontWeight: "400px",
+            letterSpacing: "1px",
         },
 
         display2: {
             fontSize: "45px",
             fontWeight: "400",
+            letterSpacing: "1px",
         },
 
         display1: {
             fontSize: "34px",
             fontWeight: "400",
+            letterSpacing: "1px",
         },
 
         headline: {
             fontSize: "24px",
             fontWeight: "400",
             margin: "0 0 10px",
+            letterSpacing: "1px",
         },
 
         title: {
             fontSize: "20px",
             fontWeight: "400",
             margin: "0 0 10px",
+            letterSpacing: "1px",
         },
 
         subheading: {
@@ -88,6 +94,7 @@ let styleVariables = {
             fontWeight: "400",
             lineHeight: "1",
             margin: "0px",
+            letterSpacing: "1px",
         }
     },
     BgColors: {
