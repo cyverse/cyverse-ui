@@ -28,15 +28,27 @@ const ExampleSection = Examples
                     }}
                 >
                     <div
-                        style={{position: "absolute", top:"-50px" }}
+                        style={{
+                            position: "absolute", 
+                            top:"-50px" 
+                        }}
                     >
                         <Element
                             name={ Name.replace(/\s+/g, '-') }
                         />
                     </div>
                     <Hr style={{ marginBottom: "50px" }}/>
-                    <h2 style={ styles.t.headline }> { Name } </h2>
-                    <p> { Description } </p>
+                    <h2 
+                        style={{ 
+                            ...styles.t.headline,
+                            color: theme.color.primary,
+                        }}
+                    > 
+                        { Name } 
+                    </h2>
+                    <div> 
+                        { Description } 
+                    </div>
                     
                     <div style={{
                             border: "solid 1px lightgrey",
@@ -44,6 +56,7 @@ const ExampleSection = Examples
                         }}
                     >
                         <div style={{
+                                ...styles.t.title,
                                 background: theme.color.primary,
                                 color: "white",
                                 padding: "10px",
@@ -116,7 +129,7 @@ export default React.createClass({
                     }}
                 />
                 <main style={{
-                        ...styles.t.body1,
+                        background: "whitesmoke",
                         maxWidth: "1200px",
                         width: "100%",
                         margin: "50px auto", 
