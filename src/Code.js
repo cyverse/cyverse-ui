@@ -9,7 +9,7 @@ export default React.createClass({
             padding: "20px",
             color: variables.grey.dark,
             fontSize: "14px",
-            borderLeft: `solid ${variables.grey.dark} 5px`,
+            borderLeft: `solid ${variables.grey.mid} 5px`,
             background: "rgba(0,0,0,0.03)",
         }
     },
