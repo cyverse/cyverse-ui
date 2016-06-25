@@ -30,7 +30,7 @@ export default React.createClass({
                     cy="50"
                     r={ baseSize }
                     fill="none"
-                    stroke={ variables.grey.xLight }
+                    stroke="rgba(0,0,0,0.05)"
                     strokeWidth={ stroke }
                     strokeLinecap= "round"
                 />
