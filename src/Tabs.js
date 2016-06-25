@@ -90,14 +90,15 @@ const Tabs = React.createClass({
 
         return {
             list: {
-                ...s.boxShadow.sm,   
+                ...s.boxShadow.sm,
+                background: "white",
                 display: "block",
                 position: "relative",
                 padding: "0px 10px",
 
             },
             listItem: {
-                ...s.t.body1,
+                ...s.t.button1,
                 cursor: "pointer",
                 display: "inline-block",
                 position: "relative",
