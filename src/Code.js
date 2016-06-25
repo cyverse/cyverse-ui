@@ -1,4 +1,5 @@
 import React from 'react';
+import { variables } from './styles';
 
 export default React.createClass({
     style() {
@@ -6,8 +7,10 @@ export default React.createClass({
             display: "block",
             whiteSpace: "pre-wrap",
             padding: "20px",
-            color: "darkgrey",
-            borderLeft: "solid darkgrey 5px",
+            color: variables.grey.dark,
+            fontSize: "14px",
+            borderLeft: `solid ${variables.grey.dark} 5px`,
+            background: "rgba(0,0,0,0.03)",
         }
     },
 
