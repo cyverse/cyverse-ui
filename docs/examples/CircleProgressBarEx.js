@@ -34,7 +34,7 @@ export default React.createClass({
                             progress: 100
                         });
                     }, 2500);
-                }, 3000);
+                }, 1000);
             }, 2000);
         }, 1200);
     },
