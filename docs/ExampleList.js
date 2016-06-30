@@ -13,6 +13,8 @@ import {
     ShowMoreEllipsisEx,
     ToggleEx,
     CircleProgressBarEx,
+    BadgeEx,
+    VerticalMenuEx,
 } from './examples';
 
 const ExampleList = [
@@ -146,7 +148,32 @@ const ExampleList = [
             </P>
         ),
         render: CircleProgressBarEx,
-    }
+    },
+    {
+        name: "Badge",
+        render: BadgeEx,
+        desc: (
+            <div>
+                <P>
+                Badge help make a destinction in text that help quantify a thing with a distinction or a value. A badge should be located under the title of a thing or the subtitle if applicable. Badges are different from Tags in that they are not user defined and are limmited in number. The more badges that exist within the App the less meaningfull they become as they will begin to create noise.
+                </P>
+                <P>
+                One use for badges in Troposphere is on Images to help determine the quallity of the Image. A number Badge next to a user Icon shows the active instances of that Image there are, and the Featured badge lets indicates that the Image is Featured.
+                </P>
+            </div>
+        ),
+    },
+    {
+        name: "VerticalMenu",
+        render: VerticalMenuEx,
+        desc: (
+            <div>
+                <P>
+                    VerticalMenu is a context menu. It is used in the header of a card sheet or page and contains importaint functions for the item it is located on. In Troposphere a VerticalMenu is used on a Project Resource Card and contains functions for the resource that card is dedicated to, like delete, refresh etc...
+                </P>
+            </div>
+        ),
+    },
 ];
 
 export default ExampleList;
