@@ -20,7 +20,6 @@ export default React.createClass({
     },  
 
     onFocus() {
-        console.log("bang");
         this.setState({
             isFocused: true
         })

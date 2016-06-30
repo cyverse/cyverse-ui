@@ -12,7 +12,6 @@ export default React.createClass({
     },
 
     style() {
-        console.log(this.props);
         let bg = this.props.color ? 
             { background: this.props.color } :
             styles.BgColors.greyXDark;

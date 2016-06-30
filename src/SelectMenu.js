@@ -93,7 +93,6 @@ const SelectMenu =  React.createClass({
         let focused = this.state.isFocused;
         let color = this.props.color || "rgba(0,0,0,.3)";
         let borderColor = focused ? color : "rgba(0,0,0,.15)";
-        console.log(focused);
         return {
             select: {
                 cursor: "pointer",
