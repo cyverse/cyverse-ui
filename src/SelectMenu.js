@@ -5,6 +5,12 @@ import { styles, variables } from './styles';
 const SelectMenu =  React.createClass({
     displayName: "SelectMenu",
 
+    getInitialState() {
+        return {
+            isFocused: false,
+        }
+    },
+
     propTypes: {
         defaultId: React.PropTypes.oneOfType([
            React.PropTypes.string,
@@ -17,6 +23,18 @@ const SelectMenu =  React.createClass({
         ]),
 
         hintText: React.PropTypes.string
+    },
+
+    onBlur() {
+        this.setState({
+            isFocused: false,
+        })
+    },
+
+    onFocus() {
+        this.setState({
+            isFocused: true,
+        })
     },
 
     onSelectChange: function(e) {
@@ -51,9 +69,12 @@ const SelectMenu =  React.createClass({
             
             return (
             <select
-                style={this.style().select}
-                value={value}
-                onChange={this.onSelectChange}>
+                style={ this.style().select }
+                value={ value }
+                onChange={ this.onSelectChange }
+                onFocus={ this.onFocus }
+                onBlur={ this.onBlur }
+            >
                 {/* TODO resolve hintText solution
                     this.hintText() */}
                 {options}
@@ -62,14 +83,17 @@ const SelectMenu =  React.createClass({
         }
 
         return (
-            <select value={this.props.defaultId} className='form-control'>
+            <select onFocus={ this.onFocus } onBlur={ this.onBlur } value={this.props.defaultId} className='form-control'>
                 <option key="1" value="1" > Loading... </option>
             </select>
         );
     },
 
     style() {
-        let borderColor = "rgba(0,0,0,.15)";
+        let focused = this.state.isFocused;
+        let color = this.props.color || "rgba(0,0,0,.3)";
+        let borderColor = focused ? color : "rgba(0,0,0,.15)";
+        console.log(focused);
         return {
             select: {
                 cursor: "pointer",
@@ -86,6 +110,10 @@ const SelectMenu =  React.createClass({
                 backgroundImage: `url('data:image/svg+xml;utf8, <svg fill="${borderColor}" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>')`,
                 padding: "8px 8px 8px 0px",
                 paddingRight: "1.5em",
+                ':focus': {
+                    outline: "none",
+                }
+
             }
         }
     },
