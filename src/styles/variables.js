@@ -10,7 +10,8 @@ for (let i = 0; i < 9; i++) {
 
 const variables = {
     l: {
-        margSizes: goldenSizes
+        margSizes: goldenSizes,
+        padSizes: goldenSizes
     },
 
     t: {

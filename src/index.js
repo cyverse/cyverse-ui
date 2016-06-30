@@ -16,3 +16,4 @@ export { default as CircleProgressBar } from './CircleProgressBar';
 export { default as FlatButton } from './FlatButton';
 export { default as P } from './P';
 export { default as StaticInk } from './StaticInk';
+export { default as Sheet } from './sheet.js';
