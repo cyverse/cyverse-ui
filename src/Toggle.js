@@ -1,5 +1,6 @@
 import React from 'react';
 import { styles, variables } from './styles';
+import StaticInk from './StaticInk';
 import tinyColor from "tinycolor2";
 
 const v = variables;
@@ -14,8 +15,22 @@ export default React.createClass({
         return {
             isToggled,
             isDisabled,
+            isFocused: false
         }
     },  
+
+    onFocus() {
+        console.log("bang");
+        this.setState({
+            isFocused: true
+        })
+    },
+
+    onBlur() {
+        this.setState({
+            isFocused: false
+        })
+    },
 
     onToggle() {
         let isToggled = !this.state.isToggled;
@@ -44,6 +59,9 @@ export default React.createClass({
                 { this.props.label }
             </label>
             <input
+                tabindex="0"
+                onFocus={ this.onFocus }
+                onBlur={ this.onBlur }
                 style={styles.u.kHide}
                 id={ this.props.id }
                 type="checkbox"
@@ -64,7 +82,11 @@ export default React.createClass({
                         ...this.style().toggleSwitch,
                         ...this.style().isToggledSwitch,
                     }}
-                />     
+                >
+                    <StaticInk
+                        isFocused={ this.state.isFocused }
+                    />
+                </span>
                 </span>
             </fieldset>
         )
