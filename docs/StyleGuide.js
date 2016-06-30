@@ -72,13 +72,8 @@ const ExampleSection = Examples
     });
 
 export default React.createClass({
-    componentDidMount() {
-        console.log(this.ExampleLinks());
-    },
-
     scrollTo(i) {
         let target = Examples[i].name.replace(/\s+/g, '-');
-        console.log(target);
         scroller.scrollTo(target, {
             duration: 1000,
             smooth: true,
