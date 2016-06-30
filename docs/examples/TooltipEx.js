@@ -12,7 +12,7 @@ export default React.createClass({
                     <Tooltip message="Default Direction">
                         <Button 
                             children="Hover over me"
-                            color={ v.grey.xXLight }
+                            color={ v.c.grey.xXLight }
                         />
                     </Tooltip>
                 </div>
@@ -23,7 +23,7 @@ export default React.createClass({
                     >
                         <Button 
                             children="Direction Right"
-                            color={ v.grey.xXLight }
+                            color={ v.c.grey.xXLight }
                         />
                     </Tooltip>
                 </div>
@@ -34,7 +34,7 @@ export default React.createClass({
                     >
                         <Button 
                             children="Direction Bottom"
-                            color={ v.grey.xXLight }
+                            color={ v.c.grey.xXLight }
                         />
                     </Tooltip>
                 </div>
@@ -45,7 +45,7 @@ export default React.createClass({
                     >
                         <Button 
                             children="Direction Left"
-                            color={ v.grey.xXLight }
+                            color={ v.c.grey.xXLight }
                         />
                     </Tooltip>
                 </div>

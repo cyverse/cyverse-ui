@@ -1,6 +1,9 @@
 import React from 'react';
 import { ClearFix } from './utils';
 import { variables, styles } from './styles';
+
+const v = variables;
+
 // TODO To be semantic this should be implemented with the Meter element. Support is strong enough for production and there are fall backs. It is a browser styled element however so it will require some style hacks to make it look good across all browsers. Since these style properties are browser specific vendor prefixing is used it is unknown to me without experimenting what autoprefixer will do to the styles or if this will require css over inline styles.
 
 export default React.createClass({
@@ -41,7 +44,11 @@ export default React.createClass({
                     >
                         {this.props.data}
                     </div>
-                    <div style={{background: variables.grey.xLight}}>
+                    <div 
+                        style={{
+                            background: v.c.grey.xLight
+                        }}
+                    >
                         <ClearFix>
                             <div
                                 style={{

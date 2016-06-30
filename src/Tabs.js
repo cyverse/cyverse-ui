@@ -4,6 +4,8 @@ import { ClearFix } from './utils';
 import Ink from 'react-ink';
 import { styles, variables } from './styles';
 
+const v = variables;
+
 const Tabs = React.createClass({
     displayName: "Tabs",
 
@@ -50,7 +52,7 @@ const Tabs = React.createClass({
                 color: "black",   
             } :
             {
-                color: variables.grey.mid,
+                color: v.c.grey.mid,
             };
 
         return (

@@ -5,6 +5,8 @@ import Ink from 'react-ink';
 import Tooltip from './Tooltip';
 import { variables, styles } from './styles';
 
+const v = variables;
+
 const Button = React.createClass({
     displayName: "Button",
     
@@ -79,7 +81,7 @@ const Button = React.createClass({
     style() {
         let btnColor = this.props.color ? 
             this.props.color : 
-            variables.grey.xXLight;
+            v.c.grey.xXLight;
 
         let txtColor = tinyColor(btnColor).isLight() ? 
             "#55555" : "white";

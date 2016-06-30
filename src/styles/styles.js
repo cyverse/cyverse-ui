@@ -32,7 +32,7 @@ let styleVariables = {
         caption: {
             fontSize: "12px",
             fontWeight: "400",
-            color: v.grey.dark,
+            color: v.c.grey.dark,
         },
 
         display4: {
@@ -99,31 +99,31 @@ let styleVariables = {
     },
     BgColors: {
         greyXxDark: {
-            background: v.grey.xXDark,
+            background: v.c.grey.xXDark,
         },
         greyXDark: {
-            background: v.grey.xDark,
+            background: v.c.grey.xDark,
         },
         greyDark:{
-            background: v.grey.dark,
+            background: v.c.grey.dark,
         },
         greyDarkMid: {
-            background: v.grey.darkMid,
+            background: v.c.grey.darkMid,
         },
         greyMid: {
-             background: v.grey.mid,
+             background: v.c.grey.mid,
         },
         greyLightMid: {
-            background: v.grey.lightMid,
+            background: v.c.grey.lightMid,
         },
         greyLight: {
-            background: v.grey.light,
+            background: v.c.grey.light,
         },
         greyXLight: {
-            background: v.grey.xLight,
+            background: v.c.grey.xLight,
         },
         greyXxlight: {
-            background: v.grey.xXLight,
+            background: v.c.grey.xXLight,
         },
     },
     u: {

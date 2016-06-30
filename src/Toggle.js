@@ -2,6 +2,8 @@ import React from 'react';
 import { styles, variables } from './styles';
 import tinyColor from "tinycolor2";
 
+const v = variables;
+
 export default React.createClass({
     getInitialState() {
         let isToggled = this.props.defaultToggled ?
@@ -96,7 +98,7 @@ export default React.createClass({
         let isToggledSwitch = isToggled ?
             {
                 left: "0%",
-                background: variables.grey.xXLight,
+                background: v.c.grey.xXLight,
             } :
             {
                 left: `calc(100% - ${size}px)`,

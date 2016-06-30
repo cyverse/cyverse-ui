@@ -3,6 +3,7 @@ import { styles, variables } from '../../src/styles';
 import { PersonIcon } from '../../src/icons';
 import { MediaCard, Code, Avatar, Badge, P } from '../../src';
 
+const v = variables;
 
 export default React.createClass({
     getInitialState() {
@@ -39,7 +40,7 @@ export default React.createClass({
                             <Badge>23</Badge>
                             <PersonIcon 
                                 size={ 15 }
-                                color={ variables.grey.xDark }
+                                color={ v.c.grey.xDark }
                             />
                         </div>
                     }
@@ -100,7 +101,7 @@ export default React.createClass({
                 <Badge>23</Badge>
                 <PersonIcon 
                     size={ 15 }
-                    color={ v.grey.xDark }
+                    color={ v.c.grey.xDark }
                 />
             </div>
         }
