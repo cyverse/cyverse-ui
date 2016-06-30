@@ -53,7 +53,7 @@ const ExampleList = [
         desc: (
             <P>
                 MediaCards are used for things like Projects, Project Resources, and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menu, attached to the card, contains all of the actions for that card.
-                    </P>
+            </P>
         ),
         render: MediaCardEx,
     },
