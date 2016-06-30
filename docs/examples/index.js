@@ -1,4 +1,5 @@
 export { default as ButtonEx } from './ButtonEx';
+export { default as FlatButtonEx } from './FlatButtonEx';
 export { default as MediaCardEx } from './MediaCardEx';
 export { default as AvatarEx } from './AvatarEx';
 export { default as TooltipEx } from './TooltipEx';

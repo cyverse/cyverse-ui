@@ -2,6 +2,7 @@ import React from 'react';
 import { P } from '../src';
 import {
     ButtonEx,
+    FlatButtonEx,
     MediaCardEx,
     AvatarEx,
     TooltipEx,
@@ -29,6 +30,21 @@ const ExampleList = [
                     
         ),
         render: ButtonEx,
+    },
+    {
+        name: "FlatButton",
+        desc: (
+            <div>
+                <P>
+                    A FlatButton is not raised so it has a visual priority. It should be used sparingly for the most important function(s) on the page. Typically a Button would be used for a final confirmation within a form or modal, or if the page contains a list of things a Button might be used to create a new thing.
+                </P>
+                <P>
+                    Multiple Buttons should be displayed in a row. The ButtonGroup utillity will add the correct spacing between them.
+                </P>
+            </div>
+                    
+        ),
+        render: FlatButtonEx,
     },
     {
         name: "MediaCard",

@@ -5,6 +5,8 @@ import Ink from 'react-ink';
 import Tooltip from './Tooltip';
 import { variables, styles } from './styles';
 
+const v = variables;
+
 const Button = React.createClass({
     displayName: "Button",
     
@@ -64,7 +66,7 @@ const Button = React.createClass({
     },
 
     style() {
-        let txtColor = this.props.color || variables.grey.xDark;
+        let txtColor = this.props.color || v.c.grey.xDark;
         
         let disabledStyle = this.props.disabled ? 
             {
