@@ -1,5 +1,5 @@
 import React, { PropType } from 'react';
-import { SelectMenu, Code } from '../../src';
+import { Sheet, SelectMenu, Code } from '../../src';
 import theme from '../theme.js';
 
 export default React.createClass({
@@ -41,36 +41,39 @@ export default React.createClass({
 
         return (
             <div>
-                <div 
-                    style={{ 
-                        marginBottom: "20px",
-                        maxWidth: "300px",
-                    }}
-                >
-                    <SelectMenu
-                        list={ this.things }
-                        optionName={ this.optionName }
-                        color={ theme.color.primary }
-                        selected={ this.state.selected }
-                        onSelectChange={ this.onSelectChange }
-                    />
-                </div>
+                <Sheet mb={ 4 }>
+                   <div 
+                        style={{ 
+                            maxWidth: "300px",
+                        }}
+                    >
+                        <SelectMenu
+                            list={ this.things }
+                            optionName={ this.optionName }
+                            color={ theme.color.primary }
+                            selected={ this.state.selected }
+                            onSelectChange={ this.onSelectChange }
+                        />
+                    </div>
+                </Sheet>
                 <Code children={
                     /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
-`<div 
-    style={{ 
-        marginBottom: "20px",
-        maxWidth: "300px",
-    }}
->
-    <SelectMenu
-        list={ this.things }
-        optionName={ this.optionName }
-        selected={ this.state.selected }
-        onSelectChange={ this.onSelectChange }
-    />
-</div>`
+`<Sheet mb={ 4 }>
+   <div 
+        style={{ 
+            maxWidth: "300px",
+        }}
+    >
+        <SelectMenu
+            list={ this.things }
+            optionName={ this.optionName }
+            color={ theme.color.primary }
+            selected={ this.state.selected }
+            onSelectChange={ this.onSelectChange }
+        />
+    </div>
+</Sheet>`
                     /* Code string ends here */
                 }/>
             </div>

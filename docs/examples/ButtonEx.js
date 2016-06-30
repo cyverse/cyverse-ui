@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Code, Tooltip } from '../../src';
+import { Sheet, Code, Tooltip, Button, } from '../../src';
 import { WarningIcon } from '../../src/icons';
 import { ButtonGroup } from '../../src/utils';
 import theme from '../theme.js';
 
 const Example = () => {
     return (
-        <div style={{marginBottom: "20px"}}>
+        <Sheet mb={ 4 }>
             <ButtonGroup>
                 <Button
                     id="default"
@@ -31,7 +31,7 @@ const Example = () => {
                     disabled
                 />
             </ButtonGroup>
-        </div>
+        </Sheet>
     )
 };
         

@@ -1,6 +1,6 @@
 import React from 'react';
 import theme from '../theme';
-import { CircleProgressBar, Code, FlatButton } from '../../src';
+import { Sheet, CircleProgressBar, Code, FlatButton } from '../../src';
 import { PlayIcon, ReplayIcon } from '../../src/icons';
 import { ButtonGroup } from '../../src/utils';
 
@@ -48,14 +48,14 @@ export default React.createClass({
     render() {
         return (
             <div>
-                <div style={{marginBottom: "20px"}}>
+                <Sheet mb={ 4 }>
                     <CircleProgressBar
                         percent={ this.state.progress }
                         color={ theme.color.success }
                         size="50px"
                         stroke={ 10 }
                     />
-                </div>
+                </Sheet>
                 <div style={{marginBottom: "20px"}}>
                     <ButtonGroup>
                         <FlatButton
@@ -73,14 +73,14 @@ export default React.createClass({
                 <Code 
                     children={ 
 
-`<div style={{marginBottom: "20px"}}>
+`<Sheet mb={ 4 }>
     <CircleProgressBar
         percent={ this.state.progress }
         color={ theme.color.success }
         size="50px"
         stroke={ 10 }
     />
-</div>`
+</Sheet>`
                     }
                 />
             </div>

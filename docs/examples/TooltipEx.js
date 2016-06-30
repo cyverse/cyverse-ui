@@ -1,13 +1,13 @@
 import React from 'react';
 import v from '../../src/styles/variables';
-import { Tooltip, Code, Button } from '../../src';
+import { Sheet, Tooltip, Code, Button } from '../../src';
 import { ClearFix } from '../../src/utils';
 import { GithubIcon } from '../../src/icons';
 
 export default React.createClass({
     Example() {
         return (
-            <div style={{marginBottom: "20px"}}>
+            <Sheet mb={ 4 }>
                 <div style={{marginBottom: "20px"}}>
                     <Tooltip message="Default Direction">
                         <Button 
@@ -49,7 +49,7 @@ export default React.createClass({
                         />
                     </Tooltip>
                 </div>
-            </div>
+            </Sheet>
         )
     },
 
@@ -61,7 +61,7 @@ export default React.createClass({
                     /* This is a string for our code snippt. 
                      * It is not indented because it messes up the formating in render.     
                      * Initially used `toJSX(Example())` which was an awesome solution but it renders the Radium wrapper instead of Button :( */
-`<div style={{marginBottom: "20px"}}>
+`<Sheet mb={ 4 }>
     <div style={{marginBottom: "20px"}}>
         <Tooltip message="Default Direction">
             <Button 
@@ -102,7 +102,7 @@ export default React.createClass({
             />
         </Tooltip>
     </div>
-</div>`
+</Sheet>`
         /* Code string ends here */
     }/>
 </div>

@@ -1,28 +1,48 @@
 import React from 'react';
-import { VerticalMenu, Code } from '../../src';
+import { Sheet, VerticalMenu, Code } from '../../src';
+import { ClearFix } from '../../src/utils';
 
 export default React.createClass({
     render() {
         return (
             <section>
-                <div style={{ 
-                        position: "relative",
-                        display: "inline-block",
-                        marginBotton: "20px",
-                    }} 
-                >
-                    <VerticalMenu 
-                        menuItemList = {[
-                            {render: "red"},
-                            {render: "yellow"},
-                            {render: "green"}
-                        ]}
-                    />
-                </div>
+                <Sheet mb={ 4 }>
+                    <ClearFix>
+                        <div style={{ 
+                                float: "right",
+                                position: "relative",
+                                display: "inline-block",
+                            }} 
+                        >
+                            <VerticalMenu 
+                                menuItemList = {[
+                                    {render: "red"},
+                                    {render: "yellow"},
+                                    {render: "green"}
+                                ]}
+                            />
+                        </div>
+                    </ClearFix>
+                </Sheet>
                 <Code children={
-`<div style={{ marginBotton: "20px" }} >
-    <VerticalMenu/>
-</div>`
+`<Sheet mb={ 4 }>
+    <ClearFix>
+        <div style={{ 
+                float: "right",
+                position: "relative",
+                display: "inline-block",
+            }} 
+        >
+            <VerticalMenu 
+                menuItemList = {[
+                    {render: "red"},
+                    {render: "yellow"},
+                    {render: "green"}
+                ]}
+            />
+        </div>
+    </ClearFix>
+</Sheet>`
                     }
                 />
 
