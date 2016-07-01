@@ -8,7 +8,7 @@ import './base.css';
 
 import Examples from './ExampleList';
 import Header from './Header';
-import { ActionList, Hr, P } from '../src';
+import { ActionList, Hr, P, Title } from '../src';
 
 const scroller = Scroll.scroller;
 const Element = Scroll.Element;
@@ -37,15 +37,14 @@ const ExampleSection = Examples
                             name={ Name.replace(/\s+/g, '-') }
                         />
                     </div>
-                    <Hr style={{ marginBottom: "50px" }}/>
-                    <h2 
-                        style={{ 
-                            ...styles.t.headline,
-                            color: theme.color.primary,
-                        }}
+                    <Hr mb={ 6 }/>
+                    <Title 
+                        h1
+                        headline
+                        color={ theme.color.primary }
                     > 
                         { Name } 
-                    </h2>
+                    </Title>
                     <div> 
                         { Description } 
                     </div>
@@ -98,26 +97,31 @@ export default React.createClass({
                 }}
             >
                 <Header />
-                <div id="sideBar" 
+                <nav id="sideBar" 
                     style={{
                         position: "fixed",
                         top: "0px",
                         bottom: "0px",
-                        minWidth: "250px",
+                        width: "250px",
                         marginTop: "50px",
                         padding: "20px",
                         background: "#EEEEEE",
                     }}
                 >
-                    <h3 style={ styles.t.title }>Component List</h3>
+                    <Title
+                        h1
+                        title
+                    >
+                        Component List
+                    </Title>
                     <Hr/>
                     <ActionList 
                         list={ this.ExampleLinks() } 
                         onTouch={ this.scrollTo }
                     />
-                </div>
+                </nav>
                 
-                <div id="sideBarSpace"
+                <div id="sideBarSpacer"
                     style={{
                         position: "reletive",
                         width: "300px"
@@ -131,14 +135,13 @@ export default React.createClass({
                         padding: "20px 40px"
                     }}
                 >
-                    <h1 
-                        style={{
-                            ...styles.t.display1,
-                            color: theme.color.primary,
-                        }}
+                    <Title
+                        h1
+                        display1
+                        color={ theme.color.primary }
                     >
                         Troposphere UI
-                    </h1>
+                    </Title>
                     <P subheading>
                     A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
                     </P>
