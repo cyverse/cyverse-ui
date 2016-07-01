@@ -1,6 +1,6 @@
 import React from 'react';
 import radium from 'radium';
-import { styles, variables } from './styles';
+import { styles, variables, marg } from './styles';
 
 const SelectMenu =  React.createClass({
     displayName: "SelectMenu",
@@ -83,8 +83,15 @@ const SelectMenu =  React.createClass({
         }
 
         return (
-            <select onFocus={ this.onFocus } onBlur={ this.onBlur } value={this.props.defaultId} className='form-control'>
-                <option key="1" value="1" > Loading... </option>
+            <select 
+                style={ this.style().select }
+                onFocus={ this.onFocus } 
+                onBlur={ this.onBlur } 
+                value={this.props.defaultId}
+            >
+                <option key="1" value="1" > 
+                    Loading... 
+                </option>
             </select>
         );
     },
@@ -109,6 +116,8 @@ const SelectMenu =  React.createClass({
                 backgroundImage: `url('data:image/svg+xml;utf8, <svg fill="${borderColor}" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>')`,
                 padding: "8px 8px 8px 0px",
                 paddingRight: "1.5em",
+                ...marg(this.props),
+
                 ':focus': {
                     outline: "none",
                 }

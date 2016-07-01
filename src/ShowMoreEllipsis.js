@@ -1,5 +1,6 @@
 import React from 'react';
 import radium from 'radium';
+import { marg } from './styles';
 
 const ShowMoreEllipsis = React.createClass({
 
@@ -11,10 +12,10 @@ const ShowMoreEllipsis = React.createClass({
                         borderRadius: "3px", 
                         padding: "0 3px 12px", 
                         display: "inline-block",
-                        marginTop: "10px",
                         lineHeight: "0",
                         verticalAlign: "middle",
                         fontSize: "22px",
+                        ...marg({mt: 2}),
                         ':hover': {
                             background: "rgba(0,0,0,0.2)",
                         }

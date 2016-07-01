@@ -1,12 +1,14 @@
 import React from 'react';
+import { marg } from './styles';
 
 export default React.createClass({
     style() {
         return {
-            ...this.props.style,
             border:"0px", 
             height: "1px", 
-            background: "rgba( 0, 0, 0, .1 )"
+            background: "rgba( 0, 0, 0, .1 )",
+            ...marg(this.props),
+            ...this.props.style,
         }
     },
 

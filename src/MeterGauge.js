@@ -1,6 +1,6 @@
 import React from 'react';
 import { ClearFix } from './utils';
-import { variables, styles } from './styles';
+import { variables, styles, marg } from './styles';
 
 const v = variables;
 
@@ -24,7 +24,7 @@ export default React.createClass({
         }
 
         return (
-            <dl>
+            <dl style={ marg(this.props)}>
                 <dt 
                     style={{
                         fontSize: "12px",

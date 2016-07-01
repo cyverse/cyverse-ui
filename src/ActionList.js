@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles } from './styles';
+import { styles, marg } from './styles';
 import Ink from 'react-ink';
 import radium from 'radium';
 
@@ -11,6 +11,7 @@ const ActionList = React.createClass({
 
     List(option, i) {
         if (option.href) {
+
             return (
                 <li 
                     key={i}
@@ -30,6 +31,7 @@ const ActionList = React.createClass({
                 </li>
             )
         }
+
         return (
             <li 
                 key={ i }
@@ -47,9 +49,6 @@ const ActionList = React.createClass({
 
     render() {
         
-
-
-
         return (
             <ul style={ this.style().list }>
                 { this.props.list.map(this.List) }
@@ -58,9 +57,11 @@ const ActionList = React.createClass({
     },
 
     style() {
+
         return {
             list: {
-                padding: "6px 0px"
+                padding: "6px 0px",
+                ...marg(this.props),
             },
             listItem: {
                 ...styles.t.button1,

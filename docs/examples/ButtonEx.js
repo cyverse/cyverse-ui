@@ -43,7 +43,7 @@ export default React.createClass({
                 <Code children={
                     /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
-`<div style={{marginBottom: "20px"}}>
+`<Sheet mb={ 4 }>
     <ButtonGroup>
         <Button
             id="default"
@@ -68,7 +68,7 @@ export default React.createClass({
             disabled
         />
     </ButtonGroup>
-</div>`
+</Sheet>`
                     /* Code string ends here */
                 }/>
             </div>

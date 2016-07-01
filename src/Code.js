@@ -1,5 +1,5 @@
 import React from 'react';
-import { variables } from './styles';
+import { variables, marg } from './styles';
 
 const v = variables
 
@@ -22,6 +22,7 @@ export default React.createClass({
             fontSize: "14px",
             borderLeft: `solid ${v.c.grey.mid} 5px`,
             background: "rgba(0,0,0,0.03)",
+            ...marg(this.props),
         }
     },
 

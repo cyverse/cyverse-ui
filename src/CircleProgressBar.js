@@ -1,5 +1,5 @@
 import React from 'react';
-import { variables } from './styles';
+import { variables, marg } from './styles';
 
 export default React.createClass({
     render() {
@@ -18,6 +18,7 @@ export default React.createClass({
                     width: size,
                     position: "relative",
                     display: "block",
+                    ...marg(this.props),
                 }}
                 viewBox="0 0 100 100"
             >

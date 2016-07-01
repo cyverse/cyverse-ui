@@ -25,7 +25,9 @@ export default React.createClass({
                         disabled
                     />
                 </Sheet>
-                    <Code children= {
+                <Code 
+                    mb={ 4 }
+                    children= {
 `<Sheet mb={ 4 }> 
     <Toggle
         color={ theme.color.primary }

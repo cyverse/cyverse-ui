@@ -2,7 +2,7 @@ import React from 'react';
 import radium from 'radium';
 import { ClearFix } from './utils';
 import Ink from 'react-ink';
-import { styles, variables } from './styles';
+import { styles, variables, marg } from './styles';
 
 const v = variables;
 
@@ -75,14 +75,12 @@ const Tabs = React.createClass({
 
     render() {
         return (
-            <ClearFix>
-                <ul style={this.style().list}>
-                    {
-                        this.props.tabList
-                            .map(this.renderLink)
-                    }
-                </ul>
-            </ClearFix>
+            <ul style={this.style().list}>
+                {
+                    this.props.tabList
+                        .map(this.renderLink)
+                }
+            </ul>
         )
     },
 
@@ -97,6 +95,7 @@ const Tabs = React.createClass({
                 display: "block",
                 position: "relative",
                 padding: "0px 10px",
+                ...marg({mb: 4}),
 
             },
             listItem: {
