@@ -18,19 +18,9 @@ export default React.createClass({
     },
 
     render() {
-        let shadow = styles.boxShadow.li 
-        let detailWidth = "";
-        let detailPadding = "0 50px 0 0";
-        let titleMarg = "";
-        let openStyle = {};
         let HeaderRule = null;
 
         if (this.props.isExpanded) {
-            shadow = styles.boxShadow.lg
-            detailWidth = "100%";
-            detailPadding = "0";
-            titleMarg = "20px";
-            openStyle = { margin: "50px -20px" };
             HeaderRule = (<Hr style={{margin: "0 -20px 20px"}}/>);
         }
 
@@ -44,51 +34,17 @@ export default React.createClass({
 
         return (
             <div
-                style={{
-                    ...openStyle,
-                    position: "relative",
-                    transition: "all ease .1s",
-                    cursor: "pointer",
-                    background: "white",
-                    padding: "20px",
-                    ...shadow,
-                }}
+                style={this.styles().card}
                 onClick={this.onExpand}
             >
                 <Collapse isOpened={ true } springConfig={{stiffness: 320, damping: 30, precision: .001}}>
-                    <div
-                        style={{
-                            padding: detailPadding,
-                            display: "flex",
-                            flexFlow: "row wrap"
-                        }}
-                    >
-                        <div style={{
-                                position: "relative",
-                                marginRight: "10px", 
-                                alignSelf: "flex-start", 
-                            }}
-                        >
-                            <div style={{
-                                    borderRadius: "50%", 
-                                    overflow: "hidden",
-                                }}
-                            >
+                    <div style={ this.styles().wrapper} >
+                        <div style={ this.styles().image }>
                                 {this.props.image}
-                            </div>
                         </div>
 
-                        <div
-                            style={{
-                                flex: "0 300px",
-                                marginBottom: `${titleMarg}`
-                            }}
-                        >
-                            <div style={{
-                                    ...styles.t.body2,
-                                    color: this.props.color,
-                                }}
-                            >
+                        <div style={ this.styles().header}>
+                            <div style={ this.styles().title }>
                             {this.props.title}
                             </div>
                             <div style={{
@@ -101,22 +57,13 @@ export default React.createClass({
                                 {this.props.titleInfo}
                             </div>
                         </div>
-                        <div 
-                            style={{
-                                flex: `1 0 ${detailWidth}`,
-                                ...styles.t.body1,
-                            }}
-                        >
+                        <div style={ this.styles().detail }>
                             {HeaderRule}
                             {this.props.detail}
                         </div>
                     </div>
                     <div
-                        style={{
-                            position: "absolute",
-                            right: "10px",
-                            top: "10px",
-                        }}
+                        style={ this.styles().menu }
                     >
                         <VerticalMenu
                             menuItemList={this.props.contextualMenu}
@@ -125,5 +72,70 @@ export default React.createClass({
                 </Collapse>
             </div>
         )
+    },
+
+    styles() {
+        let shadow = styles.boxShadow.li 
+        let detailWidth = "";
+        let detailPadding = "0 50px 0 0";
+        let titleMarg = "";
+        let openStyle = {};
+
+        if (this.props.isExpanded) {
+            shadow = styles.boxShadow.lg
+            detailWidth = "100%";
+            detailPadding = "0px";
+            titleMarg = "20px";
+            openStyle = { margin: "50px -20px" };
+        }
+
+        return {
+            card: {
+                ...openStyle,
+                position: "relative",
+                transition: "all ease .1s",
+                cursor: "pointer",
+                background: "white",
+                padding: "20px",
+                ...shadow,
+            },
+
+            wrapper: {
+                padding: detailPadding,
+                display: "flex",
+                flexFlow: "row wrap"
+            },
+
+            header: {
+                flex: "0 200px",
+                marginBottom: `${titleMarg}`,
+            },
+
+            image: {
+                position: "relative",
+                marginRight: "10px", 
+                alignSelf: "flex-start", 
+                borderRadius: "50%", 
+                overflow: "hidden",
+            },
+
+            title: {
+                ...styles.t.body2,
+                color: this.props.color,
+            },
+
+            detail: {
+                flex: `1 0 ${detailWidth}`,
+                ...styles.t.body1,
+            }, 
+
+            menu: {
+                position: "absolute",
+                right: "10px",
+                top: "10px",
+            },
+        }
+
+
     }
 });
