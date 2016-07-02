@@ -26,9 +26,9 @@ const Title = React.createClass({
     },
 
     styles() {
-        let fontStyle;
         let color = this.props.color;
 
+        let fontStyle;
         if (this.props.display4) {
             fontStyle = styles.t.display4;
         }
@@ -53,10 +53,15 @@ const Title = React.createClass({
             fontStyle = styles.t.title;
         }
 
+        let margSize;
+        if (!this.props.noMarg) {
+            margSize = marg({mb: 4})
+        }
+
         return {
             color,
             ...fontStyle,
-            ...marg(3),
+            ...margSize,
         }
     }
 });

@@ -62,21 +62,18 @@ let styleVariables = {
         headline: {
             fontSize: "24px",
             fontWeight: "400",
-            margin: "0 0 10px",
             letterSpacing: "1px",
         },
 
         title: {
             fontSize: "20px",
             fontWeight: "400",
-            margin: "0 0 10px",
             letterSpacing: "1px",
         },
 
         subheading: {
             fontSize: "16px",
             fontWeight: "400",
-            margin: "0 0 10px",
         },
 
         body2: {
