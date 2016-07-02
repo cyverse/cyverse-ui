@@ -8,10 +8,11 @@ import './base.css';
 
 import Examples from './ExampleList';
 import Header from './Header';
-import { ActionList, Hr, P, Title } from '../src';
+import Figure from './Figure';
+import { ActionList, Hr, P, Title, Div, Section } from '../src';
 
 const scroller = Scroll.scroller;
-const Element = Scroll.Element;
+const ScrollAnchor = Scroll.Element;
 
 
 const ExampleSection = Examples
@@ -20,23 +21,18 @@ const ExampleSection = Examples
         let Description = Component.desc;
         let Render = Component.render;
         return (
-                <section
+                <Section
                     key={i}
-                    style={{
-                        position: "relative", 
-                        marginBottom: "100px"
-                    }}
+                    mb={ 7 }
                 >
-                    <div
+                    <ScrollAnchor
+                        name={ Name.replace(/\s+/g, '-') }
                         style={{
                             position: "absolute", 
                             top:"-50px" 
                         }}
-                    >
-                        <Element
-                            name={ Name.replace(/\s+/g, '-') }
-                        />
-                    </div>
+                    />
+
                     <Hr mb={ 6 }/>
                     <Title 
                         h1
@@ -45,28 +41,16 @@ const ExampleSection = Examples
                     > 
                         { Name } 
                     </Title>
-                    <div> 
+                    <Div> 
                         { Description } 
-                    </div>
-                    
-                    <div style={{
-                            border: "solid 1px lightgrey",
-                            padding: "10px",
-                        }}
+                    </Div>
+                    <Figure
+                        caption={ `${Name} Example` }
+                        color={ theme.color.primary }
                     >
-                        <div style={{
-                                ...styles.t.title,
-                                background: theme.color.primary,
-                                color: "white",
-                                padding: "10px",
-                                margin: "-11px -11px 20px",
-                            }}
-                        >
-                            Example
-                        </div>
                         <Render/>
-                    </div>
-                </section>
+                    </Figure>
+                </Section>
             )
     });
 
@@ -91,10 +75,9 @@ export default React.createClass({
 
     render() {
         return (
-            <div id="bodyWrapper"
-                style={{
-                    display: "flex"
-                }}
+            <Div 
+                id="bodyWrapper"
+                flex
             >
                 <Header />
                 <nav id="sideBar" 
@@ -135,28 +118,25 @@ export default React.createClass({
                         padding: "20px 40px"
                     }}
                 >
-                    <Title
-                        h1
-                        display1
-                        color={ theme.color.primary }
-                    >
-                        Troposphere UI
-                    </Title>
-                    <P subheading>
-                    A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
-                    </P>
-                    <P 
-                        style={{ 
-                            marginBottom: "100px" 
-                        }}
-                        subheading
-                    >
-                    Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
-                    </P>
-                        { ExampleSection } 
+                    <Section mb={ 7 }>
+                        <Title
+                            h1
+                            display1
+                            color={ theme.color.primary }
+                        >
+                            Troposphere UI
+                        </Title>
+                        <P subheading>
+                        A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
+                        </P>
+                        <P subheading>
+                        Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
+                        </P>
+                    </Section>
+                    { ExampleSection } 
                 </main>
                 <footer/>
-            </div>
+            </Div>
         )
     }
 })
