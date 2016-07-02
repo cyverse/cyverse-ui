@@ -81,15 +81,7 @@ export default React.createClass({
             >
                 <Header />
                 <nav id="sideBar" 
-                    style={{
-                        position: "fixed",
-                        top: "0px",
-                        bottom: "0px",
-                        width: "250px",
-                        marginTop: "50px",
-                        padding: "20px",
-                        background: "#EEEEEE",
-                    }}
+                    style={ this.style().sideBar }
                 >
                     <Title
                         h1
@@ -105,19 +97,9 @@ export default React.createClass({
                 </nav>
                 
                 <div id="sideBarSpacer"
-                    style={{
-                        position: "reletive",
-                        width: "300px"
-                    }}
+                    style={ this.style().sideBarSpacer}
                 />
-                <main style={{
-                        background: "whitesmoke",
-                        maxWidth: "1200px",
-                        width: "100%",
-                        margin: "50px auto", 
-                        padding: "20px 40px"
-                    }}
-                >
+                <main style={ this.style().main }>
                     <Section mb={ 7 }>
                         <Title
                             h1
@@ -138,5 +120,33 @@ export default React.createClass({
                 <footer/>
             </Div>
         )
+    },
+
+    style() {
+        return {
+
+            sideBar: {
+                position: "fixed",
+                top: "0px",
+                bottom: "0px",
+                width: "250px",
+                marginTop: "50px",
+                padding: "20px",
+                background: "#EEEEEE",
+            },
+
+            sideBarSpacer: {
+                position: "reletive",
+                width: "300px",
+            },
+
+            main: {
+                background: "whitesmoke",
+                maxWidth: "1200px",
+                width: "100%",
+                margin: "50px auto", 
+                padding: "20px 40px",
+            },
+        }
     }
 })
