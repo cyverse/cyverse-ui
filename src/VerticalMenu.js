@@ -1,7 +1,7 @@
 import React from 'react';
 import radium from 'radium';
 import Ink from 'react-ink';
-import { VerticalMenuIcon } from './icons';
+import VerticalMenuIcon from './VerticalMenuIcon';
 
 const VerticalMenu = React.createClass({
     getInitialState() {
