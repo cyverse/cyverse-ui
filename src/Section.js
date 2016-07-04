@@ -15,7 +15,7 @@ const Section = React.createClass({
         let displayType = (this.props.flex) ?
             { display: "flex" } :
             { display: "block" };
-       console.log(marg(this.props)); 
+
         return {
             position: "relative",
             ...displayType,
