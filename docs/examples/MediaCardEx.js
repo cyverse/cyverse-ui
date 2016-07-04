@@ -1,7 +1,7 @@
 import React from 'react';
 import { styles, variables } from '../../src/styles';
 import { PersonIcon } from '../../src/icons';
-import { MediaCard, Code, Avatar, Badge, P } from '../../src';
+import { MediaCard, Code, Avatar, Badge, P, Div } from '../../src';
 
 const v = variables;
 
@@ -21,7 +21,7 @@ export default React.createClass({
 
     Example() {
         return (
-            <div style={{marginBottom: "20px"}}>
+            <Div mb={ 4 }>
                 <MediaCard 
                     image={
                         <Avatar 
@@ -34,9 +34,7 @@ export default React.createClass({
                     subTitle={"So much to say"}
                     titleInfo= { 
                         <div>
-                            <span style={{marginRight: "10px"}}>
-                                <Badge>Featured</Badge>
-                            </span>
+                            <Badge mr={ 2 }>Featured</Badge>
                             <Badge>23</Badge>
                             <PersonIcon 
                                 size={ 15 }
@@ -70,7 +68,7 @@ export default React.createClass({
                     onExpand={this.onExpand} 
                     isExpanded={this.state.isExpanded}
                 />
-            </div>
+            </Div>
         )
     },
 
@@ -82,7 +80,7 @@ export default React.createClass({
                     /* This is a string for our code snippt. 
                      * It is not indented because it messes up the formating in render.     
                      * Initially used `toJSX(Example())` which was an awesome solution but it renders the Radium wrapper instead of Button :( */
-`<div style={{marginBottom: "20px"}}>
+`<Div mb={ 4 }>
     <MediaCard 
         image={
             <Avatar 
@@ -95,9 +93,7 @@ export default React.createClass({
         subTitle={"So much to say"}
         titleInfo= { 
             <div>
-                <span style={{marginRight: "10px"}}>
-                    <Badge>Featured</Badge>
-                </span>
+                <Badge mr={ 2 }>Featured</Badge>
                 <Badge>23</Badge>
                 <PersonIcon 
                     size={ 15 }
@@ -117,9 +113,9 @@ export default React.createClass({
                 </div>
             ) : 
             (
-                <P>
+                <span style={styles.t.body1}>
                     Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak
-                </P>
+                </span>
             )
         } 
         contextualMenu = {[
@@ -131,7 +127,7 @@ export default React.createClass({
         onExpand={this.onExpand} 
         isExpanded={this.state.isExpanded}
     />
-</div>`
+</Div>`
                     /* Code string ends here */
                 }/>
             </div>
