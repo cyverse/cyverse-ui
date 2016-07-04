@@ -144,7 +144,7 @@ export default React.createClass({
                 background: "whitesmoke",
                 maxWidth: "1200px",
                 width: "100%",
-                margin: "50px auto", 
+                margin: "50px auto 0px", 
                 padding: "20px 40px",
             },
         }
