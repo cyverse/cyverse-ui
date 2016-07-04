@@ -15,6 +15,7 @@ import {
     CircleProgressBarEx,
     BadgeEx,
     VerticalMenuEx,
+    LoaderEx,
 } from './examples';
 
 const ExampleList = [
@@ -170,6 +171,17 @@ const ExampleList = [
             <div>
                 <P>
                     VerticalMenu is a context menu. It is used in the header of a card sheet or page and contains importaint functions for the item it is located on. In Troposphere a VerticalMenu is used on a Project Resource Card and contains functions for the resource that card is dedicated to, like delete, refresh etc...
+                </P>
+            </div>
+        ),
+    },
+    {
+        name: "Loader",
+        render: LoaderEx,
+        desc: (
+            <div>
+                <P>
+                    A Loader indicates to the user a portion of the UI is loading.
                 </P>
             </div>
         ),

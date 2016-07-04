@@ -11,3 +11,4 @@ export { default as ToggleEx } from './ToggleEx';
 export { default as CircleProgressBarEx } from './CircleProgressBarEx';
 export { default as BadgeEx } from './BadgeEx';
 export { default as VerticalMenuEx } from './VerticalMenuEx'
+export { default as LoaderEx } from './LoaderEx'
