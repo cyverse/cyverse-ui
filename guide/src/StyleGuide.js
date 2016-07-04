@@ -13,15 +13,32 @@ import { ActionList, Header, Figure, Hr, P, Title, Div, Section } from './compon
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
+export default React.createClass({
+    scrollTo(i) {
+        let target = Examples[i].name.replace(/\s+/g, '-');
+        scroller.scrollTo(target, {
+            duration: 1000,
+            smooth: true,
+        });
+    },
 
-const ExampleSection = Examples
-    .map( (Component, i) => {
+    ExampleLinks() {
+        return Examples.map( (Component, i) => {
+            let Name = Component.name;
+                return {
+                    label: Name,
+                }
+        });
+    },
+
+    renderExamples() {
+        return Examples.map((Component, i) => {
         let Name = Component.name;
         let Description = Component.desc;
         let Render = Component.render;
         return (
                 <Section
-                    key={i}
+                    key={ i }
                     mb={ 7 }
                 >
                     <ScrollAnchor
@@ -51,25 +68,7 @@ const ExampleSection = Examples
                     </Figure>
                 </Section>
             )
-    });
-
-export default React.createClass({
-    scrollTo(i) {
-        let target = Examples[i].name.replace(/\s+/g, '-');
-        scroller.scrollTo(target, {
-            duration: 1000,
-            smooth: true,
         });
-    },
-
-    ExampleLinks() {
-        return Examples
-            .map( (Component, i) => {
-                let Name = Component.name;
-                    return {
-                        label: Name,
-                    }
-            });
     },
 
     render() {
@@ -78,7 +77,9 @@ export default React.createClass({
                 id="bodyWrapper"
                 flex
             >
-                <Header />
+                <Header 
+                    style={ this.style().header }
+                />
                 <nav id="sideBar" 
                     style={ this.style().sideBar }
                 >
@@ -94,11 +95,8 @@ export default React.createClass({
                         onTouch={ this.scrollTo }
                     />
                 </nav>
-                
-                <div id="sideBarSpacer"
-                    style={ this.style().sideBarSpacer}
-                />
                 <main style={ this.style().main }>
+                    <container style={{ maxWidth: "800px", display: "block" }}>
                     <Section mb={ 7 }>
                         <Title
                             h1
@@ -114,7 +112,8 @@ export default React.createClass({
                         Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
                         </P>
                     </Section>
-                    { ExampleSection } 
+                    { this.renderExamples() } 
+                    </container>
                 </main>
                 <footer/>
             </Div>
@@ -124,6 +123,10 @@ export default React.createClass({
     style() {
         return {
 
+            header: {
+                height: "50px",
+            },
+
             sideBar: {
                 position: "fixed",
                 top: "0px",
@@ -132,19 +135,14 @@ export default React.createClass({
                 marginTop: "50px",
                 padding: "20px",
                 background: "#EEEEEE",
-            },
-
-            sideBarSpacer: {
-                position: "reletive",
-                width: "300px",
+                overflowY: "auto", 
             },
 
             main: {
                 background: "whitesmoke",
-                maxWidth: "1200px",
                 width: "100%",
-                margin: "50px auto", 
-                padding: "20px 40px",
+                margin: "50px 0px 50px 250px", 
+                padding: "40px"
             },
         }
     }
