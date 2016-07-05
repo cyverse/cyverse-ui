@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles, marg }from './styles';
+import { styles, marg } from './styles';
 
 export default React.createClass({
     render() {
