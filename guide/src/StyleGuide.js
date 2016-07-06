@@ -141,7 +141,7 @@ export default React.createClass({
             main: {
                 background: "whitesmoke",
                 width: "100%",
-                margin: "50px 0px 50px 250px", 
+                margin: "50px 0px 0px 250px", 
                 padding: "40px"
             },
         }
