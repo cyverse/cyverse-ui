@@ -8,7 +8,7 @@ import { variables, styles } from './styles';
 const v = variables;
 
 const Button = React.createClass({
-    displayName: "Button",
+    displayName: "FlatButton",
     
     onTouch() {
         if (this.props.onTouch) {

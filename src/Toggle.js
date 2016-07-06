@@ -53,12 +53,12 @@ export default React.createClass({
 
             <label
                 style={this.style().label}
-                for={ this.props.id }
+                htmlFor={ this.props.id }
             > 
                 { this.props.label }
             </label>
             <input
-                tabindex="0"
+                tabIndex="0"
                 onFocus={ this.onFocus }
                 onBlur={ this.onBlur }
                 style={styles.u.kHide}
