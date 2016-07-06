@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/cyverse/troposphere-ui#readme",
   "peerDependencies": {
+    "react": "^15.1.0"
+  },
+  "dependencies": {
     "radium": "^0.17.1",
-    "react": "^15.1.0",
     "react-collapse": "^2.2.4",
+    "react-height": "^2.1.1",
     "react-ink": "^5.1.1",
     "react-motion": "^0.4.4",
     "react-scroll": "^1.0.17",
