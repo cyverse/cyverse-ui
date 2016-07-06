@@ -18,8 +18,8 @@ module.exports = validate({
         new CleanPlugin(PATHS.dist)
     ],
     resolve: {
+        root: [__dirname + "/node_modules"],
         extensions: ["", ".js", ".jsx"],
-        fallback: __dirname + "/node_modules"
     },
     module: {
         loaders: [
@@ -30,7 +30,7 @@ module.exports = validate({
 
             {
                 test: /\.js$/,
-                include: /src/,
+                include: RegExp(__dirname + "/src"),
                 loaders:["react-hot", "babel-loader"]
             },
             {
