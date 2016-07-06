@@ -29,10 +29,6 @@ npm link troposphere-ui
 
 # Install guides dependencies
 npm i
-
-# Install library dependencies (the order here matters)
-cd ..
-npm i
 ```
 
 #### Build
