@@ -24,8 +24,8 @@ let styleVariables = {
 
         label: {
             display: "block",
-            fontSize: "12px",
-            fontWeight: "600",
+            fontSize: "15px",
+            fontWeight: "400",
             margin: "0px 0px 8px",
         },
 

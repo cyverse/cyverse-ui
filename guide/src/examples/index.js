@@ -12,3 +12,6 @@ export { default as CircleProgressBarEx } from './CircleProgressBarEx';
 export { default as BadgeEx } from './BadgeEx';
 export { default as VerticalMenuEx } from './VerticalMenuEx'
 export { default as LoaderEx } from './LoaderEx'
+export { default as DialogEx } from './DialogEx'
+export { default as CheckboxEx } from './CheckboxEx'
+export { default as RadioButtonEx } from './RadioButtonEx'

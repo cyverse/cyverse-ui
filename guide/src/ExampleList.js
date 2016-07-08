@@ -16,6 +16,9 @@ import {
     BadgeEx,
     VerticalMenuEx,
     LoaderEx,
+    DialogEx,
+    CheckboxEx,
+    RadioButtonEx,
 } from './examples';
 
 const ExampleList = [
@@ -128,6 +131,28 @@ const ExampleList = [
         render: ShowMoreEllipsisEx,
     },
     {
+        name: "Checkbox",
+        desc: (
+            <div>
+                <P>
+                    Checkbox can be used for "on" or "off" and "yes" or "no" user input. In Troposphere we might use Toggle in the admin section to enable or disable a user account. Another use of Toggle might be to turn options for a project or user account settings "on" or "off". 
+                </P>
+            </div>
+        ),
+        render: CheckboxEx,
+    },
+    {
+        name: "RadioButton",
+        desc: (
+            <div>
+                <P>
+                    Checkbox can be used for "on" or "off" and "yes" or "no" user input. In Troposphere we might use Toggle in the admin section to enable or disable a user account. Another use of Toggle might be to turn options for a project or user account settings "on" or "off". 
+                </P>
+            </div>
+        ),
+        render: RadioButtonEx,
+    },
+    {
         name: "Toggle",
         desc: (
             <div>
@@ -178,6 +203,17 @@ const ExampleList = [
     {
         name: "Loader",
         render: LoaderEx,
+        desc: (
+            <div>
+                <P>
+                    A Loader indicates to the user a portion of the UI is loading.
+                </P>
+            </div>
+        ),
+    },
+    {
+        name: "Dialog",
+        render: DialogEx,
         desc: (
             <div>
                 <P>
