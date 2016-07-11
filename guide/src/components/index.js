@@ -2,6 +2,7 @@ export { default as Code } from './Code';
 export { default as Div } from './Div';
 export { default as Figure } from './Figure';
 export { default as Header } from './Header';
+export { default as SideBar } from './SideBar';
 export { default as Hr } from './Hr';
 export { default as P } from './P';
 export { default as Section } from './Section';

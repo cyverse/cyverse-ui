@@ -8,7 +8,7 @@ import 'normalize.css';
 import './base.css';
 
 import Examples from './ExampleList';
-import { ActionList, Header, Figure, Hr, P, Title, Div, Section } from './components';
+import { Header, SideBar, ActionList, Figure, Hr, P, Title, Div, Section } from './components';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
@@ -80,13 +80,8 @@ export default React.createClass({
                 <Header 
                     style={ this.style().header }
                 />
-                <nav id="sideBar" 
-                    style={ this.style().sideBar }
-                >
-                    <Title
-                        h1
-                        title
-                    >
+                <SideBar isOpen >
+                    <Title h1 title >
                         Component List
                     </Title>
                     <Hr/>
@@ -94,26 +89,26 @@ export default React.createClass({
                         list={ this.ExampleLinks() } 
                         onTouch={ this.scrollTo }
                     />
-                </nav>
+                </SideBar>
                 <main style={ this.style().main }>
-                    <container style={{ maxWidth: "800px", display: "block" }}>
-                    <Section mb={ 7 }>
-                        <Title
-                            h1
-                            display1
-                            color={ theme.color.primary }
-                        >
-                            Troposphere UI
-                        </Title>
-                        <P subheading>
-                        A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
-                        </P>
-                        <P subheading>
-                        Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
-                        </P>
-                    </Section>
-                    { this.renderExamples() } 
-                    </container>
+                    <div style={ this.style().content }>
+                        <Section mb={ 7 }>
+                            <Title
+                                h1
+                                display1
+                                color={ theme.color.primary }
+                            >
+                                Troposphere UI
+                            </Title>
+                            <P subheading>
+                            A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
+                            </P>
+                            <P subheading>
+                            Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
+                            </P>
+                        </Section>
+                        { this.renderExamples() } 
+                    </div>
                 </main>
                 <footer/>
             </Div>
@@ -127,23 +122,17 @@ export default React.createClass({
                 height: "50px",
             },
 
-            sideBar: {
-                position: "fixed",
-                top: "0px",
-                bottom: "0px",
-                width: "250px",
-                marginTop: "50px",
-                padding: "20px",
-                background: "#EEEEEE",
-                overflowY: "auto", 
-            },
-
             main: {
                 background: "whitesmoke",
                 width: "100%",
-                margin: "50px 0px 0px 250px", 
-                padding: "40px"
+                marginTop: 50, 
+                padding: 40,
             },
+
+            content: {
+                maxWidth: 1200,
+                margin: "auto",
+            }
         }
     }
 })
