@@ -1,4 +1,5 @@
 import { default as React, PropTypes } from 'react'
+import { marg } from './styles';
 const defaultSize = '1em'
 
 const IconBase = ({ children, size, style, ...props }, { reactIconBase }) => {
@@ -6,7 +7,8 @@ const IconBase = ({ children, size, style, ...props }, { reactIconBase }) => {
     const computedStyle = {
         verticalAlign: "middle",
         ...(reactIconBase && reactIconBase.style || {}),
-        ...style
+        ...style,
+        ...marg(props),
     }
     return (
         <svg
