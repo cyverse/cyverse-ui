@@ -29,7 +29,7 @@ const TagGroup = React.createClass({
 
             li: {
                 ...s.u.inlineLi,
-                ...marg({ mr: 1}),
+                ...marg({ mr: 1, mb: 1 }),
             },
 
             ul: {
