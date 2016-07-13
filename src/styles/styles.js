@@ -127,7 +127,17 @@ let styleVariables = {
         kHide: {
             position: "fixed",
             top: "9999px",
-        }
+        },
+
+        inlineUl: {
+            padding: 0,
+            margin: 0,
+        },
+
+        inlineLi: {
+            display: "inline-block",
+            listStyle: "none",
+        },
     }
 };
 
