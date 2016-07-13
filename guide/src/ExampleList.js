@@ -19,6 +19,7 @@ import {
     DialogEx,
     CheckboxEx,
     RadioButtonEx,
+    TagEx,
 } from './examples';
 
 const ExampleList = [
@@ -51,6 +52,18 @@ const ExampleList = [
                     
         ),
         render: FlatButtonEx,
+    },
+    {
+        name: "Tag",
+        desc: (
+            <div>
+                <P>
+                    A Tag is used to show a list of things asociated with an owner. For example a list of categories. 
+                </P>
+            </div>
+                    
+        ),
+        render: TagEx,
     },
     {
         name: "MediaCard",
