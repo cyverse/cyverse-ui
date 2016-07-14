@@ -89,7 +89,7 @@ const Tag = React.createClass({
                 color: "rgba(0, 0, 0, .2)",
                 position: "absolute",
                 right: 5,
-                top: "4",
+                top: 4,
                 ':hover': {
                     color: "white",
                     background: "rgba(0,0,0,.3)",
