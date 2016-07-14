@@ -27,7 +27,6 @@ module.exports = validate({
                 test: /\.html$/,
                 loader: "file?name=[name].[ext]"
             },
-
             {
                 test: /\.js$/,
                 include: RegExp(__dirname + "/src"),
