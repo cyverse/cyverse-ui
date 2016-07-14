@@ -5,61 +5,43 @@ const sizes = variables.l.margSizes;
 
 const marg = ( props ) => {
 
-    if (props.mr) {
-        if (props.mr.substring) {
-            return {
-                marginRight: props.mr,
-            }
-        }
-        return {
-            marginRight: `${sizes[props.mr - 1]}px`
-        }
-    }
+    //
+    // For more information on how to use this style util 
+    // see troposphere-ui/src/style/README.md 
+    //
 
-    if (props.mb) {
-        if (props.mb.substring) {
-            return {
-                marginBottom: props.mb,
-            }
-        }
-        return {
-            marginBottom: `${sizes[props.mb -1]}px`
-        }
-    }
+    return Object.keys(props).reduce((style, prop) => {
+        let value = props[prop];
 
-    if (props.ml) {
-        if (props.ml.substring) {
-            return {
-                marginLeft: props.ml,
-            }
+        let cssField;
+        switch (prop) {
+            case "mr":
+                style.marginRight = typeof value == "number"
+                    ? sizes[value - 1]
+                    : value
+                break;
+            case "mb":
+                style.marginBottom = typeof value == "number"
+                    ? sizes[value - 1]
+                    : value
+                break;
+            case "ml":
+                style.marginLeft = typeof value == "number"
+                    ? sizes[value - 1]
+                    : value
+                break;
+            case "ms":
+                style.marginRight = typeof value == "number"
+                    ? sizes[value -1] * .5
+                    : value
+                style.marginLeft = typeof value == "number"
+                    ? sizes[props.ms -1] * .5
+                    : value
         }
-        return {
-            marginLeft: `${sizes[props.ml -1]}px`
-        }
-    }
 
-    if (props.mt) {
-        if (props.mt.substring) {
-            return {
-                marginTop: props.mt,
-            }
-        }
-        return {
-            marginTop: `${sizes[props.mt -1]}px`
-        }
-    }
+        return style
 
-    if (props.ms) {
-        if (props.ms.substring) {
-            return {
-                marginRight: props.ms,
-            }
-        }
-        return {
-            marginRight: `${sizes[props.ms -1] * .5}px`,
-            marginLeft: `${sizes[props.ms -1] * .5}px`
-        }
-    }
+    }, {});
 }
 
 export default marg;
