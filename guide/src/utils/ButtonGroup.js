@@ -1,5 +1,5 @@
 import React from 'react';
-import { marg } from '../styles';
+import { marg } from 'troposphere-ui/lib/styles';
 import ClearFix from './ClearFix';
 
 export default React.createClass({
