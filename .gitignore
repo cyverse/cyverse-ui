@@ -1,13 +1,17 @@
-# oh - the ignorez you'll see!
+# Ignore everything 
+*
+
+# Don't Ignore
+!package.json
+!.babel.rc
+!README.md
+!TODO.md
+
+!./src
+
+!./guide
+
+# Ignore temp files
 *.swp
 *.swo
 *.~
-
-# ignore all modules from npm
-node_modules
-
-# ignore compiled code
-lib
-
-# ignore npm fail log
-npm-debug.log
