@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { marg } from './styles';
+import { marg } from '../styles';
 const defaultSize = '1em'
 
 const IconBase = ({ children, size, style, ...props }, { reactIconBase }) => {
@@ -9,10 +9,13 @@ const IconBase = ({ children, size, style, ...props }, { reactIconBase }) => {
         ...(reactIconBase && reactIconBase.style || {}),
         ...style,
         ...marg(props),
-    }
+    };
+    
+    let fill = props.color ? props.color : "currentColor";
+
     return (
         <svg
-            fill="currentColor"
+            fill={ fill }
             preserveAspectRatio="xMidYMid meet"
             height={computedSize}
             width={computedSize}

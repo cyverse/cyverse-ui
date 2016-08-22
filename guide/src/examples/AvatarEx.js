@@ -1,5 +1,5 @@
 import React from 'react';
-import { marg } from '../styles';
+import { marg } from 'troposphere-ui/lib/styles';
 import { Avatar } from 'troposphere-ui';
 import { Code, Sheet }  from '../components';
 

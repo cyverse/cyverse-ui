@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { styles, pad, marg } from '../styles';
+import { styles, pad, marg } from 'troposphere-ui/lib/styles';
 
 const Sheet = React.createClass({
 

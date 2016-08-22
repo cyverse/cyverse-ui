@@ -1,5 +1,5 @@
 import React from 'react';
-import { variables } from '../styles';
+import { variables } from 'troposphere-ui/lib/styles';
     
 const sizes = variables.l.padSizes;
 

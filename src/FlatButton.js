@@ -83,7 +83,6 @@ const Button = React.createClass({
         let hoverStyle = this.props.disabled ?
             null : {
                 background: "rgba(0,0,0,0.08)",
-                padding: "5px",
             };
 
         return {
@@ -91,7 +90,7 @@ const Button = React.createClass({
                 display: "inline-block", 
                 position: "relative", 
                 background: "none",
-                padding: "5px", 
+                padding: "10px 15px", 
                 outline: "none",
                 border: "none",
                 borderRadius: "2px",
@@ -107,8 +106,8 @@ const Button = React.createClass({
             label,
             icon: {
                 position: "absolute",
-                top: "3px",
-                left: "3px",
+                top: "7px",
+                left: "14px",
             }
         }
     },
