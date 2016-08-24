@@ -43,10 +43,10 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    A FlatButton is not raised so it has a visual priority. It should be used sparingly for the most important function(s) on the page. Typically a Button would be used for a final confirmation within a form or modal, or if the page contains a list of things a Button might be used to create a new thing.
+                    A FlatButton is not raised so it has a lower visual priority than a raised Button. It should be used for more common function(s) on the page. Typically a FlatButton would be used in a series of equal priorety functions.
                 </P>
                 <P>
-                    Multiple Buttons should be displayed in a row. The ButtonGroup utillity will add the correct spacing between them.
+                    Multiple FlatButtons should be displayed in a row. The ButtonGroup utility will add the correct spacing between them.
                 </P>
             </div>
                     
@@ -58,21 +58,15 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    A Tag is used to show a list of things asociated with an owner. For example a list of categories. 
+                    A Tag is used to show a list of things associated with an owner. For example a list of categories. 
+                </P>
+                <P>
+                    Since a Tag always comes in a list they should be wrapped in a TagGroup component to maintain the proper spaceing between them. 
                 </P>
             </div>
                     
         ),
         render: TagEx,
-    },
-    {
-        name: "MediaCard",
-        desc: (
-            <P>
-                MediaCards are used for things like Projects, Project Resources, and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menu, attached to the card, contains all of the actions for that card.
-            </P>
-        ),
-        render: MediaCardEx,
     },
     {
         name: "Avatar",
@@ -100,7 +94,7 @@ const ExampleList = [
                     Tabs are used to change views within a specific scope. Filtering a list is a common use for tabs in Troposphere.
                 </P>
                 <P>
-                    Tabs should contain funtions of equal priority. For example Tabs should not contain several items for changing list veiws and one Tab for something like settings or help.
+                    Tabs should contain functions of equal priority. For example Tabs should not contain several items for changing list veiws and one Tab for something like settings or help.
                 </P>
             </div>
         ), 
@@ -134,10 +128,7 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    ShowMoreEllipsis is used to show he user that there is more content to see that has been hidden by the UI. It has a hover but takes no callbacks or any other props. Generally it is unecessary to trigger any events with it as it is used on cards which expand when the user clicks anywhere inside.
-                </P>
-                <P>
-                    If an event must be triggered, the component can be wrapped in a div with an event handler and a display of inline-block.
+                    ShowMoreEllipsis is used to show he user that there is more content to see that has been hidden by the UI. Generally it is unecessary to trigger any events with it as it is used on cards which expand when the user clicks anywhere inside.
                 </P>
             </div>
         ),
@@ -148,7 +139,7 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    Checkbox can be used for "on" or "off" and "yes" or "no" user input. In Troposphere we might use Toggle in the admin section to enable or disable a user account. Another use of Toggle might be to turn options for a project or user account settings "on" or "off". 
+                    A Checkbox can be used for "on" or "off" and "yes" or "no" user input. In Troposphere we might use Toggle in the admin section to enable or disable a user account. Another use of Toggle might be to turn options for a project or user account settings "on" or "off". 
                 </P>
             </div>
         ),
@@ -159,7 +150,10 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    Checkbox can be used for "on" or "off" and "yes" or "no" user input. In Troposphere we might use Toggle in the admin section to enable or disable a user account. Another use of Toggle might be to turn options for a project or user account settings "on" or "off". 
+                    A RadioButton is used for choosing between several options in a list. Since RadioButtons allways appear in a list they must be wrapped in a RadioButtonGroup component to maintain the proper spacing and handle the logic between them.  
+                </P>
+                <P>
+                    In Troposphere a set of RadioButtons are used to let the user choose between a URL or a Text Field when adding a Bootscript to an instance.
                 </P>
             </div>
         ),
@@ -170,7 +164,7 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    Toggle can be used for "on" or "off" and "yes" or "no" user input. In Troposphere we might use Toggle in the admin section to enable or disable a user account. Another use of Toggle might be to turn options for a project or user account settings "on" or "off". 
+                    Toggle can be used for "on" or "off" and "yes" or "no" user input. In Troposphere we might use Toggle in the admin section to enable or disable a user account. Another use of Toggle might be to enable options for a project or turn user account settings "on" or "off". 
                 </P>
                 <P>
                     By default the label is hidden beccause in most cases we are going to use Toggle in a row or on a card such that it will indicate to the user it's function in a different way. For better accessibility however we still render the label to the DOM just moving it's position out of the viewport boundery
@@ -194,10 +188,10 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                Badge help make a destinction in text that help quantify a thing with a distinction or a value. A badge should be located under the title of a thing or the subtitle if applicable. Badges are different from Tags in that they are not user defined and are limmited in number. The more badges that exist within the App the less meaningfull they become as they will begin to create noise.
+                    A Badge makes a destinction in text on an object, usually a numarical value like number of unread messages. A badge should be located under the title or acrross from a list item. Badges are different from Tags in that they are not user defined and are limmited in number. The more badges that exist within the App the less meaningfull they become as they will begin to create noise.
                 </P>
                 <P>
-                One use for badges in Troposphere is on Images to help determine the quallity of the Image. A number Badge next to a user Icon shows the active instances of that Image there are, and the Featured badge lets indicates that the Image is Featured.
+                    One use for badges in Troposphere is on Images to help determine the quallity of the Image. A number Badge next to a user Icon shows the active instances of that Image there are, and the Featured badge lets indicates that the Image is Featured.
                 </P>
             </div>
         ),
@@ -230,10 +224,22 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    A Loader indicates to the user a portion of the UI is loading.
+                    Dialogs provide the user with a focused way of accomplishing, confirming, or viewing something without entirely leaving a screen or page. 
+                </P>
+                <P>
+                    In Troposphere we use a Dialog to create Instances without losing the context from which the Instance is being created, or to get the user to confirm moving resources without a project into an existing project before continuing on to use the app, without feeling redirected.
                 </P>
             </div>
         ),
+    },
+    {
+        name: "MediaCard",
+        desc: (
+            <P>
+                MediaCards are used for objects like Projects, Project Resources, and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menu, attached to the card, contains all of the actions for that card.
+            </P>
+        ),
+        render: MediaCardEx,
     },
 ];
 
