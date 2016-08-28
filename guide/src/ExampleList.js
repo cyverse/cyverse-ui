@@ -4,6 +4,7 @@ import {
     ButtonEx,
     FlatButtonEx,
     MediaCardEx,
+    MediaCardGroupEx,
     AvatarEx,
     TooltipEx,
     TransitionEx,
@@ -234,6 +235,24 @@ const ExampleList = [
                 </P>
             </div>
         ),
+    },
+    {
+        name: "MediaCard",
+        desc: (
+            <P>
+                MediaCards are used for objects like Projects, Project Resources, and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menu, attached to the card, contains all of the actions for that card.
+            </P>
+        ),
+        render: MediaCardEx,
+    },
+    {
+        name: "MediaCardGroup",
+        desc: (
+            <P>
+                Since only one MediaCard should be open at a time and clicking off the media card should close it a MediaCardGroup is used to control this interdependent behaviour.
+            </P>
+        ),
+        render: MediaCardGroupEx,
     },
 ];
 

@@ -9,6 +9,7 @@ export { default as Hr } from './Hr';
 export { default as IconBase } from './IconBase';
 export { default as Loader } from './Loader';
 export { default as MediaCard } from './MediaCard';
+export { default as MediaCardGroup } from './MediaCardGroup';
 export { default as MeterGauge } from './MeterGauge';
 export { default as SelectMenu } from './SelectMenu';
 export { default as ShowMoreEllipsis } from './ShowMoreEllipsis';
