@@ -1,12 +1,14 @@
 # TODO
 - [ ] convert `px` to `em`
-- [ ] create method to handle `font-size` progromatically 
-- [ ] write descriptions for components
+- [ ] create method to handle `font-size` programmatically 
+- [x] write descriptions for components
 - [ ] Add utility for prefixing styles in animations 
-- [ ] Make Tag component
-- [ ] Make Check
-- [ ] Make Radio
+- [x] Make Tag component
+- [x] Make Check
+- [x] Make Radio
 - [ ] Make CandyBar 
-- [ ] Dialog
+- [x] Dialog
+- [ ] Determine Avatar color by name string
+- [ ] Move Toggle label inline
 
 
