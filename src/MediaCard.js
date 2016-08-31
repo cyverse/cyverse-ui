@@ -17,6 +17,11 @@ export default React.createClass({
         });
     },
 
+    content() {
+        const { isExpanded, detail, summary } = this.props;
+        return isExpanded ? detail : summary; 
+    },
+
     render() {
         let HeaderRule = null;
 
@@ -61,8 +66,8 @@ export default React.createClass({
                         </div>
 
                         <div style={ this.styles().detail }>
-                            {HeaderRule}
-                            {this.props.detail}
+                            { HeaderRule }
+                            { this.content }
                         </div>
 
                     </div>
