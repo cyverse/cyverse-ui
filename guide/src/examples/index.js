@@ -16,4 +16,5 @@ export { default as DialogEx } from './DialogEx'
 export { default as CheckboxEx } from './CheckboxEx'
 export { default as RadioButtonEx } from './RadioButtonEx'
 export { default as TagEx } from './TagEx'
+export { default as MediaCardGroupEx } from './MediaCardGroupEx'
 
