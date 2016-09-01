@@ -17,7 +17,6 @@ export default React.createClass({
                         <Avatar
                             name="Megatron"
                             size={ 30 }
-                            color="#a9cc66"
                             mr={ 3 }
                         />
                         Megatron
@@ -31,7 +30,6 @@ export default React.createClass({
                         <Avatar
                             name="Cobra Commander"
                             size={ 40 }
-                            color="#87a8f0"
                             mr={ 3 }
                         />
                         Cobra Commander
@@ -44,7 +42,6 @@ export default React.createClass({
                         <Avatar
                             name="Skeletor"
                             size={ 50 }
-                            color="#29eded"
                             mr={ 3 }
                         />
                         Skelletor
@@ -64,7 +61,6 @@ export default React.createClass({
         <Avatar
             name="Megatron"
             size={ 30 }
-            color="#a9cc66"
             mr={ 3 }
         />
         Megatron
@@ -78,7 +74,6 @@ export default React.createClass({
         <Avatar
             name="Cobra Commander"
             size={ 40 }
-            color="#87a8f0"
             mr={ 3 }
         />
         Cobra Commander
@@ -91,7 +86,6 @@ export default React.createClass({
         <Avatar
             name="Skeletor"
             size={ 50 }
-            color="#29eded"
             mr={ 3 }
         />
         Skelletor

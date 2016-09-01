@@ -1,6 +1,7 @@
 import React from 'react';
 import radium from 'radium';
 import tinyColor from 'tinycolor2';
+import randomcolor from 'randomcolor';
 import { marg } from './styles';
 
 const Avatar = React.createClass({
@@ -18,7 +19,9 @@ const Avatar = React.createClass({
 
     styles() {
         let size = this.props.size;
-        let color = this.props.color;
+        let color = randomcolor({
+          seed: this.props.name  
+        });
 
         return {
             display: "inline-block",
