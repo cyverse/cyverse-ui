@@ -1,4 +1,3 @@
-
 const gr = 1.61;
 
 const baseSize = 5;

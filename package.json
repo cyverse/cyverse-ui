@@ -25,6 +25,7 @@
     "radium": "^0.17.1",
     "randomcolor": "^0.4.4",
     "react-collapse": "^2.2.4",
+    "react-dimensions": "^1.3.0",
     "react-height": "^2.1.1",
     "react-ink": "^5.1.1",
     "react-motion": "^0.4.4",
