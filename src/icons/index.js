@@ -5,3 +5,5 @@ export { default as PersonIcon } from './PersonIcon';
 export { default as PlayIcon } from './PlayIcon';
 export { default as ReplayIcon } from './ReplayIcon';
 export { default as CloseIcon } from './CloseIcon';
+export { default as ConsoleIcon } from './ConsoleIcon';
+export { default as PauseIcon } from './PauseIcon';
