@@ -23,4 +23,6 @@ export { default as Checkbox } from './Checkbox';
 export { default as RadioButton } from './RadioButton';
 export { default as RadioButtonGroup } from './RadioButtonGroup';
 export { default as InstanceCard } from './InstanceCard';
+export { default as ProgressAvatar } from './ProgressAvatar';
+export { default as TextField } from './TextField';
 

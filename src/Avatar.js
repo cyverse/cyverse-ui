@@ -23,7 +23,12 @@ const Avatar = React.createClass({
           seed: this.props.name  
         });
 
+        if (this.props.color) {
+            color = this.props.color;
+        }
+
         return {
+            transition: "all ease .2s",
             display: "inline-block",
             textAlign: "center",
             width: `${size}px`,

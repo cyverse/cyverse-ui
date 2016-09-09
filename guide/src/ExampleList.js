@@ -22,6 +22,7 @@ import {
     RadioButtonEx,
     TagEx,
     InstanceCardEx,
+    ProgressAvatarEx,
 } from './examples';
 
 const ExampleList = [
@@ -183,6 +184,15 @@ const ExampleList = [
             </P>
         ),
         render: CircleProgressBarEx,
+    },
+    {
+        name: "ProgressAvatar",
+        desc: (
+            <P>
+                CircleProgressBar is used to inform the user that a proccess is taking place as well as what percentage of that proccess is finished.  
+            </P>
+        ),
+        render: ProgressAvatarEx,
     },
     {
         name: "Badge",

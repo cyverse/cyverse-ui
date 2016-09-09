@@ -10,14 +10,17 @@ export default React.createClass({
         let size = this.props.size;
         let offset = length * (1 - (percent * 0.01));
 
+        let transition = "none";
 
+        if ( percent > 0 ) {
+            transition = "all 1s ease";
+        }
 
         return(
             <svg 
                 style={{
-                    width: size,
-                    position: "relative",
-                    display: "block",
+                    width: size + "px",
+                    ...this.props.style,
                     ...marg(this.props),
                 }}
                 viewBox="0 0 100 100"
@@ -43,7 +46,7 @@ export default React.createClass({
                         transformOrigin: "center",
                         strokeDasharray: length,
                         strokeDashoffset: offset,         
-                        transition: "all 1s ease",
+                        transition,
                     }}
                     cx="50"
                     cy="50"

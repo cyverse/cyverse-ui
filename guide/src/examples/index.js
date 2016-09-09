@@ -18,4 +18,6 @@ export { default as RadioButtonEx } from './RadioButtonEx'
 export { default as TagEx } from './TagEx'
 export { default as MediaCardGroupEx } from './MediaCardGroupEx'
 export { default as InstanceCardEx } from './InstanceCardEx'
+export { default as ProgressAvatarEx } from './ProgressAvatarEx'
+
 
