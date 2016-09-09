@@ -1,6 +1,6 @@
 {
   "name": "troposphere-ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A UI library for Troposphere",
   "main": "./index.js",
   "scripts": {
