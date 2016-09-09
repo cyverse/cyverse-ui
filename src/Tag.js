@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Radium from 'radium';
-import tinyColor from 'tinyColor2';
+import tinyColor from 'tinycolor2';
 
 import { styles, variables } from './styles';
 import { CloseIcon } from './icons';
