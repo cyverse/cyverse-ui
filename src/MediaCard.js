@@ -4,7 +4,6 @@ import Scroll from 'react-scroll';
 import VerticalMenu from './VerticalMenu';
 import Hr from './Hr';
 import Collapse from 'react-collapse';
-import ConsoleIcon from './icons/ConsoleIcon';
 import styles from './styles/styles';
 
 const scroll = Scroll.animateScroll;
@@ -16,22 +15,32 @@ const MediaCard = React.createClass({
         }
     },
 
-    onCardHover() {
+    onCardEnter() {
         this.setState({
-            cardIsHovered: !this.state.cardIsHovered,
+            cardIsHovered: true,
+        }); 
+    },
+
+    onCardLeave() {
+        this.setState({
+            cardIsHovered: false,
         }); 
     },
 
     renderQuickLinks() {
         if ( this.props.quickLinks ) {
-            return this.props.quickLinks.map( link => link )
+            return (
+                <div style={ this.styles().quickLinks }>
+                    { this.props.quickLinks.map( link => link ) }
+                </div>
+            )
         }
     },
 
     onExpand() {
         this.props.onExpand();
         let scrollAmount = this.props.isExpanded ?
-            -30 : 30;
+          -30 : 30;
         scroll.scrollMore(scrollAmount, {
             duration: 95,
         });
@@ -41,8 +50,8 @@ const MediaCard = React.createClass({
         const { isExpanded, detail } = this.props;
 
         return isExpanded ? (
-            <div style={ this.styles().detail }>
-                <Hr style={{ margin: "0px -20px 20px" }}/>
+            <div style = { this.styles().detail }>
+                <Hr style = {{ margin: "0px -20px 20px" }}/>
                 { detail }
             </div>
         ) : null; 
@@ -51,17 +60,25 @@ const MediaCard = React.createClass({
     render() {
 
         return (
-            <div
-                style={this.styles().card}
-            >
+            <div style = {this.styles().card} >
+                <div 
+                    id = { this.props.id }
+                    style = {{ 
+                        paddingTop: "40px",
+                        marginTop: "-40px",
+                        width: "1px", /* '0' will not work for Opera */
+                        display: "inline-block"
+                    }}
+
+                />
                 <Collapse
                     isOpened={ true }
                     springConfig={{stiffness: 520, damping: 35, precision: .001}}
                 >
                     <div 
                         style = { this.styles().header }
-                        onMouseEnter = { this.onCardHover }
-                        onMouseLeave = { this.onCardHover }
+                        onMouseEnter = { this.onCardEnter }
+                        onMouseLeave = { this.onCardLeave }
                         onClick = {this.onExpand}
                     >
                             <div style={ this.styles().identity}>
@@ -89,9 +106,8 @@ const MediaCard = React.createClass({
                             </div>
 
                             <div style={ this.styles().menu } >
-                                <div style={ this.styles().quickLinks }>
-                                    { this.renderQuickLinks() }
-                                </div>
+                                { this.renderQuickLinks() }
+                                
                                 <VerticalMenu
                                     menuItemList={this.props.contextualMenu}
                                 />

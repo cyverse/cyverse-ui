@@ -1,11 +1,50 @@
 import React, { PropTypes } from 'react';
 import Dimensions from 'react-dimensions';
 import { styles, marg } from './styles';
+import { EditIcon } from './icons';
 import MediaCard from './MediaCard';
 import Avatar from './Avatar';
 import Hr from './Hr';
+import ProgressAvatar from './ProgressAvatar';
+import Checkbox from './Checkbox';
+import TextField from './TextField';
 
 const InstanceCard = React.createClass({
+
+    getInitialState() {
+        return {
+            title: this.props.title,
+            avatarIsHovered: false,
+            titleIsHoverd: false,
+            editTitle: false,
+        }
+    },
+
+    onAvatarEnter() {
+        this.setState({
+            avatarIsHovered: true
+        });
+    },
+
+    onAvatarLeave() {
+        this.setState({
+            avatarIsHovered: false
+        });
+    },
+
+    onChangeTitle(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.props.onChangeTitle(e.target.value)
+        this.setState({ editTitle: false })
+    },
+
+    onCheck(e) {
+        e.nativeEvent.stopImmediatePropagation();
+        e.preventDefault();
+        e.stopPropagation();
+        this.props.onBatchClick(e);
+    },
 
     summary() {
         return (
@@ -26,16 +65,62 @@ const InstanceCard = React.createClass({
     detail() { 
         const { title, launched } = this.props;
         let labelWidth = "125px";
+
+        let renderTitle = this.state.editTitle ? (
+            <form onSubmit = { this.onChangeTitle } >
+                <TextField
+                    passRef={ ref => { 
+                        if ( ref != null) {
+                            ref.focus() 
+                        }
+                    }}
+                    id = "changeInstanceName"
+                    onBlur = { this.onChangeTitle }
+                    color = { this.props.primaryColor }
+                    value = { this.state.title }
+                    onChange = { e => { 
+                        this.setState({ title: e.target.value }) 
+                    }}
+                /> 
+            </form>
+        ) : (
+            <h1 
+                onMouseEnter = { e => { 
+                    this.setState({ titleIsHovered: true }) 
+                }}
+                onMouseLeave = { e => { 
+                    this.setState({ titleIsHovered: false }) 
+                }}
+                onClick = { e => { 
+                    e.nativeEvent.stopImmediatePropagation();
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.setState({ editTitle: true }) 
+
+                }}
+                style={{ ...styles.t.headline, cursor: "pointer" }}
+            >
+                { title }
+                <EditIcon 
+                    style={ this.styles().editIcon }
+                    size = { 18 }
+                    ml = { 4 }
+                />
+            </h1>
+        );
+
         return (
             <div>
-                <header style={{ 
-                    ...marg({ mb: 5}), 
-                    lineHeight: "1.3" }}
+                <header 
+                    style={{ 
+                        ...marg({ mb: 5}), 
+                        lineHeight: "1.3" 
+                    }}
                 >
-                    <h1 style={ styles.t.headline }>
-                        { title }
-                    </h1>
-                    <div style={ styles.t.subheading }>
+                    { renderTitle }
+                    <div 
+                        style={ styles.t.subheading }
+                    >
                         { `Launched on ${launched}` }
                     </div>
                 </header>
@@ -67,12 +152,47 @@ const InstanceCard = React.createClass({
     },
 
     avatar() {
+        let avatar = (
+                <ProgressAvatar
+                    name = { this.props.title }
+                    percent = { this.props.percent }
+                    size = { 36 }
+                    stroke = { 10 }
+                    color = { this.props.successColor }
+                />
+        );
+
+        if ( this.props.batchMode || this.state.avatarIsHovered ) {
+            avatar = ( 
+                <Checkbox
+                    onClick = { this.onCheck }
+                    checked = { this.props.checked }
+                    style = {{ margin: "auto", width: "75%" }}
+                    color = { this.props.primaryColor }
+                />
+            )
+        }
+
         return (
-            <Avatar
-                name = { this.props.title }
-                size = { 35 }
-            />
+            <div
+                style = {{
+                    position: "relative",
+                    zIndex: 1,
+                    display: "flex", 
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "36px", 
+                    height: "36px" 
+                }}
+                onMouseEnter = { this.onAvatarEnter }
+                onMouseLeave = { this.onAvatarLeave }
+            >
+                { avatar }
+            </div>
         )
+    
     },
 
     render() {
@@ -102,7 +222,7 @@ const InstanceCard = React.createClass({
         };
 
         style.detailLabel = {
-            width: "250px", 
+            width: "125px", 
             ...styles.t.body2 
         }
 
@@ -110,6 +230,14 @@ const InstanceCard = React.createClass({
             style.summary.display = "block";
             style.summaryCell.paddingRight = "0";
             style.summaryCell.paddingBottom = "10px";
+        }
+
+        style.editIcon = {
+            opacity: "0",
+        };
+
+        if ( this.state.titleIsHovered ) {
+            style.editIcon.opacity = "1";
         }
 
         return style
