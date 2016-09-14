@@ -4,6 +4,7 @@
   "description": "A UI library for Troposphere",
   "main": "./index.js",
   "scripts": {
+    "buildto": "babel -d ../troposphere/node_modules/troposphere-ui/ src; cp -R ./node_modules ../troposphere/node_modules/troposphere-ui/",
     "build": "babel -d ./ src",
     "watch": "babel -w src -d ./"
   },
