@@ -71,9 +71,10 @@ var Title = _react2.default.createClass({
         }
 
         return _extends({
-            marginTop: "0px",
             color: color
-        }, fontStyle, margSize);
+        }, fontStyle, margSize, (0, _styles2.marg)(this.props), {
+            marginTop: "0px"
+        });
     }
 });
 

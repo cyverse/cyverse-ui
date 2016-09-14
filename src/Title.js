@@ -59,10 +59,11 @@ const Title = React.createClass({
         }
 
         return {
-            marginTop: "0px",
             color,
             ...fontStyle,
             ...margSize,
+            ...marg( this.props ),
+            marginTop: "0px",
         }
     }
 });
