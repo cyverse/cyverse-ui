@@ -61,16 +61,6 @@ const MediaCard = React.createClass({
 
         return (
             <div style = {this.styles().card} >
-                <div 
-                    id = { this.props.id }
-                    style = {{ 
-                        paddingTop: "40px",
-                        marginTop: "-40px",
-                        width: "1px", /* '0' will not work for Opera */
-                        display: "inline-block"
-                    }}
-
-                />
                 <Collapse
                     isOpened={ true }
                     springConfig={{stiffness: 520, damping: 35, precision: .001}}
