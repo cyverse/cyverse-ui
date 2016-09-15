@@ -91,16 +91,6 @@ var MediaCard = _react2.default.createClass({
         return _react2.default.createElement(
             'div',
             { style: this.styles().card },
-            _react2.default.createElement('div', {
-                id: this.props.id,
-                style: {
-                    paddingTop: "40px",
-                    marginTop: "-40px",
-                    width: "1px", /* '0' will not work for Opera */
-                    display: "inline-block"
-                }
-
-            }),
             _react2.default.createElement(
                 _reactCollapse2.default,
                 {
@@ -243,7 +233,7 @@ var MediaCard = _react2.default.createClass({
             top: "15px"
         };
 
-        // quickMenu 
+        // quickMenu
         style.quickLinks = {
             display: "none",
             padding: "5px 10px 5px 75px",
