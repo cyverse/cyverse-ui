@@ -73,6 +73,7 @@ var Title = _react2.default.createClass({
         return _extends({
             color: color
         }, fontStyle, margSize, {
+            MarginTop: "0",
             marginBottom: "0"
         }, (0, _styles2.marg)(this.props));
     }
