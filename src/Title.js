@@ -62,8 +62,8 @@ const Title = React.createClass({
             color,
             ...fontStyle,
             ...margSize,
+            marginBottom: "0",
             ...marg( this.props ),
-            marginTop: "0px",
         }
     }
 });
