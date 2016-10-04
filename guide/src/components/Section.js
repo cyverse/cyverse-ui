@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { marg, pad } from 'troposphere-ui/lib/styles';
+import { marg, pad } from 'troposphere-ui/styles';
 
 const Section = React.createClass({
 

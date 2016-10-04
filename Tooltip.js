@@ -17,7 +17,7 @@ var _reactMotion = require('react-motion');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _react2.default.createClass({
-    displayName: 'Tooltip',
+    displayName: 'ToolTip',
 
     propTypes: {
         message: _react2.default.PropTypes.string

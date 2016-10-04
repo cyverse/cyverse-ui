@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles } from 'troposphere-ui/lib/styles';
+import { styles } from 'troposphere-ui/styles';
 
 export default React.createClass({
     render() {

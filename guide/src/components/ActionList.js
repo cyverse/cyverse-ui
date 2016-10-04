@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles, marg } from 'troposphere-ui/lib/styles';
+import { styles, marg } from 'troposphere-ui/styles';
 import Ink from 'react-ink';
 import radium from 'radium';
 
