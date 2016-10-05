@@ -20,7 +20,7 @@ const IconBase = ({ children, size, style, viewBox, ...props }, { reactIconBase 
             height={computedSize}
             width={computedSize}
             {...reactIconBase}
-            {...props}
+            viewBox={viewBox}
             style={computedStyle}
         >
             {children}
