@@ -18,7 +18,7 @@
   "homepage": "https://github.com/cyverse/troposphere-ui/blob/master/guide/README.md",
   "dependencies": {
     "normalize.css": "^4.1.1",
-    "radium": "^0.17.1",
+    "radium": "^0.18.1",
     "randomcolor": "^0.4.4",
     "react": "~15.1.0",
     "react-dom": "~15.1.0",
