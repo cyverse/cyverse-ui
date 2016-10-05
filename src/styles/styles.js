@@ -91,7 +91,10 @@ let styleVariables = {
             fontSize: "14px",
             fontWeight: "400",
             lineHeight: "1",
-            margin: "0px",
+            marginTop: "0px",
+            marginRight: "0px",
+            marginBottom: "0px",
+            marginLeft: "0px",
             letterSpacing: "1px",
         }
     },
