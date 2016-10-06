@@ -1,5 +1,5 @@
 import { default as React, PropTypes } from 'react'
-import { marg } from '../styles';
+import { marg, variables } from '../styles';
 const defaultSize = '1em'
 
 const IconBase = ({ children, size, style, ...props }, { reactIconBase }) => {
@@ -11,7 +11,7 @@ const IconBase = ({ children, size, style, ...props }, { reactIconBase }) => {
         ...marg(props),
     };
     
-    let fill = props.color ? props.color : "currentColor";
+    let fill = props.color ? props.color : variables.c.grey.xDark;
 
     return (
         <svg
@@ -25,7 +25,7 @@ const IconBase = ({ children, size, style, ...props }, { reactIconBase }) => {
         >
             {children}
         </svg>
-    )
+    );
 }
 
 IconBase.contextTypes = {

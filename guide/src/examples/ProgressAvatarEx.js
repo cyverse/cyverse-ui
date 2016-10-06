@@ -1,6 +1,6 @@
 import React from 'react';
 import theme from '../theme';
-import { CircleProgressBar, FlatButton } from 'troposphere-ui';
+import { ProgressAvatar, FlatButton } from 'troposphere-ui';
 import { Sheet, Code }  from '../components';
 import { PlayIcon, ReplayIcon } from '../icons';
 import { ButtonGroup } from '../utils';
@@ -50,12 +50,12 @@ export default React.createClass({
         return (
             <div>
                 <Sheet mb={ 4 }>
-
-                    <CircleProgressBar
-                        percent={ this.state.progress }
-                        color={ theme.color.success }
-                        size={ 50 }
-                        stroke={ 10 }
+                    <ProgressAvatar
+                        name = "Danny Boy"
+                        percent = { this.state.progress }
+                        color = { theme.color.success }
+                        size = { 50 }
+                        stroke = { 10 }
                     />
                 </Sheet>
                 <div style={{marginBottom: "20px"}}>

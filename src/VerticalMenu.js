@@ -79,7 +79,7 @@ const VerticalMenu = React.createClass({
             { color: "grey" };
 
         return (
-            <div ref="root">
+            <div style={{ position: "relative" }} ref="root">
                 <div
                     style={{
                         ...openMenuStyle,
@@ -103,7 +103,7 @@ const VerticalMenu = React.createClass({
                         position: "absolute",
                         background: "white",
                         right: "40px",
-                        top: "0px",
+                        top: "-5px",
                         padding: "6px 0px",
                         zIndex: "200",
                         boxShadow: "0px -1px 0 #e5e5e5, 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.24)",

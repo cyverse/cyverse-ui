@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles, variables } from 'troposphere-ui/lib/styles';
+import { styles, variables } from 'troposphere-ui/styles';
 import { PersonIcon } from '../icons';
 import { MediaCard, Avatar, Badge, } from 'troposphere-ui';
 import { Code, P, Div } from '../components';

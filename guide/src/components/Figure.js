@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { styles } from 'troposphere-ui/lib/styles';
+import { styles } from 'troposphere-ui/styles';
 import { Title } from './index';
 
 const Figure = React.createClass({

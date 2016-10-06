@@ -1,15 +1,4 @@
-# Ignore everything 
-*
-
-# Don't Ignore
-!package.json
-!.babel.rc
-!README.md
-!TODO.md
-
-!./src
-
-!./guide
+node_modules
 
 # Ignore temp files
 *.swp

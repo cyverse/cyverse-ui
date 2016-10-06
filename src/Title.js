@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { styles, marg } from 'troposphere-ui/styles';
+import { styles, marg } from './styles';
 
 const Title = React.createClass({
 
@@ -62,6 +62,9 @@ const Title = React.createClass({
             color,
             ...fontStyle,
             ...margSize,
+            MarginTop: "0",
+            marginBottom: "0",
+            ...marg( this.props ),
         }
     }
 });

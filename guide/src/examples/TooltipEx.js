@@ -1,5 +1,5 @@
 import React from 'react';
-import v from 'troposphere-ui/lib/styles/variables';
+import v from 'troposphere-ui/styles/variables';
 import { Tooltip, Button } from 'troposphere-ui';
 import { Sheet, Code }  from '../components';
 import { ClearFix } from '../utils';

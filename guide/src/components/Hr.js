@@ -1,5 +1,5 @@
 import React from 'react';
-import { marg } from 'troposphere-ui/lib/styles';
+import { marg } from 'troposphere-ui/styles';
 
 export default React.createClass({
     style() {

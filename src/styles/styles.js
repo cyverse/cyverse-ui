@@ -72,6 +72,7 @@ let styleVariables = {
         },
 
         subheading: {
+            color: v.c.grey.dark,
             fontSize: "16px",
             fontWeight: "400",
         },

@@ -21,6 +21,8 @@ import {
     CheckboxEx,
     RadioButtonEx,
     TagEx,
+    InstanceCardEx,
+    ProgressAvatarEx,
 } from './examples';
 
 const ExampleList = [
@@ -184,6 +186,15 @@ const ExampleList = [
         render: CircleProgressBarEx,
     },
     {
+        name: "ProgressAvatar",
+        desc: (
+            <P>
+                CircleProgressBar is used to inform the user that a proccess is taking place as well as what percentage of that proccess is finished.  
+            </P>
+        ),
+        render: ProgressAvatarEx,
+    },
+    {
         name: "Badge",
         render: BadgeEx,
         desc: (
@@ -250,6 +261,15 @@ const ExampleList = [
             </P>
         ),
         render: MediaCardGroupEx,
+    },
+    {
+        name: "InstanceCard",
+        desc: (
+            <P>
+                Since only one MediaCard should be open at a time and clicking off the media card should close it a MediaCardGroup is used to control this interdependent behaviour.
+            </P>
+        ),
+        render: InstanceCardEx,
     },
 ];
 
