@@ -1,2 +1,5 @@
-guide
-src
+# Ignore all files
+*
+
+# Don't ignore js in root dir
+!*.js
