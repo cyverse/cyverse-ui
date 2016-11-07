@@ -10,9 +10,9 @@ const v = variables;
 const Button = React.createClass({
     displayName: "Button",
     
-    onTouch() {
+    onTouch(e) {
         if (this.props.onTouch) {
-            this.props.onTouch()
+            this.props.onTouch(e)
         }
     },
     
