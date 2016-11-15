@@ -31,4 +31,7 @@ export { default as SideBar } from './SideBar';
 export { default as P } from './P';
 export { default as Sheet } from './Sheet';
 export { default as Title } from './Title';
-
+export { default as SubHeader } from './SubHeader';
+export { default as IconMenu } from './IconMenu';
+export { default as MenuItem } from './MenuItem';
+export { default as ButtonMenu } from './ButtonMenu';

@@ -134,7 +134,7 @@ const MediaCard = React.createClass({
             flexWrap: "nowrap",
             alignContent: "stretch",
             cursor: "pointer",
-            padding: "15px",
+            padding: "10px",
             minHeight: "65px",
             alignItems: "center",
         };
