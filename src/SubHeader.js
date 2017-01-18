@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { marg, pad } from './styles';
 import VerticalMenu from './VerticalMenu';
 import Div from './Div';
+import Title from './Title';
 import ButtonGroup from './utils/ButtonGroup';
 import LeftArrowIcon from './icons/LeftArrowIcon';
 
@@ -46,18 +47,17 @@ const SubHeader = React.createClass({
         return (
             <div
                 style={ style.header }
-                className="image-header"
             >
                 <div style={ style.titleGroup }>
                     <span onClick={ onBack } >
                         <LeftArrowIcon
                             style={ style.backButton }
-                            size="24"
+                            size="30"
                         />
                     </span>
-                    <h1 className="t-headline">
+                    <Title h1 title>
                         { name }
-                    </h1>
+                    </Title>
                 </div>
                 { this.renderOptionGroup() }
             </div>
@@ -68,15 +68,17 @@ const SubHeader = React.createClass({
         return {
             header: {
                 ...marg( this.props ),
-                paddingTop: "15px",
-                paddingBottom: "15px",
+                paddingTop: "10px",
+                paddingBottom: "10px",
                 position: "relative",
                 display: "flex",
                 justifyContent: "space-between"
             },
 
             titleGroup: {
+                display: "flex",
                 flex: "1",
+                alignItems: "center",
             },
 
             backButton: {
