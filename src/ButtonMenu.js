@@ -25,7 +25,7 @@ export default React.createClass({
     },
 
     render() {
-        const { color, buttonIcon, buttonLabel, children, isOpen, onItemTouchTap } = this.props;
+        const { color, buttonIcon, buttonLabel, children, isOpen, onItemTouchTap, onTouch } = this.props;
         const muiTheme = getMuiTheme({
 	  palette: {
 	    primary1Color: color,
@@ -45,6 +45,7 @@ export default React.createClass({
                         anchorEl={this.state.anchorEl}
                         anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
                         targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                        onRequestClosed={ onTouch }
                     >
                         <Menu
                             onItemTouchTap={ onItemTouchTap }
