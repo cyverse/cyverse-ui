@@ -1,41 +1,51 @@
 import React, { PropType } from 'react';
-import { SelectMenu } from 'troposphere-ui';
+import { SelectMenu, MenuItem } from 'troposphere-ui';
 import { Sheet, Code }  from '../components';
 import theme from '../theme.js';
 
 export default React.createClass({
     getInitialState() {
         return {
-            selected: 0,
+            selected: "2",
         }
     },
 
     things: [
         {
+            id: "1",
             name: "Red Fish",
             color: "Red",
             home: "Ocean",
         },
         {
+            id: "2",
             name: "Blue Fish",
             color: "Blue",
             home: "Lake",
         },
         {
+            id: "3",
             name: "Green Fish",
             color: "Green",
             home: "Pond"
         }
     ],
 
-    optionName(i) {
-        return this.things[i].name
-    },
-
-    onSelectChange(selected) {
+    onSelectChange(e, i, selected) {
+        console.log(selected);
         this.setState({
             selected
         });
+    },
+
+    menuItem({ id, name }) { 
+        return (
+            <MenuItem
+                value={ id }
+                primaryText={ name }
+                color={ theme.color.primary }
+            />
+        )
     },
 
     render() {
@@ -43,19 +53,14 @@ export default React.createClass({
         return (
             <div>
                 <Sheet mb={ 4 }>
-                   <div 
-                        style={{ 
-                            maxWidth: "300px",
-                        }}
+                    <SelectMenu
+                        floatingLabelText="testing"
+                        value={ this.state.selected }
+                        onClick={ this.onSelectChange }
+                        color={ theme.color.primary }
                     >
-                        <SelectMenu
-                            list={ this.things }
-                            optionName={ this.optionName }
-                            color={ theme.color.primary }
-                            selected={ this.state.selected }
-                            onSelectChange={ this.onSelectChange }
-                        />
-                    </div>
+                        { this.things.map(this.menuItem) }
+                    </SelectMenu>
                 </Sheet>
                 <Code children={
                     /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
