@@ -20,8 +20,8 @@
     "normalize.css": "^4.1.1",
     "radium": "^0.18.1",
     "randomcolor": "^0.4.4",
-    "react": "~15.1.0",
-    "react-dom": "~15.1.0",
+    "react": "~15.4.0",
+    "react-dom": "~15.4.0",
     "react-ink": "^5.1.1",
     "react-scroll": "^1.0.17",
     "cyverse-ui": "^0.*.*"
