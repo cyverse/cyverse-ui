@@ -40,11 +40,11 @@ export default React.createClass({
             <div>
                 <Sheet mb={ 4 }>
 		    <ButtonMenu
-			color={ theme.color.primary }
-			buttonLabel="New"
-			onItemTouchTap={ this.onToggleMenu }
-			onTouch={ this.onToggleMenu }
-			isOpen={ this.state.isOpen }
+                        color={ theme.color.primary }
+                        buttonLabel="New"
+                        onItemTouchTap={ this.onToggleMenu }
+                        onTouch={ this.onToggleMenu }
+                        isOpen={ this.state.isOpen }
 		    >
 			<MenuItem 
 			    primaryText="Instance" 
