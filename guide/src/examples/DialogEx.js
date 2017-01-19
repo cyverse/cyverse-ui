@@ -48,6 +48,7 @@ const DialogEx = React.createClass({
                         title="The Title"
                         open={ this.state.isOpen }
                         actions={ this.renderActions() }
+                        onRequestClose={ this.onClose }
                     />
                 </Sheet>
                         <Code children={ 

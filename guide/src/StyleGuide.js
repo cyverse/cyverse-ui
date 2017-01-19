@@ -1,6 +1,13 @@
 import React from 'react';
 import Scroll from 'react-scroll';
 
+// These two lines are necessary to interop with material-ui. It's supposed to
+// be temporary. When the installation no longer mentions it, I suppose these
+// can be removed.
+// http://www.material-ui.com/#/get-started/installation
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 import { styles } from './styles';
 import theme from './theme';
 import 'normalize.css';
