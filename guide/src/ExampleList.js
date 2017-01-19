@@ -23,6 +23,7 @@ import {
     TagEx,
     InstanceCardEx,
     ProgressAvatarEx,
+    ButtonMenuEx,
 } from './examples';
 
 const ExampleList = [
@@ -270,6 +271,15 @@ const ExampleList = [
             </P>
         ),
         render: InstanceCardEx,
+    },
+    {
+        name: "ButtonMenu",
+        desc: (
+            <P>
+                In some cases we want to give a list of actions a higher priority than a standared menu icon in the view like in the case of a "new" button with several items to create. 
+            </P>
+        ),
+        render: ButtonMenuEx,
     },
 ];
 

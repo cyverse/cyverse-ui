@@ -1,5 +1,5 @@
 import React, { PropType } from 'react';
-import { SelectMenu, MenuItem } from 'troposphere-ui';
+import { ButtonMenu, MenuItem } from 'troposphere-ui';
 import { Sheet, Code }  from '../components';
 import theme from '../theme.js';
 
@@ -7,34 +7,20 @@ export default React.createClass({
     getInitialState() {
         return {
             selected: "2",
+            isOpen: false,	
         }
     },
-
-    things: [
-        {
-            id: "1",
-            name: "Red Fish",
-            color: "Red",
-            home: "Ocean",
-        },
-        {
-            id: "2",
-            name: "Blue Fish",
-            color: "Blue",
-            home: "Lake",
-        },
-        {
-            id: "3",
-            name: "Green Fish",
-            color: "Green",
-            home: "Pond"
-        }
-    ],
 
     onSelectChange(e, i, selected) {
         console.log(selected);
         this.setState({
             selected
+        });
+    },
+
+    onToggleMenu() {
+        this.setState({
+            isOpen: !this.state.isOpen,
         });
     },
 
@@ -53,32 +39,47 @@ export default React.createClass({
         return (
             <div>
                 <Sheet mb={ 4 }>
-                    <SelectMenu
-                        floatingLabelText="testing"
-                        value={ this.state.selected }
-                        onClick={ this.onSelectChange }
+		    <ButtonMenu
                         color={ theme.color.primary }
-                    >
-                        { this.things.map(this.menuItem) }
-                    </SelectMenu>
+                        buttonLabel="New"
+                        onItemTouchTap={ this.onToggleMenu }
+                        onTouch={ this.onToggleMenu }
+                        isOpen={ this.state.isOpen }
+		    >
+			<MenuItem 
+			    primaryText="Instance" 
+			/>
+			<MenuItem 
+			    primaryText="Volume" 
+			/>
+			<MenuItem            
+			    primaryText="Image"
+			/>
+		    </ButtonMenu>
+
                 </Sheet>
                 <Code children={
                     /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<Sheet mb={ 4 }>
-   <div 
-        style={{ 
-            maxWidth: "300px",
-        }}
+    <ButtonMenu
+        color={ theme.color.primary }
+        buttonLabel="New"
+        onItemTouchTap={ this.onToggleMenu }
+        onTouch={ this.onToggleMenu }
+        isOpen={ this.state.isOpen }
     >
-        <SelectMenu
-            list={ this.things }
-            optionName={ this.optionName }
-            color={ theme.color.primary }
-            selected={ this.state.selected }
-            onSelectChange={ this.onSelectChange }
+        <MenuItem 
+            primaryText="Instance" 
         />
-    </div>
+        <MenuItem 
+            primaryText="Volume" 
+        />
+        <MenuItem            
+            primaryText="Image"
+        />
+    </ButtonMenu>
+
 </Sheet>`
                     /* Code string ends here */
                 }/>
