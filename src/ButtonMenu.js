@@ -31,6 +31,26 @@ export default React.createClass({
 	    primary1Color: color,
 	  },
 	}); 
+
+        let popover = null;
+
+        // Popover seems to be flawed, w/o this isOpen test, it will sometimes
+        // be open when isOpen is false and vice versa. Further investigation
+        // required.
+        if (this.state.anchorEl && isOpen) {
+            popover = (
+            <Popover
+                open={isOpen}
+                anchorEl={this.state.anchorEl}
+                anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                onRequestClose={ onTouch }>
+                <Menu onItemTouchTap={ onItemTouchTap }>
+                { children }
+                </Menu>
+            </Popover>
+            );
+        }
         return (
             <MuiThemeProvider muiTheme={ muiTheme } >
                 <div>       
@@ -40,19 +60,7 @@ export default React.createClass({
                         icon={ buttonIcon }
                         color={ color }
                     />
-                    <Popover
-                        open={isOpen}
-                        anchorEl={this.state.anchorEl}
-                        anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-                        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                        onRequestClose={ onTouch }
-                    >
-                        <Menu
-                            onItemTouchTap={ onItemTouchTap }
-                        >
-                            { children }
-                        </Menu>
-                    </Popover>
+                    { popover }
                 </div>
             </MuiThemeProvider>
         )
