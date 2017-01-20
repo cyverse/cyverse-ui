@@ -45,7 +45,7 @@ export default React.createClass({
                         anchorEl={this.state.anchorEl}
                         anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
                         targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                        onRequestClosed={ onTouch }
+                        onRequestClose={ onTouch }
                     >
                         <Menu
                             onItemTouchTap={ onItemTouchTap }
