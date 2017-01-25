@@ -1,6 +1,6 @@
 import React from 'react';
 import theme from '../theme';
-import { ProgressAvatar, FlatButton } from 'troposphere-ui';
+import { ProgressAvatar, FlatButton } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 import { PlayIcon, ReplayIcon } from '../icons';
 import { ButtonGroup } from '../utils';
@@ -72,8 +72,8 @@ export default React.createClass({
                         />
                     </ButtonGroup>
                 </div>
-                <Code 
-                    children={ 
+                <Code
+                    children={
 
 `<Sheet mb={ 4 }>
     <CircleProgressBar

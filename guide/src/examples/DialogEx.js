@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Dialog, FlatButton } from 'troposphere-ui';
-import { ButtonGroup } from 'troposphere-ui/utils';
+import { Dialog, FlatButton } from 'cyverse-ui';
+import { ButtonGroup } from 'cyverse-ui/utils';
 import { Code, Sheet } from '../components';
 const DialogEx = React.createClass({
     getInitialState() {
@@ -11,24 +11,24 @@ const DialogEx = React.createClass({
 
     onOpen() {
         this.setState({
-            isOpen: true 
+            isOpen: true
         });
     },
 
     onClose() {
         this.setState({
-            isOpen: false 
+            isOpen: false
         });
     },
 
     renderActions() {
         return ([
             <ButtonGroup>
-                <FlatButton 
+                <FlatButton
                     onTouch={ this.onClose }
                     children="Cancel"
                 />
-                <FlatButton 
+                <FlatButton
                     onTouch={ this.onClose }
                     children="Save"
                 />
@@ -51,8 +51,8 @@ const DialogEx = React.createClass({
                         onRequestClose={ this.onClose }
                     />
                 </Sheet>
-                        <Code children={ 
-                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+                        <Code children={
+                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<Sheet mb={ 4 }>
     <FlatButton

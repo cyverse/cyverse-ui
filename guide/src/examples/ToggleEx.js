@@ -1,13 +1,13 @@
 import React from 'react';
 import theme from '../theme';
-import { Toggle } from 'troposphere-ui';
+import { Toggle } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 
 export default React.createClass({
     render() {
         return (
             <div>
-                <Sheet mb={ 4 }> 
+                <Sheet mb={ 4 }>
                     <Toggle
                         color={ theme.color.primary }
                         label="Basic Toggle"
@@ -26,10 +26,10 @@ export default React.createClass({
                         disabled
                     />
                 </Sheet>
-                <Code 
+                <Code
                     mb={ 4 }
                     children= {
-`<Sheet mb={ 4 }> 
+`<Sheet mb={ 4 }>
     <Toggle
         color={ theme.color.primary }
         label="Basic Toggle"
@@ -63,7 +63,7 @@ export default React.createClass({
                 </Sheet>
 
                 <Code children={
-/* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+/* This is a string for our code snippt. It is not indented because it messes up the formating in render
  * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<Sheet mb={ 4 }>
     <p>

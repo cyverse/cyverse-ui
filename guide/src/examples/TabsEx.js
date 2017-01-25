@@ -1,5 +1,5 @@
 import React, { PropType } from 'react';
-import { Tabs } from 'troposphere-ui';
+import { Tabs } from 'cyverse-ui';
 import { Code } from '../components';
 import theme from '../theme.js';
 
@@ -20,10 +20,10 @@ export default React.createClass({
     render() {
         return (
             <div>
-                <Tabs 
+                <Tabs
                     tabList={[
-                        "Red Fish", 
-                        "Blue Fish", 
+                        "Red Fish",
+                        "Blue Fish",
                         "Green Fish",
                     ]}
                     current={this.state.currentTab}
@@ -31,13 +31,13 @@ export default React.createClass({
                     onTabClick={ this.onTabClick }
                 />
                 <Code children={
-                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<div style={{marginBottom: "20px"}}>
-    <Tabs 
+    <Tabs
         tabList={[
-            "Red Fish", 
-            "Blue Fish", 
+            "Red Fish",
+            "Blue Fish",
             "Green Fish",
         ]}
         current={0}

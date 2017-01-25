@@ -1,6 +1,6 @@
 import React from 'react';
 import theme from '../theme';
-import { RadioButton, RadioButtonGroup } from 'troposphere-ui';
+import { RadioButton, RadioButtonGroup } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 
 export default React.createClass({
@@ -12,7 +12,7 @@ export default React.createClass({
     },
 
     onChecked() {
-        
+
     },
 
     render() {

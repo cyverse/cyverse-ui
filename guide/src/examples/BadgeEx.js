@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from 'troposphere-ui';
+import { Badge } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 import { PersonIcon } from '../icons';
 

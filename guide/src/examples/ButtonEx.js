@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip, Button } from 'troposphere-ui';
+import { Tooltip, Button } from 'cyverse-ui';
 import { Sheet, Code } from '../components';
 import { WarningIcon } from '../icons';
 import { ButtonGroup } from '../utils';
@@ -35,14 +35,14 @@ const Example = () => {
         </Sheet>
     )
 };
-        
+
 export default React.createClass({
     render() {
         return (
             <div>
                 { Example(this.onTouch) }
                 <Code children={
-                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<Sheet mb={ 4 }>
     <ButtonGroup>

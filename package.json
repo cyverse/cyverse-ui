@@ -1,23 +1,22 @@
 {
-  "name": "troposphere-ui",
+  "name": "cyverse-ui",
   "version": "1.0.2",
   "description": "A UI library for Troposphere",
   "main": "./index.js",
   "scripts": {
-    "buildto": "babel -d ../troposphere/node_modules/troposphere-ui/ src; cp -R ./node_modules ../troposphere/node_modules/troposphere-ui/",
-    "build": "babel -d ./ src",
-    "watch": "babel -w src -d ./"
+    "build": "babel -d . src",
+    "watch": "babel -w -d . src"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cyverse/troposphere-ui.git"
+    "url": "git+https://github.com/cyverse/cyverse-ui.git"
   },
   "author": "Cyverse",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/cyverse/troposphere-ui/issues"
+    "url": "https://github.com/cyverse/cyverse-ui/issues"
   },
-  "homepage": "https://github.com/cyverse/troposphere-ui#readme",
+  "homepage": "https://github.com/cyverse/cyverse-ui#readme",
   "peerDependencies": {
     "react": "^15.0.1"
   },

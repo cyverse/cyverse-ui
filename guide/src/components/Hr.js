@@ -1,11 +1,11 @@
 import React from 'react';
-import { marg } from 'troposphere-ui/styles';
+import { marg } from 'cyverse-ui/styles';
 
 export default React.createClass({
     style() {
         return {
-            border:"0px", 
-            height: "1px", 
+            border:"0px",
+            height: "1px",
             background: "rgba( 0, 0, 0, .1 )",
             ...marg(this.props),
             ...this.props.style,

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Tag } from 'troposphere-ui';
-import { TagGroup } from 'troposphere-ui/utils';
+import { Tag } from 'cyverse-ui';
+import { TagGroup } from 'cyverse-ui/utils';
 
 import { Sheet, Code } from '../components';
 
@@ -19,20 +19,20 @@ const TagEx = React.createClass({
             <div>
                 <Sheet mb={ 4 }>
                     <TagGroup>
-                        <Tag 
+                        <Tag
                             background="skyblue"
                             onTouch={ this.onTouch }
                             onClose={ this.onClose }
                         >
                             Skateboarding
                         </Tag>
-                        <Tag 
+                        <Tag
                             background="skyblue"
                             onClose={ this.onClose }
                         >
                             Rock'n'Roll
                         </Tag>
-                        <Tag 
+                        <Tag
                             TooltipMessage="I have a Tooltip!"
                             background="skyblue"
                             onClose={ this.onClose }
@@ -45,20 +45,20 @@ const TagEx = React.createClass({
                 <Code children={
 `<Sheet mb={ 4 }>
     <TagGroup>
-        <Tag 
+        <Tag
             background="skyblue"
             onTouch={ this.onTouch }
             onClose={ this.onClose }
         >
             Skateboarding
         </Tag>
-        <Tag 
+        <Tag
             background="skyblue"
             onClose={ this.onClose }
         >
             Rock'n'Roll
         </Tag>
-        <Tag 
+        <Tag
             TooltipMessage="I have a Tooltip!"
             background="skyblue"
             onClose={ this.onClose }

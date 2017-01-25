@@ -1,7 +1,7 @@
 import React, { PropType } from 'react';
-import { InstanceCard, MediaCardGroup, FlatButton } from 'troposphere-ui';
-import { ButtonGroup } from 'troposphere-ui/utils';
-import { ConsoleIcon, ReplayIcon, PauseIcon, PlayIcon } from 'troposphere-ui/icons';
+import { InstanceCard, MediaCardGroup, FlatButton } from 'cyverse-ui';
+import { ButtonGroup } from 'cyverse-ui/utils';
+import { ConsoleIcon, ReplayIcon, PauseIcon, PlayIcon } from 'cyverse-ui/icons';
 import { Code } from '../components';
 import theme from '../theme.js';
 
@@ -81,7 +81,7 @@ export default React.createClass({
         }, 1200);
     },
 
-    onConsoleClick(e) {     
+    onConsoleClick(e) {
         e.stopPropagation();
         e.preventDefault();
         console.log('console was clicked');
@@ -104,7 +104,7 @@ export default React.createClass({
 
     renderCard(item) {
         let summary = [
-            { 
+            {
                 label: "Status",
                 value: item.status
             },
@@ -112,7 +112,7 @@ export default React.createClass({
                 label: "IP",
                 value: item.ip
             },
-            { 
+            {
                 label: "Size",
                 value: item.size
             },
@@ -192,7 +192,7 @@ export default React.createClass({
 
                 </div>
                 <Code children={
-                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<div style={{marginBottom: "20px"}}>
     <InstanceCard/>

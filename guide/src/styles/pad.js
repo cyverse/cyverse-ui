@@ -1,12 +1,12 @@
 import React from 'react';
-import { variables } from 'troposphere-ui/styles';
-    
+import { variables } from 'cyverse-ui/styles';
+
 const sizes = variables.l.padSizes;
 
 const pad = ( props ) => {
 
     if (props.p) {
-    
+
         if (props.p.substring) {
             return {
                 padding: props.pr,

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { styles, marg } from 'troposphere-ui/styles';
+import { styles, marg } from 'cyverse-ui/styles';
 
 const Title = React.createClass({
 

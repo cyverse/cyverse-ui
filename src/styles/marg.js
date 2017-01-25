@@ -6,8 +6,8 @@ const sizes = variables.l.margSizes;
 const marg = ( props ) => {
 
     //
-    // For more information on how to use this style util 
-    // see troposphere-ui/src/style/README.md 
+    // For more information on how to use this style util
+    // see cyverse-ui/src/style/README.md
     //
 
     return Object.keys(props).reduce((style, prop) => {
