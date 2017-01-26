@@ -1,10 +1,10 @@
 {
-  "name": "troposphere-ui-guide",
+  "name": "cyverse-ui-guide",
   "version": "1.0.0",
   "description": "A consumer of Troposphere's UI",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cyverse/troposphere-ui.git"
+    "url": "git+https://github.com/cyverse/cyverse-ui.git"
   },
   "scripts": {
     "build": "webpack",
@@ -13,9 +13,9 @@
   "author": "Cyverse",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/cyverse/troposphere-ui/issues"
+    "url": "https://github.com/cyverse/cyverse-ui/issues"
   },
-  "homepage": "https://github.com/cyverse/troposphere-ui/blob/master/guide/README.md",
+  "homepage": "https://github.com/cyverse/cyverse-ui/blob/master/guide/README.md",
   "dependencies": {
     "normalize.css": "^4.1.1",
     "radium": "^0.18.1",
@@ -24,7 +24,7 @@
     "react-dom": "~15.1.0",
     "react-ink": "^5.1.1",
     "react-scroll": "^1.0.17",
-    "troposphere-ui": "^0.*.*"
+    "cyverse-ui": "^0.*.*"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",

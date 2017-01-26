@@ -1,9 +1,9 @@
 ## The style guide
 
-View the guide [here](https://cyverse.github.io/troposphere-ui).
+View the guide [here](https://cyverse.github.io/cyverse-ui).
 
-The guide renders the components in `troposphere-ui` and demonstrates
-examples. 
+The guide renders the components in `cyverse-ui` and demonstrates
+examples.
 
 This repository contains two projects: the guide and a library. The guide is
 its own project and lists the library as a dependency in `guide/package.json`.
@@ -17,15 +17,15 @@ link`.
 #### Installation
 ```bash
 # Fetch the repo
-git clone https://github.com/cyverse/troposphere-ui
+git clone https://github.com/cyverse/cyverse-ui
 
 # Register this pkg in npm link
-cd troposphere-ui
+cd cyverse-ui
 npm link
 
-# Prefer the link to troposphere-ui rather than node_modules
+# Prefer the link to cyverse-ui rather than node_modules
 cd guide
-npm link troposphere-ui
+npm link cyverse-ui
 
 # Install guides dependencies
 npm i
@@ -33,8 +33,8 @@ npm i
 
 #### Build
 ```bash
-# From within troposphere-ui
-npm run build 
+# From within cyverse-ui
+npm run build
 
 # From within guide (separate terminal)
 npm run serve

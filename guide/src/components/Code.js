@@ -1,12 +1,12 @@
 import React from 'react';
-import { variables, marg } from 'troposphere-ui/styles';
+import { variables, marg } from 'cyverse-ui/styles';
 
 const v = variables
 
 export default React.createClass({
     render() {
         return (
-            <code 
+            <code
                 style={{...this.style()}}
                 children={this.props.children}
             />

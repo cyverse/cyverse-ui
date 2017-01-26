@@ -1,6 +1,6 @@
 import React from 'react';
 import { ClearFix } from '../utils';
-import { ShowMoreEllipsis } from 'troposphere-ui';
+import { ShowMoreEllipsis } from 'cyverse-ui';
 import { Sheet, Code, P } from '../components';
 
 export default React.createClass({
@@ -16,7 +16,7 @@ export default React.createClass({
                 </Sheet>
 
                 <Code children={
-/* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+/* This is a string for our code snippt. It is not indented because it messes up the formating in render
  * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<Sheet mb={ 4 }>
     <P>
@@ -28,7 +28,7 @@ export default React.createClass({
                     /* Code string ends here */
                 }/>
         </div>
-            
+
         )
     },
 });

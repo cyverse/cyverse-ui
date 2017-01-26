@@ -1,6 +1,6 @@
 import React from 'react';
-import { marg } from 'troposphere-ui/styles';
-import { Avatar } from 'troposphere-ui';
+import { marg } from 'cyverse-ui/styles';
+import { Avatar } from 'cyverse-ui';
 import { Code, Sheet }  from '../components';
 
 export default React.createClass({
@@ -8,7 +8,7 @@ export default React.createClass({
         return (
             <div>
                 <Sheet mb={ 4 }>
-                    <div 
+                    <div
                         style={{
                             fontSize: "18px",
                             ...marg({ mb: 3 }),
@@ -21,7 +21,7 @@ export default React.createClass({
                         />
                         Megatron
                     </div>
-                    <div 
+                    <div
                         style={{
                             fontSize: "22px",
                             ...marg({ mb: 3 }),
@@ -34,8 +34,8 @@ export default React.createClass({
                         />
                         Cobra Commander
                     </div>
-                    <div 
-                        style={{ 
+                    <div
+                        style={{
                             fontSize: "28px",
                         }}
                     >
@@ -52,7 +52,7 @@ export default React.createClass({
 /* This is a string for our code snippt. It is not indented because it messes up the formating in render
  * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<Sheet mb={ 4 }>
-    <div 
+    <div
         style={{
             fontSize: "18px",
             ...marg({ mb: 3 }),
@@ -65,7 +65,7 @@ export default React.createClass({
         />
         Megatron
     </div>
-    <div 
+    <div
         style={{
             fontSize: "22px",
             ...marg({ mb: 3 }),
@@ -78,8 +78,8 @@ export default React.createClass({
         />
         Cobra Commander
     </div>
-    <div 
-        style={{ 
+    <div
+        style={{
             fontSize: "28px",
         }}
     >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { marg } from 'troposphere-ui/styles';
+import { marg } from 'cyverse-ui/styles';
 
 
 export default class ClearFix extends React.Component {
@@ -14,7 +14,7 @@ export default class ClearFix extends React.Component {
         };
 
         return (
-            <div 
+            <div
                 style={{
                     ...this.props.style,
                     ...marg(this.props),

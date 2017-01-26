@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles, marg } from 'troposphere-ui/styles';
+import { styles, marg } from 'cyverse-ui/styles';
 import Ink from 'react-ink';
 import radium from 'radium';
 
@@ -13,42 +13,42 @@ const ActionList = React.createClass({
         if (option.href) {
 
             return (
-                <li 
+                <li
                     key={i}
                     style={{
-                        listStyle: "none", 
+                        listStyle: "none",
                         position: "relative"
                     }}
                 >
-                    <a 
+                    <a
                         key={ option.href }
                         style={ this.style().listItem }
                         href={option.href}
                     >
                         { option.label }
                         <Ink/>
-                    </a>    
+                    </a>
                 </li>
             )
         }
 
         return (
-            <li 
+            <li
                 key={ i }
-                style={{ 
-                    ...this.style().listItem,  
+                style={{
+                    ...this.style().listItem,
                     listStyle: "none"
                 }}
                 onClick={ this.onTouch.bind(this, i) }
-            > 
-                { option.label } 
+            >
+                { option.label }
                 <Ink/>
             </li>
         )
     },
 
     render() {
-        
+
         return (
             <ul style={ this.style().list }>
                 { this.props.list.map(this.List) }

@@ -1,13 +1,13 @@
 import React from 'react';
-import { styles } from 'troposphere-ui/styles';
+import { styles } from 'cyverse-ui/styles';
 
 export default React.createClass({
     render() {
         return (
-            <p style={{ 
+            <p style={{
                     ...this.style(),
                     ...this.props.style,
-                }} 
+                }}
             >
                 { this.props.children }
             </p>
@@ -24,14 +24,14 @@ export default React.createClass({
         if ( this.props.body2 ) {
             textStyle = styles.t.body2;
         }
-        
+
         if ( this.props.subheading ) {
             textStyle = styles.t.subheading;
         }
 
         return {
             ...textStyle,
-            maxWidth: "600px", 
+            maxWidth: "600px",
             lineHeight: "24px",
             margin: "0px",
             marginBottom: "34px",

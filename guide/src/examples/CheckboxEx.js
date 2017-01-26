@@ -1,6 +1,6 @@
 import React from 'react';
 import theme from '../theme';
-import { Checkbox } from 'troposphere-ui';
+import { Checkbox } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 
 export default React.createClass({
@@ -12,18 +12,18 @@ export default React.createClass({
     },
 
     onChecked() {
-        
+
     },
 
     render() {
         return (
             <section>
                 <Sheet mb={ 4 }>
-                    <Checkbox 
+                    <Checkbox
                         color={ theme.color.primary }
                         label="Simple Checkbox"
 		    />
-                    <Checkbox 
+                    <Checkbox
                         color={ theme.color.primary }
                         label="Checked By Default"
                         defaultChecked={ true }
@@ -31,11 +31,11 @@ export default React.createClass({
                 </Sheet>
                 <Code children={
 `<Sheet mb={ 4 }>
-    <Checkbox 
+    <Checkbox
         color={ theme.color.primary }
         label="Simple Checkbox"
     />
-    <Checkbox 
+    <Checkbox
         color={ theme.color.primary }
         label="Checked By Default"
         defaultChecked={ true }

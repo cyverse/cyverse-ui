@@ -1,5 +1,5 @@
 import React from 'react';
-import { VerticalMenu } from 'troposphere-ui';
+import { VerticalMenu } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 import { ClearFix } from '../utils';
 
@@ -9,13 +9,13 @@ export default React.createClass({
             <section>
                 <Sheet mb={ 4 }>
                     <ClearFix>
-                        <div style={{ 
+                        <div style={{
                                 float: "right",
                                 position: "relative",
                                 display: "inline-block",
-                            }} 
+                            }}
                         >
-                            <VerticalMenu 
+                            <VerticalMenu
                                 menuItemList = {[
                                     {render: "red"},
                                     {render: "yellow"},
@@ -28,13 +28,13 @@ export default React.createClass({
                 <Code children={
 `<Sheet mb={ 4 }>
     <ClearFix>
-        <div style={{ 
+        <div style={{
                 float: "right",
                 position: "relative",
                 display: "inline-block",
-            }} 
+            }}
         >
-            <VerticalMenu 
+            <VerticalMenu
                 menuItemList = {[
                     {render: "red"},
                     {render: "yellow"},

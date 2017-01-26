@@ -1,7 +1,7 @@
 import React from 'react';
-import { styles, variables } from 'troposphere-ui/styles';
+import { styles, variables } from 'cyverse-ui/styles';
 import { PersonIcon } from '../icons';
-import { MediaCard, Avatar, Badge, } from 'troposphere-ui';
+import { MediaCard, Avatar, Badge, } from 'cyverse-ui';
 import { Code, P, Div } from '../components';
 
 const v = variables;
@@ -23,27 +23,27 @@ export default React.createClass({
     Example() {
         return (
             <Div mb={ 4 }>
-                <MediaCard 
+                <MediaCard
                     image={
-                        <Avatar 
-                            size={40} 
-                            color="#de3894" 
+                        <Avatar
+                            size={40}
+                            color="#de3894"
                             name={"MediaCard Example"}
                         />
                     }
                     title={"MediaCard Example"}
                     subTitle={"So much to say"}
-                    titleInfo= { 
+                    titleInfo= {
                         <div>
                             <Badge mr={ 2 }>Featured</Badge>
                             <Badge>23</Badge>
-                            <PersonIcon 
+                            <PersonIcon
                                 size={ 15 }
                                 color={ v.c.grey.xDark }
                             />
                         </div>
                     }
-                    detail={ this.state.isExpanded ? 
+                    detail={ this.state.isExpanded ?
                         (
                             <div>
                                 <P>
@@ -53,20 +53,20 @@ export default React.createClass({
                                     Turkey biltong filet mignon meatloaf picanha. Turkey rump swine cupim porchetta beef shoulder shank beef ribs pork. Turducken corned beef ground round leberkas strip steak beef rump. Biltong swine corned beef, shankle andouille bacon tenderloin cow ball tip pancetta salami. Alcatra beef picanha short ribs chicken turducken ground round flank shankle pancetta. Meatball bacon biltong turducken.
                                 </P>
                             </div>
-                        ) : 
+                        ) :
                         (
                             <span style={styles.t.body1}>
                                 Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak
                             </span>
                         )
-                    } 
+                    }
                     contextualMenu = {[
                         {render: "red"},
                         {render: "yellow"},
                         {render: "green"}
                     ]}
                     color={"#0971AB"}
-                    onExpand={this.onExpand} 
+                    onExpand={this.onExpand}
                     isExpanded={this.state.isExpanded}
                 />
             </Div>
@@ -78,31 +78,31 @@ export default React.createClass({
             <div>
                 { this.Example() }
                 <Code children={
-                    /* This is a string for our code snippt. 
-                     * It is not indented because it messes up the formating in render.     
+                    /* This is a string for our code snippt.
+                     * It is not indented because it messes up the formating in render.
                      * Initially used `toJSX(Example())` which was an awesome solution but it renders the Radium wrapper instead of Button :( */
 `<Div mb={ 4 }>
-    <MediaCard 
+    <MediaCard
         image={
-            <Avatar 
-                size={40} 
-                color="#de3894" 
+            <Avatar
+                size={40}
+                color="#de3894"
                 name={"MediaCard Example"}
             />
         }
         title={"MediaCard Example"}
         subTitle={"So much to say"}
-        titleInfo= { 
+        titleInfo= {
             <div>
                 <Badge mr={ 2 }>Featured</Badge>
                 <Badge>23</Badge>
-                <PersonIcon 
+                <PersonIcon
                     size={ 15 }
                     color={ v.c.grey.xDark }
                 />
             </div>
         }
-        detail={ this.state.isExpanded ? 
+        detail={ this.state.isExpanded ?
             (
                 <div>
                     <P>
@@ -112,20 +112,20 @@ export default React.createClass({
                         Turkey biltong filet mignon meatloaf picanha. Turkey rump swine cupim porchetta beef shoulder shank beef ribs pork. Turducken corned beef ground round leberkas strip steak beef rump. Biltong swine corned beef, shankle andouille bacon tenderloin cow ball tip pancetta salami. Alcatra beef picanha short ribs chicken turducken ground round flank shankle pancetta. Meatball bacon biltong turducken.
                     </P>
                 </div>
-            ) : 
+            ) :
             (
                 <span style={styles.t.body1}>
                     Bacon ipsum dolor amet turkey landjaeger ground round sausage flank strip steak
                 </span>
             )
-        } 
+        }
         contextualMenu = {[
             {render: "red"},
             {render: "yellow"},
             {render: "green"}
         ]}
         color={"#0971AB"}
-        onExpand={this.onExpand} 
+        onExpand={this.onExpand}
         isExpanded={this.state.isExpanded}
     />
 </Div>`

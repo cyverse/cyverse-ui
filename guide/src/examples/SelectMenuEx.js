@@ -1,5 +1,5 @@
 import React, { PropType } from 'react';
-import { SelectMenu } from 'troposphere-ui';
+import { SelectMenu } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 import theme from '../theme.js';
 
@@ -43,8 +43,8 @@ export default React.createClass({
         return (
             <div>
                 <Sheet mb={ 4 }>
-                   <div 
-                        style={{ 
+                   <div
+                        style={{
                             maxWidth: "300px",
                         }}
                     >
@@ -58,11 +58,11 @@ export default React.createClass({
                     </div>
                 </Sheet>
                 <Code children={
-                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
+                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
 `<Sheet mb={ 4 }>
-   <div 
-        style={{ 
+   <div
+        style={{
             maxWidth: "300px",
         }}
     >

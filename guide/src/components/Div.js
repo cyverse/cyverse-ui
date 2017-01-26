@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
-import { marg, pad } from 'troposphere-ui/styles';
+import { marg, pad } from 'cyverse-ui/styles';
 
 const Div = React.createClass({
 
     render() {
         return (
-            <div 
+            <div
                 id={ this.props.id }
                 style={ this.styles() }
             >
