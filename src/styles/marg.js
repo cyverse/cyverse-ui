@@ -32,11 +32,26 @@ const marg = ( props ) => {
                 break;
             case "ms":
                 style.marginRight = typeof value == "number"
-                    ? sizes[value -1] * .5
+                    ? sizes[value -1]
                     : value
                 style.marginLeft = typeof value == "number"
-                    ? sizes[props.ms -1] * .5
+                    ? sizes[value -1]
                     : value
+                break;
+            case "m":
+                style.marginTop = typeof value == "number"
+                    ? sizes[value -1]
+                    : value
+                style.marginRight = typeof value == "number"
+                    ? sizes[value -1]
+                    : value
+                style.marginBottom = typeof value == "number"
+                    ? sizes[value -1]
+                    : value
+                style.marginLeft = typeof value == "number"
+                    ? sizes[value -1]
+                    : value
+                break;
         }
 
         return style
