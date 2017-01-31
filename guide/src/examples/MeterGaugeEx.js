@@ -24,6 +24,18 @@ export default React.createClass({
                         <MeterGauge
                             label="Thing Usage"
                             data="Will total 40kg 0f 130kg"
+                            startValue={10}
+                            afterValue={25}
+                        />
+                    </div>
+                    <div 
+                        style={{ 
+                            maxWidth: "300px",
+                        }}
+                    >
+                        <MeterGauge
+                            label="Thing Over Usage"
+                            data="Will total 40kg 0f 130kg"
                             startValue={80}
                             afterValue={25}
                         />
@@ -46,6 +58,18 @@ export default React.createClass({
             label="Thing Usage"
             data="Will total 40kg 0f 130kg"
             startValue={10}
+            afterValue={25}
+        />
+    </div>
+    <div 
+        style={{ 
+            maxWidth: "300px",
+        }}
+    >
+        <MeterGauge
+            label="Thing Over Usage"
+            data="Will total 40kg 0f 130kg"
+            startValue={80}
             afterValue={25}
         />
     </div>
