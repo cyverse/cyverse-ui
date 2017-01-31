@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/cyverse/cyverse-ui#readme",
   "peerDependencies": {
-    "react": "^15.0.1"
+    "react": "^15.0.1",
+    "material-ui": "~0.15.1"
   },
   "dependencies": {
-    "material-ui": "~0.15.1",
     "radium": "^0.18.1",
     "randomcolor": "^0.4.4",
     "react-collapse": "^2.2.4",
