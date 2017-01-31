@@ -3,29 +3,19 @@ import { MeterGauge } from 'cyverse-ui';
 import { pad, marg } from 'cyverse-ui/styles';
 
 import Paper from 'material-ui/Paper';
-import { Code, Sheet }  from '../components';
+import { Code }  from '../components';
 import theme from '../theme.js';
 
 export default React.createClass({
-    getInitialState() {
-        return {
-            currentValue: 0,
-        }
-    },
-
-    onTabClick(currentTab) {
-        this.setState({
-            currentTab
-        });
-    },
 
     render() {
         return (
             <div>
                 <Paper style={{
-                    ...marg({ mb: 4 })
-                    }
-                }>
+                        ...marg({ mb:4 }),
+                        ...pad({ p:3 }),
+                    }}
+                >
                     <div 
                         style={{ 
                             maxWidth: "300px",
@@ -34,17 +24,19 @@ export default React.createClass({
                         <MeterGauge
                             label="Thing Usage"
                             data="Will total 40kg 0f 130kg"
-                            startValue={5}
-                            afterValue={20}
-                            color={ theme.color.success }
-                            overColor={ theme.color.danger }
+                            startValue={80}
+                            afterValue={25}
                         />
                     </div>
                 </Paper>
                 <Code children={
                     /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
-`<Sheet mb={ 4 }>
+`<Paper style={{
+        ...marg({ mb:4 }),
+        ...pad({ p:3 }),
+    }}
+>
     <div 
         style={{ 
             maxWidth: "300px",
@@ -53,13 +45,11 @@ export default React.createClass({
         <MeterGauge
             label="Thing Usage"
             data="Will total 40kg 0f 130kg"
-            startValue={5}
-            afterValue={20}
-            color={ theme.color.success }
-            overColor={ theme.color.danger }
+            startValue={10}
+            afterValue={25}
         />
     </div>
-</Sheet>`
+</Paper>`
                     /* Code string ends here */
                 }/>
             </div>

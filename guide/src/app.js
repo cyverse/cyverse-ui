@@ -15,7 +15,8 @@ import theme from './theme';
 
 let newTheme = getMuiTheme({
     palette: {
-        success: "green"
+        success: "#2eb900",
+        danger: "#ff470a",
     }
 });
 const App = () => (
