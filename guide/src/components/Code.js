@@ -1,5 +1,5 @@
 import React from 'react';
-import { variables, marg } from 'troposphere-ui/styles';
+import { variables, marg } from 'cyverse-ui/styles';
 
 const v = variables
 

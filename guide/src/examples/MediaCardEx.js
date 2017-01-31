@@ -1,7 +1,7 @@
 import React from 'react';
-import { styles, variables } from 'troposphere-ui/styles';
+import { styles, variables } from 'cyverse-ui/styles';
 import { PersonIcon } from '../icons';
-import { MediaCard, Avatar, Badge, } from 'troposphere-ui';
+import { MediaCard, Avatar, Badge, } from 'cyverse-ui';
 import { Code, P, Div } from '../components';
 
 const v = variables;

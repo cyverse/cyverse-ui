@@ -1,6 +1,6 @@
 import React from 'react';
-import v from 'troposphere-ui/styles/variables';
-import { Tooltip, Button } from 'troposphere-ui';
+import v from 'cyverse-ui/styles/variables';
+import { Tooltip, Button } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 import { ClearFix } from '../utils';
 import { GithubIcon } from '../icons';

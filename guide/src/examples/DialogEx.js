@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Dialog, FlatButton } from 'troposphere-ui';
-import { ButtonGroup } from 'troposphere-ui/utils';
+import { Dialog, FlatButton } from 'cyverse-ui';
+import { ButtonGroup } from 'cyverse-ui/utils';
 import { Code, Sheet } from '../components';
 const DialogEx = React.createClass({
     getInitialState() {

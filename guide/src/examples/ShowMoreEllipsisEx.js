@@ -1,6 +1,6 @@
 import React from 'react';
 import { ClearFix } from '../utils';
-import { ShowMoreEllipsis } from 'troposphere-ui';
+import { ShowMoreEllipsis } from 'cyverse-ui';
 import { Sheet, Code, P } from '../components';
 
 export default React.createClass({

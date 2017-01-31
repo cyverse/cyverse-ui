@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip, Button } from 'troposphere-ui';
+import { Tooltip, Button } from 'cyverse-ui';
 import { Sheet, Code } from '../components';
 import { WarningIcon } from '../icons';
 import { ButtonGroup } from '../utils';

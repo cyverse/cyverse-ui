@@ -1,6 +1,6 @@
 import React from 'react';
 import theme from '../theme';
-import { Checkbox } from 'troposphere-ui';
+import { Checkbox } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 
 export default React.createClass({

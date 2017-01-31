@@ -1,5 +1,5 @@
 import React, { PropType } from 'react';
-import { SelectMenu, MenuItem } from 'troposphere-ui';
+import { SelectMenu, MenuItem } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 import theme from '../theme.js';
 

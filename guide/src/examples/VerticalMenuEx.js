@@ -1,5 +1,5 @@
 import React from 'react';
-import { VerticalMenu } from 'troposphere-ui';
+import { VerticalMenu } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 import { ClearFix } from '../utils';
 

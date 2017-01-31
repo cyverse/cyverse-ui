@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Tag } from 'troposphere-ui';
-import { TagGroup } from 'troposphere-ui/utils';
+import { Tag } from 'cyverse-ui';
+import { TagGroup } from 'cyverse-ui/utils';
 
 import { Sheet, Code } from '../components';
 

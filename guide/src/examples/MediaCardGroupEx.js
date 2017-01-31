@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { MediaCardGroup, MediaCard } from 'troposphere-ui';
+import { MediaCardGroup, MediaCard } from 'cyverse-ui';
 import { Code } from '../components';
 const MediaCardGroupEx = React.createClass({
 

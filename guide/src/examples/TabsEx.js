@@ -1,5 +1,5 @@
 import React, { PropType } from 'react';
-import { Tabs } from 'troposphere-ui';
+import { Tabs } from 'cyverse-ui';
 import { Code } from '../components';
 import theme from '../theme.js';
 

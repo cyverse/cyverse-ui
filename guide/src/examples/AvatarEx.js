@@ -1,6 +1,6 @@
 import React from 'react';
-import { marg } from 'troposphere-ui/styles';
-import { Avatar } from 'troposphere-ui';
+import { marg } from 'cyverse-ui/styles';
+import { Avatar } from 'cyverse-ui';
 import { Code, Sheet }  from '../components';
 
 export default React.createClass({

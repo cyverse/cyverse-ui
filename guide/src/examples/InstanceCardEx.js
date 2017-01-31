@@ -1,7 +1,7 @@
 import React, { PropType } from 'react';
-import { InstanceCard, MediaCardGroup, FlatButton } from 'troposphere-ui';
-import { ButtonGroup } from 'troposphere-ui/utils';
-import { ConsoleIcon, ReplayIcon, PauseIcon, PlayIcon } from 'troposphere-ui/icons';
+import { InstanceCard, MediaCardGroup, FlatButton } from 'cyverse-ui';
+import { ButtonGroup } from 'cyverse-ui/utils';
+import { ConsoleIcon, ReplayIcon, PauseIcon, PlayIcon } from 'cyverse-ui/icons';
 import { Code } from '../components';
 import theme from '../theme.js';
 

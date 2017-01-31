@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/cyverse/troposphere-ui/blob/master/guide/README.md",
   "dependencies": {
+    "cyverse-ui": "^0.*.*",
+    "material-ui": "^0.16.7",
     "normalize.css": "^4.1.1",
     "radium": "^0.18.1",
     "randomcolor": "^0.4.4",
@@ -24,8 +26,7 @@
     "react-dom": "~15.4.0",
     "react-ink": "^5.1.1",
     "react-scroll": "^1.0.17",
-    "react-tap-event-plugin": "^2.0.1",
-    "troposphere-ui": "^0.*.*"
+    "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
