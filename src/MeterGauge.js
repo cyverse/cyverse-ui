@@ -1,4 +1,5 @@
 import React from 'react';
+import muiThemeable from 'material-ui/styles/muiThemeable';
 import { ClearFix } from './utils';
 import { variables, styles, marg } from './styles';
 
@@ -6,23 +7,23 @@ const v = variables;
 
 // TODO To be semantic this should be implemented with the Meter element. Support is strong enough for production and there are fall backs. It is a browser styled element however so it will require some style hacks to make it look good across all browsers. Since these style properties are browser specific vendor prefixing is used it is unknown to me without experimenting what autoprefixer will do to the styles or if this will require css over inline styles.
 
-export default React.createClass({
+export const MeterGauge =React.createClass({
 
     render: function() {
-        let startValue = this.props.startValue;
-        let afterValue = this.props.afterValue;
-        let startColor = this.props.color;
+        let { startValue, afterValue, muiTheme } = this.props;
+        const { success = "green", danger = "red" } = muiTheme.palette;
+
+        let startColor = success;
 
         if (startValue >= 100) {
             startValue = 100;
-            startColor = "red";
+            startColor = danger;
         }
 
         if (startValue + afterValue >= 100) {
             afterValue = 100 - startValue;
-            startColor = "red";
+            startColor = danger;
         }
-
         return (
             <dl style={ marg(this.props)}>
                 <dt 
@@ -66,7 +67,7 @@ export default React.createClass({
                                     height:"10px",
                                     float: "left",
                                     width: afterValue + "%",
-                                    background:startColor,
+                                    background: startColor,
                                     opacity:".5"
                                 }}
                             />
@@ -76,4 +77,6 @@ export default React.createClass({
             </dl>
         );
     }
-})
+});
+
+export default muiThemeable()(MeterGauge);
