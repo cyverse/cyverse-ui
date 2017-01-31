@@ -1,77 +1,61 @@
 import React from 'react';
 import { variables } from '../styles';
-    
+
 const sizes = variables.l.padSizes;
 
-const pad = ( props ) => {
+const Pad = ( props ) => {
 
-    if (props.p) {
-    
-        if (props.p.substring) {
-            return {
-                padding: props.pr,
-            }
-        }
-        return {
-            padding: `${sizes[props.p - 1]}px`
-        }
-    }
+    //
+    // For more information on how to use this style util 
+    // see troposphere-ui/src/style/README.md 
+    //
 
-    if (props.pr) {
-        if (props.pr.substring) {
-            return {
-                paddingRight: props.mr,
-            }
-        }
-        return {
-            paddingRight: `${sizes[props.pr - 1]}px`
-        }
-    }
+    return Object.keys(props).reduce((style, prop) => {
+        let value = props[prop];
 
-    if (props.pb) {
-        if (props.pb.substring) {
-            return {
-                paddingBottom: props.mb,
-            }
+        let cssField;
+        switch (prop) {
+            case "pr":
+                style.paddingRight = typeof value == "number"
+                    ? sizes[value - 1]
+                    : value
+                break;
+            case "pb":
+                style.paddingnBottom = typeof value == "number"
+                    ? sizes[value - 1]
+                    : value
+                break;
+            case "pl":
+                style.paddingLeft = typeof value == "number"
+                    ? sizes[value - 1]
+                    : value
+                break;
+            case "ps":
+                style.paddingRight = typeof value == "number"
+                    ? sizes[value -1] * .5
+                    : value
+                style.paddingLeft = typeof value == "number"
+                    ? sizes[value -1] * .5
+                    : vlaue
+                break;
+            case "p":
+                style.paddingTop = typeof value == "number"
+                    ? sizes[value -1]
+                    : value
+                style.paddingRight = typeof value == "number"
+                    ? sizes[value -1]
+                    : value
+                style.paddingBottom = typeof value == "number"
+                    ? sizes[value -1]
+                    : value
+                style.paddingLeft = typeof value == "number"
+                    ? sizes[value -1]
+                    : value
+                break;
         }
-        return {
-            paddingBottom: `${sizes[props.pb -1]}px`
-        }
-    }
+        return style
 
-    if (props.pl) {
-        if (props.pl.substring) {
-            return {
-                paddingLeft: props.pl,
-            }
-        }
-        return {
-            paddingLeft: `${sizes[props.ml -1]}px`
-        }
-    }
-
-    if (props.pt) {
-        if (props.pt.substring) {
-            return {
-                paddingTop: props.pt,
-            }
-        }
-        return {
-            paddingTop: `${sizes[props.pt -1]}px`
-        }
-    }
-
-    if (props.ps) {
-        if (props.ms.substring) {
-            return {
-                paddingRight: props.ps,
-            }
-        }
-        return {
-            paddingRight: `${sizes[props.ps -1]}px`,
-            paddingLeft: `${sizes[props.ps -1]}px`
-        }
-    }
+    }, {});
 }
 
-export default pad;
+export default Pad;
