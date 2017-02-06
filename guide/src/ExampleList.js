@@ -8,9 +8,21 @@ import {
     ShowMoreEllipsisEx,
     InstanceCardEx,
     ProgressAvatarEx,
+    PillEx,
 } from './examples';
 
 const ExampleList = [
+    {
+        name: "Pill",
+        desc: (
+            <div>
+                <P>
+                    A Pill is used to indicate meta data like number of active users or if an item is featured or recomended. It is sort of like a badge but smaller to fit under a title.
+                </P>
+            </div>
+        ), 
+        render: PillEx,
+    },
     {
         name: "Tabs",
         desc: (
