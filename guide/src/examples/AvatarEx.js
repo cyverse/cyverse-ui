@@ -1,14 +1,14 @@
 import React from 'react';
 import { marg } from 'cyverse-ui/styles';
 import { Avatar } from 'cyverse-ui';
-import { Code, Sheet }  from '../components';
-
+import { Code }  from '../components';
+import Paper from 'material-ui/Paper';
 export default React.createClass({
     render() {
         return (
             <div>
-                <Sheet mb={ 4 }>
-                    <div
+                <Paper style={{ padding: "10px", marginBottom: "20px"}}>
+                    <div 
                         style={{
                             fontSize: "18px",
                             ...marg({ mb: 3 }),
@@ -46,7 +46,7 @@ export default React.createClass({
                         />
                         Skelletor
                     </div>
-                </Sheet>
+                </Paper>
 
                 <Code children={
 /* This is a string for our code snippt. It is not indented because it messes up the formating in render

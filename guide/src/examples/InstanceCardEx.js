@@ -1,9 +1,10 @@
 import React, { PropType } from 'react';
-import { InstanceCard, MediaCardGroup, FlatButton } from 'cyverse-ui';
-import { ButtonGroup } from 'cyverse-ui/utils';
+import { InstanceCard, MediaCardGroup } from 'cyverse-ui';
 import { ConsoleIcon, ReplayIcon, PauseIcon, PlayIcon } from 'cyverse-ui/icons';
 import { Code } from '../components';
 import theme from '../theme.js';
+import MenuItem from 'material-ui/MenuItem';
+import FlatButton from 'material-ui/FlatButton';
 
 export default React.createClass({
     getInitialState() {
@@ -144,8 +145,12 @@ export default React.createClass({
                 checked = { this.state.checked.indexOf(item) !== -1 }
                 onBatchClick = { this.onCheck.bind( this, item ) }
                 onChangeTitle = { value => { console.log(value) } }
-                contextualMenu = {[
-                    {render: "red"}
+                menuItems = {[
+                    <MenuItem key="1" primaryText="Refresh" />,
+                    <MenuItem key="2" primaryText="Send feedback" />,
+                    <MenuItem key="3" primaryText="Settings" />,
+                    <MenuItem key="4" pprimaryText="Help" />,
+                    <MenuItem key="5" pprimaryText="Sign out" />,
                 ]}
                 quickLinks = {[
                     <ConsoleIcon
@@ -185,8 +190,8 @@ export default React.createClass({
                 <div style={{marginBottom: "20px"}}>
 
                         <FlatButton
-                            children="Play"
-                            onTouch={ this.startProccess }
+                            label="Play"
+                            onTouchTap={ this.startProccess }
                             icon={ <PlayIcon/> }
                         />
 
