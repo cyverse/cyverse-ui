@@ -211,6 +211,7 @@ const MediaCard = React.createClass({
             background: "linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,1) 100%)",
             display: "flex",
             position: "absolute",
+            height: "48px",
             right: "5px",
             top: "8px",
         };
