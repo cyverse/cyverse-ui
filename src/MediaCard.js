@@ -37,6 +37,18 @@ const MediaCard = React.createClass({
         }
     },
 
+    renderVericalMenu() {
+        const { menuItems, isDisabledMenu } = this.props;
+        if ( menuItems ) {
+            return (
+                <VerticalMenu
+                    children={ menuItems }
+                    disabled={ isDisabledMenu }
+                />
+            )
+        }
+    },
+
     onExpand() {
         this.props.onExpand();
         let scrollAmount = this.props.isExpanded ?
@@ -58,6 +70,13 @@ const MediaCard = React.createClass({
     },
 
     render() {
+        const { 
+            image,
+            title,
+            subTitle,
+            titleInfo,
+            summary
+        } = this.props;
 
         return (
             <div style = {this.styles().card} >
@@ -73,34 +92,31 @@ const MediaCard = React.createClass({
                     >
                             <div style={ this.styles().identity}>
                                 <div style={ this.styles().image }>
-                                    {this.props.image}
+                                    { image }
                                 </div>
                                 <div>
                                     <div style={ this.styles().title }>
-                                        {this.props.title}
+                                        { title }
                                     </div>
 
                                     <div style={ this.styles().subTitle }>
-                                        {this.props.subTitle}
+                                        { subTitle }
                                     </div>
 
                                     <div>
-                                        {this.props.titleInfo}
+                                        { titleInfo }
                                     </div>
                                 </div>
 
                             </div>
 
                             <div style={ this.styles().summary }>
-                                { this.props.summary }
+                                {  summary }
                             </div>
 
                             <div style={ this.styles().menu } >
                                 { this.renderQuickLinks() }
-                                
-                                <VerticalMenu
-                                    menuItemList={this.props.contextualMenu}
-                                />
+                                { this.renderVericalMenu() } 
                             </div>
 
                         </div>
@@ -195,8 +211,8 @@ const MediaCard = React.createClass({
             background: "linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,1) 100%)",
             display: "flex",
             position: "absolute",
-            right: "15px",
-            top: "15px",
+            right: "5px",
+            top: "8px",
         };
 
         // quickMenu 
