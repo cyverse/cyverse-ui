@@ -1,9 +1,10 @@
 import React from 'react';
 import theme from '../theme';
-import { ProgressAvatar, FlatButton } from 'cyverse-ui';
+import { ProgressAvatar } from 'cyverse-ui';
 import { Sheet, Code }  from '../components';
 import { PlayIcon, ReplayIcon } from '../icons';
-import { ButtonGroup } from '../utils';
+import FlatButton from 'material-ui/FlatButton';
+import Paper from 'material-ui/Paper';
 
 export default React.createClass({
     getInitialState() {
@@ -49,7 +50,7 @@ export default React.createClass({
     render() {
         return (
             <div>
-                <Sheet mb={ 4 }>
+                <Paper style={{ padding: "10px", marginBottom: "20px"}}>
                     <ProgressAvatar
                         name = "Danny Boy"
                         percent = { this.state.progress }
@@ -57,32 +58,30 @@ export default React.createClass({
                         size = { 50 }
                         stroke = { 10 }
                     />
-                </Sheet>
+                </Paper>
                 <div style={{marginBottom: "20px"}}>
-                    <ButtonGroup>
-                        <FlatButton
-                            children="PLay"
-                            onTouch={ this.startProccess }
-                            icon={ <PlayIcon/> }
-                        />
-                        <FlatButton
-                            children="Reset"
-                            onTouch={ this.replayProccess }
-                            icon={ <ReplayIcon/> }
-                        />
-                    </ButtonGroup>
+                    <FlatButton
+                        label="PLay"
+                        onTouchTap={ this.startProccess }
+                        icon={ <PlayIcon/> }
+                    />
+                    <FlatButton
+                        label="Reset"
+                        onTouchTap={ this.replayProccess }
+                        icon={ <ReplayIcon/> }
+                    />
                 </div>
                 <Code 
                     children={ 
 
-`<Sheet mb={ 4 }>
+`<Paper style={{ padding: "10px", marginBottom: "20px"}}>
     <CircleProgressBar
         percent={ this.state.progress }
         color={ theme.color.success }
         size="50px"
         stroke={ 10 }
     />
-</Sheet>`
+</Paper>`
                     }
                 />
             </div>

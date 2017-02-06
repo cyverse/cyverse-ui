@@ -2,7 +2,7 @@ import React from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import { styles, variables } from 'cyverse-ui/styles';
 import { PersonIcon } from '../icons';
-import { MediaCard, Avatar, Badge, MediaCardGroup} from 'cyverse-ui';
+import { MediaCard, Avatar, Pill, MediaCardGroup} from 'cyverse-ui';
 import { Code, P, Div } from '../components';
 
 const v = variables;
@@ -36,8 +36,8 @@ export default React.createClass({
                         subTitle={"So much to say"}
                         titleInfo= { 
                             <div>
-                                <Badge mr={ 2 }>Featured</Badge>
-                                <Badge>23</Badge>
+                                <Pill mr={ 2 }>Featured</Pill>
+                                <Pill>23</Pill>
                                 <PersonIcon 
                                     size={ 15 }
                                     color={ v.c.grey.xDark }
@@ -64,13 +64,12 @@ export default React.createClass({
                             )
                         } 
                         menuItems = {[
-                            <MenuItem primaryText="Refresh" />,
-                            <MenuItem primaryText="Send feedback" />,
-                            <MenuItem primaryText="Settings" />,
-                            <MenuItem primaryText="Help" />,
-                            <MenuItem primaryText="Sign out" />,
+                            <MenuItem key="1" primaryText="Refresh" />,
+                            <MenuItem key="2" primaryText="Send feedback" />,
+                            <MenuItem key="3" primaryText="Settings" />,
+                            <MenuItem key="4" pprimaryText="Help" />,
+                            <MenuItem key="5" pprimaryText="Sign out" />,
                         ]}
-                        color={"#0971AB"}
                     />
                     <MediaCard 
                         image={
@@ -99,7 +98,6 @@ export default React.createClass({
                                 </span>
                             )
                         } 
-                        color={"#0971AB"}
                     />
                 </MediaCardGroup>
             </Div>

@@ -1,7 +1,8 @@
 import React, { PropType } from 'react';
 import { ButtonMenu, MenuItem } from 'cyverse-ui';
-import { Sheet, Code }  from '../components';
+import { Sheet }  from '../components';
 import theme from '../theme.js';
+import Paper from 'material-ui/Paper';
 
 export default React.createClass({
     getInitialState() {
@@ -38,7 +39,7 @@ export default React.createClass({
 
         return (
             <div>
-                <Sheet mb={ 4 }>
+                <Paper style={{ paddin: "10px", marginBottom: "20px" }}>
 		    <ButtonMenu
                         color={ theme.color.primary }
                         buttonLabel="New"
@@ -57,7 +58,7 @@ export default React.createClass({
 			/>
 		    </ButtonMenu>
 
-                </Sheet>
+                </Paper>
                 <Code children={
                     /* This is a string for our code snippt. It is not indented because it messes up the formating in render 
                      * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
