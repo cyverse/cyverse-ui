@@ -1,5 +1,4 @@
 export { default as MediaCardEx } from './MediaCardEx';
-export { default as AvatarEx } from './AvatarEx';
 export { default as TabsEx } from './TabsEx';
 export { default as MeterGaugeEx } from './MeterGaugeEx';
 export { default as ShowMoreEllipsisEx } from './ShowMoreEllipsisEx';

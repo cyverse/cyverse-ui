@@ -1,9 +1,11 @@
 import React from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import { styles, variables } from 'cyverse-ui/styles';
+import Avatar from 'material-ui/Avatar';
+import randomcolor from 'randomcolor';
 import { PersonIcon } from '../icons';
-import { MediaCard, Avatar, Pill, MediaCardGroup} from 'cyverse-ui';
-import { Code, P, Div } from '../components';
+import { MediaCard, Pill, MediaCardGroup, Div, P } from 'cyverse-ui';
+import { Code } from '../components';
 
 const v = variables;
 
@@ -28,8 +30,12 @@ export default React.createClass({
                     <MediaCard 
                         image={
                             <Avatar 
-                                size={40} 
-                                name={"MediaCard Example"}
+                                children="M"
+                                backgroundColor={ 
+                                    randomcolor({
+                                        seed: "MediaCard Example"
+                                    })}
+                                color="rgba(255,255,255,.7)"
                             />
                         }
                         title={"MediaCard Example"}
@@ -74,10 +80,15 @@ export default React.createClass({
                     />
                     <MediaCard 
                         image={
-                            <Avatar 
-                                size={40} 
-                                name={"Without Menu"}
+                            <Avatar
+                                children="W"
+                                backgroundColor={ 
+                                    randomcolor({
+                                        seed: "WithoutMenu"
+                                    })}
+                                color="rgba(255,255,255,.7)"
                             />
+
                         }
                         title={"Without Menu"}
                         summary="I don't have any subtitle data either"
@@ -117,8 +128,12 @@ export default React.createClass({
     <MediaCard 
         image={
             <Avatar 
-                size={40} 
-                name={"MediaCard Example"}
+                children="M"
+                backgroundColor={ 
+                    randomcolor({
+                        seed: "MediaCard Example"
+                    })}
+                color="rgba(255,255,255,.7)"
             />
         }
         title={"MediaCard Example"}
@@ -163,10 +178,15 @@ export default React.createClass({
     />
     <MediaCard 
         image={
-            <Avatar 
-                size={40} 
-                name={"Without Menu"}
+            <Avatar
+                children="W"
+                backgroundColor={ 
+                    randomcolor({
+                        seed: "Without Menu"
+                    })}
+                color="rgba(255,255,255,.7)"
             />
+
         }
         title={"Without Menu"}
         summary="I don't have any subtitle data either"
