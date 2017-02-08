@@ -9,6 +9,7 @@ import {
     InstanceCardEx,
     ProgressAvatarEx,
     PillEx,
+    SubHeaderEx,
 } from './examples';
 
 const ExampleList = [
@@ -92,6 +93,17 @@ const ExampleList = [
             </P>
         ),
         render: InstanceCardEx,
+    },
+    {
+        name: "SubHeader",
+        desc: (
+            <div>
+                <P>
+                    SubHeader is the contextual header located at the top of a sub-view. A Sub-view is a view that one would navigate to from a main-view. For example clicking on a list item might open a sub-view detail of that list item. The SubHeader has a back button to navigate back to the main-veiw and some top level controls or actions for the particular sub-view. 
+                </P>
+            </div>
+        ), 
+        render: SubHeaderEx,
     },
 ];
 

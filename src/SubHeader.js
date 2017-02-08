@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import IconButton from 'material-ui/IconButton';
 import { marg, pad } from './styles';
 import VerticalMenu from './VerticalMenu';
 import Div from './Div';
@@ -31,7 +32,7 @@ const SubHeader = React.createClass({
                     { 
                         menuItems ? 
                             <VerticalMenu 
-                                menuItemList={ menuItems }     
+                                children={ menuItems }     
                             />
                             : null
                     }
@@ -40,7 +41,7 @@ const SubHeader = React.createClass({
         }
     },
 
-    render: function() {
+    render() {
         let { name, onBack } = this.props;
         let style = this.style();
 
@@ -49,13 +50,12 @@ const SubHeader = React.createClass({
                 style={ style.header }
             >
                 <div style={ style.titleGroup }>
-                    <span onClick={ onBack } >
+                    <IconButton onTouchTap={ onBack } >
                         <LeftArrowIcon
-                            style={ style.backButton }
-                            size="30"
+                            size="25"
                         />
-                    </span>
-                    <Title h1 title>
+                    </IconButton>
+                    <Title h1 title-1 >
                         { name }
                     </Title>
                 </div>
@@ -68,8 +68,6 @@ const SubHeader = React.createClass({
         return {
             header: {
                 ...marg( this.props ),
-                paddingTop: "10px",
-                paddingBottom: "10px",
                 position: "relative",
                 display: "flex",
                 justifyContent: "space-between"
