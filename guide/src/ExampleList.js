@@ -17,7 +17,7 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    A Pill is used to indicate meta data like number of active users or if an item is featured or recomended. It is sort of like a badge but smaller to fit under a title.
+                    A Pill is used to indicate meta data like number of active users or if an item is featured or recomended. It is sort of like a badge but smaller to fit under a title or in the footer of a card.
                 </P>
             </div>
         ), 

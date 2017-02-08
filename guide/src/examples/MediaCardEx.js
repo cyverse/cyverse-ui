@@ -36,12 +36,14 @@ export default React.createClass({
                         subTitle={"So much to say"}
                         titleInfo= { 
                             <div>
-                                <Pill mr={ 2 }>Featured</Pill>
-                                <Pill>23</Pill>
-                                <PersonIcon 
-                                    size={ 15 }
-                                    color={ v.c.grey.xDark }
-                                />
+                                <Pill>
+                                    Featured
+                                </Pill>
+                                <Pill
+                                    icon = { <PersonIcon/> } 
+                                >
+                                    23
+                                </Pill>
                             </div>
                         }
                         summary="Bacon ipsum dolor amet turkey landjaeger ground round sausage"
@@ -67,8 +69,7 @@ export default React.createClass({
                             <MenuItem key="1" primaryText="Refresh" />,
                             <MenuItem key="2" primaryText="Send feedback" />,
                             <MenuItem key="3" primaryText="Settings" />,
-                            <MenuItem key="4" pprimaryText="Help" />,
-                            <MenuItem key="5" pprimaryText="Sign out" />,
+                            <MenuItem key="4" primaryText="Help" />,
                         ]}
                     />
                     <MediaCard 
@@ -124,12 +125,14 @@ export default React.createClass({
         subTitle={"So much to say"}
         titleInfo= { 
             <div>
-                <Badge mr={ 2 }>Featured</Badge>
-                <Badge>23</Badge>
-                <PersonIcon 
-                    size={ 15 }
-                    color={ v.c.grey.xDark }
-                />
+                <Pill>
+                    Featured
+                </Pill>
+                <Pill
+                    icon = { <PersonIcon/> } 
+                >
+                    23
+                </Pill>
             </div>
         }
         summary="Bacon ipsum dolor amet turkey landjaeger ground round sausage"
@@ -152,13 +155,11 @@ export default React.createClass({
             )
         } 
         menuItems = {[
-            <MenuItem primaryText="Refresh" />,
-            <MenuItem primaryText="Send feedback" />,
-            <MenuItem primaryText="Settings" />,
-            <MenuItem primaryText="Help" />,
-            <MenuItem primaryText="Sign out" />,
+            <MenuItem key="1" primaryText="Refresh" />,
+            <MenuItem key="2" primaryText="Send feedback" />,
+            <MenuItem key="3" primaryText="Settings" />,
+            <MenuItem key="4" primaryText="Help" />,
         ]}
-        color={"#0971AB"}
     />
     <MediaCard 
         image={
@@ -187,7 +188,6 @@ export default React.createClass({
                 </span>
             )
         } 
-        color={"#0971AB"}
     />
 </MediaCardGroup>`
                     /* Code string ends here */
