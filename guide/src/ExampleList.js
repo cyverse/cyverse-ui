@@ -61,7 +61,7 @@ const ExampleList = [
         name: "ProgressAvatar",
         desc: (
             <P>
-                CircleProgressBar is used to inform the user that a proccess is taking place as well as what percentage of that proccess is finished.  
+                Since an Avatar serves as a visual anchor for an item a ProgressAvatar can be used in place of MUI's Avatar as a clear way to inform the user that a proccess is taking place on that item as well as what percentage of that proccess is finished without taking up valuable reale state.  
             </P>
         ),
         render: ProgressAvatarEx,

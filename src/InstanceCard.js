@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import Dimensions from 'react-dimensions';
+import randomcolor from 'randomcolor';
 import { styles, marg } from './styles';
 import { EditIcon } from './icons';
 import MediaCard from './MediaCard';
-import Avatar from './Avatar';
 import Hr from './Hr';
 import ProgressAvatar from './ProgressAvatar';
 import Checkbox from './Checkbox';
@@ -154,11 +154,12 @@ const InstanceCard = React.createClass({
     avatar() {
         let avatar = (
                 <ProgressAvatar
-                    name = { this.props.title }
+                    children = { this.props.title[0].toUpperCase() }
                     percent = { this.props.percent }
-                    size = { 36 }
-                    stroke = { 10 }
-                    color = { this.props.successColor }
+                    size = { 35 }
+                    backgroundColor = { randomcolor({ 
+                            seed: this.props.title
+                        })} 
                 />
         );
 
@@ -183,8 +184,8 @@ const InstanceCard = React.createClass({
                     overflow: "hidden",
                     alignItems: "center",
                     justifyContent: "center",
-                    width: "36px", 
-                    height: "36px" 
+                    width: "35px", 
+                    height: "35px" 
                 }}
                 onMouseEnter = { this.onAvatarEnter }
                 onMouseLeave = { this.onAvatarLeave }
