@@ -12,22 +12,36 @@ const v = variables;
 export default React.createClass({
     getInitialState() {
         return {
-            isExpanded: false
+            batchMode: true,
+            checked: [],
         }
     },
 
-    onExpand() {
-       let isExpanded = this.state.isExpanded ? false : true;
-       this.setState({
-           isExpanded
-       })
+    onCheck( e ) {
+        let list = this.state.checked;
+        let curr = e.props.uid;
+        let checked;
+        if ( list.indexOf( curr ) !== -1 ) {
+            checked = list.filter( item => curr !== item);
+        } else {
+            checked = [
+                ...list,
+                curr
+            ];
+        };
+
+        this.setState({ checked });
     },
 
     Example() {
         return (
             <Div mb={ 4 }>
                 <MediaCardGroup>
-                    <MediaCard 
+                    <MediaCard
+                        uid = "1"
+                        batchMode = { this.state.checked.length > 0 }
+                        checked = { this.state.checked.indexOf("1") !== -1 }
+                        onBatchClick = { this.onCheck }
                         image={
                             <Avatar 
                                 children="M"
@@ -71,6 +85,10 @@ export default React.createClass({
                         ]}
                     />
                     <MediaCard 
+                        uid = "2"
+                        batchMode = { this.state.checked.length > 0 }
+                        checked = { this.state.checked.indexOf("2") !== -1 }
+                        onBatchClick = { this.onCheck }
                         image={
                             <Avatar
                                 children="W"

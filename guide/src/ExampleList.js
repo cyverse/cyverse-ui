@@ -6,7 +6,6 @@ import {
     TabsEx,
     MeterGaugeEx,
     ShowMoreEllipsisEx,
-    InstanceCardEx,
     ProgressAvatarEx,
     PillEx,
     SubHeaderEx,
@@ -84,15 +83,6 @@ const ExampleList = [
             </P>
         ),
         render: MediaCardGroupEx,
-    },
-    {
-        name: "InstanceCard",
-        desc: (
-            <P>
-                Since only one MediaCard should be open at a time and clicking off the media card should close it a MediaCardGroup is used to control this interdependent behaviour.
-            </P>
-        ),
-        render: InstanceCardEx,
     },
     {
         name: "SubHeader",
