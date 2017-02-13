@@ -10,3 +10,15 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 button, html [type="button"], /* 1 */ [type="reset"], [type="submit"] { -webkit-appearance: none; /* 2 */}
+a { 
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
+a:visited {
+    color: black
+}
+a:hover {
+    border-bottom: 2px solid lightgrey; 
+}
+

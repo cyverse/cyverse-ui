@@ -98,13 +98,10 @@ export default React.createClass({
                                 display1
                                 color={ theme.color.primary }
                             >
-                                Troposphere UI
+                                Cyverse UI
                             </Title>
                             <P subheading>
-                            A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
-                            </P>
-                            <P subheading>
-                            Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
+                                A collection of UI components for Cyverse that extend <a href="http://www.material-ui.com/" target="_blank" title="Material-UI">Material-UI</a> adding components that handle UI patterns within the Cyverse ecosystem not covered by Material-UI.
                             </P>
                         </Section>
                         { this.renderExamples() } 
