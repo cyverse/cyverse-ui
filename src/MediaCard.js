@@ -1,4 +1,5 @@
 import React from 'react';
+import Checkbox from 'material-ui/Checkbox';
 import Dimensions from 'react-dimensions';
 import Scroll from 'react-scroll';
 import VerticalMenu from './VerticalMenu';
@@ -12,7 +13,20 @@ const MediaCard = React.createClass({
     getInitialState() {
         return {
             cardIsHovered: false,
+            avatarIsHovered: false,
         }
+    },
+
+    onAvatarEnter() {
+        this.setState({
+            avatarIsHovered: true
+        });
+    },
+
+    onAvatarLeave() {
+        this.setState({
+            avatarIsHovered: false
+        });
     },
 
     onCardEnter() {
@@ -25,6 +39,32 @@ const MediaCard = React.createClass({
         this.setState({
             cardIsHovered: false,
         }); 
+    },
+
+    onCheck(e) {
+        e.nativeEvent.stopImmediatePropagation();
+        e.preventDefault();
+        e.stopPropagation();
+        this.props.onBatchClick(this);
+    },
+
+    renderAvatar() {
+        const { image, batchMode, onBatchClick } = this.props;
+        const { avatarIsHovered } = this.state;
+        let avatar = image;
+
+        if ( onBatchClick && ( batchMode || avatarIsHovered ) ) {
+            avatar = ( 
+                <Checkbox
+                    onClick = { this.onCheck }
+                    checked = { this.props.checked }
+                    style = {{ margin: "auto", width: "75%" }}
+                    color = { this.props.primaryColor }
+                />
+            )
+        }
+
+        return avatar;
     },
 
     renderQuickLinks() {
@@ -91,8 +131,12 @@ const MediaCard = React.createClass({
                         onClick = {this.onExpand}
                     >
                             <div style={ this.styles().identity}>
-                                <div style={ this.styles().image }>
-                                    { image }
+                                <div 
+                                    onMouseEnter = { this.onAvatarEnter }
+                                    onMouseLeave = { this.onAvatarLeave }
+                                    style={ this.styles().image }
+                                >
+                                    { this.renderAvatar() }
                                 </div>
                                 <div>
                                     <div style={ this.styles().title }>
