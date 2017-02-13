@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import IconButton from 'material-ui/IconButton';
-import { marg, pad } from './styles';
+import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import VerticalMenu from './VerticalMenu';
 import Div from './Div';
 import Title from './Title';
@@ -10,29 +10,29 @@ import LeftArrowIcon from './icons/LeftArrowIcon';
 const SubHeader = React.createClass({
 
     renderOptionGroup() {
-        let { quickOptions, menuItems } = this.props;
+        let { quickActions, menuItems } = this.props;
         let style = this.style();
 
-        let renderQuickOptions = (option) => {
+        let renderQuickActions = (option) => {
             return (
-                <Div mr={ 4 }>
+                <Div>
                     { option }
                 </Div>
             )
         };
 
-        if ( quickOptions || menuItems ) {
+        if ( quickActions || menuItems ) {
             return (
                 <div style={ style.actionGroup }>
                     { 
-                        quickOptions ?
-                            quickOptions.map( renderQuickOptions ) 
+                        quickActions ?
+                            quickActions.map( renderQuickActions )
                             : null
                     }
                     { 
                         menuItems ? 
                             <VerticalMenu 
-                                children={ menuItems }     
+                                children={ menuItems }
                             />
                             : null
                     }
@@ -51,11 +51,9 @@ const SubHeader = React.createClass({
             >
                 <div style={ style.titleGroup }>
                     <IconButton onTouchTap={ onBack } >
-                        <LeftArrowIcon
-                            size="25"
-                        />
+                        <ArrowBack/>
                     </IconButton>
-                    <Title h1 title-1 >
+                    <Title h1 title >
                         { name }
                     </Title>
                 </div>
@@ -67,7 +65,6 @@ const SubHeader = React.createClass({
     style() {
         return {
             header: {
-                ...marg( this.props ),
                 position: "relative",
                 display: "flex",
                 justifyContent: "space-between"
