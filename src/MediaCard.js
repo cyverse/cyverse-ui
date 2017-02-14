@@ -18,26 +18,16 @@ const MediaCard = React.createClass({
         }
     },
 
-    onAvatarEnter() {
-        this.setState({
-            avatarIsHovered: true
-        });
-    },
-
-    onAvatarLeave() {
-        this.setState({
-            avatarIsHovered: false
-        });
-    },
-
     onCardEnter() {
         this.setState({
+            avatarIsHovered: true,
             cardIsHovered: true,
         }); 
     },
 
     onCardLeave() {
         this.setState({
+            avatarIsHovered: false,
             cardIsHovered: false,
         }); 
     },
@@ -100,11 +90,7 @@ const MediaCard = React.createClass({
         
         if (image) {
             return (
-                <div 
-                    onMouseEnter = { this.onAvatarEnter }
-                    onMouseLeave = { this.onAvatarLeave }
-                    style={ styles.image }
-                >
+                <div style={ styles.image }>
                     { avatar }
                 </div>
             )
