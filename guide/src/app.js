@@ -10,15 +10,11 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-import StyleGuide from './StyleGuide.js';
 import theme from './theme';
+import StyleGuide from './StyleGuide.js';
 
-let newTheme = getMuiTheme({
-    palette: {
-        success: "#2eb900",
-        danger: "#ff470a",
-    }
-});
+let newTheme = getMuiTheme(theme);
+console.log(newTheme);
 const App = () => (
     <MuiThemeProvider muiTheme={ newTheme }>
         <StyleGuide/>
