@@ -3,11 +3,11 @@ import Scroll from 'react-scroll';
 
 import {List, ListItem} from 'material-ui/List';
 
-import Examples from '../ExampleList';
+import ComponentExList from '../ComponentExList';
 
 const scroller = Scroll.scroller;
 
-const ComponentList = React.createClass({
+const ComponentLinkList = React.createClass({
     scrollTo(name) {
         return () => {
             let target = name.replace(/\s+/g, '-');
@@ -19,7 +19,7 @@ const ComponentList = React.createClass({
     },
 
     renderComponentLinks() {
-        return Examples.map( item => {
+        return ComponentExList.map( item => {
             return ( 
             <ListItem
                 key={ item.name }
@@ -43,4 +43,4 @@ const ComponentList = React.createClass({
     },
 });
 
-export default ComponentList;
+export default ComponentLinkList;
