@@ -1,22 +1,22 @@
 import React from 'react';
 import Scroll from 'react-scroll';
+import {  Hr, P, Title, Div, Section } from 'cyverse-ui'; 
 
 import { styles } from './styles';
 import theme from './theme';
 import 'normalize.css';
-
 import './base.css';
 
-import Examples from './ExampleList';
-import { Header, SideNav, Figure, Hr, P, Title, Div, Section } from './components';
+import ComponentExList from './ComponentExList';
+import { Header, SideNav, Figure,} from './components';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
 export default React.createClass({
 
-    renderExamples() {
-        return Examples.map((Component, i) => {
+    renderComponentExamples() {
+        return ComponentExList.map((Component, i) => {
         let Name = Component.name;
         let Description = Component.desc;
         let Render = Component.render;
@@ -70,8 +70,9 @@ export default React.createClass({
                         <Section mb={ 7 }>
                             <Title
                                 h1
-                                display1
+                                display2
                                 color={ theme.color.primary }
+                                mb={ 3 }
                             >
                                 Cyverse UI
                             </Title>
@@ -79,7 +80,16 @@ export default React.createClass({
                                 A collection of UI components for Cyverse that extend <a href="http://www.material-ui.com/" target="_blank" title="Material-UI">Material-UI</a> adding components that handle UI patterns within the Cyverse ecosystem not covered by Material-UI.
                             </P>
                         </Section>
-                        { this.renderExamples() } 
+                        <Section>
+                            <Title
+                                h2
+                                display1
+                                color={ theme.color.primary }
+                            >
+                                Components
+                            </Title>
+                            { this.renderComponentExamples() } 
+                        </Section>
                     </div>
                 </main>
                 <footer/>

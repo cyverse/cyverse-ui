@@ -76,15 +76,6 @@ const ExampleList = [
         render: MediaCardEx,
     },
     {
-        name: "MediaCardGroup",
-        desc: (
-            <P>
-                Since only one MediaCard should be open at a time and clicking off the media card should close it a MediaCardGroup is used to control this interdependent behaviour.
-            </P>
-        ),
-        render: MediaCardGroupEx,
-    },
-    {
         name: "SubHeader",
         desc: (
             <div>
