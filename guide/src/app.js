@@ -14,7 +14,6 @@ import theme from './theme';
 import StyleGuide from './StyleGuide.js';
 
 let newTheme = getMuiTheme(theme);
-console.log(newTheme);
 const App = () => (
     <MuiThemeProvider muiTheme={ newTheme }>
         <StyleGuide/>
