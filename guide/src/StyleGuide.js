@@ -8,28 +8,12 @@ import 'normalize.css';
 import './base.css';
 
 import Examples from './ExampleList';
-import { Header, SideBar, ActionList, Figure, Hr, P, Title, Div, Section } from './components';
+import { Header, SideNav, Figure, Hr, P, Title, Div, Section } from './components';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
 export default React.createClass({
-    scrollTo(i) {
-        let target = Examples[i].name.replace(/\s+/g, '-');
-        scroller.scrollTo(target, {
-            duration: 1000,
-            smooth: true,
-        });
-    },
-
-    ExampleLinks() {
-        return Examples.map( (Component, i) => {
-            let Name = Component.name;
-                return {
-                    label: Name,
-                }
-        });
-    },
 
     renderExamples() {
         return Examples.map((Component, i) => {
@@ -80,16 +64,7 @@ export default React.createClass({
                 <Header 
                     style={ this.style().header }
                 />
-                <SideBar isOpen >
-                    <Title h1 title >
-                        Component List
-                    </Title>
-                    <Hr/>
-                    <ActionList 
-                        list={ this.ExampleLinks() } 
-                        onTouch={ this.scrollTo }
-                    />
-                </SideBar>
+                <SideNav isOpen />
                 <main style={ this.style().main }>
                     <div style={ this.style().content }>
                         <Section mb={ 7 }>
