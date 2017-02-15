@@ -1,11 +1,8 @@
 import React from 'react';
 import { styles, marg } from './styles';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
-
-import Button from './Button';
 
 export default React.createClass({
 
@@ -25,20 +22,24 @@ export default React.createClass({
     },
 
     render() {
-        const { color, buttonIcon, buttonLabel, children, isOpen, onItemTouchTap, onTouch } = this.props;
-        const muiTheme = getMuiTheme({
-	  palette: {
-	    primary1Color: color,
-	  },
-	}); 
+        const { 
+            color,
+            buttonIcon,
+            buttonLabel,
+            children,
+            isOpen,
+            onItemTouchTap
+        } = this.props;
+
         return (
-            <MuiThemeProvider muiTheme={ muiTheme } >
-                <div>       
-                    <Button
-                        onTouch={this.handleTouchTap}
+                <div id={ this.props.id }>       
+                    <RaisedButton
+                        onTouchTap={this.handleTouchTap}
                         children={ buttonLabel }
                         icon={ buttonIcon }
-                        color={ color }
+                        primary={ this.props.primary }
+                        secondary={ this.props.secondary }
+                        disabled={ this.props.disabled }
                     />
                     <Popover
                         open={isOpen}
@@ -54,13 +55,6 @@ export default React.createClass({
                         </Menu>
                     </Popover>
                 </div>
-            </MuiThemeProvider>
         )
-    },
-
-    styles() {
-        return {
-            label: { ...styles.t.label }
-        }
     },
 });
