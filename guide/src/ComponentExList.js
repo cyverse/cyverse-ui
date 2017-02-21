@@ -9,6 +9,8 @@ import {
     ProgressAvatarEx,
     PillEx,
     SubHeaderEx,
+    ButtonMenuEx,
+    VerticalMenuEx,
 } from './examples';
 
 const ExampleList = [
@@ -85,6 +87,34 @@ const ExampleList = [
             </div>
         ), 
         render: SubHeaderEx,
+    },
+    {
+        name: "ButtonMenu",
+        desc: (
+            <div>
+                <P>
+                    A ButtonMenu is a menu that can be displayed by pressing a RaisedButton. In Troposphere a ButtonMenu is used to with the label "New" and opens a list of things that can be created. 
+                </P>
+                <P>
+                    As a general rule menus should apear to the top right of the view so this component defaults to opening from the right and down but can be overriden using `anchorOrigin` and `targetOrigin`. See  <a target="_blank" href="http://www.material-ui.com/#/components/popover">Material-ui's Popover</a> for better documentation.
+                </P>
+            </div>
+        ), 
+        render: ButtonMenuEx,
+    },
+    {
+        name: "VerticalMenu",
+        desc: (
+            <div>
+                <P>
+                    A ButtonMenu is a menu that can be displayed by pressing a RaisedButton. In Troposphere a ButtonMenu is used to with the label "New" and opens a list of things that can be created. 
+                </P>
+                <P>
+                    As a general rule menus should apear to the top right of the view so this component defaults to opening from the right and down but can be overriden using `anchorOrigin` and `targetOrigin`. See  <a target="_blank" href="http://www.material-ui.com/#/components/popover">Material-ui's Popover</a> for better documentation.
+                </P>
+            </div>
+        ), 
+        render: VerticalMenuEx,
     },
 ];
 
