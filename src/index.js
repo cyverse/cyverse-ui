@@ -1,5 +1,4 @@
 export { default as Pill } from './Pill';
-export { default as Tag } from './Tag';
 export { default as Hr } from './Hr';
 export { default as MediaCard } from './MediaCard';
 export { default as MediaCardGroup } from './MediaCardGroup';

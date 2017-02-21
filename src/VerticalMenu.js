@@ -11,6 +11,11 @@ const VerticalMenu = React.createClass({
     },
 
     render() {
+        const {
+            anchorOrigin = { horizontal: 'right', vertical: 'bottom' },
+            targetOrigin = { horizontal: 'right', vertical: 'top' }
+        } = this.props;
+
         return (
             <IconMenu
                 { ...this.props }
@@ -19,8 +24,8 @@ const VerticalMenu = React.createClass({
                         <MoreVertIcon />
                     </IconButton>
                 }
-		anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-		targetOrigin={{horizontal: 'right', vertical: 'top'}}
+		anchorOrigin={ anchorOrigin }
+		targetOrigin={ targetOrigin }
             />
         )
     },

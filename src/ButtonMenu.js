@@ -1,5 +1,6 @@
 import React from 'react';
 import { styles, marg } from './styles';
+import Div from './Div';
 import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
@@ -15,46 +16,73 @@ export default React.createClass({
     handleTouchTap(event) {
         // This prevents ghost click.
         event.preventDefault();
-        this.props.onTouch();
+        this.props.onTouchTap();
         this.setState({
+            open: true,
             anchorEl: event.currentTarget,
+        });
+    },
+
+    handleRequestClose() {
+        this.setState({
+            open: false,
+        });
+    },
+
+    handleItemTouchTap(e) {
+        this.props.onItemTouchTap(e);
+        this.setState({
+            open: false,
         });
     },
 
     render() {
         const { 
+            style,
             color,
             buttonIcon,
             buttonLabel,
             children,
             isOpen,
-            onItemTouchTap
+            onTouchTap,
+            onItemTouchTapi,
+            primary,
+            secondary,
+            disabled,
+            anchorOrigin = {horizontal: 'right', vertical: 'bottom'},
+            targetOrigin = {horizontal: 'right', vertical: 'top'},
         } = this.props;
 
         return (
-                <div id={ this.props.id }>       
-                    <RaisedButton
-                        onTouchTap={this.handleTouchTap}
-                        children={ buttonLabel }
-                        icon={ buttonIcon }
-                        primary={ this.props.primary }
-                        secondary={ this.props.secondary }
-                        disabled={ this.props.disabled }
-                    />
-                    <Popover
-                        open={isOpen}
-                        anchorEl={this.state.anchorEl}
-                        anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-                        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                        onRequestClosed={ onTouch }
+            <Div 
+                style={{
+                    ...style,
+                    display: "inline-block"
+                }} 
+                id={ this.props.id }
+            >       
+                <RaisedButton
+                    onTouchTap={ this.handleTouchTap }
+                    label={ buttonLabel }
+                    icon={ buttonIcon }
+                    primary={ primary }
+                    secondary={ secondary }
+                    disabled={ disabled }
+                />
+                <Popover
+                    open={ this.state.open }
+                    anchorEl={ this.state.anchorEl }
+                    anchorOrigin={ anchorOrigin }
+                    targetOrigin={ targetOrigin }
+                    onRequestClose={ this.handleRequestClose }
+                >
+                    <Menu
+                        onItemTouchTap={ this.handleItemTouchTap }
                     >
-                        <Menu
-                            onItemTouchTap={ onItemTouchTap }
-                        >
-                            { children }
-                        </Menu>
-                    </Popover>
-                </div>
+                        { children }
+                    </Menu>
+                </Popover>
+            </Div>
         )
     },
 });
