@@ -16,7 +16,6 @@ export default React.createClass({
     handleTouchTap(event) {
         // This prevents ghost click.
         event.preventDefault();
-        this.props.onTouchTap();
         this.setState({
             open: true,
             anchorEl: event.currentTarget,
@@ -29,8 +28,8 @@ export default React.createClass({
         });
     },
 
-    handleItemTouchTap(e) {
-        this.props.onItemTouchTap(e);
+    handleItemTouchTap(e, item) {
+        this.props.onItemTouchTap(e, item);
         this.setState({
             open: false,
         });

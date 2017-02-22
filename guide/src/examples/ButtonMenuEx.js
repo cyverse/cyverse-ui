@@ -7,24 +7,11 @@ import theme from '../theme.js';
 import Paper from 'material-ui/Paper';
 
 export default React.createClass({
-    getInitialState() {
-        return {
-            selected: "2",
-            isOpen: false,	
-        }
-    },
 
-    onSelectChange(e, i, selected) {
-        console.log(selected);
-        this.setState({
-            selected
-        });
-    },
-
-    onToggleMenu() {
-        this.setState({
-            isOpen: !this.state.isOpen,
-        });
+    onSelectItem(e, item) {
+        console.log(
+            `${item.props.primaryText} was selected!`
+        );
     },
 
     menuItem({ id, name }) {
@@ -45,8 +32,7 @@ export default React.createClass({
                     <ButtonGroup>
                         <ButtonMenu
                             buttonLabel="Default"
-                            onItemTouchTap={ this.onToggleMenu }
-                            onTouchTap={ this.onToggleMenu }
+                            onItemTouchTap={ this.onSelectItem }
                         >
                             <MenuItem 
                                 primaryText="Instance"
