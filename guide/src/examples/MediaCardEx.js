@@ -17,9 +17,11 @@ export default React.createClass({
         }
     },
 
-    onCheck( e ) {
+    onCheck(e, item ) {
         let list = this.state.checked;
-        let curr = e.props.uid;
+        // We can set or use any prop we want for this check
+        let curr = item.props.uid;
+
         let checked;
         if ( list.indexOf( curr ) !== -1 ) {
             checked = list.filter( item => curr !== item);

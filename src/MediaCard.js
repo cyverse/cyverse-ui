@@ -45,7 +45,7 @@ const MediaCard = React.createClass({
         e.nativeEvent.stopImmediatePropagation();
         e.preventDefault();
         e.stopPropagation();
-        this.props.onBatchClick(this);
+        this.props.onBatchClick(e, this);
     },
 
     renderQuickLinks() {
