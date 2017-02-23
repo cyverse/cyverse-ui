@@ -1,5 +1,5 @@
 import React from 'react';
-import { P } from './components';
+import { P } from 'cyverse-ui';
 import {
     MediaCardEx,
     MediaCardGroupEx,

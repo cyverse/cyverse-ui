@@ -1,7 +1,7 @@
 import React from 'react';
 import { ClearFix } from '../utils';
-import { ShowMoreEllipsis } from 'cyverse-ui';
-import { Sheet, Code, P } from '../components';
+import { ShowMoreEllipsis, P } from 'cyverse-ui';
+import { Code } from '../components';
 import Paper from 'material-ui/Paper';
 
 export default React.createClass({
