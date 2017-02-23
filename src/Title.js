@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { styles, marg } from './styles';
+import { styles, marg, pad } from './styles';
 
 const Title = React.createClass({
 
@@ -65,6 +65,7 @@ const Title = React.createClass({
             MarginTop: "0",
             marginBottom: "0",
             ...marg( this.props ),
+            ...pad( this.props ),
         }
     }
 });

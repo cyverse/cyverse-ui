@@ -9,7 +9,13 @@ const SideNav = React.createClass({
     render() {
         return (
             <SideBar isOpen >
-                <Title h1 title mb={ 2 }>
+                <Title 
+                    h1
+                    title
+                    mb={ 2 }
+                    pr={ 3 }
+                    pl={ 3 }
+                >
                     Table of Contents
                 </Title>
                 <Divider/>

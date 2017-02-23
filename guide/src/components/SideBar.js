@@ -17,7 +17,7 @@ const SideBar = React.createClass({
                 bottom: "0px",
                 width: currentWidth,
                 marginTop: "50px",
-                padding: "20px",
+                padding: "20px 0",
                 background: "#EEEEEE",
                 overflowY: "auto", 
             },
