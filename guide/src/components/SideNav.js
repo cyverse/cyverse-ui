@@ -13,8 +13,7 @@ const SideNav = React.createClass({
                     h1
                     title
                     mb={ 2 }
-                    pr={ 3 }
-                    pl={ 3 }
+                    ps={ 3 }
                 >
                     Table of Contents
                 </Title>

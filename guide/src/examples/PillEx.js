@@ -10,7 +10,11 @@ export default React.createClass({
             <section>
                 <Paper style={{ padding: "10px", marginBottom: "20px"}} >
                     <Div mb = { 3 }>
-                        <Title h3 title-1 >
+                        <Title
+                            h3
+                            title-1
+                            m={ 0 }
+                        >
                             Default Color
                         </Title>
                         <Pill>
@@ -21,7 +25,11 @@ export default React.createClass({
                         </Pill>
                     </Div>
                     <Div>
-                        <Title h3 title-1 >
+                        <Title
+                            h3
+                            title-1
+                            m={ 0 }
+                        >
                             Custom Color
                         </Title>
                         <Pill color="royalblue">

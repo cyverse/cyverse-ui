@@ -32,10 +32,10 @@ const Pad = ( props ) => {
                 break;
             case "ps":
                 style.paddingRight = typeof value == "number"
-                    ? sizes[value -1] * .5
+                    ? sizes[value -1]
                     : value
                 style.paddingLeft = typeof value == "number"
-                    ? sizes[value -1] * .5
+                    ? sizes[value -1]
                     : vlaue
                 break;
             case "p":

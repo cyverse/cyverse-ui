@@ -1,5 +1,6 @@
 import React from 'react';
 import { GithubIcon } from '../icons';
+import { pad } from 'cyverse-ui/styles';
 import CyverseLogo from '../icons/mini_logo.svg';
 
 export default React.createClass({
@@ -7,7 +8,7 @@ export default React.createClass({
         return (
                 <header
                     style={{
-                        padding: "10px 20px",
+                        ...pad({ p: 3 }),
                         background: "#0971AB",
                         position: "fixed",
                         width: "100%",

@@ -53,7 +53,11 @@ const SubHeader = React.createClass({
                     <IconButton onTouchTap={ onBack } >
                         <ArrowBack/>
                     </IconButton>
-                    <Title h1 title >
+                    <Title
+                        h1
+                        title
+                        m={ 0 }
+                    >
                         { name }
                     </Title>
                 </div>

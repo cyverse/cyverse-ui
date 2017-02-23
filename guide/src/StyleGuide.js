@@ -99,15 +99,10 @@ export default React.createClass({
 
     style() {
         return {
-
-            header: {
-                height: "50px",
-            },
-
             main: {
                 background: "whitesmoke",
                 width: "100%",
-                marginTop: 50, 
+                marginTop: 59, 
                 padding: 40,
             },
 
