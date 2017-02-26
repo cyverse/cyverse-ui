@@ -8,12 +8,23 @@ import 'normalize.css';
 import './base.css';
 
 import ComponentExList from './ComponentExList';
-import { Header, SideNav, Figure,} from './components';
+import ThemeExList from './ThemeExList';
+import { Header, SideNav, Figure, ThemeExamples } from './components';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
 export default React.createClass({
+    renderThemeExamples() {
+        return  ThemeExList.map( (component, i) => {
+            return (
+                <ThemeExamples
+                    component={ component }
+                    i={ i }
+                />
+            )
+        })
+    },
 
     renderComponentExamples() {
         return ComponentExList.map((Component, i) => {
@@ -80,6 +91,16 @@ export default React.createClass({
                                 A collection of UI components for Cyverse that extend <a href="http://www.material-ui.com/" target="_blank" title="Material-UI">Material-UI</a> adding components that handle UI patterns within the Cyverse ecosystem not covered by Material-UI.
                             </P>
                         </Section>
+                        <Section>
+                            <Title
+                                h2
+                                display1
+                                color={ theme.color.primary }
+                            >
+                                Theming
+                            </Title>
+                            { this.renderThemeExamples() }
+			</Section>
                         <Section>
                             <Title
                                 h2
