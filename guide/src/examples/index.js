@@ -1,11 +1,14 @@
-export { default as MediaCardEx } from './MediaCardEx';
-export { default as TabsEx } from './TabsEx';
-export { default as MeterGaugeEx } from './MeterGaugeEx';
-export { default as ShowMoreEllipsisEx } from './ShowMoreEllipsisEx';
-export { default as PillEx } from './PillEx';
-export { default as ProgressAvatarEx } from './ProgressAvatarEx'
-export { default as ButtonMenuEx } from './ButtonMenuEx'
-export { default as VerticalMenuEx } from './VerticalMenuEx'
-export { default as SubHeaderEx } from './SubHeaderEx'
+// @create-index
 
+export { default as ButtonMenuEx } from './ButtonMenuEx.js';
+export { default as InstanceCardEx } from './InstanceCardEx.js';
+export { default as MediaCardEx } from './MediaCardEx.js';
+export { default as MeterGaugeEx } from './MeterGaugeEx.js';
+export { default as PillEx } from './PillEx.js';
+export { default as ProgressAvatarEx } from './ProgressAvatarEx.js';
+export { default as ShowMoreEllipsisEx } from './ShowMoreEllipsisEx.js';
+export { default as SubHeaderEx } from './SubHeaderEx.js';
+export { default as TabsEx } from './TabsEx.js';
+export { default as ThemeEx } from './ThemeEx.js';
+export { default as VerticalMenuEx } from './VerticalMenuEx.js';
 

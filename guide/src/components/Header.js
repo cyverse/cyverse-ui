@@ -12,7 +12,7 @@ export default React.createClass({
                         background: "#0971AB",
                         position: "fixed",
                         width: "100%",
-                        zIndex: "99999",
+                        zIndex: "700",
                         ...this.props.style
                     }}
                 >

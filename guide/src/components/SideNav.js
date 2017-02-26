@@ -2,7 +2,8 @@ import React from 'react';
 import Divider from 'material-ui/Divider';
 import { Title } from 'cyverse-ui';
 import SideBar from './SideBar';
-import ComponentList from './ComponentList';
+import ComponentLinkList from './ComponentLinkList';
+import ThemeLinkList from './ThemeLinkList';
 
 
 const SideNav = React.createClass({
@@ -18,7 +19,8 @@ const SideNav = React.createClass({
                     Table of Contents
                 </Title>
                 <Divider/>
-                <ComponentList/>
+                <ThemeLinkList/>
+                <ComponentLinkList/>
             </SideBar>
         )
     },
