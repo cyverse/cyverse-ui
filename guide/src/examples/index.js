@@ -1,23 +1,14 @@
-export { default as ButtonEx } from './ButtonEx';
-export { default as FlatButtonEx } from './FlatButtonEx';
-export { default as MediaCardEx } from './MediaCardEx';
-export { default as AvatarEx } from './AvatarEx';
-export { default as TooltipEx } from './TooltipEx';
-export { default as TabsEx } from './TabsEx';
-export { default as MeterGaugeEx } from './MeterGaugeEx';
-export { default as SelectMenuEx } from './SelectMenuEx';
-export { default as ShowMoreEllipsisEx } from './ShowMoreEllipsisEx';
-export { default as ToggleEx } from './ToggleEx';
-export { default as CircleProgressBarEx } from './CircleProgressBarEx';
-export { default as BadgeEx } from './BadgeEx';
-export { default as VerticalMenuEx } from './VerticalMenuEx'
-export { default as LoaderEx } from './LoaderEx'
-export { default as DialogEx } from './DialogEx'
-export { default as CheckboxEx } from './CheckboxEx'
-export { default as RadioButtonEx } from './RadioButtonEx'
-export { default as TagEx } from './TagEx'
-export { default as MediaCardGroupEx } from './MediaCardGroupEx'
-export { default as InstanceCardEx } from './InstanceCardEx'
-export { default as ProgressAvatarEx } from './ProgressAvatarEx'
+// @create-index
 
+export { default as ButtonMenuEx } from './ButtonMenuEx.js';
+export { default as InstanceCardEx } from './InstanceCardEx.js';
+export { default as MediaCardEx } from './MediaCardEx.js';
+export { default as MeterGaugeEx } from './MeterGaugeEx.js';
+export { default as PillEx } from './PillEx.js';
+export { default as ProgressAvatarEx } from './ProgressAvatarEx.js';
+export { default as ShowMoreEllipsisEx } from './ShowMoreEllipsisEx.js';
+export { default as SubHeaderEx } from './SubHeaderEx.js';
+export { default as TabsEx } from './TabsEx.js';
+export { default as ThemeEx } from './ThemeEx.js';
+export { default as VerticalMenuEx } from './VerticalMenuEx.js';
 

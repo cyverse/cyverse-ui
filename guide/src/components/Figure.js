@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { styles } from 'cyverse-ui/styles';
-import { Title } from './index';
+import { Title } from 'cyverse-ui';
 
 const Figure = React.createClass({
 

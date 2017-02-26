@@ -1,36 +1,38 @@
 import React, { PropTypes } from 'react';
-import { marg, pad } from './styles';
+import IconButton from 'material-ui/IconButton';
+import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import VerticalMenu from './VerticalMenu';
 import Div from './Div';
+import Title from './Title';
 import ButtonGroup from './utils/ButtonGroup';
 import LeftArrowIcon from './icons/LeftArrowIcon';
 
 const SubHeader = React.createClass({
 
     renderOptionGroup() {
-        let { quickOptions, menuItems } = this.props;
+        let { quickActions, menuItems } = this.props;
         let style = this.style();
 
-        let renderQuickOptions = (option) => {
+        let renderQuickActions = (option) => {
             return (
-                <Div mr={ 4 }>
+                <Div>
                     { option }
                 </Div>
             )
         };
 
-        if ( quickOptions || menuItems ) {
+        if ( quickActions || menuItems ) {
             return (
                 <div style={ style.actionGroup }>
                     { 
-                        quickOptions ?
-                            quickOptions.map( renderQuickOptions ) 
+                        quickActions ?
+                            quickActions.map( renderQuickActions )
                             : null
                     }
                     { 
                         menuItems ? 
                             <VerticalMenu 
-                                menuItemList={ menuItems }     
+                                children={ menuItems }
                             />
                             : null
                     }
@@ -39,25 +41,25 @@ const SubHeader = React.createClass({
         }
     },
 
-    render: function() {
+    render() {
         let { name, onBack } = this.props;
         let style = this.style();
 
         return (
             <div
                 style={ style.header }
-                className="image-header"
             >
                 <div style={ style.titleGroup }>
-                    <span onClick={ onBack } >
-                        <LeftArrowIcon
-                            style={ style.backButton }
-                            size="24"
-                        />
-                    </span>
-                    <h1 className="t-headline">
+                    <IconButton onTouchTap={ onBack } >
+                        <ArrowBack/>
+                    </IconButton>
+                    <Title
+                        h1
+                        title
+                        m={ 0 }
+                    >
                         { name }
-                    </h1>
+                    </Title>
                 </div>
                 { this.renderOptionGroup() }
             </div>
@@ -67,16 +69,15 @@ const SubHeader = React.createClass({
     style() {
         return {
             header: {
-                ...marg( this.props ),
-                paddingTop: "15px",
-                paddingBottom: "15px",
                 position: "relative",
                 display: "flex",
                 justifyContent: "space-between"
             },
 
             titleGroup: {
+                display: "flex",
                 flex: "1",
+                alignItems: "center",
             },
 
             backButton: {

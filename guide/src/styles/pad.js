@@ -1,6 +1,5 @@
 import React from 'react';
 import { variables } from 'cyverse-ui/styles';
-
 const sizes = variables.l.padSizes;
 
 const pad = ( props ) => {

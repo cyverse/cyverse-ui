@@ -1,11 +1,9 @@
 import React from 'react';
 import { styles, marg } from './styles';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import Div from './Div';
+import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
-
-import Button from './Button';
 
 export default React.createClass({
 
@@ -18,48 +16,72 @@ export default React.createClass({
     handleTouchTap(event) {
         // This prevents ghost click.
         event.preventDefault();
-        this.props.onTouch();
         this.setState({
+            open: true,
             anchorEl: event.currentTarget,
         });
     },
 
-    render() {
-        const { color, buttonIcon, buttonLabel, children, isOpen, onItemTouchTap } = this.props;
-        const muiTheme = getMuiTheme({
-	  palette: {
-	    primary1Color: color,
-	  },
-	}); 
-        return (
-            <MuiThemeProvider muiTheme={ muiTheme } >
-                <div>       
-                    <Button
-                        onTouch={this.handleTouchTap}
-                        children={ buttonLabel }
-                        icon={ buttonIcon }
-                        color={ color }
-                    />
-                    <Popover
-                        open={isOpen}
-                        anchorEl={this.state.anchorEl}
-                        anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-                        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                    >
-                        <Menu
-                            onItemTouchTap={ onItemTouchTap }
-                        >
-                            { children }
-                        </Menu>
-                    </Popover>
-                </div>
-            </MuiThemeProvider>
-        )
+    handleRequestClose() {
+        this.setState({
+            open: false,
+        });
     },
 
-    styles() {
-        return {
-            label: { ...styles.t.label }
-        }
+    handleItemTouchTap(e, item) {
+        this.props.onItemTouchTap(e, item);
+        this.setState({
+            open: false,
+        });
+    },
+
+    render() {
+        const { 
+            style,
+            color,
+            buttonIcon,
+            buttonLabel,
+            children,
+            isOpen,
+            onTouchTap,
+            onItemTouchTapi,
+            primary,
+            secondary,
+            disabled,
+            anchorOrigin = {horizontal: 'right', vertical: 'bottom'},
+            targetOrigin = {horizontal: 'right', vertical: 'top'},
+        } = this.props;
+
+        return (
+            <Div 
+                style={{
+                    ...style,
+                    display: "inline-block"
+                }} 
+                id={ this.props.id }
+            >       
+                <RaisedButton
+                    onTouchTap={ this.handleTouchTap }
+                    label={ buttonLabel }
+                    icon={ buttonIcon }
+                    primary={ primary }
+                    secondary={ secondary }
+                    disabled={ disabled }
+                />
+                <Popover
+                    open={ this.state.open }
+                    anchorEl={ this.state.anchorEl }
+                    anchorOrigin={ anchorOrigin }
+                    targetOrigin={ targetOrigin }
+                    onRequestClose={ this.handleRequestClose }
+                >
+                    <Menu
+                        onItemTouchTap={ this.handleItemTouchTap }
+                    >
+                        { children }
+                    </Menu>
+                </Popover>
+            </Div>
+        )
     },
 });

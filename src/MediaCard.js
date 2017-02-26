@@ -1,10 +1,12 @@
 import React from 'react';
+import Checkbox from 'material-ui/Checkbox';
 import Dimensions from 'react-dimensions';
 import Scroll from 'react-scroll';
 import VerticalMenu from './VerticalMenu';
 import Hr from './Hr';
 import Collapse from 'react-collapse';
 import styles from './styles/styles';
+import marg from './styles/marg';
 
 const scroll = Scroll.animateScroll;
 
@@ -12,19 +14,38 @@ const MediaCard = React.createClass({
     getInitialState() {
         return {
             cardIsHovered: false,
+            avatarIsHovered: false,
         }
     },
 
     onCardEnter() {
         this.setState({
+            avatarIsHovered: true,
             cardIsHovered: true,
         }); 
     },
 
     onCardLeave() {
         this.setState({
+            avatarIsHovered: false,
             cardIsHovered: false,
         }); 
+    },
+
+    onExpand() {
+        this.props.onExpand();
+        let scrollAmount = this.props.isExpanded ?
+          -30 : 30;
+        scroll.scrollMore(scrollAmount, {
+            duration: 95,
+        });
+    },
+
+    onCheck(e) {
+        e.nativeEvent.stopImmediatePropagation();
+        e.preventDefault();
+        e.stopPropagation();
+        this.props.onBatchClick(e, this);
     },
 
     renderQuickLinks() {
@@ -37,13 +58,43 @@ const MediaCard = React.createClass({
         }
     },
 
-    onExpand() {
-        this.props.onExpand();
-        let scrollAmount = this.props.isExpanded ?
-          -30 : 30;
-        scroll.scrollMore(scrollAmount, {
-            duration: 95,
-        });
+    renderVericalMenu() {
+        const { menuItems, isDisabledMenu } = this.props;
+        if ( menuItems ) {
+            return (
+                <VerticalMenu
+                    children={ menuItems }
+                    disabled={ isDisabledMenu }
+                />
+            )
+        }
+    },
+
+    renderAvatar() {
+        const { image, batchMode, onBatchClick } = this.props;
+        const { avatarIsHovered } = this.state;
+        const styles = this.styles();
+
+        let avatar = image;
+
+        if ( onBatchClick && ( batchMode || avatarIsHovered ) ) {
+            avatar = ( 
+                <Checkbox
+                    onClick = { this.onCheck }
+                    checked = { this.props.checked }
+                    style = {{ margin: "auto", width: "60%" }}
+                    color = { this.props.primaryColor }
+                />
+            )
+        }
+        
+        if (image) {
+            return (
+                <div style={ styles.image }>
+                    { avatar }
+                </div>
+            )
+        }
     },
 
     detail() {
@@ -58,49 +109,57 @@ const MediaCard = React.createClass({
     },
 
     render() {
+        const { 
+            image,
+            title,
+            subTitle,
+            titleInfo,
+            summary
+        } = this.props;
+        
+        const styles = this.styles();
 
         return (
             <div style = {this.styles().card} >
                 <Collapse
                     isOpened={ true }
-                    springConfig={{stiffness: 520, damping: 35, precision: .001}}
+                    springConfig={{
+                        stiffness: 520,
+                        damping: 35,
+                        precision: .001
+                    }}
                 >
                     <div 
-                        style = { this.styles().header }
+                        style = { styles.header }
                         onMouseEnter = { this.onCardEnter }
                         onMouseLeave = { this.onCardLeave }
                         onClick = {this.onExpand}
                     >
-                            <div style={ this.styles().identity}>
-                                <div style={ this.styles().image }>
-                                    {this.props.image}
-                                </div>
+                            <div style={ styles.identity}>
+                                { this.renderAvatar() }
                                 <div>
-                                    <div style={ this.styles().title }>
-                                        {this.props.title}
+                                    <div style={ styles.title }>
+                                        { title }
                                     </div>
 
-                                    <div style={ this.styles().subTitle }>
-                                        {this.props.subTitle}
+                                    <div style={ styles.subTitle }>
+                                        { subTitle }
                                     </div>
 
                                     <div>
-                                        {this.props.titleInfo}
+                                        { titleInfo }
                                     </div>
                                 </div>
 
                             </div>
 
-                            <div style={ this.styles().summary }>
-                                { this.props.summary }
+                            <div style={ styles.summary }>
+                                {  summary }
                             </div>
 
-                            <div style={ this.styles().menu } >
+                            <div style={ styles.menu } >
                                 { this.renderQuickLinks() }
-                                
-                                <VerticalMenu
-                                    menuItemList={this.props.contextualMenu}
-                                />
+                                { this.renderVericalMenu() } 
                             </div>
 
                         </div>
@@ -155,12 +214,17 @@ const MediaCard = React.createClass({
 
         // image style
         style.image = {
+            ...marg({ mr: 3 }),
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "40px",
+            minWidth: "40px",
             flexShrink: "0",
             position: "relative",
             marginRight: "10px",
             alignSelf: "flex-start", 
             borderRadius: "50%", 
-            overflow: "hidden",
         };
         
         // title style
@@ -195,8 +259,9 @@ const MediaCard = React.createClass({
             background: "linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,1) 100%)",
             display: "flex",
             position: "absolute",
-            right: "15px",
-            top: "15px",
+            height: "48px",
+            right: "5px",
+            top: "8px",
         };
 
         // quickMenu 

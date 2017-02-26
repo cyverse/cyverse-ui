@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 
 const SideBar = React.createClass({
-
     render() {
         const openWidth = 250;
         const currentWidth = this.props.isOpen ? openWidth : 0; 
@@ -16,8 +15,8 @@ const SideBar = React.createClass({
                 top: "0px",
                 bottom: "0px",
                 width: currentWidth,
-                marginTop: "50px",
-                padding: "20px",
+                marginTop: "59px",
+                padding: "20px 0",
                 background: "#EEEEEE",
                 overflowY: "auto", 
             },

@@ -1,45 +1,33 @@
 import React from 'react';
 import Scroll from 'react-scroll';
-
-// These two lines are necessary to interop with material-ui. It's supposed to
-// be temporary. When the installation no longer mentions it, I suppose these
-// can be removed.
-// http://www.material-ui.com/#/get-started/installation
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+import {  Hr, P, Title, Div, Section } from 'cyverse-ui'; 
 
 import { styles } from './styles';
 import theme from './theme';
 import 'normalize.css';
-
 import './base.css';
 
-import Examples from './ExampleList';
-import { Header, SideBar, ActionList, Figure, Hr, P, Title, Div, Section } from './components';
+import ComponentExList from './ComponentExList';
+import ThemeExList from './ThemeExList';
+import { Header, SideNav, Figure, ThemeExamples } from './components';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
 export default React.createClass({
-    scrollTo(i) {
-        let target = Examples[i].name.replace(/\s+/g, '-');
-        scroller.scrollTo(target, {
-            duration: 1000,
-            smooth: true,
-        });
+    renderThemeExamples() {
+        return  ThemeExList.map( (component, i) => {
+            return (
+                <ThemeExamples
+                    component={ component }
+                    i={ i }
+                />
+            )
+        })
     },
 
-    ExampleLinks() {
-        return Examples.map( (Component, i) => {
-            let Name = Component.name;
-                return {
-                    label: Name,
-                }
-        });
-    },
-
-    renderExamples() {
-        return Examples.map((Component, i) => {
+    renderComponentExamples() {
+        return ComponentExList.map((Component, i) => {
         let Name = Component.name;
         let Description = Component.desc;
         let Render = Component.render;
@@ -87,34 +75,42 @@ export default React.createClass({
                 <Header 
                     style={ this.style().header }
                 />
-                <SideBar isOpen >
-                    <Title h1 title >
-                        Component List
-                    </Title>
-                    <Hr/>
-                    <ActionList 
-                        list={ this.ExampleLinks() } 
-                        onTouch={ this.scrollTo }
-                    />
-                </SideBar>
+                <SideNav isOpen />
                 <main style={ this.style().main }>
                     <div style={ this.style().content }>
                         <Section mb={ 7 }>
                             <Title
                                 h1
+                                display2
+                                color={ theme.color.primary }
+                                mb={ 3 }
+                            >
+                                Cyverse UI
+                            </Title>
+                            <P subheading>
+                                A collection of UI components for Cyverse that extend <a href="http://www.material-ui.com/" target="_blank" title="Material-UI">Material-UI</a> adding components that handle UI patterns within the Cyverse ecosystem not covered by Material-UI.
+                            </P>
+                        </Section>
+                        <Section>
+                            <Title
+                                h2
                                 display1
                                 color={ theme.color.primary }
                             >
-                                Troposphere UI
+                                Theming
                             </Title>
-                            <P subheading>
-                            A collection of UI components for Troposphere. The purpose of this collection is to maintain a consistant look and feel across Troposphere while reducing development time and limiting duplication of work. 
-                            </P>
-                            <P subheading>
-                            Unlike a traditional component library the API for these components is very small and intentionally inflexible, this is to enforce design decisions and reduce complexity. 
-                            </P>
+                            { this.renderThemeExamples() }
+			</Section>
+                        <Section>
+                            <Title
+                                h2
+                                display1
+                                color={ theme.color.primary }
+                            >
+                                Components
+                            </Title>
+                            { this.renderComponentExamples() } 
                         </Section>
-                        { this.renderExamples() } 
                     </div>
                 </main>
                 <footer/>
@@ -124,15 +120,10 @@ export default React.createClass({
 
     style() {
         return {
-
-            header: {
-                height: "50px",
-            },
-
             main: {
                 background: "whitesmoke",
                 width: "100%",
-                marginTop: 50, 
+                marginTop: 59, 
                 padding: 40,
             },
 

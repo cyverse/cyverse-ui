@@ -1,11 +1,11 @@
-export { default as Code } from './Code';
-export { default as Div } from './Div';
-export { default as Figure } from './Figure';
-export { default as Header } from './Header';
-export { default as SideBar } from './SideBar';
-export { default as Hr } from './Hr';
-export { default as P } from './P';
-export { default as Section } from './Section';
-export { default as Sheet } from './Sheet';
-export { default as Title } from './Title';
-export { default as ActionList } from './ActionList';
+// @create-index
+
+export { default as Code } from './Code.js';
+export { default as ComponentLinkList } from './ComponentLinkList.js';
+export { default as Figure } from './Figure.js';
+export { default as Header } from './Header.js';
+export { default as SideBar } from './SideBar.js';
+export { default as SideNav } from './SideNav.js';
+export { default as ThemeExamples } from './ThemeExamples.js';
+export { default as ThemeLinkList } from './ThemeLinkList.js';
+
