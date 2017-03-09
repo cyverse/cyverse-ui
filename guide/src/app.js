@@ -10,7 +10,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-import { cyverseTheme } from 'cyverse-ui/styles';
+import cyverseTheme from 'cyverse-ui/styles/cyverseTheme.json';
 import StyleGuide from './StyleGuide.js';
 
 let newTheme = getMuiTheme(cyverseTheme);

@@ -4,7 +4,7 @@
   "description": "A UI library for Troposphere",
   "main": "./index.js",
   "scripts": {
-    "build": "babel -d . src",
+    "build": "babel -d . src; node makeTheme.js",
     "watch": "babel -w -d . src"
   },
   "repository": {
@@ -43,6 +43,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
     "eslint": "~2.2.0",
-    "eslint-plugin-react": "^5.1.1"
+    "eslint-plugin-react": "^5.1.1",
+    "write-json": "^0.2.2"
   }
 }
