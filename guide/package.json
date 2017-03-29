@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/cyverse/cyverse-ui/blob/master/guide/README.md",
   "dependencies": {
-    "cyverse-ui": "^0.*.*",
+    "cyverse-ui": "0.0.1",
     "material-ui": "^0.16.7",
     "normalize.css": "^4.1.1",
     "radium": "^0.18.1",

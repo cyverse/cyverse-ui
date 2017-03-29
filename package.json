@@ -1,7 +1,7 @@
 {
   "name": "cyverse-ui",
-  "version": "1.0.2",
-  "description": "A UI library for Troposphere",
+  "version": "0.0.1",
+  "description": "A React UI library for the Cyverse tool set",
   "main": "./index.js",
   "scripts": {
     "build": "babel -d . src; node makeTheme.js",
