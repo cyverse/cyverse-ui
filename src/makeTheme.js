@@ -1,6 +1,5 @@
 var path = require('path');
 var writeJson = require('write-json');
-var requireMany = require('require-many');
 var cm = require('material-ui/utils/colorManipulator');
 var colors = require('material-ui/styles/colors');
 
