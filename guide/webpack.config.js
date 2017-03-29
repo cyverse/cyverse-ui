@@ -41,6 +41,10 @@ module.exports = validate({
                 test: /\.svg$/,
                 loader: "file?mimetype=image/svg+xml"
             },
+            {
+                test: /\.json$/,
+                loader: "json-loader"
+            },
 
         ],
     }
