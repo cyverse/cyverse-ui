@@ -1,6 +1,6 @@
 {
   "name": "cyverse-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A React UI library for the Cyverse tool set",
   "main": "./index.js",
   "scripts": {
