@@ -4,7 +4,6 @@ import Dimensions from 'react-dimensions';
 import Scroll from 'react-scroll';
 import VerticalMenu from './VerticalMenu';
 import Hr from './Hr';
-import Collapse from 'react-collapse';
 import styles from './styles/styles';
 import marg from './styles/marg';
 
@@ -121,50 +120,41 @@ const MediaCard = React.createClass({
 
         return (
             <div style = {this.styles().card} >
-                <Collapse
-                    isOpened={ true }
-                    springConfig={{
-                        stiffness: 520,
-                        damping: 35,
-                        precision: .001
-                    }}
+                <div 
+                    style = { styles.header }
+                    onMouseEnter = { this.onCardEnter }
+                    onMouseLeave = { this.onCardLeave }
+                    onClick = {this.onExpand}
                 >
-                    <div 
-                        style = { styles.header }
-                        onMouseEnter = { this.onCardEnter }
-                        onMouseLeave = { this.onCardLeave }
-                        onClick = {this.onExpand}
-                    >
-                            <div style={ styles.identity}>
-                                { this.renderAvatar() }
-                                <div>
-                                    <div style={ styles.title }>
-                                        { title }
-                                    </div>
-
-                                    <div style={ styles.subTitle }>
-                                        { subTitle }
-                                    </div>
-
-                                    <div>
-                                        { titleInfo }
-                                    </div>
-                                </div>
-
+                    <div style={ styles.identity}>
+                        { this.renderAvatar() }
+                        <div>
+                            <div style={ styles.title }>
+                                { title }
                             </div>
 
-                            <div style={ styles.summary }>
-                                {  summary }
+                            <div style={ styles.subTitle }>
+                                { subTitle }
                             </div>
 
-                            <div style={ styles.menu } >
-                                { this.renderQuickLinks() }
-                                { this.renderVericalMenu() } 
+                            <div>
+                                { titleInfo }
                             </div>
-
                         </div>
-                        { this.detail() }
-                </Collapse>
+
+                    </div>
+
+                    <div style={ styles.summary }>
+                        {  summary }
+                    </div>
+
+                    <div style={ styles.menu } >
+                        { this.renderQuickLinks() }
+                        { this.renderVericalMenu() } 
+                    </div>
+
+                </div>
+                { this.detail() }
             </div>
         )
     },
