@@ -22,8 +22,8 @@ The following properties will take a number 1-10 and return the correct styles f
 - pl = paddingRight
 - ps = paddingRight, PaddingLeft
 
-## Cyverse Theme
-We ship a Material-ui compatible theme `cyverseTheme.json` that can be used by consumers of this library to implement the Cyverse brand color pallete in their applications. 
+## CyVerse Theme
+We ship a Material-ui compatible theme `cyverseTheme.json` that can be used by consumers of this library to implement the CyVerse brand color pallete in their applications.
 
 Running `npm run build` will use the `makeTheme.js` script to generate `cyverseTheme.json` found in the styles directory. Or run manually `node makeTheme.js`.
 

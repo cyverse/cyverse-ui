@@ -85,10 +85,10 @@ export default React.createClass({
                                 color={ theme.color.primary }
                                 mb={ 3 }
                             >
-                                Cyverse UI
+                                CyVerse UI
                             </Title>
                             <P subheading>
-                                A collection of UI components for Cyverse that extend <a href="http://www.material-ui.com/" target="_blank" title="Material-UI">Material-UI</a> adding components that handle UI patterns within the Cyverse ecosystem not covered by Material-UI.
+                                A collection of UI components for CyVerse that extend <a href="http://www.material-ui.com/" target="_blank" title="Material-UI">Material-UI</a> adding components that handle UI patterns within the CyVerse ecosystem not covered by Material-UI.
                             </P>
                         </Section>
                         <Section>

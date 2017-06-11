@@ -7,25 +7,25 @@ import ThemeColorsEx from './examples/ThemeColorsEx';
 
 const ThemeExList = [
     {
-        name: "Cyverse Theme",
+        name: "CyVerse Theme",
         desc: (
             <div>
                 <P>
-                    The cyverseTheme is provided by the Cyverse-UI library and works with the Material-UI theme system to maintain a consistent "Cyverse look" across all applications using it.  
+                    The <code>cyverseTheme</code> is provided by the CyVerse-UI library and works with the Material-UI theme system to maintain a consistent "CyVerse look" across all applications using it.
                 </P>
 		<ThemeEx/>
             </div>
         ), 
     },
     {
-        name: "Cyverse Theme Colors",
+        name: "CyVerse Theme Colors",
         desc: (
             <div>
                 <P>
-                    The cyverseTheme colors are part of a color system, encouraging proper contrast and consistency while enforcing the Cyverse band.  
+                    The <code>cyverseTheme</code> colors are part of a color system, encouraging proper contrast and consistency while enforcing the CyVerse band.
                 </P>
                 <P>
-                    These colors can be overridden when initializing the Material-UI theme provider. See directions for this and installing the Cyverse theme below.	 
+                    These colors can be overridden when initializing the Material-UI theme provider. See directions for this and installing the CyVerse theme below.
                 </P>
                 <Paper style={{ padding: "20px" }}>
                     <ThemeColorsEx/>
@@ -34,11 +34,11 @@ const ThemeExList = [
         ), 
     },
     {
-        name: "Installing Cyverse Theme",
+        name: "Installing CyVerse Theme",
         desc: (
             <div>
                 <P>
-                    To use the Cyverse theme we need to wrap our entire application in the Material-UI theme provider (MuiThemeProvider) and initialize it with our custom Cyverse theme using "getMuiTheme" as our base theme. This will make the theme values available to all of the components. 
+                    To use the CyVerse theme we need to wrap our entire application in the Material-UI theme provider (MuiThemeProvider) and initialize it with our custom CyVerse theme using "getMuiTheme" as our base theme. This will make the theme values available to all of the components.
                 </P>
                 <Code>
                     {
@@ -62,14 +62,14 @@ ReactDOM.render(
                     }
                 </Code>
             </div>
-        ), 
+        ),
     },
     {
         name: "muiThemeable",
         desc: (
             <div>
                 <P>
-                    The cyverseTheme values can be used by your app specific components using Material-ui's "muiThemeable" module. To use export "muiThemeable" passing your component as a second argument.  The theme object will be available to your component through it's props. 
+                    The <code>cyverseTheme</code> values can be used by your app specific components using Material-ui's "muiThemeable" module. To use export "muiThemeable" passing your component as a second argument.  The theme object will be available to your component through it's props.
                 </P>
                 <Code>
                     {
