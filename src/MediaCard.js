@@ -14,18 +14,24 @@ const MediaCard = React.createClass({
         }
     },
 
+    stopPropagation(e) {
+        e.nativeEvent.stopImmediatePropagation();
+        e.preventDefault();
+        e.stopPropagation();
+    },
+
     onCardEnter() {
         this.setState({
             avatarIsHovered: true,
             cardIsHovered: true,
-        }); 
+        });
     },
 
     onCardLeave() {
         this.setState({
             avatarIsHovered: false,
             cardIsHovered: false,
-        }); 
+        });
     },
 
     onExpand() {
@@ -40,13 +46,30 @@ const MediaCard = React.createClass({
     },
 
     renderQuickLinks() {
-        if ( this.props.quickLinks ) {
+        const { quickLinks } = this.props;
+        if ( quickLinks ) {
             return (
-                <div style={ this.styles().quickLinks }>
-                    { this.props.quickLinks.map( link => link ) }
+                <div
+                    onClick={ this.stopPropagation }
+                    style={ this.styles().quickLinks }>
+                    { quickLinks.map( link => link ) }
                 </div>
             )
         }
+    },
+
+    renderActiveQuickLinks() {
+        const { activeQuickLinks } = this.props;
+        if ( activeQuickLinks ) {
+            return (
+                <div
+                    onClick={ this.stopPropagation }
+                    style={ this.styles().activeQuickLinks }>
+                    { activeQuickLinks.map(link => link ) }
+                </div>
+            )
+        }
+
     },
 
     renderVericalMenu() {
@@ -142,7 +165,8 @@ const MediaCard = React.createClass({
 
                     <div style={ styles.menu } >
                         { this.renderQuickLinks() }
-                        { this.renderVericalMenu() } 
+                        { this.renderActiveQuickLinks() }
+                        { this.renderVericalMenu() }
                     </div>
 
                 </div>
@@ -248,13 +272,20 @@ const MediaCard = React.createClass({
             top: "8px",
         };
 
-        // quickMenu 
+        // quickMenu
         style.quickLinks = {
             display: "none",
             padding: "5px 10px 5px 75px",
             alignItems: "center",
         };
+
+        style.activeQuickLinks = {
+            display: "flex",
+            padding: "5px 10px",
+            alignItems: "center",
+        };
         if ( this.state.cardIsHovered || this.props.isExpanded ) {
+            style.activeQuickLinks.display = "none";
             style.quickLinks.display = "flex";
         }
 
