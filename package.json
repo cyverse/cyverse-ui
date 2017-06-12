@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/cyverse/cyverse-ui.git"
   },
-  "author": "Cyverse",
+  "author": "CyVerse",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/cyverse/cyverse-ui/issues"

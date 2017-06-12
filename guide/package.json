@@ -10,7 +10,7 @@
     "build": "webpack",
     "serve": "webpack-dev-server --inline"
   },
-  "author": "Cyverse",
+  "author": "CyVerse",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/cyverse/cyverse-ui/issues"
