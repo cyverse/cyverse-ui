@@ -3,8 +3,11 @@ import v from './variables';
 
 let styleVariables = {
     boxShadow: {
+        xsm: {
+            boxShadow: "0 0 3px rgba(0, 0, 0, .3)"
+        },
         sm: {
-            boxShadow: "0 1px 4px rgba(0, 0, 0, .5)"
+            boxShadow: "0 1px 3px rgba(0, 0, 0, .3)"
         },
 
         md: {

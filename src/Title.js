@@ -53,6 +53,14 @@ const Title = React.createClass({
             fontStyle = styles.t.title;
         }
 
+        if (this.props.caption) {
+            fontStyle = styles.t.caption;
+        }
+
+        if (this.props.body2) {
+            fontStyle = styles.t.body2;
+        }
+
         let margSize;
         if (!this.props.noMarg) {
             margSize = marg({mb: 4})

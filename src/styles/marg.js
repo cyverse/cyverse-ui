@@ -1,62 +1,46 @@
 import React from 'react';
-import { variables } from '../styles';
+import { variables as styleVars } from '../styles';
 
-const sizes = variables.l.margSizes;
+const sizes = styleVars.l.margSizes;
 
 const marg = ( props ) => {
-
     //
     // For more information on how to use this style util
     // see cyverse-ui/src/style/README.md
     //
-
-    return Object.keys(props).reduce((style, prop) => {
-        let value = props[prop];
-
-        let cssField;
-        switch (prop) {
-            case "mr":
-                style.marginRight = typeof value == "number"
-                    ? sizes[value - 1]
-                    : value
-                break;
-            case "mb":
-                style.marginBottom = typeof value == "number"
-                    ? sizes[value - 1]
-                    : value
-                break;
-            case "ml":
-                style.marginLeft = typeof value == "number"
-                    ? sizes[value - 1]
-                    : value
-                break;
-            case "ms":
-                style.marginRight = typeof value == "number"
-                    ? sizes[value -1]
-                    : value
-                style.marginLeft = typeof value == "number"
-                    ? sizes[value -1]
-                    : value
-                break;
-            case "m":
-                style.marginTop = typeof value == "number"
-                    ? sizes[value -1]
-                    : value
-                style.marginRight = typeof value == "number"
-                    ? sizes[value -1]
-                    : value
-                style.marginBottom = typeof value == "number"
-                    ? sizes[value -1]
-                    : value
-                style.marginLeft = typeof value == "number"
-                    ? sizes[value -1]
-                    : value
-                break;
+    return Object.keys(props).reduce((style, rule) => {
+        let metric = props[rule];
+        let margin = metric;
+        if (typeof metric == "number") {
+            margin = metric === 0 ? 0 : sizes[metric - 1];
         }
+        switch (rule) {
+                case "mt":
+                    style.marginTop = margin;
+                    break;
+                case "mr":
+                    style.marginRight = margin;
+                    break;
+                case "mb":
+                    style.marginBottom = margin;
+                    break;
+                case "ml":
+                    style.marginLeft = margin;
+                    break;
+                case "ms":
+                    style.marginRight = style.marginLeft = margin;
+                    break;
+                case "mv":
+                    style.marginTop = style.marginBottom = margin;
+                    break;                 
+                case "m":                  
+                    style.marginTop = style.marginRight = style.marginBottom = style.marginLeft = margin;
+                    break;                 
+            }                              
 
-        return style
+        return style;
 
-    }, {});
+    }, {}); 
 }
 
 export default marg;

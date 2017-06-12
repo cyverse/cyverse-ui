@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles } from './styles';
+import { styles, marg } from './styles';
 
 export default React.createClass({
     render() {
@@ -29,12 +29,17 @@ export default React.createClass({
             textStyle = styles.t.subheading;
         }
 
+        if ( this.props.caption ) {
+            textStyle = styles.t.caption;
+        }
+
         return {
             ...textStyle,
             maxWidth: "600px", 
-            lineHeight: "24px",
+            lineHeight: "1.7",
             margin: "0px",
             marginBottom: "34px",
+            ...marg(this.props),
         }
     }
 });
