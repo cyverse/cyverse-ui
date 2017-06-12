@@ -21,7 +21,7 @@ export const MeterGauge =React.createClass({
 
     alert() {
         const {
-            alertMessage 
+            alertMessage
         } = this.props;
 
         return this.isOver() ? (
@@ -43,7 +43,7 @@ export const MeterGauge =React.createClass({
         return (
             <div style={ style.wrapper }>
                 <dl>
-                    <dt style={ style.label } >
+                    <dt style={ styles.t.label } >
                         {this.props.label}
                     </dt>
 
@@ -74,8 +74,11 @@ export const MeterGauge =React.createClass({
             danger = "red"
         } = muiTheme.palette;
 
-        const startColor = this.isOver() ? 
+        const startColor = this.isOver() ?
             danger : success;
+
+        const dataText = this.isOver() ?
+            danger : "#333333";
 
         // Start styles
         const wrapper = {
@@ -83,15 +86,10 @@ export const MeterGauge =React.createClass({
             height: "70px"
         }
 
-        const label = {
-            fontSize: "12px",
-            fontWeight: "600",
-            margin: "0 0 10px",
-        }
         const data = {
             ...styles.t.caption,
-            color: startColor, 
-            fontSize: "10px",
+            color: dataText,
+            fontSize: "13px",
             margin: "0px 0px 3px",
         }
         const bar = {
@@ -124,7 +122,6 @@ export const MeterGauge =React.createClass({
         // Combine Styles
         return {
             wrapper,
-            label,
             data,
             bar,
             barBefore,
