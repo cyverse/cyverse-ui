@@ -28,6 +28,14 @@ var theme = {
         pickerHeaderColor: primary2Color,
         shadowColor: colors.fullBlack,
     },
+    tabs: {
+        backgroundColor: "white",
+        selectedTextColor: "black",
+        textColor: "rgba(0,0,0,.4)"
+    },
+    inkBar: {
+        backgroundColor: primary1Color,
+    }
 };
 
 writeJson('./styles/cyverseTheme.json', theme, function(err) {
