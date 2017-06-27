@@ -2,11 +2,15 @@ language: node_js
 node_js:
   - node
 install:
-  - cd ./guide && npm install
+  - pushd ./guide
+  - npm install
+  - popd
 before_script:
   - chmod +x ./guide/scripts/deploy-to-gh-pages.sh
 script:
-  - cd ./guide && npm run build
+  - pushd ./guide
+  - npm run build
+  - popd
 after_success:
   - ./guide/scripts/deploy-to-gh-pages.sh
 env:
