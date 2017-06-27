@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- node
+install:
+- pushd ./guide
+- npm install
+- popd
+before_script:
+- chmod +x ./guide/scripts/deploy-to-gh-pages.sh
+script:
+- pushd ./guide
+- npm run build
+- popd
+after_success:
+- ./guide/scripts/deploy-to-gh-pages.sh
+env:
+  global:
+  - secure: aF+MXekl56nqNktKzEzhB1Q0WhAggbQFT63wSt97ZwfnN27xgLCyWQGPQwFO65dqcq9W8m0Wlkg1imqM0PTUc4QqdKs7xpKGqRchC6hiVGa6udLWlNz6EPiWC4Hl+eBA2RP1Kg/0e+/GvUtbdgNMYGuXA3h7MfwoY3QfCXNCre7UEPSgUBLYx6DvFykhinbc3WnCa6Wg3TyPqLQtjZWUaUbAUlqgvSvO0lOEdpJt9FVKp1Uoy6FQXzy/SLofJxoVknI1QWKA2CtRxzg4sM9Em9CwgAtbwk+kauZeQuhJ1aCAg7MA0syOnJLciBhY6+FORe/cIWhqnBy7b3Teay7WM6P22055XIL868xsZWF4K8jPku8dve50oy/0KN/+bk5+w1NY8YTJXwH0OFgkMWQFtlM/nz0UMf/Pq9kdsJSQiY0KMjP+ThEXhspsqqaWMNO8vC+Qt6wNpUWXiY90M5OgUCG3AmmwbS+abF6IgH3cDXWm8YrD054Oz2g/FodH77Cae3/q2tI2CBwkKTc6tBzQO6lJEMz9K+UIGoT2ZjcLJufU223M/Hac17nYTv4MiH2hehmDQWGQkm97T1z0bFFUPDOPtPSw7EBfNhvuIPhVElBk4ek99D1MyDx1R9eR/lu1sxnc4WrtP5Rmwl3xYmfoM7H0GHmQbg+OHtFf5jMIvKE=
