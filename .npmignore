@@ -3,3 +3,8 @@
 
 # Don't ignore js in root dir
 !*.js
+
+# Don't ignore js within sub-folders
+!icons/*js
+!utils/*.js
+!styles/*.js
