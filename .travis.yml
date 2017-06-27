@@ -1,14 +1,14 @@
 language: node_js
 node_js:
-- node
+  - node
 install:
   - cd ./guide && npm install
 before_script:
-- chmod +x ./guide/scripts/deploy-to-gh-pages.sh
+  - chmod +x ./guide/scripts/deploy-to-gh-pages.sh
 script:
-- cd ./guide && npm run build
+  - cd ./guide && npm run build
 after_success:
-- ./guide/scripts/deploy-to-gh-pages.sh
+  - ./guide/scripts/deploy-to-gh-pages.sh
 env:
   global:
   - secure: G19Hj5FqIhNJUOk+cvYG59jtYt2IzdjCdN/J0Qw/D6gEMQ3K0AIv0hg59xJnI+Fz+Q2QFBXVQl8Ivl3/YI6OzD8vq8n3JjKrexDXtb3gjzzcO8qyqjgGW+vv5pbfojPL0Frzfw9NZSk41VocyMoPYkbtHYlBU9f0AIs7U6R2+8yv/W8Zkfno1JhyAuodr+OV3BRskdq4nIf5HtG3ILJRacdW/HxZx1P+k67x8LWIHkn3yxpPWrcNfTkt0vteanaENi16vf46nNaPe4il4pySsZ9rC6MJJ1HjkuW0abPBoxmeOo3psBToGp9f55+k8TkVkvVOGonnUjweZXBBHu0IlNnux2EohMojgqb3zT60eAu5/i7sCsBG30pG9rc11j5RqHVWIPUclqumLOS3Q6fxaDq3ON+XpjvRDMj13NDCbD7Q3aOrQLYactdTZ0JcRcMQCW1erlc8xeGGVoO+79Z8WbC/qysQp0v/jwv0kM6XCvOA8XYbUHNjGSKILfbjlRBG1XyuCHzrlg2T1nigS8YXyUAl6ICKXiF+uX4SsaipUBPvnymj6vaf3vVEfxrPYW+QRfnrSJolfZy7VEQQpCfL/VY7ujraLlOzJ75UkuJmyCYI90W/SiJReatcF7K7OunhcNOjhZ1lKInxl4Ylz50hJnFpprAk9HPIqmB718683z4=
