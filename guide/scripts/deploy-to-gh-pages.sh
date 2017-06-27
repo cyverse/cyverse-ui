@@ -11,8 +11,7 @@ ORIGIN_URL_WITH_CREDENTIALS=${ORIGIN_URL/\/\/github.com/\/\/$GITHUB_TOKEN@github
 GH_USER_NAME="lenards"
 GH_USER_EMAIL="andrew.lenards@gmail.com"
 
-# the script is placed down two directories from the repo root
-cd ../..
+# verify what directory we are in
 pwd
 
 cp .gitignore $DIST_DIRECTORY || exit 1
