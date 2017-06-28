@@ -7,6 +7,7 @@ const ThemeColorsEx = React.createClass({
     getSwatch(color) {
         return (
             <Paper
+                key={ color[0] }
                 style={{
                     margin: "1%",
                     color: "white",
@@ -18,9 +19,9 @@ const ThemeColorsEx = React.createClass({
                 }}
             >
                 <div style={{ padding: "5px", background: "rgba(0,0,0,.2"}}>
-                    {color[0]}
+                    { color[0] }
                     <br/>
-                    {color[1]}
+                    { color[1] }
                 </div>
             </Paper>
         )
