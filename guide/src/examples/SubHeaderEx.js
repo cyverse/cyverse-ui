@@ -1,9 +1,9 @@
 import React from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
-import Share from 'material-ui/svg-icons/social/Share';
-import Delete from 'material-ui/svg-icons/action/Delete';
-import Edit from 'material-ui/svg-icons/image/Edit';
+import Share from 'material-ui/svg-icons/social/share';
+import Delete from 'material-ui/svg-icons/action/delete';
+import Edit from 'material-ui/svg-icons/image/edit';
 import { SubHeader, Div, Title } from 'cyverse-ui';
 import { Code }  from '../components';
 import { DeleteIcon, EditIcon, ConsoleIcon } from 'cyverse-ui/icons';
