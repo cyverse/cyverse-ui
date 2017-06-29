@@ -35,7 +35,10 @@ const MediaCard = React.createClass({
     },
 
     onExpand() {
-        this.props.onExpand();
+        const { onExpand } = this.props;
+        if (onExpand) {
+            onExpand();
+        }
     },
 
     onCheck(e) {
@@ -128,13 +131,14 @@ const MediaCard = React.createClass({
             title,
             subTitle,
             titleInfo,
-            summary
+            summary,
+            className
         } = this.props;
 
         const styles = this.styles();
 
         return (
-            <div style = {this.styles().card} >
+            <div className={ className } style = {this.styles().card} >
                 <div
                     style = { styles.header }
                     onMouseEnter = { this.onCardEnter }
@@ -237,6 +241,7 @@ const MediaCard = React.createClass({
         // title style
         style.title = {
             ...styles.t.body2,
+            width: "100%",
             marginRight: "20px",
             color: this.props.color,
         };
