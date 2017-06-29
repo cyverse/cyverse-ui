@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
+import muiThemeable from 'material-ui/styles/muiThemeable';
 import { Div } from 'cyverse-ui';
 import Avatar from 'material-ui/Avatar';
 import CircleProgressBar from 'material-ui/CircularProgress';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 
 const ProgressAvatar = React.createClass({
     render() {
