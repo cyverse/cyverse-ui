@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+- node
+install:
+- pushd ./guide
+- npm install
+- popd
+script:
+- pushd ./guide
+- npm run build
+- popd
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: ./guide/dist
+  name: CyVerse Deploy
+  email: cyverse-deploy@cyverse.org
+  on:
+    branch: master
+env:
+  global:
+    secure: NMVkxSHgbn5O9wj23zyjqSCfU05fUpdmWMknX60flIAyhd5HDwxcnSQ8xQUsaFP347ezb9pb3ldi2upxfcOveQpZRRk3eGfyyMU38shP3Ls1ZIRC2Id4MUnZKF0Sp0HvNcu3wIUmhmJIY1EqGGjHBNoWh9CRYsF1lg8RQ3oLBtuv+eUpSAyatYTr/71D8fhNfz0puk+MZeuq+msL4Xj/hokOLy0ea7LVK+JluTZtbsWtoVBfsCjpJIfRdlRN6zfVSG84wB+J5KyOGMCvi2hdk8pwqOGcef7GmaW7IDs0maIdRVNtUVdvl/Y4USWM0a2uu2hSE3DlUXXFd9E0idN9Gtwur9El8aQ1AJW+xC8oOhoAfIsBnfPM0I4PtsBBpuvfvxVQudwPS8CJB4ZNf5eB0qYhRlrDeUrjQ4Ld3HQEWIbFWukYwFSQ9tFy7CxeMjc3aKaDaORtKszAq1dq6zPkFnGSrkZDxZIRCZlynhsB/rTL2HYV7L7X2qi02FxkBrrGIPaEvT4u0UWWndUPJ2BaisL0c87yk3oVbbz7p/KKTHR3GIuQxXwwRXOQdOXDXosFHl34929zCDGygWdfDpb70ejmutW+zwd7+ICNNtGQ9YIvRoNCehT/3gWc2HJvV5cmkU8SJJ/J2lTS2tTAUwxZlyZjiPT+TQBHzN6O3pCdpyU=
