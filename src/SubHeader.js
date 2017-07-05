@@ -13,9 +13,9 @@ const SubHeader = React.createClass({
         let { quickActions, menuItems } = this.props;
         let style = this.style();
 
-        let renderQuickActions = (option) => {
+        let renderQuickActions = (option, i) => {
             return (
-                <Div>
+                <Div key={ option + i }>
                     { option }
                 </Div>
             )

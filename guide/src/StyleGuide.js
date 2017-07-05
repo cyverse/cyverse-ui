@@ -12,7 +12,6 @@ import ComponentExList from './ComponentExList';
 import ThemeExList from './ThemeExList';
 import { Header, SideNav, Figure, ThemeExamples } from './components';
 import MarkdownElement from './components/MarkdownElement';
-import Code from './components/Code';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
@@ -21,6 +20,7 @@ export default React.createClass({
     renderThemeExamples() {
         return  ThemeExList.map( (component, i) => (
                 <ThemeExamples
+                    key={ i }
                     component={ component }
                     i={ i }
                 />
