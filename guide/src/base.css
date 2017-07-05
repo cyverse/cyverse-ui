@@ -22,3 +22,20 @@ a:hover {
     border-bottom: 2px solid lightgrey; 
 }
 
+code.lang-jsx, .CodeBlock {
+    display: block;
+    white-space: pre-wrap;
+    padding: 20px;
+    font-size: 14px;
+    border-left: solid rgba(0,0,0,.08) 5px;
+    background: rgba(0,0,0,0.03);
+}
+
+.CodeInline {
+    display: inline;
+    background: rgba(0,0,0,0.03);
+    border: solid rgba(0,0,0,.4) 1px;
+    border-radius: 3px;
+    color: firebrick;
+    padding: 0 3px 2px;
+}

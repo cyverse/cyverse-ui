@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 const validate = require('webpack-validator');
 const CleanPlugin = require('clean-webpack-plugin');
 
@@ -32,6 +33,15 @@ module.exports = validate({
                 include: RegExp(__dirname + "/src"),
                 loaders:["react-hot", "babel-loader"]
             },
+	    {
+		test: /\.txt$/,
+		loader: 'raw-loader',
+		include: path.resolve(__dirname, 'src/examples/raw-code'),
+	    },
+	    {
+		test: /\.md$/,
+		loader: 'raw-loader',
+	    },
             {
                 test: /\.css$/,
                 exclude: /\.useable\.css$/,

@@ -5,7 +5,6 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 
 const ThemeColorsEx = React.createClass({
     getSwatch(color) {
-        console.log(this.props.muiTheme);
         return (
             <Paper
                 style={{
