@@ -18,6 +18,8 @@
   "homepage": "https://github.com/cyverse/cyverse-ui/blob/master/guide/README.md",
   "dependencies": {
     "cyverse-ui": "0.0.1",
+    "highlight.js": "^9.12.0",
+    "marked": "^0.3.6",
     "material-ui": "^0.17.1",
     "normalize.css": "^4.1.1",
     "radium": "^0.18.1",
@@ -43,6 +45,7 @@
     "file-loader": "^0.8.5",
     "gh-pages": "^0.11.0",
     "json-loader": "^0.5.4",
+    "raw-loader": "^0.5.1",
     "react-hot-loader": "^1.3.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.9",

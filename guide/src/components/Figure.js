@@ -21,7 +21,7 @@ const Figure = React.createClass({
                         margin: "-11px -11px 20px",
                     }}
                 >
-                    <Title title noMarg>
+                    <Title title m={ 0 }>
                         { this.props.caption }
                     </Title>
                 </figcaption>

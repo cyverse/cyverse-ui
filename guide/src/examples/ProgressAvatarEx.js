@@ -102,53 +102,6 @@ export default React.createClass({
                         icon={ <PlayIcon/> }
                     />
                 </div>
-                <Code
-                    children={
-
-`<Paper style={{ padding: "10px", marginBottom: "20px"}}>
-    <Div mb = { 3 } style={{ display: "flex", alignItems: "center" }}>
-        <ProgressAvatar
-            mr = { 3 }
-            percent = { this.state.progress }
-            src='https://www.fillmurray.com/500/500'
-        />
-        With an Image
-    </Div>
-    <Div mb = { 3 } style={{ display: "flex", alignItems: "center" }}>
-        <ProgressAvatar
-            mr = { 3 }
-            percent = { this.state.progress }
-            backgroundColor = "purple"
-        >
-            W
-        </ProgressAvatar>
-        With Text
-    </Div>
-    <Div mb = { 3 } style={{ display: "flex", alignItems: "center" }}>
-        <ProgressAvatar
-            mr = { 3 }
-            percent = { this.state.progress }
-            backgroundColor = "coral"
-            icon = { <PersonIcon color = "white"/> }
-        />
-        With Icon
-    </Div>
-    <Div style={{ display: "flex", alignItems: "center" }}>
-        <ProgressAvatar
-            mr = { 3 }
-            progressColor = "gold"
-            percent = { this.state.progress }
-            backgroundColor = "royalblue"
-            size = { 60 }
-            thickness = { 10 }
-        >
-            C
-        </ProgressAvatar>
-        Custom Progress Color, Size, and Progress Thickness!
-    </Div>
-</Paper>`
-                    }
-                />
             </div>
         )
     }

@@ -13,6 +13,16 @@ import {
     VerticalMenuEx,
 } from './examples';
 
+import MediaCardExCode from '!raw!./examples/MediaCardEx';
+import TabsExCode from '!raw!./examples/TabsEx';
+import MeterGaugeExCode from '!raw!./examples/MeterGaugeEx';
+import ShowMoreEllipsisExCode from '!raw!./examples/ShowMoreEllipsisEx';
+import ProgressAvatarExCode from '!raw!./examples/ProgressAvatarEx';
+import PillExCode from '!raw!./examples/PillEx';
+import SubHeaderExCode from '!raw!./examples/SubHeaderEx';
+import ButtonMenuExCode from '!raw!./examples/ButtonMenuEx';
+import VerticalMenuExCode from '!raw!./examples/VerticalMenuEx';
+
 const ExampleList = [
     {
         name: "Pill",
@@ -24,6 +34,7 @@ const ExampleList = [
             </div>
         ), 
         render: PillEx,
+        code: PillExCode,
     },
     {
         name: "Tabs",
@@ -38,6 +49,7 @@ const ExampleList = [
             </div>
         ), 
         render: TabsEx,
+        code: TabsExCode,
     },
     {
         name: "MeterGauge",
@@ -47,6 +59,7 @@ const ExampleList = [
             </P>
         ),
         render: MeterGaugeEx,
+        code: MeterGaugeExCode,
     },
     {
         name: "ShowMoreEllipsis",
@@ -58,6 +71,7 @@ const ExampleList = [
             </div>
         ),
         render: ShowMoreEllipsisEx,
+        code: ShowMoreEllipsisExCode,
     },
     {
         name: "ProgressAvatar",
@@ -67,6 +81,7 @@ const ExampleList = [
             </P>
         ),
         render: ProgressAvatarEx,
+        code: ProgressAvatarExCode,
     },
     {
         name: "MediaCard",
@@ -76,6 +91,7 @@ const ExampleList = [
             </P>
         ),
         render: MediaCardEx,
+        code: MediaCardExCode,
     },
     {
         name: "SubHeader",
@@ -87,6 +103,7 @@ const ExampleList = [
             </div>
         ), 
         render: SubHeaderEx,
+        code: SubHeaderExCode,
     },
     {
         name: "ButtonMenu",
@@ -101,6 +118,7 @@ const ExampleList = [
             </div>
         ), 
         render: ButtonMenuEx,
+        code: ButtonMenuExCode,
     },
     {
         name: "VerticalMenu",
@@ -115,6 +133,7 @@ const ExampleList = [
             </div>
         ), 
         render: VerticalMenuEx,
+        code: VerticalMenuExCode,
     },
 ];
 

@@ -196,14 +196,6 @@ export default React.createClass({
                         />
 
                 </div>
-                <Code children={
-                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render
-                     * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of Button :( */
-`<div style={{marginBottom: "20px"}}>
-    <InstanceCard/>
-</div>`
-                    /* Code string ends here */
-                }/>
             </div>
         )
     }

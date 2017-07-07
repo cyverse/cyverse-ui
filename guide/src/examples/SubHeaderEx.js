@@ -49,46 +49,6 @@ export default React.createClass({
 
                     />
                 </Paper>
-            <Code
-                children={
-`<Paper style={{ padding: "5px", marginBottom: "20px"}} >
-    <SubHeader 
-        name="Title of View"
-        menuItems={[
-            <MenuItem key="1" primaryText="Refresh" />,
-            <MenuItem key="2" primaryText="Send feedback" />,
-            <MenuItem key="3" primaryText="Settings" />,
-            <MenuItem key="4" primaryText="Help" />,
-        ]}
-
-    />
-</Paper>
-<Paper style={{ padding: "5px", marginBottom: "20px"}} >
-    <SubHeader 
-        name="With QuickActions"
-        quickActions={[
-            <IconButton key="1">
-                <Share/>
-            </IconButton>,
-            <IconButton key="1">
-                <Edit size={ 20 }/>
-            </IconButton>,
-            <IconButton key="1">
-                <Delete size={ 20 }/>
-            </IconButton>,
-
-        ]}
-        menuItems={[
-            <MenuItem key="1" primaryText="Refresh" />,
-            <MenuItem key="2" primaryText="Send feedback" />,
-            <MenuItem key="3" primaryText="Settings" />,
-            <MenuItem key="4" primaryText="Help" />,
-        ]}
-
-    />
-</Paper>`
-                }
-            />
             </section>
         )
     }

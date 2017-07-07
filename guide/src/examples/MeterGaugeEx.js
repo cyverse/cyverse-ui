@@ -47,89 +47,45 @@ export default React.createClass({
         const { startValue, afterValue } = this.data();
         const dataTotal = Math.round(used + willUse);
         return (
-            <div>
-                <Paper 
+            <Paper
+                style={{
+                    ...marg({ mb:4 }),
+                    ...pad({ p:3 }),
+                }}
+            >
+                <div
                     style={{
-                        ...marg({ mb:4 }),
-                        ...pad({ p:3 }),
+                        maxWidth: "300px",
                     }}
                 >
-                    <div 
-                        style={{ 
-                            maxWidth: "300px",
-                        }}
-                    >
-                        <MeterGauge
-                            mb={ 3 }
-                            label="Thing Usage"
-                            data={ `Will total ${dataTotal}kg of ${totalAllowed}kg` }
-                            startValue={startValue}
-                            afterValue={afterValue}
-                            alertMessage="Hey, let's not get greedy"
-                        />
-                        <div style={ styles.t.label } >
-                            StartValue
-                        </div>
-                        <Slider 
-                            min={ 0 }
-                            max={ 100 }
-                            value={ startValue }
-                            onChange={ this.onStartChange }
-                        />
-                        <div style={ styles.t.label } >
-                            AfterValue
-                        </div>
-                        <Slider
-                            min={ 0 }
-                            max={ 100 }
-                            value={ afterValue }
-                            onChange={ this.onAfterChange }
-                        />
+                    <MeterGauge
+                        mb={ 3 }
+                        label="Thing Usage"
+                        data={ `Will total ${dataTotal}kg of ${totalAllowed}kg` }
+                        startValue={startValue}
+                        afterValue={afterValue}
+                        alertMessage="Hey, let's not get greedy"
+                    />
+                    <div style={ styles.t.label } >
+                        StartValue
                     </div>
-                </Paper>
-                <Code children={
-                    /* This is a string for our code snippt. It is not indented because it messes up the formating in render
-                     * started off using toJSX(Example) which was awesome but it renders the Radium wrapper instead of the Component name :( */
-`<Paper style={{
-        ...marg({ mb:4 }),
-        ...pad({ p:3 }),
-    }}
->
-    <div 
-        style={{ 
-            maxWidth: "300px",
-        }}
-    >
-        <MeterGauge
-            label="Thing Usage"
-            data={ \`Will total \${dataTotal}kg of \${totalAllowed}kg\` }
-            startValue={startValue}
-            afterValue={afterValue}
-            alertMessage="Hey, let's not get greedy"
-        />
-        <div style={ styles.t.label } >
-            StartValue
-        </div>
-        <Slider 
-            min={ 0 }
-            max={ 100 }
-            value={ startValue }
-            onChange={ this.onStartChange }
-        />
-        <div style={ styles.t.label } >
-            AfterValue
-        </div>
-        <Slider
-            min={ 0 }
-            max={ 100 }
-            value={ afterValue }
-            onChange={ this.onAfterChange }
-        />
-    </div>
-</Paper>`
-                    /* Code string ends here */
-                }/>
-            </div>
+                    <Slider
+                        min={ 0 }
+                        max={ 100 }
+                        value={ startValue }
+                        onChange={ this.onStartChange }
+                    />
+                    <div style={ styles.t.label } >
+                        AfterValue
+                    </div>
+                    <Slider
+                        min={ 0 }
+                        max={ 100 }
+                        value={ afterValue }
+                        onChange={ this.onAfterChange }
+                    />
+                </div>
+            </Paper>
         )
     }
 });

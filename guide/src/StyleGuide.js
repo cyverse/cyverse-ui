@@ -6,24 +6,26 @@ import { styles } from './styles';
 import theme from './theme';
 import 'normalize.css';
 import './base.css';
+import './github.css';
 
 import ComponentExList from './ComponentExList';
 import ThemeExList from './ThemeExList';
 import { Header, SideNav, Figure, ThemeExamples } from './components';
+import MarkdownElement from './components/MarkdownElement';
+import Code from './components/Code';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
 export default React.createClass({
     renderThemeExamples() {
-        return  ThemeExList.map( (component, i) => {
-            return (
+        return  ThemeExList.map( (component, i) => (
                 <ThemeExamples
                     component={ component }
                     i={ i }
                 />
             )
-        })
+        )
     },
 
     renderComponentExamples() {
@@ -31,6 +33,7 @@ export default React.createClass({
         let Name = Component.name;
         let Description = Component.desc;
         let Render = Component.render;
+        let code = Component.code;
         return (
                 <Section
                     key={ i }
@@ -60,6 +63,13 @@ export default React.createClass({
                         color={ theme.color.primary }
                     >
                         <Render/>
+                        <MarkdownElement
+                            style={{
+                                overflow: "scroll",
+                            }}
+                            text={ code }
+                        />
+
                     </Figure>
                 </Section>
             )
