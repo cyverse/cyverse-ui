@@ -2,7 +2,7 @@ import React from 'react';
 import { P } from 'cyverse-ui';
 import { Figure } from './components';
 import MarkdownElement from './components/MarkdownElement';
-import Paper from 'Material-ui/Paper';
+import Paper from 'material-ui/Paper';
 import ThemeEx from './examples/ThemeEx';
 import ThemeColorsEx from './examples/ThemeColorsEx';
 
