@@ -10,7 +10,7 @@
     "material-ui"
   ],
   "scripts": {
-    "build": "babel -d . src; node makeTheme.js",
+    "build": "babel -d . src; node ./src/makeTheme.js",
     "watch": "babel -w -d . src"
   },
   "repository": {
@@ -43,6 +43,6 @@
     "babel-preset-stage-2": "^6.5.0",
     "eslint": "~2.2.0",
     "eslint-plugin-react": "^5.1.1",
-    "write-json": "^0.2.2"
+    "write-json": "^1.0.1"
   }
 }

@@ -7,20 +7,20 @@ const MediaCardGroup = React.createClass({
             expanded: null
         }
     },
-    
-    componentDidMount: function() {
+
+    componentDidMount() {
         document.addEventListener('click', this.handleDocumentClick, false);
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
         document.removeEventListener('click', this.handleDocumentClick, false);
     },
 
-    handleDocumentClick: function(e) {
+    handleDocumentClick(e) {
         let cards = this.refs.root;
         if (!cards.contains(e.target)) {
             this.setState({ expanded: null });
-        }
+            }
     },
 
     onExpand(el) {
