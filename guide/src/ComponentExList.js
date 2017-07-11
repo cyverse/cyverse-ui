@@ -3,7 +3,6 @@ import { P } from 'cyverse-ui';
 import {
     MediaCardEx,
     MediaCardGroupEx,
-    TabsEx,
     MeterGaugeEx,
     ShowMoreEllipsisEx,
     ProgressAvatarEx,
@@ -14,7 +13,6 @@ import {
 } from './examples';
 
 import MediaCardExCode from '!raw-loader!./examples/MediaCardEx';
-import TabsExCode from '!raw-loader!./examples/TabsEx';
 import MeterGaugeExCode from '!raw-loader!./examples/MeterGaugeEx';
 import ShowMoreEllipsisExCode from '!raw-loader!./examples/ShowMoreEllipsisEx';
 import ProgressAvatarExCode from '!raw-loader!./examples/ProgressAvatarEx';
@@ -35,21 +33,6 @@ const ExampleList = [
         ), 
         render: PillEx,
         code: PillExCode,
-    },
-    {
-        name: "Tabs",
-        desc: (
-            <div>
-                <P>
-                    Tabs are used to change views within a specific scope. Filtering a list is a common use for tabs in Troposphere.
-                </P>
-                <P>
-                    Tabs should contain functions of equal priority. For example Tabs should not contain several items for changing list views and one Tab for something like settings or help.
-                </P>
-            </div>
-        ), 
-        render: TabsEx,
-        code: TabsExCode,
     },
     {
         name: "MeterGauge",

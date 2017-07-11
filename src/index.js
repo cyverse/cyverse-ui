@@ -4,7 +4,6 @@ export { default as MediaCard } from './MediaCard';
 export { default as MediaCardGroup } from './MediaCardGroup';
 export { default as MeterGauge } from './MeterGauge';
 export { default as ShowMoreEllipsis } from './ShowMoreEllipsis';
-export { default as Tabs } from './Tabs';
 export { default as VerticalMenu } from './VerticalMenu';
 export { default as ProgressAvatar } from './ProgressAvatar';
 export { default as Div } from './Div';
