@@ -34,8 +34,9 @@ code.lang-jsx, .CodeBlock {
 .CodeInline {
     display: inline;
     background: rgba(0,0,0,0.03);
-    border: solid rgba(0,0,0,.4) 1px;
+    border: solid rgba(0,0,0,.2) 1px;
     border-radius: 3px;
-    color: firebrick;
+    font-size: 11px;
+    color: crimson;
     padding: 0 3px 2px;
 }

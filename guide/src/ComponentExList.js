@@ -13,15 +13,15 @@ import {
     VerticalMenuEx,
 } from './examples';
 
-import MediaCardExCode from '!raw!./examples/MediaCardEx';
-import TabsExCode from '!raw!./examples/TabsEx';
-import MeterGaugeExCode from '!raw!./examples/MeterGaugeEx';
-import ShowMoreEllipsisExCode from '!raw!./examples/ShowMoreEllipsisEx';
-import ProgressAvatarExCode from '!raw!./examples/ProgressAvatarEx';
-import PillExCode from '!raw!./examples/PillEx';
-import SubHeaderExCode from '!raw!./examples/SubHeaderEx';
-import ButtonMenuExCode from '!raw!./examples/ButtonMenuEx';
-import VerticalMenuExCode from '!raw!./examples/VerticalMenuEx';
+import MediaCardExCode from '!raw-loader!./examples/MediaCardEx';
+import TabsExCode from '!raw-loader!./examples/TabsEx';
+import MeterGaugeExCode from '!raw-loader!./examples/MeterGaugeEx';
+import ShowMoreEllipsisExCode from '!raw-loader!./examples/ShowMoreEllipsisEx';
+import ProgressAvatarExCode from '!raw-loader!./examples/ProgressAvatarEx';
+import PillExCode from '!raw-loader!./examples/PillEx';
+import SubHeaderExCode from '!raw-loader!./examples/SubHeaderEx';
+import ButtonMenuExCode from '!raw-loader!./examples/ButtonMenuEx';
+import VerticalMenuExCode from '!raw-loader!./examples/VerticalMenuEx';
 
 const ExampleList = [
     {
