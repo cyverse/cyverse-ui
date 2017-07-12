@@ -8,7 +8,6 @@ export { default as PillEx } from './PillEx.js';
 export { default as ProgressAvatarEx } from './ProgressAvatarEx.js';
 export { default as ShowMoreEllipsisEx } from './ShowMoreEllipsisEx.js';
 export { default as SubHeaderEx } from './SubHeaderEx.js';
-export { default as TabsEx } from './TabsEx.js';
 export { default as ThemeEx } from './ThemeEx.js';
 export { default as VerticalMenuEx } from './VerticalMenuEx.js';
 
