@@ -25,8 +25,9 @@ let styleVariables = {
         label: {
             display: "block",
             fontSize: "12px",
-            fontWeight: "600",
-            margin: "0px 0px 8px",
+            fontWeight: "200",
+            color: "rgba(0, 0, 0, 0.3)",
+            margin: "0px 0px 10px",
         },
 
         caption: {
