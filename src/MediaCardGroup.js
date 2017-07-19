@@ -1,5 +1,8 @@
 import React, { PropTypes } from 'react';
+import Scroll from 'react-scroll';
 import { marg } from './styles';
+
+const scroll = Scroll.animateScroll;
 
 const MediaCardGroup = React.createClass({
     getInitialState() {
@@ -24,6 +27,13 @@ const MediaCardGroup = React.createClass({
     },
 
     onExpand(el) {
+        let scrollAmount = this.state.expanded ?
+          -30 : 30;
+        if ( !this.props.noScroll ) {
+            setTimeout(() => {scroll.scrollMore(scrollAmount, {
+                duration: 70,
+            })}, 2);
+        }
         let expanded = this.state.expanded === el ?
             null : el;
         this.setState({

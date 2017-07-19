@@ -1,13 +1,10 @@
 import React from 'react';
 import Checkbox from 'material-ui/Checkbox';
 import Dimensions from 'react-dimensions';
-import Scroll from 'react-scroll';
 import VerticalMenu from './VerticalMenu';
 import Hr from './Hr';
 import styles from './styles/styles';
 import marg from './styles/marg';
-
-const scroll = Scroll.animateScroll;
 
 const MediaCard = React.createClass({
     getInitialState() {
@@ -33,11 +30,6 @@ const MediaCard = React.createClass({
 
     onExpand() {
         this.props.onExpand();
-        let scrollAmount = this.props.isExpanded ?
-          -30 : 30;
-        scroll.scrollMore(scrollAmount, {
-            duration: 95,
-        });
     },
 
     onCheck(e) {
