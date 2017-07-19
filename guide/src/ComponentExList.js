@@ -21,6 +21,7 @@ import SearchBarExCode from '!raw-loader!./examples/SearchBarEx';
 import InfoBlockExCode from '!raw-loader!./examples/InfoBlockEx';
 import IdentityExCode from '!raw-loader!./examples/IdentityEx';
 import MediaCardExCode from '!raw-loader!./examples/MediaCardEx';
+import MediaCardGroupExCode from '!raw-loader!./examples/MediaCardGroupEx';
 import MeterGaugeExCode from '!raw-loader!./examples/MeterGaugeEx';
 import ShowMoreEllipsisExCode from '!raw-loader!./examples/ShowMoreEllipsisEx';
 import ProgressAvatarExCode from '!raw-loader!./examples/ProgressAvatarEx';
@@ -118,7 +119,16 @@ const ExampleList = [
         render: SkeletonListEx,
         code: SkeletonListExCode,
     },
-
+    {
+        name: "MediaCardGroup",
+        desc: (
+            <P>
+                MediaCardGroup is a wrapper for MediaCards that helps to manage opening and closing, scroll animation, and stagger animation of MediaCards as cildren.
+            </P>
+        ),
+        render: MediaCardGroupEx,
+        code: MediaCardGroupExCode,
+    },
     {
         name: "SubHeader",
         desc: (
