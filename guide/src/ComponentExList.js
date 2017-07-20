@@ -1,6 +1,8 @@
 import React from 'react';
 import { P } from 'cyverse-ui';
 import {
+    SearchBarEx,
+    InfoBlockEx,
     MediaCardEx,
     MediaCardGroupEx,
     MeterGaugeEx,
@@ -10,8 +12,14 @@ import {
     SubHeaderEx,
     ButtonMenuEx,
     VerticalMenuEx,
+    IdentityEx,
+    SkeletonListEx
 } from './examples';
 
+import SkeletonListExCode from '!raw-loader!./examples/SkeletonListEx';
+import SearchBarExCode from '!raw-loader!./examples/SearchBarEx';
+import InfoBlockExCode from '!raw-loader!./examples/InfoBlockEx';
+import IdentityExCode from '!raw-loader!./examples/IdentityEx';
 import MediaCardExCode from '!raw-loader!./examples/MediaCardEx';
 import MeterGaugeExCode from '!raw-loader!./examples/MeterGaugeEx';
 import ShowMoreEllipsisExCode from '!raw-loader!./examples/ShowMoreEllipsisEx';
@@ -23,6 +31,18 @@ import VerticalMenuExCode from '!raw-loader!./examples/VerticalMenuEx';
 
 const ExampleList = [
     {
+        name: "InfoBlock",
+        desc: (
+            <div>
+                <P>
+                    The InfoBlock is used everywhere information is displayed to the user that isn't part of an input or title. Usually at the top of a view to explain the purpose of said view. The icon helps isolate the information from the UI.
+                </P>
+            </div>
+        ),
+        render: InfoBlockEx,
+        code: InfoBlockExCode,
+    },
+    {
         name: "Pill",
         desc: (
             <div>
@@ -33,6 +53,18 @@ const ExampleList = [
         ), 
         render: PillEx,
         code: PillExCode,
+    },
+    {
+        name: "SearchBar",
+        desc: (
+            <div>
+                <P>
+                    The SearchBar is used for searches. It has an active state that helps to inform the user a search is affecting the list in question. An optional onClear prop allows the query to be cleared when the user presses the clear button.
+                </P>
+            </div>
+        ),
+        render: SearchBarEx,
+        code: SearchBarExCode,
     },
     {
         name: "MeterGauge",
@@ -76,6 +108,17 @@ const ExampleList = [
         render: MediaCardEx,
         code: MediaCardExCode,
     },
+    {
+        name: "SkeletonList",
+        desc: (
+            <P>
+                SkeletonLists are placeholders for MediaCards while they are loading. They help to inform the user that a list will show.
+            </P>
+        ),
+        render: SkeletonListEx,
+        code: SkeletonListExCode,
+    },
+
     {
         name: "SubHeader",
         desc: (

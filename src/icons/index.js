@@ -14,3 +14,4 @@ export { default as LinkIcon } from './LinkIcon';
 export { default as InstanceIcon } from './InstanceIcon';
 export { default as ImageIcon } from './ImageIcon';
 export { default as VolumeIcon } from './VolumeIcon';
+export { default as LaunchIcon } from './LaunchIcon';

@@ -120,7 +120,7 @@ const MediaCard = React.createClass({
                 >
                     <div style={ styles.identity}>
                         { this.renderAvatar() }
-                        <div>
+                        <div style={ styles.titleInfo }>
                             <div style={ styles.title }>
                                 { title }
                             </div>
@@ -208,6 +208,11 @@ const MediaCard = React.createClass({
             alignSelf: "flex-start", 
             borderRadius: "50%", 
         };
+
+        // titleInfo style
+        style.titleInfo = {
+            width: "100%"
+        }
         
         // title style
         style.title = {
