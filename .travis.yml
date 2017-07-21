@@ -2,10 +2,12 @@ language: node_js
 node_js:
 - node
 install:
+- npm install
 - pushd ./guide
 - npm install
 - popd
 script:
+- npm run build
 - pushd ./guide
 - npm run build
 - popd
