@@ -21,6 +21,7 @@ module.exports = validate({
     resolve: {
         root: [__dirname + "/node_modules"],
         extensions: ["", ".js", ".jsx"],
+        alias: { "cyverse-ui": path.resolve( __dirname, "../") }
     },
     module: {
         loaders: [

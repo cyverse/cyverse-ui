@@ -46,6 +46,7 @@
     "babel-preset-stage-2": "^6.5.0",
     "eslint": "~2.2.0",
     "eslint-plugin-react": "^5.1.1",
+    "material-ui": "~0.17.1",
     "write-json": "^1.0.1"
   }
 }
