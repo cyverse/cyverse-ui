@@ -14,18 +14,24 @@ const MediaCard = React.createClass({
         }
     },
 
+    stopPropagation(e) {
+        e.nativeEvent.stopImmediatePropagation();
+        e.preventDefault();
+        e.stopPropagation();
+    },
+
     onCardEnter() {
         this.setState({
             avatarIsHovered: true,
             cardIsHovered: true,
-        }); 
+        });
     },
 
     onCardLeave() {
         this.setState({
             avatarIsHovered: false,
             cardIsHovered: false,
-        }); 
+        });
     },
 
     onExpand() {
@@ -40,13 +46,30 @@ const MediaCard = React.createClass({
     },
 
     renderQuickLinks() {
-        if ( this.props.quickLinks ) {
+        const { quickLinks } = this.props;
+        if ( quickLinks ) {
             return (
-                <div style={ this.styles().quickLinks }>
-                    { this.props.quickLinks.map( link => link ) }
+                <div
+                    onClick={ this.stopPropagation }
+                    style={ this.styles().quickLinks }>
+                    { quickLinks.map( link => link ) }
                 </div>
             )
         }
+    },
+
+    renderActiveQuickLinks() {
+        const { activeQuickLinks } = this.props;
+        if ( activeQuickLinks ) {
+            return (
+                <div
+                    onClick={ this.stopPropagation }
+                    style={ this.styles().activeQuickLinks }>
+                    { activeQuickLinks.map(link => link ) }
+                </div>
+            )
+        }
+
     },
 
     renderVericalMenu() {
@@ -69,16 +92,16 @@ const MediaCard = React.createClass({
         let avatar = image;
 
         if ( onBatchClick && ( batchMode || avatarIsHovered ) ) {
-            avatar = ( 
+            avatar = (
                 <Checkbox
                     onClick = { this.onCheck }
                     checked = { this.props.checked }
                     style = {{ margin: "auto", width: "60%" }}
                     color = { this.props.primaryColor }
                 />
-            )
+            );
         }
-        
+
         if (image) {
             return (
                 <div style={ styles.image }>
@@ -96,23 +119,23 @@ const MediaCard = React.createClass({
                 <Hr style = {{ margin: "0px -20px 20px" }}/>
                 { detail }
             </div>
-        ) : null; 
+        ) : null;
     },
 
     render() {
-        const { 
+        const {
             image,
             title,
             subTitle,
             titleInfo,
             summary
         } = this.props;
-        
+
         const styles = this.styles();
 
         return (
             <div style = {this.styles().card} >
-                <div 
+                <div
                     style = { styles.header }
                     onMouseEnter = { this.onCardEnter }
                     onMouseLeave = { this.onCardLeave }
@@ -142,7 +165,8 @@ const MediaCard = React.createClass({
 
                     <div style={ styles.menu } >
                         { this.renderQuickLinks() }
-                        { this.renderVericalMenu() } 
+                        { this.renderActiveQuickLinks() }
+                        { this.renderVericalMenu() }
                     </div>
 
                 </div>
@@ -155,11 +179,14 @@ const MediaCard = React.createClass({
         let style = {};
 
         // card style
-        let cardShadow = styles.boxShadow.li 
+        let cardShadow = styles.boxShadow.li
         let openStyle = {};
         if (this.props.isExpanded) {
             cardShadow = styles.boxShadow.lg
-            openStyle = { margin: "50px -20px" };
+            openStyle = {
+                margin: "40px -20px",
+                borderLeft: "solid 5px #0971ab"
+            };
         }
         style.card = {
             ...openStyle,
@@ -179,20 +206,13 @@ const MediaCard = React.createClass({
             minHeight: "65px",
             alignItems: "center",
         };
-        if (this.props.containerWidth <= 750) {
-            style.header.display = "block"
-        }
 
         // identety style
         style.identity = {
             display: "flex",
             alignItems: "center",
-            minWidth: "250px",
+            minWidth: "300px",
         };
-        if (this.props.containerWidth <= 750) {
-            style.identity.marginRight = "50px";
-        }
-
 
         // image style
         style.image = {
@@ -205,8 +225,8 @@ const MediaCard = React.createClass({
             flexShrink: "0",
             position: "relative",
             marginRight: "10px",
-            alignSelf: "flex-start", 
-            borderRadius: "50%", 
+            alignSelf: "flex-start",
+            borderRadius: "50%",
         };
 
         // titleInfo style
@@ -233,10 +253,7 @@ const MediaCard = React.createClass({
             opacity: "1",
             ...styles.t.body1,
         };
-        if (this.props.containerWidth <= 750) {
-            style.summary.marginTop = "30px";
-            style.summary.marginRight = "0px";
-        }
+
         if (this.props.isExpanded) {
             style.summary.display = "none";
         }
@@ -251,13 +268,20 @@ const MediaCard = React.createClass({
             top: "8px",
         };
 
-        // quickMenu 
+        // quickMenu
         style.quickLinks = {
             display: "none",
             padding: "5px 10px 5px 75px",
             alignItems: "center",
         };
+
+        style.activeQuickLinks = {
+            display: "flex",
+            padding: "5px 10px",
+            alignItems: "center",
+        };
         if ( this.state.cardIsHovered || this.props.isExpanded ) {
+            style.activeQuickLinks.display = "none";
             style.quickLinks.display = "flex";
         }
 
@@ -270,6 +294,4 @@ const MediaCard = React.createClass({
     }
 });
 
-export default Dimensions({ 
-    containerStyle: { height: 'auto' }
-})(MediaCard);
+export default MediaCard
