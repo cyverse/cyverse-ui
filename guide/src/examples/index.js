@@ -14,3 +14,4 @@ export { default as SearchBarEx } from './SearchBarEx.js';
 export { default as InfoBlockEx } from './InfoBlockEx.js';
 export { default as IdentityEx } from './IdentityEx.js';
 export { default as SkeletonListEx } from './SkeletonListEx.js';
+export { default as MediaCardGroupEx } from './MediaCardGroupEx.js';

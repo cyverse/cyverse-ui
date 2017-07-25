@@ -1,6 +1,7 @@
 import React from 'react';
 import Scroll from 'react-scroll';
 import {  Hr, P, Title, Div, Section } from 'cyverse-ui'; 
+import 'cyverse-ui/styles/animation.css'
 
 import { styles } from './styles';
 import theme from './theme';
