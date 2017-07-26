@@ -1,4 +1,3 @@
-import React from 'react';
 import { variables as styleVars } from '../styles';
 
 const sizes = styleVars.l.margSizes;

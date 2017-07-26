@@ -3,7 +3,7 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
 import muiThemeable from "material-ui/styles/muiThemeable";
 
-import { Paper, IconButton } from "material-ui";
+import { IconButton } from "material-ui";
 import SearchIcon from "material-ui/svg-icons/action/search"
 import CloseIcon from "material-ui/svg-icons/navigation/close"
 import { styles, pad, marg } from './styles';
@@ -56,7 +56,6 @@ const SearchBar = React.createClass({
 
     render() {
         const {
-            style,
             value,
             placeholder,
             onChange,

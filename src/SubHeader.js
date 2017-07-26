@@ -4,8 +4,7 @@ import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import VerticalMenu from './VerticalMenu';
 import Div from './Div';
 import Title from './Title';
-import ButtonGroup from './utils/ButtonGroup';
-import LeftArrowIcon from './icons/LeftArrowIcon';
+
 
 const SubHeader = React.createClass({
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
-import muiThemeable from "material-ui/styles/muiThemeable";
 
 import { Avatar, CircularProgress } from 'material-ui';
 import MediaCard from './MediaCard';

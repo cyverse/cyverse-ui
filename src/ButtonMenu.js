@@ -1,5 +1,4 @@
 import React from 'react';
-import { styles, marg } from './styles';
 import Div from './Div';
 import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
@@ -36,15 +35,11 @@ export default React.createClass({
     },
 
     render() {
-        const { 
+        const {
             style,
-            color,
             buttonIcon,
             buttonLabel,
             children,
-            isOpen,
-            onTouchTap,
-            onItemTouchTapi,
             primary,
             secondary,
             disabled,

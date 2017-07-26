@@ -1,4 +1,3 @@
-import React from 'react';
 import { variables } from '../styles';
 
 const sizes = variables.l.padSizes;
@@ -13,7 +12,6 @@ const Pad = ( props ) => {
     return Object.keys(props).reduce((style, prop) => {
         let value = props[prop];
 
-        let cssField;
         switch (prop) {
             case "pr":
                 style.paddingRight = typeof value == "number"
@@ -36,7 +34,7 @@ const Pad = ( props ) => {
                     : value
                 style.paddingLeft = typeof value == "number"
                     ? sizes[value -1]
-                    : vlaue
+                    : value
                 break;
             case "p":
                 style.paddingTop = typeof value == "number"
