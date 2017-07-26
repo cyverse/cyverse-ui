@@ -41,7 +41,7 @@ const SkeletonText = props => (
     </div>
 )
 
-export default props => {
+const SkeletonList = props => {
     const classes = getStyleManager({})
 	.render(styleSheet());
 
@@ -84,3 +84,5 @@ export default props => {
         </div>
     );
 };
+
+export default SkeletonList;
