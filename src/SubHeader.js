@@ -23,14 +23,14 @@ const SubHeader = React.createClass({
         if ( quickActions || menuItems ) {
             return (
                 <div style={ style.actionGroup }>
-                    { 
+                    {
                         quickActions ?
                             quickActions.map( renderQuickActions )
                             : null
                     }
-                    { 
-                        menuItems ? 
-                            <VerticalMenu 
+                    {
+                        menuItems ?
+                            <VerticalMenu
                                 children={ menuItems }
                             />
                             : null

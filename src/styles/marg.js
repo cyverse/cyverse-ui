@@ -31,15 +31,15 @@ const marg = ( props ) => {
                     break;
                 case "mv":
                     style.marginTop = style.marginBottom = margin;
-                    break;                 
-                case "m":                  
+                    break;
+                case "m":
                     style.marginTop = style.marginRight = style.marginBottom = style.marginLeft = margin;
-                    break;                 
-            }                              
+                    break;
+            }
 
         return style;
 
-    }, {}); 
+    }, {});
 }
 
 export default marg;

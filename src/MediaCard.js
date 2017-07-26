@@ -235,7 +235,7 @@ const MediaCard = React.createClass({
         style.titleInfo = {
             width: "100%"
         }
-        
+
         // title style
         style.title = {
             ...styles.t.body2,

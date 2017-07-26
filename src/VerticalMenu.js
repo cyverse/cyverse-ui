@@ -24,8 +24,8 @@ const VerticalMenu = React.createClass({
                         <MoreVertIcon />
                     </IconButton>
                 }
-		anchorOrigin={ anchorOrigin }
-		targetOrigin={ targetOrigin }
+                anchorOrigin={ anchorOrigin }
+                targetOrigin={ targetOrigin }
             />
         )
     },

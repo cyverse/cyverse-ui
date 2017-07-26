@@ -48,13 +48,13 @@ export default React.createClass({
         } = this.props;
 
         return (
-            <Div 
+            <Div
                 style={{
                     ...style,
                     display: "inline-block"
-                }} 
+                }}
                 id={ this.props.id }
-            >       
+            >
                 <RaisedButton
                     onTouchTap={ this.handleTouchTap }
                     label={ buttonLabel }
