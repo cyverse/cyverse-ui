@@ -1,6 +1,5 @@
 import React from 'react';
 import Checkbox from 'material-ui/Checkbox';
-import Dimensions from 'react-dimensions';
 import VerticalMenu from './VerticalMenu';
 import Hr from './Hr';
 import styles from './styles/styles';
@@ -127,7 +126,6 @@ const MediaCard = React.createClass({
 
     render() {
         const {
-            image,
             title,
             subTitle,
             titleInfo,
@@ -237,7 +235,7 @@ const MediaCard = React.createClass({
         style.titleInfo = {
             width: "100%"
         }
-        
+
         // title style
         style.title = {
             ...styles.t.body2,

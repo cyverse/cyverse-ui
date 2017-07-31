@@ -1,6 +1,5 @@
 import React from 'react';
 import muiThemeable from 'material-ui/styles/muiThemeable';
-import { ClearFix } from './utils';
 import { variables, styles, marg } from './styles';
 
 const v = variables;
@@ -32,12 +31,6 @@ export const MeterGauge =React.createClass({
     },
 
     render() {
-        let {
-            startValue,
-            afterValue,
-            muiTheme
-        } = this.props;
-
         const style = this.style();
 
         return (

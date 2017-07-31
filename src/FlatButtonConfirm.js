@@ -45,7 +45,6 @@ export default class PopoverExampleSimple extends React.Component {
             confirmLabel,
             content,
             style,
-            disabled,
             icon,
             primary
         } = this.props;

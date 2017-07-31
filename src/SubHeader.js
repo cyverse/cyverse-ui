@@ -4,8 +4,7 @@ import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import VerticalMenu from './VerticalMenu';
 import Div from './Div';
 import Title from './Title';
-import ButtonGroup from './utils/ButtonGroup';
-import LeftArrowIcon from './icons/LeftArrowIcon';
+
 
 const SubHeader = React.createClass({
 
@@ -24,14 +23,14 @@ const SubHeader = React.createClass({
         if ( quickActions || menuItems ) {
             return (
                 <div style={ style.actionGroup }>
-                    { 
+                    {
                         quickActions ?
                             quickActions.map( renderQuickActions )
                             : null
                     }
-                    { 
-                        menuItems ? 
-                            <VerticalMenu 
+                    {
+                        menuItems ?
+                            <VerticalMenu
                                 children={ menuItems }
                             />
                             : null
