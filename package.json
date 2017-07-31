@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "build": "babel -d . src; node ./src/makeTheme.js; cp ./src/styles/animation.css ./styles",
+    "lint": "eslint -c .eslintrc --ext .jsx,.js --no-eslintrc src",
     "watch": "babel -w -d . src"
   },
   "repository": {
@@ -39,12 +40,12 @@
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-core": "^6.2.1",
-    "babel-eslint": "^6.0.4",
+    "babel-eslint": "^6.0.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
-    "eslint": "~2.2.0",
+    "eslint": "^2.13.*",
     "eslint-plugin-react": "^5.1.1",
     "material-ui": "~0.17.1",
     "write-json": "^1.0.1"

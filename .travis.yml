@@ -8,6 +8,7 @@ install:
 - popd
 script:
 - npm run build
+- npm run lint
 - pushd ./guide
 - npm run build
 - popd
