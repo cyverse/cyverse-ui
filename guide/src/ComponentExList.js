@@ -51,7 +51,7 @@ const ExampleList = [
                     A Pill is used to indicate meta data like number of active users or if an item is featured or recommended. It is sort of like a badge but smaller to fit under a title or in the footer of a card.
                 </P>
             </div>
-        ), 
+        ),
         render: PillEx,
         code: PillExCode,
     },
@@ -71,7 +71,7 @@ const ExampleList = [
         name: "MeterGauge",
         desc: (
             <P>
-                A MeterGauge is used to depict a percentage of a known quantity. A common use in Troposphere is to show how much of a total resource a user HAS consumed or WILL consume. In the case that a MeterGauge is showing how much of a known quantity a user WILL consume, in a form for example, an after value can be passed in addition to the start value. 
+                A MeterGauge is used to depict a percentage of a known quantity. A common use in Troposphere is to show how much of a total resource a user HAS consumed or WILL consume. In the case that a MeterGauge is showing how much of a known quantity a user WILL consume, in a form for example, an after value can be passed in addition to the start value.
             </P>
         ),
         render: MeterGaugeEx,
@@ -93,7 +93,7 @@ const ExampleList = [
         name: "ProgressAvatar",
         desc: (
             <P>
-                Since an Avatar serves as a visual anchor for an item a ProgressAvatar can be used in place of MUI's Avatar as a clear way to inform the user that a process is taking place on that item as well as what percentage of that process is finished without taking up valuable real estate.  
+                Since an Avatar serves as a visual anchor for an item a ProgressAvatar can be used in place of MUI's Avatar as a clear way to inform the user that a process is taking place on that item as well as what percentage of that process is finished without taking up valuable real estate.
             </P>
         ),
         render: ProgressAvatarEx,
@@ -134,10 +134,10 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    SubHeader is the contextual header located at the top of a sub-view. A Sub-view is a view that one would navigate to from a main-view. For example clicking on a list item might open a sub-view detail of that list item. The SubHeader has a back button to navigate back to the main-view and some top level controls or actions for the particular sub-view. 
+                    SubHeader is the contextual header located at the top of a sub-view. A Sub-view is a view that one would navigate to from a main-view. For example clicking on a list item might open a sub-view detail of that list item. The SubHeader has a back button to navigate back to the main-view and some top level controls or actions for the particular sub-view.
                 </P>
             </div>
-        ), 
+        ),
         render: SubHeaderEx,
         code: SubHeaderExCode,
     },
@@ -146,13 +146,13 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    A ButtonMenu is a menu that can be displayed by pressing a RaisedButton. In Troposphere a ButtonMenu is used to with the label "New" and opens a list of things that can be created. 
+                    A ButtonMenu is a menu that can be displayed by pressing a RaisedButton. In Troposphere a ButtonMenu is used to with the label "New" and opens a list of things that can be created.
                 </P>
                 <P>
                     As a general rule menus should appear to the top right of the view so this component defaults to opening from the right and down but can be overridden using <code className="CodeInline">anchorOrigin</code> and <code className="CodeInline">targetOrigin</code>. See  <a target="_blank" href="http://www.material-ui.com/#/components/popover">Material-UI's Popover</a> for better documentation.
                 </P>
             </div>
-        ), 
+        ),
         render: ButtonMenuEx,
         code: ButtonMenuExCode,
     },
@@ -161,13 +161,13 @@ const ExampleList = [
         desc: (
             <div>
                 <P>
-                    A VerticalMenu is a menu that can be displayed by pressing a VerticalMenuIcon. In Troposphere a VerticalMenu is used in the top right corner of a header or MediaCard to hold a list of actions that are applied to the item or items within that context. 
+                    A VerticalMenu is a menu that can be displayed by pressing a VerticalMenuIcon. In Troposphere a VerticalMenu is used in the top right corner of a header or MediaCard to hold a list of actions that are applied to the item or items within that context.
                 </P>
                 <P>
                     Because VerticalMenus should appear to the top right corner this component defaults to opening from the right and down but this behavior can be overridden using <code className="CodeInline">anchorOrigin</code> and <code className="CodeInline">targetOrigin</code>. See  <a target="_blank" href="http://www.material-ui.com/#/components/popover">Material-UI's Popover</a> for better documentation.
                 </P>
             </div>
-        ), 
+        ),
         render: VerticalMenuEx,
         code: VerticalMenuExCode,
     },

@@ -16,7 +16,7 @@ const ThemeExList = [
                 </P>
 		<ThemeEx/>
             </div>
-        ), 
+        ),
     },
     {
         name: "CyVerse Theme Colors",
@@ -32,7 +32,7 @@ const ThemeExList = [
                     <ThemeColorsEx/>
                 </Paper>
             </div>
-        ), 
+        ),
     },
     {
         name: "Installing CyVerse Theme",
@@ -78,23 +78,23 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 
 const ThemeColorsEx = React.createClass({
     render() {
-        const { 
-            muiTheme: { 
+        const {
+            muiTheme: {
                 palette: {
                     primary1Color,
                 }
-            } 
+            }
         } = this.props;
 
-        
+
         return (
             <div>
-                <div 
-                    style={{ 
+                <div
+                    style={{
                         backgroundColor: primary1Color,
                         width: "75px",
                         height: "75px"
-                    }} 
+                    }}
                 />
             </div>
         )
@@ -105,7 +105,7 @@ export default muiThemeable()(ThemeColorsEx);`
                     }
                 />
             </div>
-        ), 
+        ),
     },
 ];
 
