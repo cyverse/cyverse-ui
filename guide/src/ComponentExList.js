@@ -149,7 +149,7 @@ const ExampleList = [
                     A ButtonMenu is a menu that can be displayed by pressing a RaisedButton. In Troposphere a ButtonMenu is used to with the label "New" and opens a list of things that can be created. 
                 </P>
                 <P>
-                    As a general rule menus should appear to the top right of the view so this component defaults to opening from the right and down but can be overridden using `anchorOrigin` and `targetOrigin`. See  <a target="_blank" href="http://www.material-ui.com/#/components/popover">Material-ui's Popover</a> for better documentation.
+                    As a general rule menus should appear to the top right of the view so this component defaults to opening from the right and down but can be overridden using <code className="CodeInline">anchorOrigin</code> and <code className="CodeInline">targetOrigin</code>. See  <a target="_blank" href="http://www.material-ui.com/#/components/popover">Material-UI's Popover</a> for better documentation.
                 </P>
             </div>
         ), 
@@ -164,7 +164,7 @@ const ExampleList = [
                     A VerticalMenu is a menu that can be displayed by pressing a VerticalMenuIcon. In Troposphere a VerticalMenu is used in the top right corner of a header or MediaCard to hold a list of actions that are applied to the item or items within that context. 
                 </P>
                 <P>
-                    Because VerticalMenus should appear to the top right corner this component defaults to opening from the right and down but this behavior can be overridden using `anchorOrigin` and `targetOrigin`. See  <a target="_blank" href="http://www.material-ui.com/#/components/popover">Material-ui's Popover</a> for better documentation.
+                    Because VerticalMenus should appear to the top right corner this component defaults to opening from the right and down but this behavior can be overridden using <code className="CodeInline">anchorOrigin</code> and <code className="CodeInline">targetOrigin</code>. See  <a target="_blank" href="http://www.material-ui.com/#/components/popover">Material-UI's Popover</a> for better documentation.
                 </P>
             </div>
         ), 
