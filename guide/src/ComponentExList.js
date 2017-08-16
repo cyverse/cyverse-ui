@@ -31,6 +31,21 @@ import VerticalMenuExCode from '!raw-loader!./examples/VerticalMenuEx';
 
 const ExampleList = [
     {
+        name: "Identity",
+        desc: (
+            <div>
+                <P>
+                    Identity is used on a card or view to provide context to the content. A resource for example, would have the resource name as the primary text and useful meta as the secondary text, like the date the resource was created or a quick summary.
+                </P>
+                <P>
+                    An Identity is located at the top left of a card or view. A small Identity is used on cards and a large Identity or small Identity can be used on views.
+                </P>
+            </div>
+        ),
+        render: IdentityEx,
+        code: IdentityExCode,
+    },
+    {
         name: "InfoBlock",
         desc: (
             <div>
