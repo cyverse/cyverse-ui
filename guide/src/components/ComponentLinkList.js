@@ -33,7 +33,6 @@ const ComponentLinkList = React.createClass({
     render() {
         return (
             <ListItem
-                initiallyOpen
                 primaryTogglesNestedList={true}
                 nestedItems={ this.renderComponentLinks() }
             >

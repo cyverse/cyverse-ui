@@ -15,3 +15,4 @@ export { default as InfoBlockEx } from './InfoBlockEx.js';
 export { default as IdentityEx } from './IdentityEx.js';
 export { default as SkeletonListEx } from './SkeletonListEx.js';
 export { default as MediaCardGroupEx } from './MediaCardGroupEx.js';
+export { default as IconEx } from './IconEx.js';

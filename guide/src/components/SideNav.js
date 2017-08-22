@@ -1,17 +1,16 @@
 import React from 'react';
-import Divider from 'material-ui/Divider';
+import { Divider } from 'material-ui';
 import { Title } from 'cyverse-ui';
 import SideBar from './SideBar';
 import ComponentLinkList from './ComponentLinkList';
 import ThemeLinkList from './ThemeLinkList';
-
+import IconLink from './IconLink';
 
 const SideNav = React.createClass({
     render() {
         return (
             <SideBar isOpen >
-                <Title 
-                    h1
+                <Title h1
                     title
                     mb={ 2 }
                     ps={ 3 }
@@ -21,6 +20,7 @@ const SideNav = React.createClass({
                 <Divider/>
                 <ThemeLinkList/>
                 <ComponentLinkList/>
+                <IconLink/>
             </SideBar>
         )
     },

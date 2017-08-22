@@ -13,6 +13,7 @@ import ComponentExList from './ComponentExList';
 import ThemeExList from './ThemeExList';
 import { Header, SideNav, Figure, ThemeExamples } from './components';
 import MarkdownElement from './components/MarkdownElement';
+import IconSection from './components/IconSection';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
@@ -122,6 +123,7 @@ export default React.createClass({
                             </Title>
                             { this.renderComponentExamples() } 
                         </Section>
+                        <IconSection/>
                     </div>
                 </main>
                 <footer/>
