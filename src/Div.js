@@ -3,6 +3,9 @@ import { marg, pad } from './styles';
 
 const Div = React.createClass({
 
+/**
+ * Div is a primitive layout component
+ */
     render() {
         return (
             <div 

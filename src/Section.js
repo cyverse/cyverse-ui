@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import { marg, pad } from './styles';
 
 const Section = React.createClass({
+/**
+ * Section is a layout primitive.
+ */
 
     render() {
         return (

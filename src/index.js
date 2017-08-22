@@ -8,7 +8,6 @@ export { default as VerticalMenu } from './VerticalMenu';
 export { default as ProgressAvatar } from './ProgressAvatar';
 export { default as Div } from './Div';
 export { default as Section } from './Section';
-export { default as SideBar } from './SideBar';
 export { default as P } from './P';
 export { default as Title } from './Title';
 export { default as SubHeader } from './SubHeader';

@@ -1,11 +1,79 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Checkbox from 'material-ui/Checkbox';
 import VerticalMenu from './VerticalMenu';
 import Hr from './Hr';
 import styles from './styles/styles';
 import marg from './styles/marg';
 
+/**
+* MediaCards are used for objects like Projects, Project Resources, and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menu, attached to the card, contains all of the actions for that card.
+ */
 const MediaCard = React.createClass({
+    displayName: "MediaCard",
+    propTypes: {
+        /**
+         * Expects MUI Avatar
+         */
+        image: PropTypes.element,
+        /**
+         * The identity of the MediaCard
+         */
+        title: PropTypes.node,
+        /**
+         * Sub-information like creation date or caption
+         */
+        subTitle: PropTypes.node,
+        /**
+         * Additional meta or status info
+         */
+        titleInfo: PropTypes.node,
+        /**
+         * The summary of contents
+         */
+        summary: PropTypes.node,
+        /**
+         * The details show when expanded
+         */
+        detail: PropTypes.node,
+        /**
+         * The exposed actions that appear to right of card on hover or when open
+         */
+        quickLinks: PropTypes.array,
+        /**
+         * Like quicklinks but are always visible
+         */
+        activeQuickLinks: PropTypes.array,
+        /**
+         * Actions under the vertical menu to the right of card
+         */
+        menuItems: PropTypes.array,
+        /**
+         * Callback when card is clicked
+         */
+        onExpand: PropTypes.func,
+        /**
+         * Callback when card is checked
+         */
+        onBatchClick: PropTypes.func,
+        /**
+         * When true the card is open
+         */
+        isExpanded: PropTypes.bool,
+        /**
+         * When true a checkbox replaces the Avatar
+         */
+        batchMode: PropTypes.bool,
+        /**
+         * If true the vertical menu shows but is disabled
+         */
+        isDisabledMenu: PropTypes.bool,
+        /**
+         * Classes applied to root element of card
+         */
+        className: PropTypes.string,
+    },
+
     getInitialState() {
         return {
             cardIsHovered: false,
@@ -99,7 +167,6 @@ const MediaCard = React.createClass({
                     onClick = { this.onCheck }
                     checked = { this.props.checked }
                     style = {{ margin: "auto", width: "60%" }}
-                    color = { this.props.primaryColor }
                 />
             );
         }

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
 import muiThemeable from "material-ui/styles/muiThemeable";
@@ -8,7 +9,35 @@ import SearchIcon from "material-ui/svg-icons/action/search"
 import CloseIcon from "material-ui/svg-icons/navigation/close"
 import { styles, pad, marg } from './styles';
 
+/**
+ * The SearchBar is used for searches. It has an active state that helps to inform the user a search is affecting the list in question. An optional onClear prop allows the query to be cleared when the user presses the clear button.
+ */
 const SearchBar = React.createClass({
+    displayName: "SearchBar",
+    propTypes: {
+        /**
+         * The current value or query.
+         */
+        value: PropTypes.string,
+        /**
+         * The placeholder or hint text.
+         */
+        placeholder: PropTypes.string,
+        /**
+         * Callback when a change is made.
+         */
+        onChange: PropTypes.func,
+        /**
+         * Callback when clear button is pressed. Note, no clear button renders if not set.
+         */
+        onClear: PropTypes.func,
+    },
+
+    getDefaultProps() {
+        return {
+            placeholder: "Search"
+        }
+    },
 
     styleSheet() {
         const size = { pl: 2, pr: 2 }

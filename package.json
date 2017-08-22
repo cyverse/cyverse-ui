@@ -10,7 +10,7 @@
     "material-ui"
   ],
   "scripts": {
-    "build": "babel -d . src; node ./src/makeTheme.js; cp ./src/styles/animation.css ./styles",
+    "build": "babel -d . src; node ./src/scripts/makeTheme.js; node scripts/makeDocs.js; cp ./src/styles/animation.css ./styles",
     "lint": "eslint -c .eslintrc --ext .jsx,.js --no-eslintrc src",
     "watch": "babel -w -d . src"
   },
@@ -33,6 +33,7 @@
     "jss": "^7.1.5",
     "jss-preset-default": "^2.0.0",
     "jss-theme-reactor": "^0.11.1",
+    "prop-types": "^15.5.10",
     "react-css-stagger": "0.0.5",
     "react-ink": "6.2.0",
     "react-scroll": "1.5.2"
@@ -48,6 +49,7 @@
     "eslint": "^2.13.*",
     "eslint-plugin-react": "^5.1.1",
     "material-ui": "~0.17.1",
+    "react-docgen": "^2.17.0",
     "write-json": "^1.0.1"
   }
 }

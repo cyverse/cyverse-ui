@@ -1,12 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import { variables, styles, marg } from './styles';
 
 const v = variables;
 
-// TODO To be semantic this should be implemented with the Meter element. Support is strong enough for production and there are fall backs. It is a browser styled element however so it will require some style hacks to make it look good across all browsers. Since these style properties are browser specific vendor prefixing is used it is unknown to me without experimenting what autoprefixer will do to the styles or if this will require css over inline styles.
+/**
+* A MeterGauge is used to depict a percentage of a known quantity. A common use in Troposphere is to show how much of a total resource a user HAS consumed or WILL consume. In the case that a MeterGauge is showing how much of a known quantity a user WILL consume, in a form for example, an after value can be passed in addition to the start value.
+*/
+const MeterGauge =React.createClass({
 
-export const MeterGauge =React.createClass({
+    displayName: "MeterGauge",
+
+    propTypes: {
+        /**
+         * The first bar value treated as percentage of total.
+         */
+        startValue: PropTypes.number,
+        /**
+         * The second bar value is treated as percentage. Usually represents what will happen as the result of an action.
+         */
+        afterValue: PropTypes.number,
+        /**
+         * Message shown when more that 100 percent of total is use.
+         */
+        alertMessage: PropTypes.string,
+        /**
+         * The label above MeterGauge.
+         */
+        label: PropTypes.string,
+        /**
+         * Text version of data.
+         */
+        data: PropTypes.string,
+    },
+
+    getDefaultProps() {
+        return {
+            startValue: 0,
+            afterValue: 0,
+            alertMessage: "",
+            label: "",
+            data: "",
+        }
+    },
 
     isOver() {
         const {

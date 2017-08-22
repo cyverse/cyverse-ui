@@ -2,6 +2,9 @@ import React from 'react';
 import { marg } from './styles';
 
 export default React.createClass({
+/**
+ * Hr renders the proper styling on a horizontal rule.
+ */
     style() {
         return {
             border:"0px", 
