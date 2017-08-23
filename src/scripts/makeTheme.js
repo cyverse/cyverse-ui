@@ -37,5 +37,6 @@ var theme = {
 };
 
 writeJson('./styles/cyverseTheme.json', theme, function(err) {
+    // eslint-disable-next-line no-console
     if (err) console.log(err);
 });

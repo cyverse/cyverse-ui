@@ -1,13 +1,10 @@
-import React, { PropType } from 'react';
-import MenuItem from 'material-ui/MenuItem';
+import React from 'react';
 import { VerticalMenu } from 'cyverse-ui';
-import { Code }  from '../components';
-import theme from '../theme.js';
-import Paper from 'material-ui/Paper';
+import { Paper, MenuItem } from 'material-ui';
 
-export default React.createClass({
+const VerticalMenuEx = React.createClass({
     onSelect(e, ch) {
-        console.log(ch.props.primaryText)
+        console.log(ch.props.primaryText);
     },
 
     render() {
@@ -21,7 +18,7 @@ export default React.createClass({
                             key="1"
                             primaryText="Instance"
                         />
-                        <MenuItem 
+                        <MenuItem
                             key="2"
                             primaryText="Volume"
                         />
@@ -35,3 +32,5 @@ export default React.createClass({
         )
     }
 });
+
+export default VerticalMenuEx;

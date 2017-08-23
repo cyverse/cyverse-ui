@@ -1,9 +1,10 @@
 import React from 'react';
+import R from 'ramda';
 import Scroll from 'react-scroll';
 
 import {List, ListItem} from 'material-ui/List';
 
-import ComponentExList from '../ComponentExList';
+import * as componentDocs from '../componentDocs';
 
 const scroller = Scroll.scroller;
 
@@ -19,12 +20,15 @@ const ComponentLinkList = React.createClass({
     },
 
     renderComponentLinks() {
-        return ComponentExList.map( item => {
+        return R.toPairs(componentDocs).map( item => {
+            // This is kind of lame because the file ends with "doc"
+            // Probably a better way to get the name off the component
+            const name = item[0].slice(0, -3);
             return ( 
             <ListItem
-                key={ item.name }
-                onTouchTap={ this.scrollTo(item.name) }
-                primaryText= { item.name }
+                key={ name }
+                onTouchTap={ this.scrollTo(name) }
+                primaryText= { name }
             />
             )
         })

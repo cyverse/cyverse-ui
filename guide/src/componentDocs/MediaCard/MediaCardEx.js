@@ -3,9 +3,9 @@ import MenuItem from 'material-ui/MenuItem';
 import { styles, variables } from 'cyverse-ui/styles';
 import Avatar from 'material-ui/Avatar';
 import randomcolor from 'randomcolor';
-import { PersonIcon } from '../icons';
+import { PersonIcon } from '../../icons';
 import { MediaCard, Pill, MediaCardGroup, Div, P } from 'cyverse-ui';
-import { Code } from '../components';
+import { Code } from '../../components';
 
 const v = variables;
 
@@ -53,8 +53,8 @@ export default React.createClass({
                             color="rgba(255,255,255,.7)"
                         />
                     }
-
-                    subTitle={"So much to say"}
+                    title="I'm a MediaCard"
+                    subTitle="So much to say"
                     titleInfo= {
                         <div>
                             <Pill>
@@ -101,7 +101,7 @@ export default React.createClass({
                         />
 
                     }
-                    title={"Without Menu"}
+                    title="I have no Menu"
                     summary="I don't have any subtitle data either"
 
                     detail={ <div>

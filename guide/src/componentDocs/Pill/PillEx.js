@@ -1,19 +1,18 @@
 import React from 'react';
 import { Pill, Div, Title } from 'cyverse-ui';
 import { pad, marg } from 'cyverse-ui/styles';
-import { Code }  from '../components';
-import { PersonIcon } from '../icons';
+import PersonIcon from 'material-ui/svg-icons/social/person';
 import Paper from 'material-ui/Paper';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
 const PillEx = React.createClass({
     render() {
-        const { 
-            muiTheme: { 
-                palette: { 
-                    primary1Color 
-                } 
-            } 
+        const {
+            muiTheme: {
+                palette: {
+                    primary1Color
+                }
+            }
         } = this.props;
         return (
             <Paper

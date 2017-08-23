@@ -2,8 +2,7 @@ import React, { PropType } from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import { ButtonMenu } from 'cyverse-ui';
 import { ClearFix, ButtonGroup } from 'cyverse-ui/utils';
-import { Code }  from '../components';
-import theme from '../theme.js';
+import theme from '../../theme.js';
 import Paper from 'material-ui/Paper';
 
 export default React.createClass({
@@ -35,6 +34,7 @@ export default React.createClass({
                     >
                         <MenuItem
                             primaryText="Instance"
+
                         />
                         <MenuItem
                             primaryText="Volume"
@@ -46,7 +46,7 @@ export default React.createClass({
                     <ButtonMenu
                         primary
                         buttonLabel="Primary"
-                        onItemTouchTap={ this.onToggleMenu }
+                        onItemTouchTap={ this.onSelectItem }
                         onTouchTap={ this.onToggleMenu }
                         anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
                         targetOrigin={{horizontal: 'left', vertical: 'top'}}
@@ -64,7 +64,7 @@ export default React.createClass({
                     <ButtonMenu
                         secondary
                         buttonLabel="Secondary"
-                        onItemTouchTap={ this.onToggleMenu }
+                        onItemTouchTap={ this.onSelectItem }
                         onTouchTap={ this.onToggleMenu }
                         anchorOrigin={{horizontal: 'left', vertical: 'top'}}
                         targetOrigin={{horizontal: 'left', vertical: 'bottom'}}

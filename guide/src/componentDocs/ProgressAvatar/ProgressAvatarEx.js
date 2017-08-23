@@ -1,13 +1,9 @@
 import React from 'react';
-import theme from '../theme';
+import theme from '../../theme';
 import { ProgressAvatar, Div } from 'cyverse-ui';
-import { Sheet, Code }  from '../components';
-import { PlayIcon, PersonIcon } from '../icons';
+import { PlayIcon, PersonIcon } from '../../icons';
 import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
-import List from 'material-ui/List/List';
-import ListItem from 'material-ui/List/ListItem';
-import Avatar from 'material-ui/Avatar';
 
 export default React.createClass({
     getInitialState() {

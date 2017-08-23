@@ -1,10 +1,10 @@
 import React from 'react';
 import { P } from 'cyverse-ui';
-import { Figure } from './components';
-import MarkdownElement from './components/MarkdownElement';
+import { Figure } from '../components';
+import CodeBlock from '../components/CodeBlock';
 import Paper from 'material-ui/Paper';
-import ThemeEx from './examples/ThemeEx';
-import ThemeColorsEx from './examples/ThemeColorsEx';
+import ThemeEx from './ThemeEx';
+import ThemeColorsEx from './ThemeColorsEx';
 
 const ThemeExList = [
     {
@@ -41,7 +41,7 @@ const ThemeExList = [
                 <P>
                     To use the CyVerse theme we need to wrap our entire application in the Material-UI theme provider <code className="CodeInline">MuiThemeProvider</code> and initialize it with our custom CyVerse theme using "getMuiTheme" as our base theme. This will make the theme values available to all of the components.
                 </P>
-                <MarkdownElement
+                <CodeBlock
                     text={
 `import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -71,7 +71,7 @@ ReactDOM.render(
                 <P>
                     The <code className="CodeInline">cyverseTheme</code> values can be used by your app specific components using Material-UI's "muiThemeable" module. To use export "muiThemeable" passing your component as a second argument.  The theme object will be available to your component through it's <code className="CodeInline">props</code>.
                 </P>
-                <MarkdownElement
+                <CodeBlock
                     text={
 `import React from 'react';
 import muiThemeable from 'material-ui/styles/muiThemeable';

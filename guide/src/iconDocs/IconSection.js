@@ -5,10 +5,10 @@ import {  Hr, P, Title, Div, Section } from 'cyverse-ui';
 import * as icons from 'cyverse-ui/icons';
 
 import theme from '../theme';
-import { Figure } from './';
-import MarkdownElement from './MarkdownElement';
-import { IconEx } from '../examples';
-import IconExCode from '!raw-loader!../examples/IconEx';
+import { Figure } from '../components/';
+import CodeBlock from '../components/CodeBlock';
+import IconEx from './IconEx';
+import IconExCode from '!raw-loader!./IconEx';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
@@ -66,7 +66,7 @@ const IconSection = React.createClass({
                         color={ theme.color.primary }
                     >
                         <IconEx/>
-                        <MarkdownElement
+                        <CodeBlock
                             style={{
                                 overflow: "scroll",
                             }}

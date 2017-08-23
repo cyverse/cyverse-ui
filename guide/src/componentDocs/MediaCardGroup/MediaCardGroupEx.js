@@ -36,7 +36,7 @@ export default class MediaCardGroupEx extends Component {
                 Include the 'stagger' prop to enable staggering. The scroll animation is default, to disable it include the 'noScroll' prop
             </P>
         )
-        
+
         // Build our MedaCard list to render
         const MediaCards = () => {
             let arr =[]

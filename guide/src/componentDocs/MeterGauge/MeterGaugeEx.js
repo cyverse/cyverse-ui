@@ -4,8 +4,6 @@ import { MeterGauge } from 'cyverse-ui';
 import { pad, marg, styles } from 'cyverse-ui/styles';
 
 import Paper from 'material-ui/Paper';
-import { Code }  from '../components';
-import theme from '../theme.js';
 
 export default React.createClass({
     getInitialState() {
@@ -13,7 +11,7 @@ export default React.createClass({
             used: 40,
             willUse: 130,
             totalAllowed: 400,
-        }   
+        }
     },
 
     data() {

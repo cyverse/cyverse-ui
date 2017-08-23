@@ -10,7 +10,7 @@ const styles = {
     },
 };
 
-class MarkdownElement extends Component {
+class CodeBlock extends Component {
 
     static propTypes = {
         style: PropTypes.object,
@@ -61,4 +61,4 @@ ${text}
     }
 }
 
-export default MarkdownElement;
+export default CodeBlock;

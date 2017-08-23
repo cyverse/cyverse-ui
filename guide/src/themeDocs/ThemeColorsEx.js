@@ -28,15 +28,15 @@ const ThemeColorsEx = React.createClass({
     },
 
     render() {
-        const { 
-            muiTheme: { 
+        const {
+            muiTheme: {
                 palette
-            } 
+            }
         } = this.props;
 
-        
+
         return (
-            <div 
+            <div
                 style={{
                     display: "flex",
                     flexWrap: "wrap",

@@ -1,6 +1,5 @@
 import React from 'react';
 import { SearchBar } from 'cyverse-ui';
-import { Code }  from '../components';
 import Paper from 'material-ui/Paper';
 
 export default React.createClass({
