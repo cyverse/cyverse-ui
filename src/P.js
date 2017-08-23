@@ -2,6 +2,9 @@ import React from 'react';
 import { styles, marg } from './styles';
 
 export default React.createClass({
+/**
+ * P is a typography component for rendering a paragraph with the proper styles.
+ */
     render() {
         return (
             <p style={{ 

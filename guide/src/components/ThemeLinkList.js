@@ -3,7 +3,7 @@ import Scroll from 'react-scroll';
 
 import {List, ListItem} from 'material-ui/List';
 
-import ThemeExList from '../ThemeExList';
+import ThemeExList from '../themeDocs/ThemeExList';
 
 const scroller = Scroll.scroller;
 

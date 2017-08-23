@@ -3,6 +3,11 @@ import { marg } from './styles';
 import P from './P';
 import Title from './Title';
 
+/**
+* Identity is used on a card or view to provide context to the content. A resource for example, would have the resource name as the primary text and useful meta as the secondary text, like the date the resource was created or a quick summary.
+
+An Identity is located at the top left of a card or view. A small Identity is used on cards and a large Identity or small Identity can be used on views.
+ */
 const Identity = (props) => {
     const {
         lg,
@@ -58,5 +63,26 @@ const Identity = (props) => {
         </div>
     )
 };
+
+Identity.propTypes = {
+    /**
+     * The first line of text, usually a name.
+     */
+    primaryText: React.PropTypes.string,
+    /**
+     * The second line of text, usually a date or caption.
+     */
+    secondaryText: React.PropTypes.string,
+    /**
+     * Expects MUI's Avatar.
+     */
+    image: React.PropTypes.element,
+    /**
+     * If true Identity is rendered larger.
+     */
+    lg: React.PropTypes.bool,
+};
+
+Identity.displayName = "Identity";
 
 export default Identity

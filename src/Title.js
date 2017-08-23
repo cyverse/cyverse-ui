@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import { styles, marg, pad } from './styles';
 
 const Title = React.createClass({
+/**
+ * Title is a typography element for rendering titles with the proper markup and styles
+ */
 
     render() {
         let HTag = 'h1';

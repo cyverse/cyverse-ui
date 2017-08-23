@@ -1,19 +1,21 @@
-import React from 'react';
-import Scroll from 'react-scroll';
-import {  Hr, P, Title, Div, Section } from 'cyverse-ui'; 
-import 'cyverse-ui/styles/animation.css'
-
-import { styles } from './styles';
-import theme from './theme';
 import 'normalize.css';
 import './base.css';
 import './github.css';
 
-import ComponentExList from './ComponentExList';
-import ThemeExList from './ThemeExList';
+import React from 'react';
+import R from 'ramda';
+import Scroll from 'react-scroll';
+
+import 'cyverse-ui/styles/animation.css'
+
+import { styles } from './styles';
+import theme from './theme';
+
+import {  Hr, P, Title, Div, Section } from 'cyverse-ui';
+import * as componentDocs from './componentDocs'
+import ThemeExList from './themeDocs/ThemeExList';
 import { Header, SideNav, Figure, ThemeExamples } from './components';
-import MarkdownElement from './components/MarkdownElement';
-import IconSection from './components/IconSection';
+import IconSection from './iconDocs/IconSection';
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
@@ -30,55 +32,12 @@ export default React.createClass({
         )
     },
 
-    renderComponentExamples() {
-        return ComponentExList.map((Component, i) => {
-        let Name = Component.name;
-        let Description = Component.desc;
-        let Render = Component.render;
-        let code = Component.code;
-        return (
-                <Section
-                    key={ i }
-                    mb={ 7 }
-                >
-                    <ScrollAnchor
-                        name={ Name.replace(/\s+/g, '-') }
-                        style={{
-                            position: "absolute", 
-                            top:"-50px" 
-                        }}
-                    />
-
-                    <Hr mb={ 6 }/>
-                    <Title 
-                        h1
-                        headline
-                        color={ theme.color.primary }
-                    > 
-                        { Name } 
-                    </Title>
-                    <Div> 
-                        { Description } 
-                    </Div>
-                    <Figure
-                        caption={ `${Name} Example` }
-                        color={ theme.color.primary }
-                    >
-                        <Render/>
-                        <MarkdownElement
-                            style={{
-                                overflow: "scroll",
-                            }}
-                            text={ code }
-                        />
-
-                    </Figure>
-                </Section>
-            )
-        });
-    },
-
     render() {
+        const renderComponentList = R.toPairs(componentDocs)
+            .map(item => {
+                let Doc = item[1]
+                return <Doc key={ item[0] } />
+            });
         return (
             <Div 
                 id="bodyWrapper"
@@ -121,7 +80,7 @@ export default React.createClass({
                             >
                                 Components
                             </Title>
-                            { this.renderComponentExamples() } 
+                            { renderComponentList }
                         </Section>
                         <IconSection/>
                     </div>

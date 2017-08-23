@@ -1,11 +1,34 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Scroll from 'react-scroll';
 import Stagger from 'react-css-stagger';
 import { marg } from './styles';
 
 const scroll = Scroll.animateScroll;
 
+/**
+ * MediaCardGroup is a wrapper for MediaCards that helps to manage opening and closing, scroll animation, and stagger animation of MediaCards as children.
+*/
 const MediaCardGroup = React.createClass({
+    displayName: "MediaCardGroup",
+    propTypes: {
+        /**
+        * If true the stagger animation is enabled
+        */
+        stagger: PropTypes.bool,
+        /**
+        * If true auto scrolling when card is expaned is disabled
+        */
+        noScroll: PropTypes.bool
+    },
+
+    getDefaultProps() {
+        return {
+            stagger: false,
+            noScroll: false,
+        }
+    },
+
     getInitialState() {
         return {
             expanded: null
@@ -74,9 +97,7 @@ const MediaCardGroup = React.createClass({
     }
 });
 
-MediaCardGroup.propTypes = {
-    className: PropTypes.string,
-};
+
 
 export default MediaCardGroup;
 

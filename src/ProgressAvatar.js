@@ -1,10 +1,45 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import muiThemeable from 'material-ui/styles/muiThemeable';
-import { Div } from 'cyverse-ui';
-import Avatar from 'material-ui/Avatar';
-import CircleProgressBar from 'material-ui/CircularProgress';
 
+import { Div } from 'cyverse-ui';
+import { Avatar, CircularProgress } from 'material-ui';
+
+/**
+ * ProgressAvatar can be used in place of MUI's Avatar as a clear way to inform the user that a process is taking place on that item as well as what percentage of that process is finished without taking up valuable real estate and leveraging Avatar being a visual anchor for the item.
+ */
 const ProgressAvatar = React.createClass({
+    displayName: "ProgressAvatar",
+    propTypes: {
+        /**
+         * Optionally use an image source.
+         */
+        src: PropTypes.string,
+        /**
+         * Optionally use an Icon, expects MUI or CY-UI Icons.
+         */
+        icon: PropTypes.element,
+        /**
+         * The diameter of the Avatar.
+         */
+        size: PropTypes.number,
+        /**
+         * The thickness of the progress bar.
+         */
+        thickness: PropTypes.number,
+        /**
+         * The percentage of progress.
+         */
+        percent: PropTypes.number,
+    },
+
+    getDefaultProps() {
+        return {
+            size: 40,
+            thickness: 3,
+        }
+    },
+
     render() {
         let {
             children,
@@ -12,8 +47,8 @@ const ProgressAvatar = React.createClass({
             backgroundColor,
             src,
             icon,
-            size = 40,
-            thickness = 3,
+            size,
+            thickness,
             percent,
             name,
             muiTheme,
@@ -41,12 +76,12 @@ const ProgressAvatar = React.createClass({
         
         return (
             <Div { ...rest }>
-                <div style={{ 
+                <div style = {{
                         position: "relative", 
                         padding,
                     }}
                 >
-                    <CircleProgressBar 
+                    <CircularProgress
                         style = {{ 
                             opacity, 
                             position: "absolute", 
@@ -75,9 +110,5 @@ const ProgressAvatar = React.createClass({
         );
     },
 });
-
-ProgressAvatar.propTypes = {
-    className: PropTypes.string,
-};
 
 export default muiThemeable()(ProgressAvatar);

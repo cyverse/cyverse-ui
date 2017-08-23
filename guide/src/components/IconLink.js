@@ -1,9 +1,6 @@
 import React from 'react';
 import Scroll from 'react-scroll';
-
 import {List, ListItem} from 'material-ui/List';
-
-import ComponentExList from '../ComponentExList';
 
 const scroller = Scroll.scroller;
 

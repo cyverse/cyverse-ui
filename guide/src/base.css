@@ -22,6 +22,32 @@ a:hover {
     border-bottom: 2px solid lightgrey; 
 }
 
+
+table {
+    background: white;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+    border-collapse: collapse;
+    border-spacing: 0;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    font-size: 14px;
+}
+
+thead {
+    color: rgba(0,0,0,.5);
+}
+
+td {
+    padding: 10px 30px;
+    border-top: solid 1px #e2e2e2;
+}
+
+td code {
+    color: crimson;
+}
+
+
 code.lang-jsx, .CodeBlock {
     display: block;
     white-space: pre-wrap;
@@ -31,7 +57,7 @@ code.lang-jsx, .CodeBlock {
     background: rgba(0,0,0,0.03);
 }
 
-.CodeInline {
+.CodeInline, .markdown-body.md-description code {
     display: inline;
     background: rgba(0,0,0,0.03);
     border: solid rgba(0,0,0,.2) 1px;
@@ -39,4 +65,13 @@ code.lang-jsx, .CodeBlock {
     font-size: 11px;
     color: crimson;
     padding: 0 3px 2px;
+    vertical-align: middle;
+}
+
+.markdown-body p {
+    font-size: 14px;
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.7;
+    margin: 0px 0px 34px;
 }

@@ -9,6 +9,9 @@ import { ButtonGroup, ClearFix } from './utils';
 
 export default class PopoverExampleSimple extends React.Component {
 
+/**
+ * Under construction, has a bug closing the popover
+ */
     constructor(props) {
         super(props);
 

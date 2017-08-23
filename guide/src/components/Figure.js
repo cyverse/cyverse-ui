@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
+import theme from '../theme';
 import { styles } from 'cyverse-ui/styles';
 import { Title } from 'cyverse-ui';
 
 const Figure = React.createClass({
 
     render() {
-        let color = this.props.color || "grey";
         return (
             <figure style={{
                     margin: "0px",
@@ -15,7 +15,7 @@ const Figure = React.createClass({
             >
                 <figcaption style={{
                         ...styles.t.title,
-                        background: color,
+                        background: theme.color.primary,
                         color: "white",
                         padding: "10px",
                         margin: "-11px -11px 20px",

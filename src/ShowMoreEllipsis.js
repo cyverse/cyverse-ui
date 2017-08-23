@@ -1,14 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { hoverable } from './utils';
 import { marg } from './styles';
 
+/**
+ * ShowMoreEllipsis is used to show he user that there is more content to see that has been hidden by the UI. Generally it is unnecessary to trigger any events with it as it is used on cards which expand when the user clicks anywhere inside.
+ */
 const ShowMoreEllipsis = (props) => {
     const { 
         isHovered,
         onMouseEnter,
-        onMouseLeave
+        onMouseLeave,
+        onTouchTap
     } = props;
-    
+
+    function handleClick() {
+        if (onTouchTap) {
+            onTouchTap();
+        }
+    }
+
     const styles = {
         ...marg({mt: 2}),
         cursor: "pointer",
@@ -27,6 +38,7 @@ const ShowMoreEllipsis = (props) => {
         <span 
             onMouseEnter={ onMouseEnter }
             onMouseLeave={ onMouseLeave }
+            onClick={ handleClick }
             style={{
                 ...styles,
                 ...styles.onHover,
@@ -35,6 +47,14 @@ const ShowMoreEllipsis = (props) => {
             ...
         </span>
     )
+};
+
+ShowMoreEllipsis.displayName = "ShowMoreEllipsis";
+ShowMoreEllipsis.propTypes = {
+    /**
+     *Callback when clicked or tapped
+    */
+    onTouchTap: PropTypes.func
 };
 
 export default hoverable(ShowMoreEllipsis);

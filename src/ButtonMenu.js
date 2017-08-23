@@ -4,7 +4,48 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 
+/**
+ * A ButtonMenu is a menu that can be displayed by pressing a RaisedButton. In Troposphere a ButtonMenu is used to with the label "New" and opens a list of things that can be created.
+
+As a general rule menus should appear to the top right of the view so this component defaults to opening from the right and down but can be overridden using `anchorOrigin` and `targetOrigin`. See [Material-UI's Popover](http://www.material-ui.com/#/components/popover) for better documentation.
+ */
 export default React.createClass({
+
+    displayName: "ButtonMenu",
+    propTypes: {
+        /**
+         * Override the inline-styles of the root element.
+         */
+        style: React.PropTypes.object,
+        /**
+         * Icon to render in button.
+         */
+        buttonIcon: React.PropTypes.element,
+        /**
+         * Text on the button.
+         */
+        buttonLabel: React.PropTypes.string,
+        /**
+         * If true the button uses the primary theme color.
+         */
+        primary: React.PropTypes.bool,
+        /**
+         * If true the button uses the secondary theme color.
+         */
+        secondary: React.PropTypes.bool,
+        /**
+         * If true the button will be disabled.
+         */
+        disabled: React.PropTypes.bool,
+        /**
+         * This is the point on the anchor where the popover's targetOrigin will attach to. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].
+         */
+        anchorOrigin: React.PropTypes.object,
+        /**
+         * This is the point on the popover which will attach to the anchor's origin. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].
+         */
+        targetOrigin: React.PropTypes.object,
+    },
 
     getInitialState() {
         return {

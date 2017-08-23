@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
 
@@ -21,31 +22,38 @@ const styleSheet = () => (
     ))
 );
 
-const SkeletonText = props => (
-    <div>
-        <div
-            style={{
-                height: "10px",
-                width: "80%",
-                marginBottom: "10px",
-                background: "#EFEFEF"
-            }}
-        />
-        <div
-            style={{
-                height: "10px",
-                width: "70%",
-                background: "#EFEFEF"
-            }}
-        />
-    </div>
-)
+const SkeletonText = props => {
+    return (
+        <div>
+            <div
+                style={{
+                    height: "10px",
+                    width: "80%",
+                    marginBottom: "10px",
+                    background: "#EFEFEF",
+                    borderRadius: "800px"
+                }}
+            />
+            <div
+                style={{
+                    height: "10px",
+                    width: "70%",
+                    background: "#EFEFEF",
+                    borderRadius: "800px"
+                }}
+            />
+        </div>
+    )
+};
 
 const SkeletonList = props => {
+    /**
+     * SkeletonLists are placeholders for MediaCards while they are loading. They help to inform the user that a list will show.
+     */
     const classes = getStyleManager({})
 	.render(styleSheet());
 
-    const { cardCount = 5 } = props;
+    const { cardCount } = props;
     let SkeletonCards = [];
     for(let i=0;i<cardCount;i++) {
         SkeletonCards.push(
@@ -83,6 +91,19 @@ const SkeletonList = props => {
             />
         </div>
     );
+};
+
+SkeletonList.displayName = "SkeletonList";
+
+SkeletonList.propTypes = {
+    /**
+     * Number of cards to render
+     */
+    cardCount: PropTypes.number
+};
+
+SkeletonList.defaultProps = {
+    cardCount: 5
 };
 
 export default SkeletonList;

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import IconButton from 'material-ui/IconButton';
 import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
 import VerticalMenu from './VerticalMenu';
@@ -6,7 +7,29 @@ import Div from './Div';
 import Title from './Title';
 
 
+/**
+ * SubHeader is the contextual header located at the top of a sub-view. A Sub-view is a view that one would navigate to from a main-view. For example clicking on a list item might open a sub-view detail of that list item. The SubHeader has a back button to navigate back to the main-view and some top level controls or actions for the particular sub-view.
+ */
 const SubHeader = React.createClass({
+    displayName: "SubHeader",
+    propTypes: {
+        /**
+         * The name of the view.
+         */
+        name: PropTypes.string,
+        /**
+         * The exposed actions on the right, expects MUI IconButtons.
+         */
+        quickActions: PropTypes.array,
+        /**
+         * The Actions within the verical menu on the right, expects MUI MenuItems.
+         */
+        menuItems: PropTypes.array,
+        /**
+         * Callback when the back button is pressed.
+         */
+        onBack: PropTypes.func,
+    },
 
     renderOptionGroup() {
         let { quickActions, menuItems } = this.props;
@@ -93,9 +116,5 @@ const SubHeader = React.createClass({
         };
     },
 });
-
-SubHeader.propTypes = {
-    name: PropTypes.string,
-};
 
 export default SubHeader;
