@@ -1,0 +1,10 @@
+.MediaCard__animation-enter {
+    opacity: 0;
+    transform: translate(0,10px);
+    transition:  opacity .2s ease, transform .2s ease !important;
+}
+
+.MediaCard__animation-enter-active {
+    opacity: 1;
+    transform: translate(0,0);
+}
