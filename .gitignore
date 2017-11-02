@@ -4,3 +4,6 @@ node_modules
 *.swp
 *.swo
 *.~
+
+# Ignore Jetbrains IDEs
+.idea
