@@ -1,6 +1,5 @@
 import React from 'react';
 import { P } from 'cyverse-ui';
-import meta from 'cyverse-ui/Pill.json';
 import { Figure } from '../../components';
 import ComponentDoc from '../../components/ComponentDoc';
 import MDBlock from '../../components/MDBlock';
@@ -8,6 +7,10 @@ import CodeBlock from '../../components/CodeBlock';
 
 import PillEx from './PillEx';
 import PillExCode from '!raw-loader!./PillEx';
+
+import { parse } from 'react-docgen';
+import Pill from '!raw-loader!cyverse-ui/Pill';
+const meta = parse(Pill);
 
 const PillDoc = React.createClass({
     render () {
