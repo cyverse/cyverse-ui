@@ -2,7 +2,7 @@ import React, { PropType } from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import { ButtonMenu } from 'cyverse-ui';
 import { ClearFix, ButtonGroup } from 'cyverse-ui/utils';
-import theme from '../../theme.js';
+import theme from '../../theme';
 import Paper from 'material-ui/Paper';
 
 export default React.createClass({
