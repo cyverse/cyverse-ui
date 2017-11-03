@@ -4,6 +4,24 @@ import Scroll from 'react-scroll';
 import Stagger from 'react-css-stagger';
 import { marg } from './styles';
 
+const AnimationStyle = () => (
+    <style>
+    {`
+        .MediaCard__animation-enter {
+            opacity: 0;
+            transform: translate(0,10px);
+            transition:  opacity .2s ease, transform .2s ease !important;
+        }
+
+        .MediaCard__animation-enter-active {
+            opacity: 1;
+            transform: translate(0,0);
+        }
+    `}
+    </style>
+);
+
+// Init scroll
 const scroll = Scroll.animateScroll;
 
 /**
@@ -92,6 +110,7 @@ const MediaCardGroup = React.createClass({
                 ref="root"
             >
                 { renderList }
+                <AnimationStyle/>
             </div>
         );
     }

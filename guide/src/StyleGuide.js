@@ -6,8 +6,6 @@ import React from 'react';
 import R from 'ramda';
 import Scroll from 'react-scroll';
 
-import '../assets/css/animation.css';
-
 import { styles } from './styles';
 import theme from './theme';
 
