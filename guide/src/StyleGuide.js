@@ -1,12 +1,12 @@
 import 'normalize.css';
-import '../assets/styles/base.css';
-import '../assets/styles/github.css';
+import '../assets/css/base.css';
+import '../assets/css/github.css';
 
 import React from 'react';
 import R from 'ramda';
 import Scroll from 'react-scroll';
 
-import '../assets/styles/animation.css';
+import '../assets/css/animation.css';
 
 import { styles } from './styles';
 import theme from './theme';
