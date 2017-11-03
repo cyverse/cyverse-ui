@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/cyverse/cyverse-ui/blob/master/guide/README.md",
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "highlight.js": "^9.12.0",
     "marked": "^0.3.6",
     "material-ui": "^0.17.1",
