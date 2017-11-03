@@ -30,7 +30,6 @@ module.exports = function(env) {
             vendor: [
                 'react',
                 'react-dom',
-                // 'react-router',
                 'material-ui',
                 'material-ui/svg-icons'
             ]
@@ -47,8 +46,9 @@ module.exports = function(env) {
         resolve: {
             alias: {
                 'react': path.resolve(__dirname, 'node_modules/react'),
+                'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
                 'material-ui': path.resolve(__dirname, 'node_modules/material-ui'),
-                'cyverse-ui': path.resolve(__dirname, '../src'),
+                'cyverse-ui': path.resolve(__dirname, '../src')
             }
         },
         module: {

@@ -7,7 +7,14 @@
     "url": "git+https://github.com/cyverse/cyverse-ui.git"
   },
   "scripts": {
-    "start": "webpack-dev-server --history-api-fallback --hot --env=development --port=3000"
+    "build": "npm run build:development",
+    "build:development": "npm run clean && webpack --env=development",
+    "build:production": "npm run clean && webpack --env=production -p",
+    "clean": "rimraf dist",
+    "start": "webpack-dev-server --history-api-fallback --hot --env=development --port=3000",
+    "stats": "npm run stats:development",
+    "stats:development": "webpack --json --env=development > stats.json",
+    "stats:production": "webpack --json --env=production -p > stats.json"
   },
   "author": "CyVerse",
   "license": "BSD-3-Clause",
