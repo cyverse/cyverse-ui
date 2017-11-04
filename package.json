@@ -10,7 +10,7 @@
     "material-ui"
   ],
   "scripts": {
-    "build": "babel -d . src; node ./src/scripts/makeTheme.js; node scripts/makeDocs.js; cp ./src/styles/animation.css ./styles",
+    "build": "babel -d ./build src; cp package.json build/",
     "lint": "eslint -c .eslintrc --ext .jsx,.js --no-eslintrc src",
     "watch": "babel -w -d . src"
   },
