@@ -6,31 +6,36 @@ export default React.createClass({
     render() {
         const { children, pullR, pullL } = this.props;
 
-        let style = {};
+        let style = {
+            display: "flex",
+            flexWrap: "wrap",
+        };
         if ( pullR ) {
-            style = { float: "right" }
+            style.float = "right";
         }
         if ( pullL ) {
-            style = { float: "left" }
+            style.float = "left";
         }
 
         let renderChildren = React.Children.map(children,
             (child, i) => {
                 if (i === children.length - 1) {
-                    return React.cloneElement(child);
+                    return React.cloneElement(child, {
+                        style: { ...marg({ mv: 1 }) }
+                    });
                 } else {
                     return React.cloneElement(child, {
-                        style: { ...marg({ mr: 4 }) }
+                        style: { ...marg({ mr: 3, mv: 1 }) }
                     })
                 }
             }
         );
         return (
-            <div style={ style }>
-                <ClearFix { ...this.props }>
+            <ClearFix>
+                <div style={ style }>
                     { renderChildren }
-                </ClearFix>
-            </div>
+                </div>
+            </ClearFix>
         )
     }
 });
