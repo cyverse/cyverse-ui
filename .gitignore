@@ -1,9 +1,13 @@
 node_modules
+build
 
 # Ignore temp files
 *.swp
 *.swo
 *.~
+.DS_Store
 
+# Ignore VScode IDE
+.vscode/*
 # Ignore Jetbrains IDEs
 .idea
