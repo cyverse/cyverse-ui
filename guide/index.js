@@ -1,5 +1,7 @@
-import ReactDOM from "react-dom";
+import 'babel-polyfill';
 import React from 'react';
+import ReactDOM from 'react-dom';
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -10,8 +12,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-import cyverseTheme from 'cyverse-ui/styles/cyverseTheme.json';
-import StyleGuide from './StyleGuide.js';
+import cyverseTheme from 'cyverse-ui/styles/cyverseTheme';
+import StyleGuide from './src/StyleGuide.js';
 
 let newTheme = getMuiTheme(cyverseTheme);
 const App = () => (

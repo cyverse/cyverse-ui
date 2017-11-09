@@ -1,13 +1,15 @@
 import React from 'react';
 import { P } from 'cyverse-ui';
-import meta from 'cyverse-ui/InfoBlock.json';
+import { parse } from 'react-docgen';
 import { Figure } from '../../components';
 import ComponentDoc from '../../components/ComponentDoc';
 import MDBlock from '../../components/MDBlock';
 import CodeBlock from '../../components/CodeBlock';
-
+import InfoBlock from '!raw-loader!cyverse-ui/InfoBlock';
 import InfoBlockEx from './InfoBlockEx';
 import InfoBlockExCode from '!raw-loader!./InfoBlockEx';
+
+const meta = parse(InfoBlock);
 
 const InfoBlockDoc = React.createClass({
     render () {

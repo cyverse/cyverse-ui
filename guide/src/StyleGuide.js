@@ -1,12 +1,10 @@
 import 'normalize.css';
-import './base.css';
-import './github.css';
+import '../assets/css/base.css';
+import '../assets/css/github.css';
 
 import React from 'react';
 import R from 'ramda';
 import Scroll from 'react-scroll';
-
-import 'cyverse-ui/styles/animation.css'
 
 import { styles } from './styles';
 import theme from './theme';
@@ -39,11 +37,11 @@ export default React.createClass({
                 return <Doc key={ item[0] } />
             });
         return (
-            <Div 
+            <Div
                 id="bodyWrapper"
                 flex
             >
-                <Header 
+                <Header
                     style={ this.style().header }
                 />
                 <SideNav isOpen />
@@ -95,7 +93,7 @@ export default React.createClass({
             main: {
                 background: "whitesmoke",
                 width: "100%",
-                marginTop: 59, 
+                marginTop: 59,
                 padding: 40,
             },
 

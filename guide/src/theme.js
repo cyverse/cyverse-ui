@@ -9,6 +9,6 @@ const theme = {
         danger: "#ff470a",
         success: "#5cb85c",
     }
-}
+};
 
 export default theme;

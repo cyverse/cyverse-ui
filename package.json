@@ -10,7 +10,7 @@
     "material-ui"
   ],
   "scripts": {
-    "build": "babel -d . src; node ./src/scripts/makeTheme.js; node scripts/makeDocs.js; cp ./src/styles/animation.css ./styles",
+    "build": "babel -d ./build src; cp package.json build/",
     "lint": "eslint -c .eslintrc --ext .jsx,.js --no-eslintrc src",
     "watch": "babel -w -d . src"
   },
@@ -25,14 +25,15 @@
   },
   "homepage": "https://github.com/cyverse/cyverse-ui#readme",
   "peerDependencies": {
-    "react": "^15.0.1",
     "material-ui": "~0.17.1",
+    "react": "^15.0.1",
     "react-tap-event-plugin": "~2.0.1"
   },
   "dependencies": {
     "jss": "^7.1.5",
     "jss-preset-default": "^2.0.0",
     "jss-theme-reactor": "^0.11.1",
+    "mkdirp-promise": "^5.0.1",
     "prop-types": "^15.5.10",
     "react-css-stagger": "0.0.5",
     "react-ink": "6.2.0",
@@ -49,7 +50,10 @@
     "eslint": "^2.13.*",
     "eslint-plugin-react": "^5.1.1",
     "material-ui": "~0.17.1",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "react-docgen": "^2.17.0",
+    "react-tap-event-plugin": "~2.0.1",
     "write-json": "^1.0.1"
   }
 }

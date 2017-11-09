@@ -8,9 +8,8 @@
     // ],
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
+        "plugin:react/recommended"
     ],
-
     "ecmaFeatures": {
         "jsx": true
     },
