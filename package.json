@@ -33,6 +33,7 @@
     "jss": "^7.1.5",
     "jss-preset-default": "^2.0.0",
     "jss-theme-reactor": "^0.11.1",
+    "mkdirp-promise": "^5.0.1",
     "prop-types": "^15.5.10",
     "react-css-stagger": "0.0.5",
     "react-ink": "6.2.0",
