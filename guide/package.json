@@ -35,7 +35,7 @@
     "react-docgen": "^2.18.0",
     "react-dom": "~15.4.0",
     "react-ink": "^5.1.1",
-    "react-scroll": "^1.0.17",
+    "react-scroll": "1.0.17",
     "react-tap-event-plugin": "~2.0.1"
   },
   "devDependencies": {
