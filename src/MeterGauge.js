@@ -8,11 +8,10 @@ const v = variables;
 /**
 * A MeterGauge is used to depict a percentage of a known quantity. A common use in Troposphere is to show how much of a total resource a user HAS consumed or WILL consume. In the case that a MeterGauge is showing how much of a known quantity a user WILL consume, in a form for example, an after value can be passed in addition to the start value.
 */
-const MeterGauge =React.createClass({
+class MeterGauge extends React.Component {
+    static displayName = "MeterGauge";
 
-    displayName: "MeterGauge",
-
-    propTypes: {
+    static propTypes = {
         /**
          * The first bar value treated as percentage of total.
          */
@@ -33,19 +32,17 @@ const MeterGauge =React.createClass({
          * Text version of data.
          */
         data: PropTypes.string,
-    },
+    };
 
-    getDefaultProps() {
-        return {
-            startValue: 0,
-            afterValue: 0,
-            alertMessage: "",
-            label: "",
-            data: "",
-        }
-    },
+    static defaultProps = {
+        startValue: 0,
+        afterValue: 0,
+        alertMessage: "",
+        label: "",
+        data: "",
+    };
 
-    isOver() {
+    isOver = () => {
         const {
             startValue,
             afterValue,
@@ -53,9 +50,9 @@ const MeterGauge =React.createClass({
         return (
             startValue + afterValue >= 100
         );
-    },
+    };
 
-    alert() {
+    alert = () => {
         const {
             alertMessage
         } = this.props;
@@ -65,7 +62,7 @@ const MeterGauge =React.createClass({
                 { alertMessage }
             </div>
         ) : null;
-    },
+    };
 
     render() {
         const style = this.style();
@@ -90,9 +87,9 @@ const MeterGauge =React.createClass({
                 </dl>
             </div>
         );
-    },
+    }
 
-    style() {
+    style = () => {
         let {
             startValue,
             afterValue,
@@ -158,7 +155,7 @@ const MeterGauge =React.createClass({
             barAfter,
             alertMessage
         }
-    }
-});
+    };
+}
 
 export default muiThemeable()(MeterGauge);

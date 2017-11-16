@@ -9,8 +9,8 @@ import { parse } from 'react-docgen';
 import Identity from '!raw-loader!cyverse-ui/Identity';
 const meta = parse(Identity);
 
-const IdentityDoc = React.createClass({
-    render () {
+class IdentityDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `Identity Example` } >
@@ -20,6 +20,6 @@ const IdentityDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default IdentityDoc;

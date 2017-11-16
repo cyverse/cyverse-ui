@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const SideBar = React.createClass({
+class SideBar extends React.Component {
     render() {
         const openWidth = 250;
         const currentWidth = this.props.isOpen ? openWidth : 0; 
@@ -32,7 +32,7 @@ const SideBar = React.createClass({
             </nav>
         )
     }
-});
+}
 
 SideBar.propTypes = {
     className: PropTypes.string,

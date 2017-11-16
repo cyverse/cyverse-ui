@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react';
 import { marg, pad } from './styles';
 
-const Div = React.createClass({
-
-/**
- * Div is a primitive layout component
- */
+class Div extends React.Component {
+    /**
+     * Div is a primitive layout component
+     */
     render() {
         return (
             <div 
@@ -15,9 +14,9 @@ const Div = React.createClass({
                 { this.props.children }
             </div>
         );
-    },
+    }
 
-    styles() {
+    styles = () => {
         let display="block";
 
         if (this.props.flex) {
@@ -32,8 +31,8 @@ const Div = React.createClass({
             ...pad(this.props),
             ...this.props.style,
         }
-    },
-});
+    };
+}
 
 Div.propTypes = {
     className: PropTypes.string,

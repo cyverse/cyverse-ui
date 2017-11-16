@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import { marg, pad } from './styles';
 
-const Section = React.createClass({
-/**
- * Section is a layout primitive.
- */
+class Section extends React.Component {
+    /**
+     * Section is a layout primitive.
+     */
 
     render() {
         return (
@@ -12,9 +12,9 @@ const Section = React.createClass({
                 { this.props.children }
             </section>
         );
-    },
+    }
 
-    styles() {
+    styles = () => {
         let displayType = (this.props.flex) ?
             { display: "flex" } :
             { display: "block" };
@@ -26,8 +26,8 @@ const Section = React.createClass({
             ...pad(this.props),
             ...this.props.styles,
         }
-    },
-});
+    };
+}
 
 Section.propTypes = {
     className: PropTypes.string,

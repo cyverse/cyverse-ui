@@ -17,12 +17,10 @@ import {
     MDBlock
 } from './';
 
-const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
-const ComponentDoc = React.createClass({
-
-    tableData(prop) {
+class ComponentDoc extends React.Component {
+    tableData = (prop) => {
         const defaultValue = prop[1].defaultValue;
         const renderDefault = defaultValue ? defaultValue.value: "";
         return (
@@ -45,11 +43,12 @@ const ComponentDoc = React.createClass({
                 </td>
             </tr>
         );
-    },
+    };
 
     render() {
         const { meta, children } = this.props;
         const { description, displayName } = meta;
+
         return (
             <Section
                 key={ displayName }
@@ -104,6 +103,6 @@ const ComponentDoc = React.createClass({
             </Section>
         )
     }
- });
+}
 
 export default ComponentDoc

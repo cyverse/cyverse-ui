@@ -7,11 +7,10 @@ import { marg } from "./styles";
 /**
  * The InfoBlock is used everywhere information is displayed to the user that isn't part of an input or title. Usually at the top of a view to explain the purpose of said view. The icon helps isolate the information from the UI.
  */
-export default React.createClass({
+export default class extends React.Component {
+    static displayName = "InfoBlock";
 
-    displayName: "InfoBlock",
-
-    propTypes: {
+    static propTypes = {
         /**
          * The information text that will be displayed.
          */
@@ -20,15 +19,13 @@ export default React.createClass({
          * Show the warning icon over the default info icon
          */
         warning: React.PropTypes.bool,
-    },
+    };
 
-    getDefaultProps() {
-        return {
-            warning: false,
-        };
-    },
+    static defaultProps = {
+        warning: false,
+    };
 
-    icon() {
+    icon = () => {
         const { warning } = this.props;
         if (warning) {
             return (
@@ -42,7 +39,7 @@ export default React.createClass({
                 style={marg({ mr: 3})}
             />
         )
-    },
+    };
 
     render() {
         return (
@@ -59,4 +56,4 @@ export default React.createClass({
             </div>
         )
     }
-});
+}

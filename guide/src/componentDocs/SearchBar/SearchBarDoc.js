@@ -12,8 +12,8 @@ import { parse } from 'react-docgen';
 import SearchBar from '!raw-loader!cyverse-ui/SearchBar';
 const meta = parse(SearchBar);
 
-const SearchBarDoc = React.createClass({
-    render () {
+class SearchBarDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `SearchBar Example` } >
@@ -23,6 +23,6 @@ const SearchBarDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default SearchBarDoc;

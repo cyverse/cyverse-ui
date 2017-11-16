@@ -7,8 +7,8 @@ import ThemeExList from '../themeDocs/ThemeExList';
 
 const scroller = Scroll.scroller;
 
-const ThemeLinkList = React.createClass({
-    scrollTo(name) {
+class ThemeLinkList extends React.Component {
+    scrollTo = (name) => {
         return () => {
             let target = name.replace(/\s+/g, '-');
             scroller.scrollTo(target, {
@@ -16,9 +16,9 @@ const ThemeLinkList = React.createClass({
                 smooth: true,
             });
         }
-    },
+    };
 
-    renderComponentLinks() {
+    renderComponentLinks = () => {
         return ThemeExList.map( item => {
             return ( 
             <ListItem
@@ -28,7 +28,7 @@ const ThemeLinkList = React.createClass({
             />
             )
         })
-    },
+    };
 
     render() {
         return (
@@ -39,7 +39,7 @@ const ThemeLinkList = React.createClass({
                 Using The Theme
             </ListItem>
         )
-    },
-});
+    }
+}
 
 export default ThemeLinkList;

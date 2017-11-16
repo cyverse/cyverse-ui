@@ -3,9 +3,8 @@ import { marg, styles } from '../styles';
 
 const s = styles;
 
-const TagGroup = React.createClass({
-
-    listItems(item) {
+class TagGroup extends React.Component {
+    listItems = (item) => {
         return (
             <li 
                 key={ item.props.children.toString() }
@@ -14,7 +13,7 @@ const TagGroup = React.createClass({
                 { item }
             </li>
         )
-    },
+    };
 
     render() {
         return (
@@ -22,9 +21,9 @@ const TagGroup = React.createClass({
                 { this.props.children.map(this.listItems) }
             </ul>
         );
-    },
+    }
 
-    styles() {
+    styles = () => {
         return {
 
             li: {
@@ -36,9 +35,8 @@ const TagGroup = React.createClass({
                 ...s.u.inlineUl,
             }
         }
-    },
-
-});
+    };
+}
 
 TagGroup.propTypes = {
     className: PropTypes.string,

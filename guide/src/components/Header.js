@@ -3,7 +3,7 @@ import { GithubIcon } from '../icons';
 import { pad } from 'cyverse-ui/styles';
 import CyverseLogo from '../icons/mini_logo.svg';
 
-export default React.createClass({
+export default class extends React.Component {
     render() {
         return (
                 <header
@@ -25,4 +25,4 @@ export default React.createClass({
                 </header>
         );
     }
-});
+}

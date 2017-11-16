@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import { styles, marg, pad } from './styles';
 
-const Title = React.createClass({
-/**
- * Title is a typography element for rendering titles with the proper markup and styles
- */
+class Title extends React.Component {
+    /**
+     * Title is a typography element for rendering titles with the proper markup and styles
+     */
 
     render() {
         let HTag = 'h1';
@@ -26,9 +26,9 @@ const Title = React.createClass({
                     { this.props.children }
                 </HTag>
             )
-    },
+    }
 
-    styles() {
+    styles = () => {
         let color = this.props.color;
 
         let fontStyle;
@@ -76,8 +76,8 @@ const Title = React.createClass({
             ...marg( this.props ),
             ...pad( this.props ),
         }
-    }
-});
+    };
+}
 
 Title.propTypes = {
     className: PropTypes.string,

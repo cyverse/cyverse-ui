@@ -18,8 +18,8 @@ import IconSection from './iconDocs/IconSection';
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
-export default React.createClass({
-    renderThemeExamples() {
+export default class extends React.Component {
+    renderThemeExamples = () => {
         return  ThemeExList.map( (component, i) => (
                 <ThemeExamples
                     key={ i }
@@ -28,7 +28,7 @@ export default React.createClass({
                 />
             )
         )
-    },
+    };
 
     render() {
         const renderComponentList = R.toPairs(componentDocs)
@@ -86,9 +86,9 @@ export default React.createClass({
                 <footer/>
             </Div>
         )
-    },
+    }
 
-    style() {
+    style = () => {
         return {
             main: {
                 background: "whitesmoke",
@@ -102,5 +102,5 @@ export default React.createClass({
                 margin: "auto",
             }
         }
-    }
-})
+    };
+}

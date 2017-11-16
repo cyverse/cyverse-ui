@@ -9,9 +9,10 @@ import marg from './styles/marg';
 /**
 * MediaCards are used for objects like Projects, Project Resources, and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menu, attached to the card, contains all of the actions for that card.
  */
-const MediaCard = React.createClass({
-    displayName: "MediaCard",
-    propTypes: {
+class MediaCard extends React.Component {
+    static displayName = "MediaCard";
+
+    static propTypes = {
         /**
          * Expects MUI Avatar
          */
@@ -72,50 +73,48 @@ const MediaCard = React.createClass({
          * Classes applied to root element of card
          */
         className: PropTypes.string,
-    },
+    };
 
-    getInitialState() {
-        return {
-            cardIsHovered: false,
-            avatarIsHovered: false,
-        }
-    },
+    state = {
+        cardIsHovered: false,
+        avatarIsHovered: false,
+    };
 
-    stopPropagation(e) {
+    stopPropagation = (e) => {
         e.nativeEvent.stopImmediatePropagation();
         e.preventDefault();
         e.stopPropagation();
-    },
+    };
 
-    onCardEnter() {
+    onCardEnter = () => {
         this.setState({
             avatarIsHovered: true,
             cardIsHovered: true,
         });
-    },
+    };
 
-    onCardLeave() {
+    onCardLeave = () => {
         this.setState({
             avatarIsHovered: false,
             cardIsHovered: false,
         });
-    },
+    };
 
-    onExpand() {
+    onExpand = () => {
         const { onExpand } = this.props;
         if (onExpand) {
             onExpand();
         }
-    },
+    };
 
-    onCheck(e) {
+    onCheck = (e) => {
         e.nativeEvent.stopImmediatePropagation();
         e.preventDefault();
         e.stopPropagation();
         this.props.onBatchClick(e, this);
-    },
+    };
 
-    renderQuickLinks() {
+    renderQuickLinks = () => {
         const { quickLinks } = this.props;
         if ( quickLinks ) {
             return (
@@ -126,9 +125,9 @@ const MediaCard = React.createClass({
                 </div>
             )
         }
-    },
+    };
 
-    renderActiveQuickLinks() {
+    renderActiveQuickLinks = () => {
         const { activeQuickLinks } = this.props;
         if ( activeQuickLinks ) {
             return (
@@ -140,9 +139,9 @@ const MediaCard = React.createClass({
             )
         }
 
-    },
+    };
 
-    renderVericalMenu() {
+    renderVericalMenu = () => {
         const { menuItems, isDisabledMenu } = this.props;
         if ( menuItems ) {
             return (
@@ -152,9 +151,9 @@ const MediaCard = React.createClass({
                 />
             )
         }
-    },
+    };
 
-    renderAvatar() {
+    renderAvatar = () => {
         const { image, batchMode, onBatchClick } = this.props;
         const { avatarIsHovered } = this.state;
         const styles = this.styles();
@@ -178,9 +177,9 @@ const MediaCard = React.createClass({
                 </div>
             )
         }
-    },
+    };
 
-    detail() {
+    detail = () => {
         const { isExpanded, detail } = this.props;
 
         return isExpanded ? (
@@ -189,7 +188,7 @@ const MediaCard = React.createClass({
                 { detail }
             </div>
         ) : null;
-    },
+    };
 
     render() {
         const {
@@ -242,9 +241,9 @@ const MediaCard = React.createClass({
                 { this.detail() }
             </div>
         )
-    },
+    }
 
-    styles() {
+    styles = () => {
         let style = {};
 
         // card style
@@ -361,7 +360,7 @@ const MediaCard = React.createClass({
         };
 
         return style
-    }
-});
+    };
+}
 
 export default MediaCard

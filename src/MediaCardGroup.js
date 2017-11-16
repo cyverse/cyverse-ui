@@ -27,9 +27,10 @@ const scroll = Scroll.animateScroll;
 /**
  * MediaCardGroup is a wrapper for MediaCards that helps to manage opening and closing, scroll animation, and stagger animation of MediaCards as children.
 */
-const MediaCardGroup = React.createClass({
-    displayName: "MediaCardGroup",
-    propTypes: {
+class MediaCardGroup extends React.Component {
+    static displayName = "MediaCardGroup";
+
+    static propTypes = {
         /**
         * If true the stagger animation is enabled
         */
@@ -38,37 +39,33 @@ const MediaCardGroup = React.createClass({
         * If true auto scrolling when card is expaned is disabled
         */
         noScroll: PropTypes.bool
-    },
+    };
 
-    getDefaultProps() {
-        return {
-            stagger: false,
-            noScroll: false,
-        }
-    },
+    static defaultProps = {
+        stagger: false,
+        noScroll: false,
+    };
 
-    getInitialState() {
-        return {
-            expanded: null
-        }
-    },
+    state = {
+        expanded: null
+    };
 
     componentDidMount() {
         document.addEventListener('click', this.handleDocumentClick, false);
-    },
+    }
 
     componentWillUnmount() {
         document.removeEventListener('click', this.handleDocumentClick, false);
-    },
+    }
 
-    handleDocumentClick(e) {
+    handleDocumentClick = (e) => {
         let cards = this.refs.root;
         if (!cards.contains(e.target)) {
             this.setState({ expanded: null });
             }
-    },
+    };
 
-    onExpand(el) {
+    onExpand = (el) => {
         let scrollAmount = this.state.expanded ?
           -40 : 40;
         if ( !this.props.noScroll ) {
@@ -81,7 +78,7 @@ const MediaCardGroup = React.createClass({
         this.setState({
             expanded
         })
-    },
+    };
 
     render() {
         const { stagger } = this.props;
@@ -114,7 +111,7 @@ const MediaCardGroup = React.createClass({
             </div>
         );
     }
-});
+}
 
 
 

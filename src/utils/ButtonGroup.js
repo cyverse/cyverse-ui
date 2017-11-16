@@ -2,7 +2,8 @@ import React from 'react';
 import { marg } from '../styles';
 import ClearFix from './ClearFix';
 
-export default React.createClass({
+export default class extends React.Component {
+    static displayName = "ButtonGroup"
     render() {
         const { children, pullR, pullL } = this.props;
 
@@ -38,4 +39,4 @@ export default React.createClass({
             </ClearFix>
         )
     }
-});
+}

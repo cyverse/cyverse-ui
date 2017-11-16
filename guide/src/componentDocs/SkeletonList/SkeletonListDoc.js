@@ -12,8 +12,8 @@ import { parse } from 'react-docgen';
 import SkeletonList from '!raw-loader!cyverse-ui/SkeletonList';
 const meta = parse(SkeletonList);
 
-const SkeletonListDoc = React.createClass({
-    render () {
+class SkeletonListDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `SkeletonList Example` } >
@@ -23,6 +23,6 @@ const SkeletonListDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default SkeletonListDoc;

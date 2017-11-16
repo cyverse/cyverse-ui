@@ -9,10 +9,10 @@ import Menu from 'material-ui/Menu';
 
 As a general rule menus should appear to the top right of the view so this component defaults to opening from the right and down but can be overridden using `anchorOrigin` and `targetOrigin`. See [Material-UI's Popover](http://www.material-ui.com/#/components/popover) for better documentation.
  */
-export default React.createClass({
+export default class extends React.Component {
+    static displayName = "ButtonMenu";
 
-    displayName: "ButtonMenu",
-    propTypes: {
+    static propTypes = {
         /**
          * Override the inline-styles of the root element.
          */
@@ -45,35 +45,33 @@ export default React.createClass({
          * This is the point on the popover which will attach to the anchor's origin. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].
          */
         targetOrigin: React.PropTypes.object,
-    },
+    };
 
-    getInitialState() {
-        return {
-            open: false,
-        };
-    },
+    state = {
+        open: false,
+    };
 
-    handleTouchTap(event) {
+    handleTouchTap = (event) => {
         // This prevents ghost click.
         event.preventDefault();
         this.setState({
             open: true,
             anchorEl: event.currentTarget,
         });
-    },
+    };
 
-    handleRequestClose() {
+    handleRequestClose = () => {
         this.setState({
             open: false,
         });
-    },
+    };
 
-    handleItemTouchTap(e, item) {
+    handleItemTouchTap = (e, item) => {
         this.props.onItemTouchTap(e, item);
         this.setState({
             open: false,
         });
-    },
+    };
 
     render() {
         const {
@@ -119,5 +117,5 @@ export default React.createClass({
                 </Popover>
             </Div>
         )
-    },
-});
+    }
+}

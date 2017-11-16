@@ -5,9 +5,10 @@ import { marg, variables } from './styles';
 /**
  * A Pill is used to indicate meta data like number of active users or if an item is featured or recommended. It is sort of like a badge but smaller to fit under a title or in the footer of a card.
  */
-export default React.createClass({
-    displayName: "Pill",
-    propTypes: {
+export default class extends React.Component {
+    static displayName = "Pill";
+
+    static propTypes = {
         /**
          *The background color.
          */
@@ -20,15 +21,13 @@ export default React.createClass({
          *The text that is displayed, can optionally pass an icon here and style if not MUI or CY-UI.
          */
         children: PropTypes.node,
-    },
+    };
 
-    getDefaultProps() {
-        return {
-            color: variables.c.grey.xDark
-        }
-    },
+    static defaultProps = {
+        color: variables.c.grey.xDark
+    };
 
-    Icon() {
+    Icon = () => {
         const { icon, color } = this.props;
         if (icon) {
             return (
@@ -41,7 +40,7 @@ export default React.createClass({
                 })
             )
         }
-    },
+    };
 
     render() {
         const style = this.style();    
@@ -55,9 +54,9 @@ export default React.createClass({
                 </span>
             </span>
         )
-    },
+    }
 
-    style() {
+    style = () => {
         const { color } = this.props;
         return {
             wrapper: {
@@ -79,5 +78,5 @@ export default React.createClass({
                 background: color,
             }
         }
-    },
-});
+    };
+}

@@ -5,7 +5,7 @@ import PersonIcon from 'material-ui/svg-icons/social/person';
 import Paper from 'material-ui/Paper';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
-const PillEx = React.createClass({
+class PillEx extends React.Component {
     render() {
         const {
             muiTheme: {
@@ -57,6 +57,6 @@ const PillEx = React.createClass({
             </Paper>
         )
     }
-});
+}
 
 export default muiThemeable()(PillEx);

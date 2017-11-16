@@ -3,8 +3,8 @@ import R from 'ramda';
 import Paper from 'material-ui/Paper';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 
-const ThemeColorsEx = React.createClass({
-    getSwatch(color) {
+class ThemeColorsEx extends React.Component {
+    getSwatch = (color) => {
         return (
             <Paper
                 key={ color[0] }
@@ -25,7 +25,7 @@ const ThemeColorsEx = React.createClass({
                 </div>
             </Paper>
         )
-    },
+    };
 
     render() {
         const {
@@ -48,6 +48,6 @@ const ThemeColorsEx = React.createClass({
             </div>
         )
     }
-});
+}
 
 export default muiThemeable()(ThemeColorsEx);

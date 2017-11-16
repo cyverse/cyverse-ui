@@ -12,9 +12,10 @@ import { styles, pad, marg } from './styles';
 /**
  * The SearchBar is used for searches. It has an active state that helps to inform the user a search is affecting the list in question. An optional onClear prop allows the query to be cleared when the user presses the clear button.
  */
-const SearchBar = React.createClass({
-    displayName: "SearchBar",
-    propTypes: {
+class SearchBar extends React.Component {
+    static displayName = "SearchBar";
+
+    static propTypes = {
         /**
          * The current value or query.
          */
@@ -31,15 +32,13 @@ const SearchBar = React.createClass({
          * Callback when clear button is pressed. Note, no clear button renders if not set.
          */
         onClear: PropTypes.func,
-    },
+    };
 
-    getDefaultProps() {
-        return {
-            placeholder: "Search"
-        }
-    },
+    static defaultProps = {
+        placeholder: "Search"
+    };
 
-    styleSheet() {
+    styleSheet = () => {
         const size = { pl: 2, pr: 2 }
         return createStyleSheet('Search',
             theme => ({
@@ -74,14 +73,14 @@ const SearchBar = React.createClass({
                 }
             }
         ))
-    },
+    };
 
     componentWillMount() {
         const { muiTheme } = this.props;
 
         this.classes = getStyleManager(muiTheme)
             .render(this.styleSheet());
-    },
+    }
 
     render() {
         const {
@@ -122,6 +121,6 @@ const SearchBar = React.createClass({
             </div>
         );
     }
-});
+}
 
 export default muiThemeable()(SearchBar);

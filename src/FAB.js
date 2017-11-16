@@ -17,7 +17,7 @@ const FAB = createClass({
         }
     },
 
-    displayName: "FABMenu",
+    displayName: "FAB",
 
     propTypes: {
         /**

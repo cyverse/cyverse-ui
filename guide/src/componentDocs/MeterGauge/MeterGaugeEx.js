@@ -5,16 +5,14 @@ import { pad, marg, styles } from 'cyverse-ui/styles';
 
 import Paper from 'material-ui/Paper';
 
-export default React.createClass({
-    getInitialState() {
-        return {
-            used: 40,
-            willUse: 130,
-            totalAllowed: 400,
-        }
-    },
+export default class extends React.Component {
+    state = {
+        used: 40,
+        willUse: 130,
+        totalAllowed: 400,
+    };
 
-    data() {
+    data = () => {
         const { used, willUse, totalAllowed } = this.state;
         const startValue = (used / totalAllowed) * 100;
         const afterValue = (willUse / totalAllowed) * 100;
@@ -22,23 +20,23 @@ export default React.createClass({
             startValue,
             afterValue,
         }
-    },
+    };
 
-    onStartChange(e, v) {
+    onStartChange = (e, v) => {
         const { totalAllowed } = this.state;
         const used = (v / 100) * totalAllowed;
         this.setState({
             used
         });
-    },
+    };
 
-    onAfterChange(e, v) {
+    onAfterChange = (e, v) => {
         const { totalAllowed } = this.state;
         const willUse = (v / 100) * totalAllowed;
         this.setState({
             willUse
         });
-    },
+    };
 
     render() {
         const { used, willUse, totalAllowed } = this.state;
@@ -86,4 +84,4 @@ export default React.createClass({
             </Paper>
         )
     }
-});
+}

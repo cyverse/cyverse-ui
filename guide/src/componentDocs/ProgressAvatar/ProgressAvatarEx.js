@@ -5,14 +5,12 @@ import { PlayIcon, PersonIcon } from '../../icons';
 import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 
-export default React.createClass({
-    getInitialState() {
-        return {
-            progress: 100
-        }
-    },
+export default class extends React.Component {
+    state = {
+        progress: 100
+    };
 
-    startProccess() {
+    startProccess = () => {
 
         this.setState({
             progress: 20
@@ -38,13 +36,13 @@ export default React.createClass({
                 }, 1000);
             }, 2000);
         }, 1200);
-    },
+    };
 
-    replayProccess() {
+    replayProccess = () => {
         this.setState({
             progress: 0
         });
-    },
+    };
 
     render() {
         return (
@@ -101,4 +99,4 @@ export default React.createClass({
             </div>
         )
     }
-});
+}

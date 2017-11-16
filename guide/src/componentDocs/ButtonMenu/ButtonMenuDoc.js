@@ -9,8 +9,8 @@ import { parse } from 'react-docgen';
 import ButtonMenu from '!raw-loader!cyverse-ui/ButtonMenu';
 const meta = parse(ButtonMenu);
 
-const ButtonMenuDoc = React.createClass({
-    render () {
+class ButtonMenuDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `ButtonMenu Example` } >
@@ -20,6 +20,6 @@ const ButtonMenuDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default ButtonMenuDoc;

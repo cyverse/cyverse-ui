@@ -2,24 +2,22 @@ import React from 'react';
 import { SearchBar } from 'cyverse-ui';
 import Paper from 'material-ui/Paper';
 
-export default React.createClass({
-    getInitialState() {
-        return {
-            query: ""
-        }
-    },
+export default class extends React.Component {
+    state = {
+        query: ""
+    };
 
-    setQuery(e) {
+    setQuery = (e) => {
         this.setState({
             query: e.target.value
         })
-    },
+    };
 
-    clearQuery() {
+    clearQuery = () => {
         this.setState({
             query: ""
         })
-    },
+    };
 
     render() {
         return (
@@ -30,4 +28,4 @@ export default React.createClass({
             />
         )
     }
-});
+}
