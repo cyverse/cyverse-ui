@@ -7,32 +7,29 @@ import {List, ListItem} from 'material-ui/List';
 import * as componentDocs from '../componentDocs';
 
 const scroller = Scroll.scroller;
-
-const ComponentLinkList = React.createClass({
-    scrollTo(name) {
+const scrollTo = target => {
         return () => {
-            let target = name.replace(/\s+/g, '-');
             scroller.scrollTo(target, {
                 duration: 1000,
                 smooth: true,
             });
         }
-    },
+    };
 
-    renderComponentLinks() {
+class ComponentLinkList extends React.Component {
+    renderComponentLinks = () => {
         return R.toPairs(componentDocs).map( item => {
             // This is kind of lame because the file ends with "doc"
             // Probably a better way to get the name off the component
             const name = item[0].slice(0, -3);
-            return ( 
+            return (
             <ListItem
-                key={ name }
-                onTouchTap={ this.scrollTo(name) }
+                onTouchTap={ scrollTo(name) }
                 primaryText= { name }
             />
             )
         })
-    },
+    };
 
     render() {
         return (
@@ -43,7 +40,7 @@ const ComponentLinkList = React.createClass({
                 Components
             </ListItem>
         )
-    },
-});
+    }
+}
 
 export default ComponentLinkList;

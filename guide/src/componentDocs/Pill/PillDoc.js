@@ -12,8 +12,8 @@ import { parse } from 'react-docgen';
 import Pill from '!raw-loader!cyverse-ui/Pill';
 const meta = parse(Pill);
 
-const PillDoc = React.createClass({
-    render () {
+class PillDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `Pill Example` } >
@@ -23,6 +23,6 @@ const PillDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default PillDoc;

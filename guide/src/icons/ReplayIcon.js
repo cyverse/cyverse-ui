@@ -1,7 +1,7 @@
 import React from 'react';
 import IconBase from './IconBase';
 
-export default React.createClass({
+export default class extends React.Component {
     render() {
         return (
             <IconBase viewBox="0 0 24 24" {...this.props}>
@@ -10,4 +10,4 @@ export default React.createClass({
             </IconBase>
         )
     }
-});
+}

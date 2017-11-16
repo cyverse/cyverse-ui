@@ -3,8 +3,7 @@ import theme from '../theme';
 import { styles } from 'cyverse-ui/styles';
 import { Title } from 'cyverse-ui';
 
-const Figure = React.createClass({
-
+class Figure extends React.Component {
     render() {
         return (
             <figure style={{
@@ -30,7 +29,7 @@ const Figure = React.createClass({
 
         );
     }
-});
+}
 
 Figure.propTypes = {
     className: PropTypes.string,

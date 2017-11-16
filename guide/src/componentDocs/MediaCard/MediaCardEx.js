@@ -9,15 +9,13 @@ import { Code } from '../../components';
 
 const v = variables;
 
-export default React.createClass({
-    getInitialState() {
-        return {
-            batchMode: true,
-            checked: [],
-        }
-    },
+export default class extends React.Component {
+    state = {
+        batchMode: true,
+        checked: [],
+    };
 
-    onCheck(e, item ) {
+    onCheck = (e, item) => {
         let list = this.state.checked;
         // We can set or use any prop we want for this check
         let curr = item.props.uid;
@@ -33,7 +31,7 @@ export default React.createClass({
         };
 
         this.setState({ checked });
-    },
+    };
 
     render() {
         return (
@@ -117,5 +115,4 @@ export default React.createClass({
             </MediaCardGroup>
         )
     }
-
-});
+}

@@ -4,7 +4,7 @@ import { pad, marg } from 'cyverse-ui/styles';
 import { Div } from 'cyverse-ui';
 import { LaunchIcon, LinkIcon } from 'cyverse-ui/icons';
 
-const IconEx = React.createClass({
+class IconEx extends React.Component {
     render() {
         return (
             <Paper style={pad({p:3})}>
@@ -27,6 +27,6 @@ const IconEx = React.createClass({
             </Paper>
         );
     }
-});
+}
 
 export default IconEx

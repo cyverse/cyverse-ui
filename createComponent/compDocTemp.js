@@ -8,8 +8,8 @@ import { parse } from 'react-docgen';
 import ${name} from '!raw-loader!cyverse-ui/${name}';
 const meta = parse(${name});
 
-const ${name}Doc = React.createClass({
-    render () {
+class ${name}Doc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ '${name} Example' } >
@@ -19,7 +19,7 @@ const ${name}Doc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default ${name}Doc;
 `);

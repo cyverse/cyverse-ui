@@ -11,8 +11,8 @@ import InfoBlockExCode from '!raw-loader!./InfoBlockEx';
 
 const meta = parse(InfoBlock);
 
-const InfoBlockDoc = React.createClass({
-    render () {
+class InfoBlockDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `InfoBlock Example` } >
@@ -22,6 +22,6 @@ const InfoBlockDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default InfoBlockDoc;

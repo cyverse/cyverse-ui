@@ -12,8 +12,8 @@ import { parse } from 'react-docgen';
 import MediaCardGroup from '!raw-loader!cyverse-ui/MediaCardGroup';
 const meta = parse(MediaCardGroup);
 
-const MediaCardGroupDoc = React.createClass({
-    render () {
+class MediaCardGroupDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `MediaCard Example` } >
@@ -23,6 +23,6 @@ const MediaCardGroupDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default MediaCardGroupDoc;

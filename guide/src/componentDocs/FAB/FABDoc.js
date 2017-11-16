@@ -9,8 +9,8 @@ import FAB from '!raw-loader!cyverse-ui/FAB';
 import { parse } from 'react-docgen';
 const meta = parse(FAB);
 
-const FABDoc = React.createClass({
-    render () {
+class FABDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `FAB Example` } >
@@ -20,6 +20,6 @@ const FABDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default FABDoc;

@@ -4,15 +4,15 @@ import {List, ListItem} from 'material-ui/List';
 
 const scroller = Scroll.scroller;
 
-const IconLink = React.createClass({
-    scrollTo(target) {
+class IconLink extends React.Component {
+    scrollTo = (target) => {
         return () => {
             scroller.scrollTo(target, {
                 duration: 1000,
                 smooth: true,
             });
         }
-    },
+    };
 
     render() {
         return (
@@ -21,7 +21,7 @@ const IconLink = React.createClass({
                 primaryText="SVG Icons"
             />
         )
-    },
-});
+    }
+}
 
 export default IconLink;

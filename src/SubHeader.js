@@ -10,9 +10,10 @@ import Title from './Title';
 /**
  * SubHeader is the contextual header located at the top of a sub-view. A Sub-view is a view that one would navigate to from a main-view. For example clicking on a list item might open a sub-view detail of that list item. The SubHeader has a back button to navigate back to the main-view and some top level controls or actions for the particular sub-view.
  */
-const SubHeader = React.createClass({
-    displayName: "SubHeader",
-    propTypes: {
+class SubHeader extends React.Component {
+    static displayName = "SubHeader";
+
+    static propTypes = {
         /**
          * The name of the view.
          */
@@ -29,9 +30,9 @@ const SubHeader = React.createClass({
          * Callback when the back button is pressed.
          */
         onBack: PropTypes.func,
-    },
+    };
 
-    renderOptionGroup() {
+    renderOptionGroup = () => {
         let { quickActions, menuItems } = this.props;
         let style = this.style();
 
@@ -61,7 +62,7 @@ const SubHeader = React.createClass({
                 </div>
             )
         }
-    },
+    };
 
     render() {
         let { name, onBack } = this.props;
@@ -86,9 +87,9 @@ const SubHeader = React.createClass({
                 { this.renderOptionGroup() }
             </div>
         );
-    },
+    }
 
-    style() {
+    style = () => {
         return {
             header: {
                 position: "relative",
@@ -114,7 +115,7 @@ const SubHeader = React.createClass({
                 alignItems: "center",
             }
         };
-    },
-});
+    };
+}
 
 export default SubHeader;

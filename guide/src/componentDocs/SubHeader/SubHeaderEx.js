@@ -6,7 +6,7 @@ import Delete from 'material-ui/svg-icons/action/delete';
 import Edit from 'material-ui/svg-icons/image/edit';
 import { SubHeader, Div, Title } from 'cyverse-ui';
 
-export default React.createClass({
+export default class extends React.Component {
     render() {
         return (
             <section>
@@ -37,4 +37,4 @@ export default React.createClass({
             </section>
         )
     }
-});
+}

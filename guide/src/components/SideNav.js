@@ -6,7 +6,7 @@ import ComponentLinkList from './ComponentLinkList';
 import ThemeLinkList from './ThemeLinkList';
 import IconLink from './IconLink';
 
-const SideNav = React.createClass({
+class SideNav extends React.Component {
     render() {
         return (
             <SideBar isOpen >
@@ -23,7 +23,7 @@ const SideNav = React.createClass({
                 <IconLink/>
             </SideBar>
         )
-    },
-});
+    }
+}
 
 export default SideNav

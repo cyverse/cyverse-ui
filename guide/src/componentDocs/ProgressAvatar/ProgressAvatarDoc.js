@@ -12,8 +12,8 @@ import { parse } from 'react-docgen';
 import ProgressAvatar from '!raw-loader!cyverse-ui/ProgressAvatar';
 const meta = parse(ProgressAvatar);
 
-const ProgressAvatarDoc = React.createClass({
-    render () {
+class ProgressAvatarDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `ProgressAvatar Example` } >
@@ -23,6 +23,6 @@ const ProgressAvatarDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default ProgressAvatarDoc;

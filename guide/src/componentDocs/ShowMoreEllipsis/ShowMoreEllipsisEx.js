@@ -2,7 +2,7 @@ import React from 'react';
 import { ShowMoreEllipsis, P } from 'cyverse-ui';
 import Paper from 'material-ui/Paper';
 
-export default React.createClass({
+export default class extends React.Component {
     render() {
         return (
             <Paper style={{ padding: "10px", marginBottom: "20px"}} >
@@ -13,5 +13,5 @@ export default React.createClass({
                 </P>
             </Paper>
         )
-    },
-});
+    }
+}

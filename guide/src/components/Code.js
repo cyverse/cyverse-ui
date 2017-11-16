@@ -3,7 +3,7 @@ import { variables, marg } from 'cyverse-ui/styles';
 
 const v = variables
 
-export default React.createClass({
+export default class extends React.Component {
     render() {
         return (
             <code
@@ -11,9 +11,9 @@ export default React.createClass({
                 children={this.props.children}
             />
         )
-    },
+    }
 
-    style() {
+    style = () => {
         return {
             display: "block",
             whiteSpace: "pre-wrap",
@@ -24,6 +24,5 @@ export default React.createClass({
             background: "rgba(0,0,0,0.03)",
             ...marg(this.props),
         }
-    },
-
-});
+    };
+}

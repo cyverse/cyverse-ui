@@ -1,7 +1,7 @@
 import React from 'react';
 import Scroll from 'react-scroll';
 import R from 'ramda';
-import {  Hr, P, Title, Div, Section } from 'cyverse-ui'; 
+import {  Hr, P, Title, Div, Section } from 'cyverse-ui';
 import * as icons from 'cyverse-ui/icons';
 
 import theme from '../theme';
@@ -13,8 +13,8 @@ import IconExCode from '!raw-loader!./IconEx';
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
-const IconSection = React.createClass({
-    IconCell(icon) {
+class IconSection extends React.Component {
+    IconCell = (icon) => {
         const Icon = icon[1];
         const style = {
             cell: {
@@ -38,7 +38,7 @@ const IconSection = React.createClass({
                 </P>
             </Div>
         );
-    },
+    };
 
     render() {
         return (
@@ -86,6 +86,6 @@ const IconSection = React.createClass({
             </Section>
         );
     }
-})
+}
 
 export default IconSection

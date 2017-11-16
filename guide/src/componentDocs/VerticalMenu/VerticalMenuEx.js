@@ -2,10 +2,10 @@ import React from 'react';
 import { VerticalMenu } from 'cyverse-ui';
 import { Paper, MenuItem } from 'material-ui';
 
-const VerticalMenuEx = React.createClass({
-    onSelect(e, ch) {
+class VerticalMenuEx extends React.Component {
+    onSelect = (e, ch) => {
         console.log(ch.props.primaryText);
-    },
+    };
 
     render() {
         return (
@@ -31,6 +31,6 @@ const VerticalMenuEx = React.createClass({
             </div>
         )
     }
-});
+}
 
 export default VerticalMenuEx;

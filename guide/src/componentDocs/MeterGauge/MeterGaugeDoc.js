@@ -12,8 +12,8 @@ import { parse } from 'react-docgen';
 import MeterGauge from '!raw-loader!cyverse-ui/MeterGauge';
 const meta = parse(MeterGauge);
 
-const MeterGaugeDoc = React.createClass({
-    render () {
+class MeterGaugeDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `MeterGauge Example` } >
@@ -23,6 +23,6 @@ const MeterGaugeDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default MeterGaugeDoc;

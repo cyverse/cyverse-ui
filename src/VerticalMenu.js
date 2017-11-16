@@ -9,9 +9,10 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 Because VerticalMenus should appear to the top right corner this component defaults to opening from the right and down but this behavior can be overridden using `anchorOrigin` and `targetOrigin`. See  [Material-UI's IconMenu](http://www.material-ui.com/#/components/icon-menu) for better documentation.
  */
-const VerticalMenu = React.createClass({
-    displayName: "VerticalMenu",
-    propTypes: {
+class VerticalMenu extends React.Component {
+    static displayName = "VerticalMenu";
+
+    static propTypes = {
         /**
          * This is the point on the icon where the menu targetOrigin will attach. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].
          */
@@ -24,17 +25,17 @@ const VerticalMenu = React.createClass({
          * Should be used to pass MenuItem components.
          */
         children: PropTypes.node,
-    },
-    getDefaultProps() {
-        return {
-            anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
-            targetOrigin: { horizontal: 'right', vertical: 'top' }
-        }
-    },
-    onTouch(e) {
+    };
+
+    static defaultProps = {
+        anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
+        targetOrigin: { horizontal: 'right', vertical: 'top' }
+    };
+
+    onTouch = (e) => {
         e.stopPropagation();
         e.preventDefault();
-    },
+    };
 
     render() {
         const {
@@ -54,7 +55,7 @@ const VerticalMenu = React.createClass({
                 targetOrigin={ targetOrigin }
             />
         )
-    },
-});
+    }
+}
 
 export default VerticalMenu;

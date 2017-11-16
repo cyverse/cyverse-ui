@@ -1,19 +1,18 @@
-import React, { PropType } from 'react';
+import React from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import { ButtonMenu } from 'cyverse-ui';
-import { ClearFix, ButtonGroup } from 'cyverse-ui/utils';
+import { ButtonGroup } from 'cyverse-ui/utils';
 import theme from '../../theme';
 import Paper from 'material-ui/Paper';
 
-export default React.createClass({
-
-    onSelectItem(e, item) {
+export default class extends React.Component {
+    onSelectItem = (e, item) => {
         console.log(
             `${item.props.primaryText} was selected!`
         );
-    },
+    };
 
-    menuItem({ id, name }) {
+    menuItem = ({ id, name }) => {
         return (
             <MenuItem
                 value={ id }
@@ -21,7 +20,7 @@ export default React.createClass({
                 color={ theme.color.primary }
             />
         )
-    },
+    };
 
     render() {
 
@@ -83,4 +82,4 @@ export default React.createClass({
             </Paper>
         )
     }
-});
+}

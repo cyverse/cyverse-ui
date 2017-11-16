@@ -4,7 +4,7 @@ import { pad, marg } from 'cyverse-ui/styles';
 import { Code }  from '../../components';
 import Paper from 'material-ui/Paper';
 
-const InfoBlockEx = React.createClass({
+class InfoBlockEx extends React.Component {
     render() {
         return (
             <Paper
@@ -24,6 +24,6 @@ const InfoBlockEx = React.createClass({
             </Paper>
         )
     }
-});
+}
 
 export default InfoBlockEx;

@@ -8,9 +8,10 @@ import { Avatar, CircularProgress } from 'material-ui';
 /**
  * ProgressAvatar can be used in place of MUI's Avatar as a clear way to inform the user that a process is taking place on that item as well as what percentage of that process is finished without taking up valuable real estate and leveraging Avatar being a visual anchor for the item.
  */
-const ProgressAvatar = React.createClass({
-    displayName: "ProgressAvatar",
-    propTypes: {
+class ProgressAvatar extends React.Component {
+    static displayName = "ProgressAvatar";
+
+    static propTypes = {
         /**
          * Optionally use an image source.
          */
@@ -31,14 +32,12 @@ const ProgressAvatar = React.createClass({
          * The percentage of progress.
          */
         percent: PropTypes.number,
-    },
+    };
 
-    getDefaultProps() {
-        return {
-            size: 40,
-            thickness: 3,
-        }
-    },
+    static defaultProps = {
+        size: 40,
+        thickness: 3,
+    };
 
     render() {
         let {
@@ -108,7 +107,7 @@ const ProgressAvatar = React.createClass({
                 </div>
             </Div>
         );
-    },
-});
+    }
+}
 
 export default muiThemeable()(ProgressAvatar);

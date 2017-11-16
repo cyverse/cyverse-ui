@@ -4,8 +4,8 @@ import * as colors from 'material-ui/styles/colors';
 /**
 * A Tooltip is used to show on demand information about an element, usually an action. Is initially hidden to keep the UI clean but can be shown by hovering over the element in question.
 */
-export default React.createClass({
-    propTypes: {
+export default class extends React.Component {
+    static propTypes = {
         /**
         * Text that shows on tooltip
         */
@@ -18,46 +18,44 @@ export default React.createClass({
         * The element that shows Tooltip on hover and anchors the toopltip's direction
         */
         children: React.PropTypes.node.isRequired
-    },
+    };
 
-    displayName: "Tooltip",
+    static displayName = "Tooltip";
 
-    getInitialState() {
-        return ({
-            showTooltip: false,
-        })
-    },
+    state = {
+        showTooltip: false,
+    };
 
-    showTooltip() {
+    showTooltip = () => {
         if (this.props.message) {
             this.setState({
                 showTooltip: true,
             });
         }
-    },
+    };
 
-    hideTooltip() {
+    hideTooltip = () => {
         this.setState({
             showTooltip: false,
         });
-    },
+    };
 
-    onMouseEnter() {
+    onMouseEnter = () => {
         if (!this.props.isDisabled) {
             this.showTooltip();
         }
-    },
+    };
 
-    onMouseLeave() {
+    onMouseLeave = () => {
         this.hideTooltip();
-    },
+    };
 
-    onTouch() {
+    onTouch = () => {
         this.props.onTouch();
         setTimeout( ()=> this.hideTooltip(), 2000);
-    },
+    };
 
-    directionStyle() {
+    directionStyle = () => {
         let direction = this.props.direction;
         const offset = "calc(100% + 10px)";
         switch(direction) {
@@ -87,9 +85,9 @@ export default React.createClass({
                     bottom: offset,
                 }
         }
-    },
+    };
 
-    style() {
+    style = () => {
         const { showTooltip } = this.state;
         const x = showTooltip ? 1 : 0;
         return {
@@ -111,7 +109,7 @@ export default React.createClass({
                 transition: "opacity ease .2s, transform ease .2s"
             }
         }
-    },
+    };
 
     render() {
         return (
@@ -134,4 +132,4 @@ export default React.createClass({
                 </span>
         )
     }
-});
+}

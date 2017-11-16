@@ -12,8 +12,8 @@ import { parse } from 'react-docgen';
 import ShowMoreEllipsis from '!raw-loader!cyverse-ui/ShowMoreEllipsis';
 const meta = parse(ShowMoreEllipsis);
 
-const ShowMoreEllipsisDoc = React.createClass({
-    render () {
+class ShowMoreEllipsisDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `ShowMoreEllipsis Example` } >
@@ -23,6 +23,6 @@ const ShowMoreEllipsisDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default ShowMoreEllipsisDoc;

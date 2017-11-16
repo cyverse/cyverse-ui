@@ -12,8 +12,8 @@ import { parse } from 'react-docgen';
 import VerticalMenu from '!raw-loader!cyverse-ui/VerticalMenu';
 const meta = parse(VerticalMenu);
 
-const VerticalMenuDoc = React.createClass({
-    render () {
+class VerticalMenuDoc extends React.Component {
+    render() {
         return (
             <ComponentDoc meta={ meta } >
                 <Figure caption={ `VerticalMenu Example` } >
@@ -23,6 +23,6 @@ const VerticalMenuDoc = React.createClass({
             </ComponentDoc>
         )
     }
-});
+}
 
 export default VerticalMenuDoc;
