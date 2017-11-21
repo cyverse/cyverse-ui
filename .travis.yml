@@ -10,7 +10,7 @@ script:
 - npm run build
 - npm run lint
 - pushd ./guide
-- npm run build
+- npm run build --production
 - popd
 deploy:
   provider: pages
