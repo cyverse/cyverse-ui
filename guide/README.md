@@ -37,10 +37,10 @@ npm i
 npm run build
 
 # From within guide (separate terminal)
-npm run serve
+npm run start
 
 # Navigate to url
-open http://localhost:8080
+open http://localhost:3000
 ```
 
 #### Publishing
