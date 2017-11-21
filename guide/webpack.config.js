@@ -41,7 +41,7 @@ module.exports = function(env) {
             ),
             path: path.resolve('dist'),
             pathinfo: ifNotProduction(),
-            publicPath: '/'
+            publicPath: ifProduction('/cyverse-ui/', '/')
         },
         resolve: {
             alias: {
