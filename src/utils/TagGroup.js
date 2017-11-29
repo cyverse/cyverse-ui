@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { marg, styles } from '../styles';
 
 const s = styles;
@@ -6,7 +7,7 @@ const s = styles;
 class TagGroup extends React.Component {
     listItems = (item) => {
         return (
-            <li 
+            <li
                 key={ item.props.children.toString() }
                 style={ this.styles().li }
             >

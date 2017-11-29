@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Div from './Div';
 import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
@@ -16,35 +17,35 @@ export default class extends React.Component {
         /**
          * Override the inline-styles of the root element.
          */
-        style: React.PropTypes.object,
+        style: PropTypes.object,
         /**
          * Icon to render in button.
          */
-        buttonIcon: React.PropTypes.element,
+        buttonIcon: PropTypes.element,
         /**
          * Text on the button.
          */
-        buttonLabel: React.PropTypes.string,
+        buttonLabel: PropTypes.string,
         /**
          * If true the button uses the primary theme color.
          */
-        primary: React.PropTypes.bool,
+        primary: PropTypes.bool,
         /**
          * If true the button uses the secondary theme color.
          */
-        secondary: React.PropTypes.bool,
+        secondary: PropTypes.bool,
         /**
          * If true the button will be disabled.
          */
-        disabled: React.PropTypes.bool,
+        disabled: PropTypes.bool,
         /**
          * This is the point on the anchor where the popover's targetOrigin will attach to. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].
          */
-        anchorOrigin: React.PropTypes.object,
+        anchorOrigin: PropTypes.object,
         /**
          * This is the point on the popover which will attach to the anchor's origin. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].
          */
-        targetOrigin: React.PropTypes.object,
+        targetOrigin: PropTypes.object,
     };
 
     state = {

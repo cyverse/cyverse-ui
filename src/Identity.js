@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { marg } from './styles';
 import P from './P';
 import Title from './Title';
@@ -68,19 +69,19 @@ Identity.propTypes = {
     /**
      * The first line of text, usually a name.
      */
-    primaryText: React.PropTypes.string,
+    primaryText: PropTypes.string,
     /**
      * The second line of text, usually a date or caption.
      */
-    secondaryText: React.PropTypes.string,
+    secondaryText: PropTypes.string,
     /**
      * Expects MUI's Avatar.
      */
-    image: React.PropTypes.element,
+    image: PropTypes.element,
     /**
      * If true Identity is rendered larger.
      */
-    lg: React.PropTypes.bool,
+    lg: PropTypes.bool,
 };
 
 Identity.displayName = "Identity";
