@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class SideBar extends React.Component {
     render() {
         const openWidth = 250;
-        const currentWidth = this.props.isOpen ? openWidth : 0; 
+        const currentWidth = this.props.isOpen ? openWidth : 0;
         const style = {
             wrapper: {
                 flex: "1 0 auto",
@@ -18,12 +19,12 @@ class SideBar extends React.Component {
                 marginTop: "59px",
                 padding: "20px 0",
                 background: "#EEEEEE",
-                overflowY: "auto", 
+                overflowY: "auto",
             },
         };
 
         return (
-            <nav id="sideBar" 
+            <nav id="sideBar"
                 style={ style.wrapper }
             >
                 <div style={ style.sideBar } >

@@ -25,9 +25,9 @@
   },
   "homepage": "https://github.com/cyverse/cyverse-ui#readme",
   "peerDependencies": {
-    "material-ui": "~0.17.1",
-    "react": "^15.0.1",
-    "react-tap-event-plugin": "~2.0.1"
+    "material-ui": ">= 0.17.1 < 1.0.0",
+    "react": ">= 15.0.1 < 17.0.0",
+    "react-tap-event-plugin": ">= 2.0.1 < 4.0.0"
   },
   "dependencies": {
     "jss": "^7.1.5",
@@ -37,7 +37,7 @@
     "prop-types": "^15.5.10",
     "react-css-stagger": "0.0.5",
     "react-ink": "6.2.0",
-    "react-scroll": "1.5.2"
+    "react-scroll": "^1.6.7"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
@@ -49,11 +49,11 @@
     "babel-preset-stage-2": "^6.5.0",
     "eslint": "^2.13.*",
     "eslint-plugin-react": "^5.1.1",
-    "material-ui": "~0.17.1",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
+    "material-ui": "~0.19.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-docgen": "^2.17.0",
-    "react-tap-event-plugin": "~2.0.1",
+    "react-tap-event-plugin": "^3.0.1",
     "write-json": "^1.0.1"
   }
 }
