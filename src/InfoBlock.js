@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import InformationIcon from "material-ui/svg-icons/action/info";
 import WarningIcon from "material-ui/svg-icons/alert/warning";
 import P from "./P";
@@ -14,11 +15,11 @@ export default class extends React.Component {
         /**
          * The information text that will be displayed.
          */
-        text: React.PropTypes.string,
+        text: PropTypes.string,
         /**
          * Show the warning icon over the default info icon
          */
-        warning: React.PropTypes.bool,
+        warning: PropTypes.bool,
     };
 
     static defaultProps = {
@@ -48,7 +49,7 @@ export default class extends React.Component {
                     display: "flex",
                     ...marg(this.props)
                 }}
-            > 
+            >
                 { this.icon() }
                 <P mb={ 0 }>
                     { this.props.text }

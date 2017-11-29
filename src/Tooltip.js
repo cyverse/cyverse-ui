@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as colors from 'material-ui/styles/colors';
 
 /**
@@ -9,15 +10,15 @@ export default class extends React.Component {
         /**
         * Text that shows on tooltip
         */
-        message: React.PropTypes.string.isRequired,
+        message: PropTypes.string.isRequired,
         /**
         * The direction of the element Tooltip will open from. Expects one of: "right", "bottom", "left", "top".
         */
-        direction: React.PropTypes.oneOf(['right', 'left', 'top', 'bottom']),
+        direction: PropTypes.oneOf(['right', 'left', 'top', 'bottom']),
         /**
         * The element that shows Tooltip on hover and anchors the toopltip's direction
         */
-        children: React.PropTypes.node.isRequired
+        children: PropTypes.node.isRequired
     };
 
     static displayName = "Tooltip";

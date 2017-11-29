@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { marg, pad } from './styles';
 
 class Div extends React.Component {
@@ -7,7 +8,7 @@ class Div extends React.Component {
      */
     render() {
         return (
-            <div 
+            <div
                 id={ this.props.id }
                 style={ this.styles() }
             >
