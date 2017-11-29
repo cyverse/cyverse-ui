@@ -1,5 +1,6 @@
-import { default as React, PropTypes } from 'react'
-const defaultSize = '1em'
+import React from 'react';
+import PropTypes from 'prop-types';
+const defaultSize = '1em';
 
 const IconBase = ({ children, size, style, ...props }, { reactIconBase }) => {
     const computedSize = size ? size : (reactIconBase && reactIconBase.size || defaultSize)
