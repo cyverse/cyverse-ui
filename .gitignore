@@ -10,5 +10,6 @@ es
 
 # Ignore VScode IDE
 .vscode/*
+
 # Ignore Jetbrains IDEs
 .idea

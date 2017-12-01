@@ -15,6 +15,11 @@
     ],
     "main": "lib/index.js",
     "module": "es/index.js",
+    "files": [
+        "lib",
+        "es",
+        "src"
+    ],
     "scripts": {
         "build": "npm run clean && npm run build:cjs && npm run build:es",
         "build:cjs": "BABEL_ENV=cjs babel src --out-dir lib",
