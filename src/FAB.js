@@ -2,8 +2,8 @@ import React from 'react';
 import createClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import { FloatingActionButton } from 'material-ui';
-import Tooltip from 'cyverse-ui/Tooltip';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import Tooltip from './Tooltip';
 
 /**
 * FAB (Floating Action Button) is an extention of the Material-ui FloatingActionButton. See their documentation for full API.
