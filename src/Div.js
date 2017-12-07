@@ -9,6 +9,7 @@ class Div extends React.Component {
     render() {
         return (
             <div
+                className={ this.props.className}
                 id={ this.props.id }
                 style={ this.styles() }
             >
@@ -23,8 +24,13 @@ class Div extends React.Component {
         if (this.props.flex) {
             display="flex";
         }
+
         if (this.props.inlineBlock) {
             display="inline-block";
+        }
+
+        if (this.props.hide) {
+            display="none";
         }
         return {
             display,

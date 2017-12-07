@@ -31,7 +31,7 @@ class ComponentLinkList extends React.Component {
             return (
             <ListItem
                 key={ name }
-                onTouchTap={ scrollTo(name) }
+                onTouchTap={ scrollTo(target) }
                 primaryText= { name }
             />
             )

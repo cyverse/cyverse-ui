@@ -4,6 +4,13 @@ import { styles, variables } from 'cyverse-ui/styles';
 import Avatar from 'material-ui/Avatar';
 import randomcolor from 'randomcolor';
 import { PersonIcon } from '../../icons';
+import Checkbox from 'material-ui/Checkbox';
+import IconButton from 'material-ui/IconButton';
+import DeleteIcon from 'material-ui/svg-icons/action/delete';
+import EditIcon from 'material-ui/svg-icons/image/edit';
+import FavoriteIcon from 'material-ui/svg-icons/action/favorite';
+import FavoriteBorderIcon from 'material-ui/svg-icons/action/favorite-border';
+
 import { MediaCard, Pill, MediaCardGroup, Div, P } from 'cyverse-ui';
 import { Code } from '../../components';
 
@@ -81,6 +88,14 @@ export default class extends React.Component {
                         <MenuItem key="2" primaryText="Send feedback" />,
                         <MenuItem key="3" primaryText="Settings" />,
                         <MenuItem key="4" primaryText="Help" />,
+                    ]}
+                    quickLinks = {[
+                        <IconButton><FavoriteIcon color="red"/></IconButton>,
+                        <IconButton><EditIcon/></IconButton>,
+                        <IconButton><DeleteIcon/></IconButton>,
+                    ]}
+                    activeQuickLinks = {[
+                        <IconButton><FavoriteIcon color="red"/></IconButton>
                     ]}
                 />
                 <MediaCard
