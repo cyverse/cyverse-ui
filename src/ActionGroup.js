@@ -12,7 +12,7 @@ const styleSheet = () => (
         theme => ({
             wrapper: {
                 display: "flex",
-                padding: "5px 10px",
+                padding: "5px 0 5px 75px",
                 alignItems: "center",
             }
         }

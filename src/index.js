@@ -27,3 +27,4 @@ export { default as ListCardActions } from './ListCardActions';
 export { default as ActionGroup } from './ActionGroup';
 export { default as ListCardDetail } from './ListCardDetail';
 export { default as CheckableAvatar } from './CheckableAvatar';
+export { default as MDBlock } from './MDBlock';

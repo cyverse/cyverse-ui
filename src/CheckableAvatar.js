@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
-import Checkbox from 'material-ui/Checkbox'
+import Checkbox from 'material-ui/Checkbox';
+import * as events from "./utils/events";
 
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
@@ -26,14 +27,21 @@ const styleSheet = () => (
 /**
  * CheckableAvatar is used to...
  */
-const CheckableAvatar = ({ isCheckable, image, ...rest }) => {
+const CheckableAvatar = ({ isCheckable, image, onClick, ...rest }) => {
 
     // Generate classes object and render corresponding style definitions in header.
     const classes = getStyleManager({})
     .render(styleSheet());
 
+    function handleRootClick(e) {
+        events.stopPropagation(e);
+        onClick ? onClick(e): null;
+    }
+
     return(
-        <div className={ classes.wrapper }>
+        <div
+            onClick={ handleRootClick }
+            className={ classes.wrapper }>
             { isCheckable ? (
             <Checkbox
                 {...rest }

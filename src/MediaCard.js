@@ -35,19 +35,19 @@ class MediaCard extends React.Component {
          */
         titleInfo: PropTypes.node,
         /**
-         * The summary of contents
+         * The space between the Identity and Actions. Only shown when card is collapsed. Will render any components or string passed.
          */
         summary: PropTypes.node,
         /**
-         * The details show when expanded
+         * The large space below the card header. Only shown when card is expanded. Will render any components or string passed.
          */
         detail: PropTypes.node,
         /**
-         * The exposed actions that appear to right of card on hover or when open
+         * The exposed actions that appear to right of card on hover or when open. Expects an array of components. Best used with MUI IconButtons
          */
         quickLinks: PropTypes.array,
         /**
-         * Like quicklinks but are always visible
+         * Works with quicklinks but is visible when quickLinks is not. By having the same button in both props causes said button to always show while the others only show when card is hovered or active.
          */
         activeQuickLinks: PropTypes.array,
         /**
@@ -82,46 +82,33 @@ class MediaCard extends React.Component {
 
     state = {
         cardIsHovered: false,
-        avatarIsHovered: false,
-    };
-
-    stopPropagation = (e) => {
-        e.nativeEvent.stopImmediatePropagation();
-        e.preventDefault();
-        e.stopPropagation();
     };
 
     onCardEnter = () => {
         this.setState({
-            avatarIsHovered: true,
             cardIsHovered: true,
         });
     };
 
     onCardLeave = () => {
         this.setState({
-            avatarIsHovered: false,
             cardIsHovered: false,
         });
     };
 
-    onExpand = () => {
+    handleOnExpand = () => {
         const { onExpand } = this.props;
-        if (onExpand) {
-            onExpand();
-        }
+        onExpand ? onExpand() : null;
     };
 
     onCheck = (e) => {
-        e.nativeEvent.stopImmediatePropagation();
-        e.preventDefault();
-        e.stopPropagation();
         this.props.onBatchClick(e, this);
     };
 
     renderQuickLinks = () => {
         const { quickLinks, isExpanded } = this.props;
-        const isHidden = ( isExpanded ? false : !this.state.cardIsHovered )
+        const { cardIsHovered } = this.state;
+        const isHidden = ( isExpanded ? false : !cardIsHovered )
         return quickLinks ? (
             <ActionGroup hide={ isHidden }>
                 { quickLinks.map( link => link ) }
@@ -131,7 +118,8 @@ class MediaCard extends React.Component {
 
     renderActiveQuickLinks = () => {
         const { activeQuickLinks, isExpanded } = this.props;
-        const isHidden = ( isExpanded ? true : this.state.cardIsHovered )
+        const { cardIsHovered } = this.state;
+        const isHidden = ( isExpanded ? true : cardIsHovered )
         return activeQuickLinks ? (
             <ActionGroup hide={ isHidden }>
                 { activeQuickLinks.map(link => link ) }
@@ -172,13 +160,13 @@ class MediaCard extends React.Component {
                 <ListCardHeader
                     onMouseEnter = { this.onCardEnter }
                     onMouseLeave = { this.onCardLeave }
-                    onClick = { this.onExpand }
+                    onClick = { this.handleOnExpand }
                 >
                     <ListCardIdentity>
                         <Identity
                             image = {
                                 <CheckableAvatar
-                                    image={ image }
+                                    image={image}
                                     isCheckable={ showCheck }
                                     onCheck={ this.onCheck }
                                     checked={ checked }
@@ -193,7 +181,7 @@ class MediaCard extends React.Component {
                         { summary }
                     </ListCardSummary>
 
-                    <ListCardActions onClick={ this.stopPropagation }>
+                    <ListCardActions stopPropagation>
                         { this.renderQuickLinks() }
                         { this.renderActiveQuickLinks() }
                         { this.renderVericalMenu() }

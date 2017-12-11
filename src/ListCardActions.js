@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
+import Div from "./Div";
 
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
@@ -10,12 +11,11 @@ const styleSheet = () => (
         theme => ({
             wrapper: {
                 background: "linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,1) 100%)",
-                display: "flex",
                 position: "absolute",
                 height: "48px",
                 right: "5px",
                 top: "8px",
-            }
+            },
         }
     ))
 );
@@ -29,11 +29,14 @@ const ListCardActions = ({children, ...rest}) => {
     .render(styleSheet());
 
     return(
-        <div
+        <Div
             { ...rest }
-            className={ classes.wrapper }>
+            flex
+            stopPropagation
+            className={ classes.wrapper }
+        >
             {children}
-        </div>
+        </Div>
     )
 };
 ListCardActions.displayName = "ListCardActions";

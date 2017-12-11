@@ -56,6 +56,7 @@ const Identity = (props) => {
                         m={0}
                         subheading={ lg }
                         caption={ !lg }
+                        lineHeight="1.15"
                     >
                         { secondaryText }
                     </P>
