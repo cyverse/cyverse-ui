@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
+import Div from "./Div";
 
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
@@ -26,12 +27,12 @@ const ListCardIdentity = ({ children, ...rest }) => {
     .render(styleSheet());
 
     return(
-        <div
+        <Div
             { ...rest }
             className={ classes.wrapper }
         >
             { children }
-        </div>
+        </Div>
     )
 };
 ListCardIdentity.displayName = "ListCardIdentity";
