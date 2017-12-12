@@ -18,7 +18,11 @@ const styleSheet = () => (
     ))
 );
 /**
- * ListCardDetail is used to...
+ * ListCardDetail is the area below ListCardHeader where the details on the ListCard lives.
+ *
+ * Typically the details are only shown on an "expanded" ListCard while at the same time hiding ListCardSummary. This is done by manually controlling these components by setting the `hide` prop to `true`.
+ *
+ * ListCardDetail is a primative component that needs to be controled but is more flexible. For a more "automagic" solution see `MediaCard`.
  */
 const ListCardDetail = ({children, ...rest}) => {
 

@@ -28,3 +28,5 @@ export { default as ActionGroup } from './ActionGroup';
 export { default as ListCardDetail } from './ListCardDetail';
 export { default as CheckableAvatar } from './CheckableAvatar';
 export { default as MDBlock } from './MDBlock';
+export { default as SummaryText } from './SummaryText';
+export { default as Element } from './Element';

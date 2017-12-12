@@ -19,6 +19,8 @@ export { default as ListCardHeaderDoc } from './ListCardHeader/ListCardHeaderDoc
 export { default as ListCardIdentityDoc } from './ListCardIdentity/ListCardIdentityDoc';
 export { default as ListCardSummaryDoc } from './ListCardSummary/ListCardSummaryDoc';
 export { default as ListCardActionsDoc } from './ListCardActions/ListCardActionsDoc';
-export { default as ActionGroupDoc } from './ActionGroup/ActionGroupDoc';
 export { default as ListCardDetailDoc } from './ListCardDetail/ListCardDetailDoc';
+export { default as ActionGroupDoc } from './ActionGroup/ActionGroupDoc';
 export { default as CheckableAvatarDoc } from './CheckableAvatar/CheckableAvatarDoc';
+export { default as SummaryTextDoc } from './SummaryText/SummaryTextDoc';
+export { default as ElementDoc } from './Element/ElementDoc';

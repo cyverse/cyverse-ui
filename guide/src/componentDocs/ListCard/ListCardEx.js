@@ -1,50 +1,61 @@
-import React from 'react';
-import { ListCard, Identity } from 'cyverse-ui';
-import { pad, marg } from 'cyverse-ui/styles';
-import { ActionPermIdentity } from 'material-ui/svg-icons/action/perm-identity';
-import { Avatar } from 'material-ui';
+import React from "react";
+import {
+    ListCard,
+    ListCardHeader,
+    ListCardIdentity,
+    ListCardSummary,
+    ListCardActions,
+    Identity,
+    VerticalMenu,
+    SummaryText,
+} from "cyverse-ui";
+import { pad, marg } from "cyverse-ui/styles";
+import users from "../../data/users";
+
+import { Avatar, MenuItem } from "material-ui";
 
 const ListCardEx = props => (
     <div>
-        <ListCard white = {{ p:2 }}>
-            <Identity
-                primaryText="Superman"
-                secondaryText="The man of steel"
-                image={
-                    <Avatar
-                        backgroundColor="tomato"
-                    >
-                        S
-                    </Avatar>
-                }
-            />
-        </ListCard>
-        <ListCard white = {{ p:2 }}>
-            <Identity
-                primaryText="Batman"
-                secondaryText="The dark night"
-                image={
-                    <Avatar
-                        backgroundColor="darkblue"
-                    >
-                        B
-                    </Avatar>
-                }
-            />
-        </ListCard>
-        <ListCard white = {{ p:2 }}>
-            <Identity
-                primaryText="Wolverine"
-                secondaryText="The weapon X"
-                image={
-                    <Avatar
-                        backgroundColor="gold"
-                    >
-                        S
-                    </Avatar>
-                }
-            />
-        </ListCard>
+        {users.map(user => (
+            <ListCard>
+                <ListCardHeader>
+                    <ListCardIdentity>
+                        <Identity
+                            primaryText={user.name}
+                            secondaryText={user.tagline}
+                            image={
+                                <Avatar backgroundColor="tomato">
+                                    {user.name[0]}
+                                </Avatar>
+                            }
+                        />
+                    </ListCardIdentity>
+                    <ListCardSummary>
+                        <SummaryText>
+                            {user.description}
+                        </SummaryText>
+                    </ListCardSummary>
+                    <ListCardActions>
+                        <VerticalMenu
+                            onItemTouchTap={ (e, ch) => console.log( ch.props.primaryText )}
+                        >
+                            <MenuItem
+                                key="1"
+                                primaryText="Instance"
+                            />
+                            <MenuItem
+                                key="2"
+                                primaryText="Volume"
+                            />
+                            <MenuItem
+                                key="3"
+                                primaryText="Image"
+                            />
+                        </VerticalMenu>
+                    </ListCardActions>
+                </ListCardHeader>
+            </ListCard>
+        ))}
     </div>
 );
 

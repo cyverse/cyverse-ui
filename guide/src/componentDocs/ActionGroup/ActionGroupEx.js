@@ -1,7 +1,8 @@
 import React from 'react';
 import { ActionGroup } from 'cyverse-ui';
 import { pad, marg } from 'cyverse-ui/styles';
-import Paper from 'material-ui/Paper';
+import { Paper, IconButton } from 'material-ui';
+import * as Icons from 'cyverse-ui/icons';
 
 const ActionGroupEx = props => (
     <Paper
@@ -10,7 +11,17 @@ const ActionGroupEx = props => (
             ...pad({ p: 3 }),
         }}
     >
-        <ActionGroup/>
+        <ActionGroup>
+            <IconButton>
+                <Icons.LaunchIcon/>
+            </IconButton>
+            <IconButton>
+                <Icons.LinkIcon/>
+            </IconButton>
+            <IconButton>
+                <Icons.VolumeIcon/>
+            </IconButton>
+        </ActionGroup>
     </Paper>
 );
 

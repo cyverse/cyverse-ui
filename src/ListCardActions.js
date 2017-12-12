@@ -20,7 +20,7 @@ const styleSheet = () => (
     ))
 );
 /**
- * ListCardActions is used to...
+ * ListCardActions is the area on ListCard on the right where actions live.
  */
 const ListCardActions = ({children, ...rest}) => {
 

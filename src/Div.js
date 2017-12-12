@@ -41,6 +41,7 @@ class Div extends React.Component {
         if (this.props.hide) {
             display = "none";
         }
+
         return {
             display,
             ...marg(this.props),

@@ -25,7 +25,9 @@ const styleSheet = () => (
     ))
 );
 /**
- * CheckableAvatar is used to...
+ * A pattern for list items like MediaCards or ListCards with an Avatar is that they can be made selected by replacing the Avatar with a checkbox ussually on focus or on hover. Checkable Avatar is to make this easier to implement.
+ *
+ * CheckableAvatar is a controled component so the state needs to be managed. This is to allow more fine grained control.
  */
 const CheckableAvatar = ({ isCheckable, image, onClick, ...rest }) => {
 

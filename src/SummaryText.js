@@ -2,49 +2,51 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
-import styles from "./styles/styles";
-import Div from "./Div"
+import Element from "./Element";
 
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
 const styleSheet = () => (
-    createStyleSheet('ListCardSummary',
+    createStyleSheet('SummaryText',
         theme => ({
             wrapper: {
-                width: "0%",
-                marginRight: "60px",
-                opacity: "1",
-                flex: "1",
-                ...styles.t.body1,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                maxWidth: "500px"
             }
         }
     ))
 );
 /**
- * ListCardSummary is used to...
+ * SummaryText is used to...
  */
-const ListCardSummary = ({children, ...rest}) => {
+const SummaryText = ({
+    children,
+    ...rest
+}) => {
 
     // Generate classes object and render corresponding style definitions in header.
     const classes = getStyleManager({})
     .render(styleSheet());
 
     return(
-        <Div
-            { ...rest }
+        <Element {...rest }
+            tag="p"
+            typography="body1"
             className={ classes.wrapper }
         >
             { children }
-        </Div>
+        </Element>
     )
 };
-ListCardSummary.displayName = "ListCardSummary";
+SummaryText.displayName = "SummaryText";
 
-ListCardSummary.propTypes = {
+SummaryText.propTypes = {
     /**
      * Expects...
      */
     children: PropTypes.node
 };
 
-export default ListCardSummary
+export default SummaryText

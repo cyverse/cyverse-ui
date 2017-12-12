@@ -35,6 +35,7 @@
         "marked": "^0.3.7",
         "mkdirp-promise": "^5.0.1",
         "prop-types": "^15.5.10",
+        "ramda": "^0.25.0",
         "react-css-stagger": "0.0.5",
         "react-ink": "6.2.0",
         "react-scroll": "^1.6.7"
