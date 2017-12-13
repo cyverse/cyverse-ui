@@ -43,6 +43,7 @@ class Element extends React.Component {
             muiTheme,
             style,
             tag = "div",
+            hide,
             ...rest
         } = this.props;
         const Tag = tag;
@@ -64,9 +65,12 @@ class Element extends React.Component {
             color: colorProp,
             whiteSpace = {},
             typography = "body1",
-            background: backgroundProp
+            background: backgroundProp,
+            hide,
+            display: displayProp = "block"
         } = this.props;
 
+        const display = hide ? "hidden" : displayProp;
         const typoStack = styles.t;
 
         const background = palette[backgroundProp]
@@ -82,6 +86,7 @@ class Element extends React.Component {
         return {
             color,
             background,
+            display,
             ...fontStyle,
             ...marg(whiteSpace),
             ...pad(whiteSpace)

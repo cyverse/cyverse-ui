@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
 
-import Div from "./Div";
+import Element from "./Element";
 import Hr from "./Hr";
 
 // Define static styles here.
@@ -31,12 +31,12 @@ const ListCardDetail = ({children, ...rest}) => {
     .render(styleSheet());
 
     return(
-        <Div { ...rest }>
+        <Element { ...rest }>
             <Hr style={{ margin: "0 0 20px"}}/>
             <div className={ classes.content }>
                 { children }
             </div>
-        </Div>
+        </Element>
     )
 };
 ListCardDetail.displayName = "ListCardDetail";

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
-import Div from "./Div";
+import Element from "./Element";
 
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
@@ -29,14 +29,14 @@ const ListCardActions = ({children, ...rest}) => {
     .render(styleSheet());
 
     return(
-        <Div
+        <Element
             { ...rest }
             flex
             stopPropagation
             className={ classes.wrapper }
         >
             {children}
-        </Div>
+        </Element>
     )
 };
 ListCardActions.displayName = "ListCardActions";
