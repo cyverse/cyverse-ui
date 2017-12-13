@@ -91,8 +91,9 @@ export default class extends React.Component {
     style = () => {
         return {
             main: {
+                flex: 1,
                 background: "whitesmoke",
-                width: "100%",
+                width: "0",
                 marginTop: 59,
                 padding: 40,
             },
