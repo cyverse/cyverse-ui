@@ -10,11 +10,6 @@ const styleSheet = () => (
     createStyleSheet('ListCardActions',
         theme => ({
             wrapper: {
-                background: "linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,1) 100%)",
-                position: "absolute",
-                height: "48px",
-                right: "5px",
-                top: "8px",
             },
         }
     ))
@@ -31,7 +26,7 @@ const ListCardActions = ({children, ...rest}) => {
     return(
         <Element
             { ...rest }
-            flex
+            display="flex"
             stopPropagation
             className={ classes.wrapper }
         >

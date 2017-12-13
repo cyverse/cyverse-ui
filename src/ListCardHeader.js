@@ -13,6 +13,7 @@ const styleSheet = () => (
                 display: "flex",
                 flexWrap: "nowrap",
                 alignContent: "stretch",
+                justifyContent: "space-between",
                 minHeight: "65px",
                 alignItems: "center",
             },
@@ -35,6 +36,7 @@ const ListCardHeader = ({children, onClick, ...rest}) => {
         <Element
             { ...rest }
             onClick={onClick}
+            display="flex"
             whiteSpace={{ p:2 }}
             className={ `${classes.wrapper} ${ onClick ? classes.clickable : null}` }
         >

@@ -130,10 +130,12 @@ class MediaCard extends React.Component {
     renderVericalMenu = () => {
         const { menuItems, isDisabledMenu } = this.props;
         return menuItems ? (
-            <VerticalMenu
-                children={ menuItems }
-                disabled={ isDisabledMenu }
-            />
+            <ActionGroup>
+                <VerticalMenu
+                    children={ menuItems }
+                    disabled={ isDisabledMenu }
+                />
+            </ActionGroup>
         ) : null
     };
 

@@ -10,7 +10,7 @@ import PersonIcon from "material-ui/svg-icons/social/person";
 import EditIcon from "material-ui/svg-icons/image/edit";
 import FavoriteIcon from "material-ui/svg-icons/action/favorite";
 import FavoriteBorderIcon from "material-ui/svg-icons/action/favorite-border";
-import { MediaCard, Pill, MediaCardGroup, MDBlock } from "cyverse-ui";
+import { MediaCard, Pill, MediaCardGroup, MDBlock, SummaryText } from "cyverse-ui";
 
 export default class extends React.Component {
     state = {
@@ -50,7 +50,7 @@ export default class extends React.Component {
                             }
                             title={item.name}
                             subTitle={item.tagline}
-                            summary={item.description.slice(0, 72)}
+                            summary={<SummaryText children={item.description}/>}
                             detail={ <MDBlock text={item.description}/> }
                             menuItems={[
                                 <MenuItem

@@ -12,7 +12,7 @@ const styleSheet = () => (
         theme => ({
             wrapper: {
                 width: "0%",
-                marginRight: "60px",
+                marginRight: "20px",
                 opacity: "1",
                 flex: "1",
                 ...styles.t.body1,

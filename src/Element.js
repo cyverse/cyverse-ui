@@ -70,7 +70,7 @@ class Element extends React.Component {
             display: displayProp = "block"
         } = this.props;
 
-        const display = hide ? "hidden" : displayProp;
+        const display = hide ? "none" : displayProp;
         const typoStack = styles.t;
 
         const background = palette[backgroundProp]
