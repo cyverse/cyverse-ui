@@ -18,7 +18,7 @@ const styleSheet = () => (
     ))
 );
 /**
- * ActionGroup is used to...
+ * Organize groups of IconButtons on list cards or in app bars.
  */
 const ActionGroup = ({children, ...rest}) => {
 
@@ -40,7 +40,7 @@ ActionGroup.displayName = "ActionGroup";
 
 ActionGroup.propTypes = {
     /**
-     * Expects...
+     * Although one can pass any component or elements to be rendered as children, ActionGroup was designed for IconButtons or components like `VerticalMenu` that are made with IconButton.
      */
     children: PropTypes.node
 };

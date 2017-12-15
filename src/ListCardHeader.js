@@ -24,7 +24,9 @@ const styleSheet = () => (
     ))
 );
 /**
- * ListCardHeader is used to...
+ * The ListCardHeader is the area the appears at the top of the ListCard and contains the ListCards identity and actions.
+ *
+ * If your ListCard is to be expandable the click handler for toggling state should be applied to ListCardHeader. For a more "automagic" solution to expanding ListCards or for an example of what's possible see `MediaCard`
  */
 const ListCardHeader = ({children, onClick, ...rest}) => {
 
@@ -48,7 +50,9 @@ ListCardHeader.displayName = "ListCardHeader";
 
 ListCardHeader.propTypes = {
     /**
-     * Expects...
+     * Pass anything you want to render in ListCardHeader as children.
+     *
+     * Generally ListCardIdentity, ListCardSummary, and ListCardActions in this order for best results.
      */
     children: PropTypes.node
 };

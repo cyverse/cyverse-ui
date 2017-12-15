@@ -8,7 +8,7 @@ import { marg, pad, styles } from "./styles";
 
 /**
  * Element is the building block for creating other components. All of CyVerse-UI is built with Element.
- * It has the core functionality that is common across the CY-UI world. These features let you access global values for whitespace and typography to maintain consistancy throught your components.
+ * It has the core functionality that is common across the CY-UI world. These features let you access global values for whitespace and typography to maintain consistency throughout your components.
  *
  * Render the html tag you want by a string to the el prop and pass any html attributes as you would with any other element.
  **/
@@ -98,7 +98,7 @@ Element.displayName = "Element";
 
 Element.propTypes = {
     /**
-     * Expects...
+     * As a primitive Element excepts any DOM node or component.
      */
     children: PropTypes.node
 };

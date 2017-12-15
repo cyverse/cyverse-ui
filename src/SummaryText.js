@@ -19,7 +19,9 @@ const styleSheet = () => (
     ))
 );
 /**
- * SummaryText is used to...
+ * SummaryText is used to limit text to a single line and available width. Typically used to preview a large block of text that can be shown by clicking `ShowMoreEllipsis` or a collapsed `MediaCard`.
+ *
+ * For another use case of SummaryText see 'MediaCard`
  */
 const SummaryText = ({
     children,
@@ -33,7 +35,6 @@ const SummaryText = ({
     return(
         <Element {...rest }
             tag="p"
-            typography="body1"
             className={ classes.wrapper }
         >
             { children }
@@ -44,9 +45,9 @@ SummaryText.displayName = "SummaryText";
 
 SummaryText.propTypes = {
     /**
-     * Expects...
+     * Any length string will be shortened to fit the available width on a single line.
      */
-    children: PropTypes.node
+    children: PropTypes.string
 };
 
 export default SummaryText

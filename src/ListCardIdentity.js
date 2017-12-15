@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
-import Div from "./Div";
+import Element from "./Element";
 
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
@@ -10,7 +10,6 @@ const styleSheet = () => (
     createStyleSheet('ListCardIdentity',
         theme => ({
             wrapper: {
-                display: "flex",
                 alignItems: "center",
                 minWidth: "300px",
             }
@@ -18,7 +17,7 @@ const styleSheet = () => (
     ))
 );
 /**
- * ListCardIdentity is used to...
+ * ListCardIdentity is the space on the left side within ListCardHeader that contains the ListCard's identity.
  */
 const ListCardIdentity = ({ children, ...rest }) => {
 
@@ -26,20 +25,23 @@ const ListCardIdentity = ({ children, ...rest }) => {
     const classes = getStyleManager({})
     .render(styleSheet());
 
-    return(
-        <Div
+    return (
+        <Element
             { ...rest }
+            display="flex"
             className={ classes.wrapper }
         >
             { children }
-        </Div>
+        </Element>
     )
 };
 ListCardIdentity.displayName = "ListCardIdentity";
 
 ListCardIdentity.propTypes = {
     /**
-     * Expects...
+     * Pass anything you want to render within ListCardIdentity as children.
+     *
+     * For best results use Identity
      */
     children: PropTypes.node
 };

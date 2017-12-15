@@ -38,7 +38,9 @@ ListCardActions.displayName = "ListCardActions";
 
 ListCardActions.propTypes = {
     /**
-     * Expects...
+     * Pass anything you want to render within ListCardActions as children.
+     *
+     * For best results use `ActionGroup` with `IconButtons`.
      */
     children: PropTypes.node
 };

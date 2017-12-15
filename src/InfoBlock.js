@@ -8,9 +8,7 @@ import { marg } from "./styles";
 /**
  * The InfoBlock is used everywhere information is displayed to the user that isn't part of an input or title. Usually at the top of a view to explain the purpose of said view. The icon helps isolate the information from the UI.
  */
-export default class extends React.Component {
-    static displayName = "InfoBlock";
-
+class InfoBlock extends React.Component {
     static propTypes = {
         /**
          * The information text that will be displayed.
@@ -58,3 +56,7 @@ export default class extends React.Component {
         )
     }
 }
+
+InfoBlock.displayName = "InfoBlock";
+
+export default InfoBlock

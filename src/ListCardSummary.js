@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
 import styles from "./styles/styles";
-import Div from "./Div"
+import Element from "./Element"
 
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
@@ -13,7 +13,6 @@ const styleSheet = () => (
             wrapper: {
                 width: "0%",
                 marginRight: "20px",
-                opacity: "1",
                 flex: "1",
                 ...styles.t.body1,
             }
@@ -21,7 +20,9 @@ const styleSheet = () => (
     ))
 );
 /**
- * ListCardSummary is used to...
+ * ListCardSummary is the area in ListCardHeader between ListCardIdentity and ListCardActions. Used to display a short summary or overview information at a birds eye view. Works well with SummaryText for truncating / previewing large blocks of text into a single line. For to display more information make the card expandable and render the additional information in ListCardDetail.
+ *
+ * For a more "automagic" solution or to see an example of how ListCardSummary and ListCardDetail work together on expandable cards see `MediaCard`.
  */
 const ListCardSummary = ({children, ...rest}) => {
 
@@ -30,19 +31,22 @@ const ListCardSummary = ({children, ...rest}) => {
     .render(styleSheet());
 
     return(
-        <Div
+        <Element
             { ...rest }
             className={ classes.wrapper }
         >
             { children }
-        </Div>
+        </Element>
     )
-};
+}
+
 ListCardSummary.displayName = "ListCardSummary";
 
 ListCardSummary.propTypes = {
     /**
-     * Expects...
+     * Pass anything you want to render within ListCardSummary as children.
+     *
+     * If a text summary is desired `SummaryText` is recommended.
      */
     children: PropTypes.node
 };

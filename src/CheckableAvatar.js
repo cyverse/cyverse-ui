@@ -25,9 +25,9 @@ const styleSheet = () => (
     ))
 );
 /**
- * A pattern for list items like MediaCards or ListCards with an Avatar is that they can be made selected by replacing the Avatar with a checkbox ussually on focus or on hover. Checkable Avatar is to make this easier to implement.
+ * A pattern for list items like MediaCards or ListCards with an Avatar is that they can be made selectable by replacing the Avatar with a checkbox ussually on focus or on hover. Checkable Avatar is to make this easier to implement.
  *
- * CheckableAvatar is a controled component so the state needs to be managed. This is to allow more fine grained control.
+ * CheckableAvatar is a controlled component so the state needs to be managed. This is to allow more fine grained control.
  */
 const CheckableAvatar = ({ isCheckable, image, onClick, ...rest }) => {
 
@@ -57,9 +57,9 @@ CheckableAvatar.displayName = "CheckableAvatar";
 
 CheckableAvatar.propTypes = {
     /**
-     * Expects...
+     * Works best with Avatar but can be passed any component or element. For example: an image tag, icon, or third party avatar.
      */
-    children: PropTypes.node
+    image: PropTypes.node
 };
 
 export default CheckableAvatar

@@ -1,5 +1,8 @@
 import React from "react";
 import users from "../../data/users";
+import IconButton from "material-ui/IconButton";
+import DeleteIcon from "material-ui/svg-icons/action/delete";
+import EditIcon from "material-ui/svg-icons/image/edit";
 import {
     ListCard,
     ListCardHeader,
@@ -33,6 +36,12 @@ const ListCardActionsEx = props => (
                 <SummaryText>{user.description}</SummaryText>
             </ListCardSummary>
             <ListCardActions style={{border: "1px solid red"}}>
+                <IconButton>
+                    <EditIcon/>
+                </IconButton>
+                <IconButton>
+                    <DeleteIcon/>
+                </IconButton>
                 <VerticalMenu
                     onItemTouchTap={(e, ch) =>
                         console.log(ch.props.primaryText)
