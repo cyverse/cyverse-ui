@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as events from "./utils/events";
+import * as event from "./utils/events";
+import filterDomProps from 'filter-react-dom-props';
+
 import { marg, pad } from "./styles";
 
 class Div extends React.Component {
@@ -15,14 +17,14 @@ class Div extends React.Component {
     }
 
     render() {
-        const { styles, ...rest} = this.props;
+        const { styles, children, ...rest} = this.props;
         return (
             <div
-                { ...rest }
+                { ...filterDomProps(rest) }
                 onClick={ this.clickHandler }
-                style={this.styles()}
+                style={{ ...this.styles(), ...styles}}
             >
-                {this.props.children}
+                { children }
             </div>
         );
     }

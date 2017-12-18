@@ -111,7 +111,7 @@ class MediaCard extends React.Component {
         const isHidden = ( isExpanded ? false : !cardIsHovered )
         return quickLinks ? (
             <ActionGroup hide={ isHidden }>
-                { quickLinks.map( link => link ) }
+                { quickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
             </ActionGroup>
         ) : null
     };
@@ -122,7 +122,7 @@ class MediaCard extends React.Component {
         const isHidden = ( isExpanded ? true : cardIsHovered )
         return activeQuickLinks ? (
             <ActionGroup hide={ isHidden }>
-                { activeQuickLinks.map(link => link ) }
+                { activeQuickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
             </ActionGroup>
         ) : null
     };

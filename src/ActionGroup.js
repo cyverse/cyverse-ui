@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
 
-import Div from "./Div";
+import Element from "./Element";
 
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
@@ -27,13 +27,13 @@ const ActionGroup = ({children, ...rest}) => {
     .render(styleSheet());
 
     return(
-        <Div
+        <Element
             { ...rest }
-            flex
+            display="flex"
             className={ classes.wrapper }
         >
             { children }
-        </Div>
+        </Element>
     )
 };
 ActionGroup.displayName = "ActionGroup";

@@ -20,7 +20,7 @@ import { Avatar, MenuItem } from "material-ui";
 const ListCardEx = props => (
     <div>
         {users.map(user => (
-            <ListCard>
+            <ListCard key={user.name}>
                 <ListCardHeader>
                     <ListCardIdentity>
                         <Identity

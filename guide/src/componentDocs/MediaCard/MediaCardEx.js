@@ -26,7 +26,7 @@ export default class extends React.Component {
             ? list.filter(i => curr !== i)
             : [...list, curr];
         this.setState({ selectedItems });
-    };
+    }
 
     render() {
         const { selectedItems } = this.state;
@@ -36,6 +36,7 @@ export default class extends React.Component {
                     return (
                         <MediaCard
                             uid={i}
+                            key={i}
                             batchMode={selectedItems.length > 0}
                             checked={selectedItems.includes(i)}
                             onBatchClick={this.onCheck}

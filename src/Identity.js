@@ -70,11 +70,11 @@ Identity.propTypes = {
     /**
      * The first line of text, usually a name.
      */
-    primaryText: PropTypes.string,
+    primaryText: PropTypes.node,
     /**
      * The second line of text, usually a date or caption.
      */
-    secondaryText: PropTypes.string,
+    secondaryText: PropTypes.node,
     /**
      * Expects MUI's Avatar.
      */

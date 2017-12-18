@@ -19,7 +19,7 @@ import { Avatar, MenuItem } from "material-ui";
 const user = users[0];
 
 const ListCardHeaderEx = props => (
-    <ListCard>
+    <ListCard key={user.name}>
         <ListCardHeader style={{border: "1px solid red"}}>
             <ListCardIdentity>
                 <Identity
