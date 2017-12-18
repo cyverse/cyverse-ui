@@ -56,6 +56,7 @@ const Identity = (props) => {
                         m={0}
                         subheading={ lg }
                         caption={ !lg }
+                        lineHeight="1.15"
                     >
                         { secondaryText }
                     </P>
@@ -69,11 +70,11 @@ Identity.propTypes = {
     /**
      * The first line of text, usually a name.
      */
-    primaryText: PropTypes.string,
+    primaryText: PropTypes.node,
     /**
      * The second line of text, usually a date or caption.
      */
-    secondaryText: PropTypes.string,
+    secondaryText: PropTypes.node,
     /**
      * Expects MUI's Avatar.
      */

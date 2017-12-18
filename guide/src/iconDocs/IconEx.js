@@ -8,10 +8,16 @@ class IconEx extends React.Component {
     render() {
         return (
             <Paper style={pad({p:3})}>
-                <Div mb={ 5 }>
-                    <LinkIcon mr={ 4 }/>
-                    <LinkIcon mr={ 4 } size={ 40 }/>
-                    <LinkIcon size={ 50 }/>
+                <Div mb={ 4 }>
+                    <Div mb={3}>
+                        <LinkIcon/>
+                    </Div>
+                    <Div mb={3}>
+                        <LinkIcon size={40}/>
+                    </Div>
+                    <Div>
+                        <LinkIcon size={50}/>
+                    </Div>
                 </Div>
                 <Div style={{ display: "flex", alignItems: "center" }}>
                     <RaisedButton

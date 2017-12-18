@@ -29,12 +29,13 @@ class ComponentLinkList extends React.Component {
                     ([letter]) => `-${letter.toLowerCase()}`
                 );
             return (
-                <ListItem
-                    onTouchTap={scrollTo(target)}
-                    primaryText={name}
-                />
-            );
-        });
+            <ListItem
+                key={ name }
+                onTouchTap={ scrollTo(target) }
+                primaryText= { name }
+            />
+            )
+        })
     };
 
     render() {

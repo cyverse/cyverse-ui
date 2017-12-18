@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Checkbox from 'material-ui/Checkbox';
 import VerticalMenu from './VerticalMenu';
-import Hr from './Hr';
-import styles from './styles/styles';
-import marg from './styles/marg';
+import Identity from './Identity';
+import CheckableAvatar from './CheckableAvatar';
+import ListCard from './ListCard';
+import ListCardHeader from './ListCardHeader';
+import ListCardIdentity from './ListCardIdentity';
+import ListCardSummary from './ListCardSummary';
+import ListCardActions from './ListCardActions';
+import ListCardDetail from './ListCardDetail';
+import ActionGroup from './ActionGroup';
 
 /**
 * MediaCards are used for objects like Projects, Project Resources, and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menu, attached to the card, contains all of the actions for that card.
@@ -30,19 +35,19 @@ class MediaCard extends React.Component {
          */
         titleInfo: PropTypes.node,
         /**
-         * The summary of contents
+         * The space between the Identity and Actions. Only shown when card is collapsed. Will render any components or string passed.
          */
         summary: PropTypes.node,
         /**
-         * The details show when expanded
+         * The large space below the card header. Only shown when card is expanded. Will render any components or string passed.
          */
         detail: PropTypes.node,
         /**
-         * The exposed actions that appear to right of card on hover or when open
+         * The exposed actions that appear to right of card on hover or when open. Expects an array of components. Best used with MUI IconButtons
          */
         quickLinks: PropTypes.array,
         /**
-         * Like quicklinks but are always visible
+         * Works with quicklinks but is visible when quickLinks is not. By having the same button in both props causes said button to always show while the others only show when card is hovered or active.
          */
         activeQuickLinks: PropTypes.array,
         /**
@@ -77,290 +82,120 @@ class MediaCard extends React.Component {
 
     state = {
         cardIsHovered: false,
-        avatarIsHovered: false,
-    };
-
-    stopPropagation = (e) => {
-        e.nativeEvent.stopImmediatePropagation();
-        e.preventDefault();
-        e.stopPropagation();
     };
 
     onCardEnter = () => {
         this.setState({
-            avatarIsHovered: true,
             cardIsHovered: true,
         });
     };
 
     onCardLeave = () => {
         this.setState({
-            avatarIsHovered: false,
             cardIsHovered: false,
         });
     };
 
-    onExpand = () => {
+    handleOnExpand = () => {
         const { onExpand } = this.props;
-        if (onExpand) {
-            onExpand();
-        }
+        onExpand ? onExpand() : null;
     };
 
     onCheck = (e) => {
-        e.nativeEvent.stopImmediatePropagation();
-        e.preventDefault();
-        e.stopPropagation();
         this.props.onBatchClick(e, this);
     };
 
     renderQuickLinks = () => {
-        const { quickLinks } = this.props;
-        if ( quickLinks ) {
-            return (
-                <div
-                    onClick={ this.stopPropagation }
-                    style={ this.styles().quickLinks }>
-                    { quickLinks.map( link => link ) }
-                </div>
-            )
-        }
+        const { quickLinks, isExpanded } = this.props;
+        const { cardIsHovered } = this.state;
+        const isHidden = ( isExpanded ? false : !cardIsHovered )
+        return quickLinks ? (
+            <ActionGroup hide={ isHidden }>
+                { quickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
+            </ActionGroup>
+        ) : null
     };
 
     renderActiveQuickLinks = () => {
-        const { activeQuickLinks } = this.props;
-        if ( activeQuickLinks ) {
-            return (
-                <div
-                    onClick={ this.stopPropagation }
-                    style={ this.styles().activeQuickLinks }>
-                    { activeQuickLinks.map(link => link ) }
-                </div>
-            )
-        }
-
+        const { activeQuickLinks, isExpanded } = this.props;
+        const { cardIsHovered } = this.state;
+        const isHidden = ( isExpanded ? true : cardIsHovered )
+        return activeQuickLinks ? (
+            <ActionGroup hide={ isHidden }>
+                { activeQuickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
+            </ActionGroup>
+        ) : null
     };
 
     renderVericalMenu = () => {
         const { menuItems, isDisabledMenu } = this.props;
-        if ( menuItems ) {
-            return (
+        return menuItems ? (
+            <ActionGroup>
                 <VerticalMenu
                     children={ menuItems }
                     disabled={ isDisabledMenu }
                 />
-            )
-        }
-    };
-
-    renderAvatar = () => {
-        const { image, batchMode, onBatchClick } = this.props;
-        const { avatarIsHovered } = this.state;
-        const styles = this.styles();
-
-        let avatar = image;
-
-        if ( onBatchClick && ( batchMode || avatarIsHovered ) ) {
-            avatar = (
-                <Checkbox
-                    onClick = { this.onCheck }
-                    checked = { this.props.checked }
-                    style = {{ margin: "auto", width: "60%" }}
-                />
-            );
-        }
-
-        if (image) {
-            return (
-                <div style={ styles.image }>
-                    { avatar }
-                </div>
-            )
-        }
-    };
-
-    detail = () => {
-        const { isExpanded, detail } = this.props;
-
-        return isExpanded ? (
-            <div style = { this.styles().detail }>
-                <Hr style = {{ margin: "0px -20px 20px" }}/>
-                { detail }
-            </div>
-        ) : null;
+            </ActionGroup>
+        ) : null
     };
 
     render() {
         const {
             title,
+            image,
             subTitle,
-            titleInfo,
             summary,
-            className
+            detail,
+            isExpanded,
+            onBatchClick,
+            checked,
+            batchMode,
+            ...rest,
         } = this.props;
-
-        const styles = this.styles();
+        const { cardIsHovered } = this.state;
+        const showCheck = onBatchClick && ( batchMode || cardIsHovered );
 
         return (
-            <div className={ className } style = {this.styles().card} >
-                <div
-                    style = { styles.header }
+            <ListCard { ...rest }
+                isExpanded={ isExpanded }
+            >
+                <ListCardHeader
                     onMouseEnter = { this.onCardEnter }
                     onMouseLeave = { this.onCardLeave }
-                    onClick = {this.onExpand}
+                    onClick = { this.handleOnExpand }
                 >
-                    <div style={ styles.identity}>
-                        { this.renderAvatar() }
-                        <div style={ styles.titleInfo }>
-                            <div style={ styles.title }>
-                                { title }
-                            </div>
+                    <ListCardIdentity>
+                        <Identity
+                            image = {
+                                <CheckableAvatar
+                                    image={image}
+                                    isCheckable={ showCheck }
+                                    onCheck={ this.onCheck }
+                                    checked={ checked }
+                                />
+                             }
+                            primaryText = { title }
+                            secondaryText = { subTitle }
+                        />
+                    </ListCardIdentity>
 
-                            <div style={ styles.subTitle }>
-                                { subTitle }
-                            </div>
+                    <ListCardSummary hide={ isExpanded }>
+                        { summary }
+                    </ListCardSummary>
 
-                            <div>
-                                { titleInfo }
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div style={ styles.summary }>
-                        {  summary }
-                    </div>
-
-                    <div style={ styles.menu } >
+                    <ListCardActions stopPropagation>
                         { this.renderQuickLinks() }
                         { this.renderActiveQuickLinks() }
                         { this.renderVericalMenu() }
-                    </div>
+                    </ListCardActions>
+                </ListCardHeader>
 
-                </div>
-                { this.detail() }
-            </div>
+                <ListCardDetail hide={!isExpanded}>
+                    { detail }
+                </ListCardDetail>
+            </ListCard>
         )
     }
-
-    styles = () => {
-        let style = {};
-
-        // card style
-        let cardShadow = styles.boxShadow.li
-        let openStyle = {};
-        if (this.props.isExpanded) {
-            cardShadow = styles.boxShadow.lg
-            openStyle = {
-                margin: "40px -20px",
-                borderLeft: "solid 5px #0971ab"
-            };
-        }
-        style.card = {
-            ...openStyle,
-            position: "relative",
-            transition: "all ease .1s",
-            background: "white",
-            ...cardShadow,
-        };
-
-        // header style
-        style.header = {
-            display: "flex",
-            flexWrap: "nowrap",
-            alignContent: "stretch",
-            cursor: "pointer",
-            padding: "10px",
-            minHeight: "65px",
-            alignItems: "center",
-        };
-
-        // identety style
-        style.identity = {
-            display: "flex",
-            alignItems: "center",
-            minWidth: "300px",
-        };
-
-        // image style
-        style.image = {
-            ...marg({ mr: 3 }),
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "40px",
-            minWidth: "40px",
-            flexShrink: "0",
-            position: "relative",
-            marginRight: "10px",
-            alignSelf: "flex-start",
-            borderRadius: "50%",
-        };
-
-        // titleInfo style
-        style.titleInfo = {
-            width: "100%"
-        }
-
-        // title style
-        style.title = {
-            ...styles.t.body2,
-            width: "100%",
-            marginRight: "20px",
-            color: this.props.color,
-        };
-
-        // subtitle style
-        style.subTitle = {
-            ...styles.t.caption,
-        };
-
-        // summary style
-        style.summary = {
-            width: "100%",
-            marginRight: "60px",
-            opacity: "1",
-            ...styles.t.body1,
-        };
-
-        if (this.props.isExpanded) {
-            style.summary.display = "none";
-        }
-
-        // menu style
-        style.menu = {
-            background: "linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,1) 100%)",
-            display: "flex",
-            position: "absolute",
-            height: "48px",
-            right: "5px",
-            top: "8px",
-        };
-
-        // quickMenu
-        style.quickLinks = {
-            display: "none",
-            padding: "5px 10px 5px 75px",
-            alignItems: "center",
-        };
-
-        style.activeQuickLinks = {
-            display: "flex",
-            padding: "5px 10px",
-            alignItems: "center",
-        };
-        if ( this.state.cardIsHovered || this.props.isExpanded ) {
-            style.activeQuickLinks.display = "none";
-            style.quickLinks.display = "flex";
-        }
-
-        // detail style
-        style.detail = {
-            padding: "0px 20px 20px"
-        };
-
-        return style
-    };
 }
 
 export default MediaCard

@@ -7,7 +7,6 @@ class SideBar extends React.Component {
         const currentWidth = this.props.isOpen ? openWidth : 0;
         const style = {
             wrapper: {
-                flex: "1 0 auto",
                 position: "relative",
                 width: openWidth,
             },

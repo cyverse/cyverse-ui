@@ -9,7 +9,7 @@ import Scroll from 'react-scroll';
 import { styles } from './styles';
 import theme from './theme';
 
-import {  Hr, P, Title, Div, Section } from 'cyverse-ui';
+import {  Hr, P, Title, Element } from 'cyverse-ui';
 import * as componentDocs from './componentDocs'
 import ThemeExList from './themeDocs/ThemeExList';
 import { Header, SideNav, Figure, ThemeExamples } from './components';
@@ -37,9 +37,9 @@ export default class extends React.Component {
                 return <Doc key={ item[0] } />
             });
         return (
-            <Div
+            <Element
                 id="bodyWrapper"
-                flex
+                display="flex"
             >
                 <Header
                     style={ this.style().header }
@@ -47,7 +47,7 @@ export default class extends React.Component {
                 <SideNav isOpen />
                 <main style={ this.style().main }>
                     <div style={ this.style().content }>
-                        <Section mb={ 7 }>
+                        <Element tag="section" whitespace={{mb:7 }}>
                             <Title
                                 h1
                                 display2
@@ -59,40 +59,41 @@ export default class extends React.Component {
                             <P subheading>
                                 A collection of UI components for CyVerse that extend <a href="http://www.material-ui.com/" target="_blank" title="Material-UI">Material-UI</a> adding components that handle UI patterns within the CyVerse ecosystem not covered by Material-UI.
                             </P>
-                        </Section>
-                        <Section>
-                            <Title
-                                h2
-                                display1
-                                color={ theme.color.primary }
+                        </Element>
+                        <section>
+                            <Element
+                                tag="h2"
+                                typography="display1"
+                                color="primary1Color"
                             >
                                 Theming
-                            </Title>
+                            </Element>
                             { this.renderThemeExamples() }
-			</Section>
-                        <Section>
-                            <Title
-                                h2
-                                display1
-                                color={ theme.color.primary }
+			            </section>
+                        <section>
+                            <Element
+                                tag="h2"
+                                typography="display1"
+                                color="primary1Color"
                             >
                                 Components
-                            </Title>
+                            </Element>
                             { renderComponentList }
-                        </Section>
+                        </section>
                         <IconSection/>
                     </div>
                 </main>
                 <footer/>
-            </Div>
+            </Element>
         )
     }
 
     style = () => {
         return {
             main: {
+                flex: 1,
                 background: "whitesmoke",
-                width: "100%",
+                width: "0",
                 marginTop: 59,
                 padding: 40,
             },

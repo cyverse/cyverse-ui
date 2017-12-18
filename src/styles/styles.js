@@ -34,7 +34,7 @@ let styleVariables = {
         },
 
         caption: {
-            fontSize: "12px",
+            fontSize: "14px",
             fontWeight: "400",
             color: v.c.grey.dark,
         },
@@ -82,7 +82,7 @@ let styleVariables = {
         },
 
         body2: {
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: "500",
         },
 
@@ -149,4 +149,4 @@ let styleVariables = {
     }
 };
 
-export default styleVariables; 
+export default styleVariables;

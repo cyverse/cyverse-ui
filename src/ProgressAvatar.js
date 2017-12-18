@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import muiThemeable from 'material-ui/styles/muiThemeable';
-
-import { Div } from 'cyverse-ui';
 import { Avatar, CircularProgress } from 'material-ui';
+
+import Element from './Element';
 
 /**
  * ProgressAvatar can be used in place of MUI's Avatar as a clear way to inform the user that a process is taking place on that item as well as what percentage of that process is finished without taking up valuable real estate and leveraging Avatar being a visual anchor for the item.
@@ -61,7 +61,7 @@ class ProgressAvatar extends React.Component {
         let avatarSize = size;
         let value = 0;
         let avatarColor = backgroundColor;
-        
+
         if ( percent < 100 ) {
             value = percent;
             opacity = 1;
@@ -71,21 +71,21 @@ class ProgressAvatar extends React.Component {
             padding = thickness;
         }
 
-        let strokeColor = progressColor || success; 
-        
+        let strokeColor = progressColor || success;
+
         return (
-            <Div { ...rest }>
+            <Element { ...rest }>
                 <div style = {{
-                        position: "relative", 
+                        position: "relative",
                         padding,
                     }}
                 >
                     <CircularProgress
-                        style = {{ 
-                            opacity, 
-                            position: "absolute", 
-                            top: "0px", 
-                            left: "0px" 
+                        style = {{
+                            opacity,
+                            position: "absolute",
+                            top: "0px",
+                            left: "0px"
                         }}
                         mode = "determinate"
                         value = { value }
@@ -93,19 +93,19 @@ class ProgressAvatar extends React.Component {
                         size = { size }
                         thickness = { thickness }
                     />
-                    <Avatar 
+                    <Avatar
                         style = {{ opacity: wrapperOpacity }}
                         name = { name }
                         color = "rgba(255,255,255,.7)"
                         src = { src }
                         icon = { icon }
-                        backgroundColor = { avatarColor } 
+                        backgroundColor = { avatarColor }
                         size = { avatarSize }
                     >
                         { children }
                     </Avatar>
                 </div>
-            </Div>
+            </Element>
         );
     }
 }

@@ -67,12 +67,12 @@ const FAB = createClass({
     },
 
     render() {
-        const { secondary, actions } = this.props;
+        const { secondary, actions, ...rest } = this.props;
         const background = this.state.isOpen ? "#585858" : null;
         return (
             <div style={ this.style().root }>
                 <FloatingActionButton
-                    {...this.props}
+                    {...rest}
                     backgroundColor={background}
                     secondary={this.state.isOpen ? false : secondary }
                     onTouchTap={ this.handleClick }

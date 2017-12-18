@@ -19,6 +19,7 @@ export default class extends React.Component {
     }
 
     style = () => {
+        const { lineHeight = "1.7" } = this.props;
         let textStyle = styles.t.body1;
 
         if ( this.props.body1 ) {
@@ -40,7 +41,7 @@ export default class extends React.Component {
         return {
             ...textStyle,
             maxWidth: "600px",
-            lineHeight: "1.7",
+            lineHeight,
             margin: "0px",
             marginBottom: "34px",
             ...marg(this.props),
