@@ -4,10 +4,13 @@ import { pad, marg } from "cyverse-ui/styles";
 import { Paper, Avatar } from "material-ui";
 
 class CheckableAvatarEx extends Component {
-    state = {
-        isHovered: false,
-        isChecked: false,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            isHovered: false,
+            isChecked: false,
+        };
+    }
 
     onToggleHover = () => {
         const isHovered = !this.state.isHovered
@@ -35,11 +38,10 @@ class CheckableAvatarEx extends Component {
                 <Element
                     onMouseEnter={this.onToggleHover}
                     onMouseLeave={this.onToggleHover}
-                    style={{ width: "50px", cursor: "pointer" }}
                 >
                     <CheckableAvatar
                         isCheckable={ isHovered || isChecked}
-                        checked={ isChecked}
+                        checked={ isChecked }
                         onCheck={ this.onCheck }
                         image={
                             <Avatar backgroundColor="tomato">
