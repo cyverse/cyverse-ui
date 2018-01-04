@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CheckableAvatar, Element } from "cyverse-ui";
+import { CheckableAvatar, ProgressAvatar, Element } from "cyverse-ui";
 import { pad, marg } from "cyverse-ui/styles";
 import { Paper, Avatar } from "material-ui";
 
@@ -12,13 +12,18 @@ class CheckableAvatarEx extends Component {
         };
     }
 
-    onToggleHover = () => {
-        const isHovered = !this.state.isHovered
+    onMouseEnter = () => {
+        const isHovered = true
         this.setState({
             isHovered,
         });
     };
-
+    onMouseLeave = () => {
+        const isHovered = false
+        this.setState({
+            isHovered,
+        });
+    };
     onCheck = () => {
         const isChecked = !this.state.isChecked
         this.setState({
@@ -29,26 +34,31 @@ class CheckableAvatarEx extends Component {
     render() {
         const { isHovered, isChecked } = this.state;
         return (
-            <Paper
-                style={{
-                    ...marg({ mb: 4 }),
-                    ...pad({ p: 3 })
-                }}
-            >
+            <Paper>
                 <Element
-                    onMouseEnter={this.onToggleHover}
-                    onMouseLeave={this.onToggleHover}
+                    whiteSpace={{ mb: 4, p: 3 }}
+                    onMouseEnter={this.onMouseEnter}
+                    onMouseLeave={this.onMouseLeave}
                 >
+                    <CheckableAvatar
+                        whiteSpace={{ mr: 3 }}
+                        isCheckable={ isHovered || isChecked}
+                        checked={ isChecked }
+                        onCheck={ this.onCheck }
+                    >
+                        <Avatar backgroundColor="tomato">
+                            M
+                        </Avatar>
+                    </CheckableAvatar>
                     <CheckableAvatar
                         isCheckable={ isHovered || isChecked}
                         checked={ isChecked }
                         onCheck={ this.onCheck }
-                        image={
-                            <Avatar backgroundColor="tomato">
-                                M
-                            </Avatar>
-                        }
-                    />
+                    >
+                        <ProgressAvatar percent={60} backgroundColor="tomato">
+                            M
+                        </ProgressAvatar>
+                    </CheckableAvatar>
                 </Element>
             </Paper>
         );

@@ -32,7 +32,7 @@ const styleSheet = () => (
  *
  * CheckableAvatar is a controlled component so the state needs to be managed. This is to allow more fine grained control.
  */
-const CheckableAvatar = ({ isCheckable, image, onClick, ...rest }) => {
+const CheckableAvatar = ({ isCheckable, children, onClick, ...rest }) => {
 
     // Generate classes object and render corresponding style definitions in header.
     const classes = getStyleManager({})
@@ -44,7 +44,9 @@ const CheckableAvatar = ({ isCheckable, image, onClick, ...rest }) => {
     }
 
     return(
-        <Element display="inline-block">
+        <Element { ...rest }
+            display="inline-block"
+        >
             <Element
                 tag="span"
                 display="flex"
@@ -55,7 +57,7 @@ const CheckableAvatar = ({ isCheckable, image, onClick, ...rest }) => {
                 <Checkbox
                     {...rest }
                     style={{ margin: "auto", width: "60%" }}
-                /> ) : image }
+                /> ) : children }
             </Element>
         </Element>
     )

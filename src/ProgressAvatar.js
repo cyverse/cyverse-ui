@@ -56,7 +56,7 @@ class ProgressAvatar extends React.Component {
 
         let { success = "green" } = muiTheme.palette;
         let opacity = 0;
-        let wrapperOpacity: 1;
+        let wrapperOpacity = 1;
         let padding = 0;
         let avatarSize = size;
         let value = 0;
@@ -74,37 +74,36 @@ class ProgressAvatar extends React.Component {
         let strokeColor = progressColor || success;
 
         return (
-            <Element { ...rest }>
-                <div style = {{
-                        position: "relative",
-                        padding,
+            <Element { ...rest }
+                display="inline-block"
+                style = {{
+                    position: "relative",
+                    padding,
+                }}
+            >
+                <CircularProgress
+                    style = {{
+                        opacity,
+                        position: "absolute",
+                        top: "0px",
+                        left: "0px"
                     }}
+                    mode = "determinate"
+                    value = { value }
+                    color = { strokeColor }
+                    size = { size }
+                    thickness = { thickness }
+                />
+                <Avatar
+                    style = {{ opacity: wrapperOpacity }}
+                    name = { name }
+                    src = { src }
+                    icon = { icon }
+                    backgroundColor = { avatarColor }
+                    size = { avatarSize }
                 >
-                    <CircularProgress
-                        style = {{
-                            opacity,
-                            position: "absolute",
-                            top: "0px",
-                            left: "0px"
-                        }}
-                        mode = "determinate"
-                        value = { value }
-                        color = { strokeColor }
-                        size = { size }
-                        thickness = { thickness }
-                    />
-                    <Avatar
-                        style = {{ opacity: wrapperOpacity }}
-                        name = { name }
-                        color = "rgba(255,255,255,.7)"
-                        src = { src }
-                        icon = { icon }
-                        backgroundColor = { avatarColor }
-                        size = { avatarSize }
-                    >
-                        { children }
-                    </Avatar>
-                </div>
+                    { children }
+                </Avatar>
             </Element>
         );
     }
