@@ -8,28 +8,28 @@ class CheckableAvatarEx extends Component {
         super(props);
         this.state = {
             isHovered: false,
-            isChecked: false,
+            isChecked: false
         };
     }
 
     onMouseEnter = () => {
-        const isHovered = true
         this.setState({
-            isHovered,
+            isHovered: true
         });
     };
+
     onMouseLeave = () => {
-        const isHovered = false
         this.setState({
-            isHovered,
+            isHovered: false
         });
     };
+
     onCheck = () => {
-        const isChecked = !this.state.isChecked
+        const isChecked = !this.state.isChecked;
         this.setState({
-            isChecked,
+            isChecked
         });
-    }
+    };
 
     render() {
         const { isHovered, isChecked } = this.state;
@@ -42,20 +42,21 @@ class CheckableAvatarEx extends Component {
                 >
                     <CheckableAvatar
                         whiteSpace={{ mr: 3 }}
-                        isCheckable={ isHovered || isChecked}
-                        checked={ isChecked }
-                        onCheck={ this.onCheck }
+                        isCheckable={isHovered || isChecked}
+                        checked={isChecked}
+                        onCheck={this.onCheck}
                     >
-                        <Avatar backgroundColor="tomato">
-                            M
-                        </Avatar>
+                        <Avatar backgroundColor="tomato">M</Avatar>
                     </CheckableAvatar>
                     <CheckableAvatar
-                        isCheckable={ isHovered || isChecked}
-                        checked={ isChecked }
-                        onCheck={ this.onCheck }
+                        isCheckable={isHovered || isChecked}
+                        checked={isChecked}
+                        onCheck={this.onCheck}
                     >
-                        <ProgressAvatar percent={60} backgroundColor="tomato">
+                        <ProgressAvatar
+                            percent={60}
+                            backgroundColor="tomato"
+                        >
                             M
                         </ProgressAvatar>
                     </CheckableAvatar>
