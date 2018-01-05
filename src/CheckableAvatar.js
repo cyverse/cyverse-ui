@@ -5,12 +5,14 @@ import getStyleManager from "./styles/getStyleManager";
 import Checkbox from 'material-ui/Checkbox';
 import * as events from "./utils/events";
 
+import Element from "./Element";
+
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
 const styleSheet = () => (
     createStyleSheet('CheckableAvatar',
         theme => ({
-            wrapper: {
+            Avatar: {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -20,6 +22,7 @@ const styleSheet = () => (
                 position: "relative",
                 alignSelf: "flex-start",
                 borderRadius: "50%",
+                cursor: "pointer",
             }
         }
     ))
@@ -29,7 +32,7 @@ const styleSheet = () => (
  *
  * CheckableAvatar is a controlled component so the state needs to be managed. This is to allow more fine grained control.
  */
-const CheckableAvatar = ({ isCheckable, image, onClick, ...rest }) => {
+const CheckableAvatar = ({ isCheckable, children, onClick, ...rest }) => {
 
     // Generate classes object and render corresponding style definitions in header.
     const classes = getStyleManager({})
@@ -41,15 +44,22 @@ const CheckableAvatar = ({ isCheckable, image, onClick, ...rest }) => {
     }
 
     return(
-        <div
-            onClick={ handleRootClick }
-            className={ classes.wrapper }>
-            { isCheckable ? (
-            <Checkbox
-                {...rest }
-                style={{ margin: "auto", width: "60%" }}
-            /> ) : image }
-        </div>
+        <Element { ...rest }
+            display="inline-block"
+        >
+            <Element
+                tag="span"
+                display="flex"
+                onClick={ handleRootClick }
+                className={ classes.Avatar }
+            >
+                { isCheckable ? (
+                <Checkbox
+                    {...rest }
+                    style={{ margin: "auto", width: "60%" }}
+                /> ) : children }
+            </Element>
+        </Element>
     )
 };
 
