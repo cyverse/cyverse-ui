@@ -26,7 +26,6 @@ let styleVariables = {
     t: {
 
         label: {
-            display: "block",
             fontSize: "12px",
             fontWeight: "200",
             color: "rgba(0, 0, 0, 0.3)",

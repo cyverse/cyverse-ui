@@ -1,13 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-import { variables, styles, marg } from './styles';
+import React from "react";
+import PropTypes from "prop-types";
+import muiThemeable from "material-ui/styles/muiThemeable";
+import { variables, styles, marg } from "./styles";
+import Element from "./Element";
 
 const v = variables;
 
 /**
-* A MeterGauge is used to depict a percentage of a known quantity. A common use in Troposphere is to show how much of a total resource a user HAS consumed or WILL consume. In the case that a MeterGauge is showing how much of a known quantity a user WILL consume, in a form for example, an after value can be passed in addition to the start value.
-*/
+ * A MeterGauge is used to depict a percentage of a known quantity. A common use in Troposphere is to show how much of a total resource a user HAS consumed or WILL consume. In the case that a MeterGauge is showing how much of a known quantity a user WILL consume, in a form for example, an after value can be passed in addition to the start value.
+ */
 class MeterGauge extends React.Component {
     static displayName = "MeterGauge";
 
@@ -31,7 +32,7 @@ class MeterGauge extends React.Component {
         /**
          * Text version of data.
          */
-        data: PropTypes.string,
+        data: PropTypes.string
     };
 
     static defaultProps = {
@@ -39,53 +40,52 @@ class MeterGauge extends React.Component {
         afterValue: 0,
         alertMessage: "",
         label: "",
-        data: "",
+        data: ""
     };
 
     isOver = () => {
-        const {
-            startValue,
-            afterValue,
-        } = this.props;
-        return (
-            startValue + afterValue >= 100
-        );
+        const { startValue, afterValue } = this.props;
+        return startValue + afterValue >= 100;
     };
 
     alert = () => {
-        const {
-            alertMessage
-        } = this.props;
+        const { alertMessage } = this.props;
 
         return this.isOver() ? (
-            <div style={ this.style().alertMessage } >
-                { alertMessage }
+            <div style={this.style().alertMessage}>
+                {alertMessage}
             </div>
         ) : null;
     };
 
     render() {
         const style = this.style();
+        const { hideLabel } = this.props;
 
         return (
-            <div style={ style.wrapper }>
+            <Element style={style.wrapper}>
                 <dl>
-                    <dt style={ styles.t.label } >
+                    <Element
+                        hide={hideLabel}
+                        tag="dt"
+                        typography="label"
+                        style={style.label}
+                    >
                         {this.props.label}
-                    </dt>
+                    </Element>
 
-                    <dd style={{margin: "0px"}}>
-                        <div style={ style.data }>
+                    <dd style={style.data}>
+                        <div style={style.dataText}>
                             {this.props.data}
                         </div>
-                        <div style={ style.bar }>
-                            <div style={ style.barBefore }/>
-                            <div style={ style.barAfter }/>
+                        <div style={style.bar}>
+                            <div style={style.barBefore} />
+                            <div style={style.barAfter} />
                         </div>
-                        { this.alert() }
+                        {this.alert()}
                     </dd>
                 </dl>
-            </div>
+            </Element>
         );
     }
 
@@ -93,6 +93,7 @@ class MeterGauge extends React.Component {
         let {
             startValue,
             afterValue,
+            compact,
             muiTheme
         } = this.props;
 
@@ -101,60 +102,79 @@ class MeterGauge extends React.Component {
             danger = "red"
         } = muiTheme.palette;
 
-        const startColor = this.isOver() ?
-            danger : success;
-
-        const dataText = this.isOver() ?
-            danger : "#333333";
+        const startColor = this.isOver() ? danger : success;
 
         // Start styles
         const wrapper = {
             ...marg(this.props),
             height: "70px"
-        }
+        };
 
+        const isCompactData = compact
+            ? {
+                  maxWidth: "60px"
+              }
+            : null;
         const data = {
+            ...isCompactData,
+            margin: 0
+        };
+
+        const isCompactDataText = compact
+            ? {
+                  textAlign: "center"
+              }
+            : null;
+
+        const dataTextColor = this.isOver() ? danger : "#333333";
+
+        const dataText = {
             ...styles.t.caption,
-            color: dataText,
+            ...isCompactDataText,
+            color: dataTextColor,
             fontSize: "13px",
-            margin: "0px 0px 3px",
-        }
+            margin: "0px 0px 3px"
+        };
+
+        const label = {
+            background: "red"
+        };
+
         const bar = {
             display: "flex",
-            background: v.c.grey.xLight
-        }
+            height: compact ? "5px" : "10px",
+            background: v.c.grey.light
+        };
         const barBefore = {
             transition: "flex-basis ease .3s",
-            height:"10px",
-            float: "left",
             flexShrink: "0",
             maxWidth: "100%",
             flexBasis: startValue + "%",
             background: startColor
-        }
+        };
         const barAfter = {
             transition: "flex-basis ease .3s",
-            height:"10px",
-            float: "left",
             flexBasis: afterValue + "%",
             background: startColor,
-            opacity:".5"
-        }
+            opacity: ".5"
+        };
         const alertMessage = {
             marginTop: "5px",
             fontSize: "12px",
-            color: danger,
-        }
+            color: danger
+        };
 
         // Combine Styles
         return {
             wrapper,
+            label,
             data,
+            dataText,
             bar,
             barBefore,
             barAfter,
             alertMessage
-        }
+        };
     };
 }
 
