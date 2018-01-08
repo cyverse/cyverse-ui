@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { createStyleSheet } from 'jss-theme-reactor';
 import getStyleManager from "./styles/getStyleManager";
 import Checkbox from 'material-ui/Checkbox';
-import * as events from "./utils/events";
 
 import Element from "./Element";
 
@@ -39,7 +38,6 @@ const CheckableAvatar = ({ isCheckable, children, onClick, ...rest }) => {
     .render(styleSheet());
 
     function handleRootClick(e) {
-        events.stopPropagation(e);
         onClick ? onClick(e): null;
     }
 
@@ -50,6 +48,7 @@ const CheckableAvatar = ({ isCheckable, children, onClick, ...rest }) => {
             <Element
                 tag="span"
                 display="flex"
+                stopPropagation
                 onClick={ handleRootClick }
                 className={ classes.Avatar }
             >
