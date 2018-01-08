@@ -30,3 +30,4 @@ export { default as CheckableAvatar } from './CheckableAvatar';
 export { default as MDBlock } from './MDBlock';
 export { default as SummaryText } from './SummaryText';
 export { default as Element } from './Element';
+export { default as BarGraph } from './BarGraph';

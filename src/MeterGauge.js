@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import muiThemeable from "material-ui/styles/muiThemeable";
-import { variables, styles, marg } from "./styles";
+import * as colors from "material-ui/styles/colors";
+import { styles, marg } from "./styles";
 import Element from "./Element";
-
-const v = variables;
+import BarGraph from "./BarGraph";
 
 /**
  * A MeterGauge is used to depict a percentage of a known quantity. A common use in Troposphere is to show how much of a total resource a user HAS consumed or WILL consume. In the case that a MeterGauge is showing how much of a known quantity a user WILL consume, in a form for example, an after value can be passed in addition to the start value.
@@ -60,49 +60,51 @@ class MeterGauge extends React.Component {
 
     render() {
         const style = this.style();
-        const { hideLabel } = this.props;
+        const {
+            hideLabel,
+            muiTheme,
+            startValue,
+            afterValue,
+            compact
+        } = this.props;
+
+        const {
+            success,
+            danger
+        } = muiTheme.palette;
+
+        const startColor = this.isOver() ? danger : success;
 
         return (
             <Element style={style.wrapper}>
                 <dl>
                     <Element
-                        hide={hideLabel}
                         tag="dt"
+                        hide={hideLabel}
                         typography="label"
-                        style={style.label}
                     >
                         {this.props.label}
                     </Element>
-
                     <dd style={style.data}>
                         <div style={style.dataText}>
                             {this.props.data}
                         </div>
-                        <div style={style.bar}>
-                            <div style={style.barBefore} />
-                            <div style={style.barAfter} />
-                        </div>
-                        {this.alert()}
+                        <BarGraph
+                            startValue={startValue}
+                            afterValue={afterValue}
+                            barColor={startColor}
+                            compact={compact}
+                        />
                     </dd>
+                    {this.alert()}
                 </dl>
             </Element>
         );
     }
 
     style = () => {
-        let {
-            startValue,
-            afterValue,
-            compact,
-            muiTheme
-        } = this.props;
-
-        const {
-            success = "green",
-            danger = "red"
-        } = muiTheme.palette;
-
-        const startColor = this.isOver() ? danger : success;
+        let { compact, muiTheme } = this.props;
+        const { danger = "red" } = muiTheme.palette;
 
         // Start styles
         const wrapper = {
@@ -110,54 +112,21 @@ class MeterGauge extends React.Component {
             height: "70px"
         };
 
-        const isCompactData = compact
-            ? {
-                  maxWidth: "60px"
-              }
-            : null;
         const data = {
-            ...isCompactData,
+            maxWidth: compact ? "60px" : "100%",
             margin: 0
         };
 
-        const isCompactDataText = compact
-            ? {
-                  textAlign: "center"
-              }
-            : null;
-
         const dataTextColor = this.isOver() ? danger : "#333333";
-
+        const dataTextAlighn = compact ? "center" : "left";
         const dataText = {
             ...styles.t.caption,
-            ...isCompactDataText,
+            textAlign: dataTextAlighn,
             color: dataTextColor,
             fontSize: "13px",
             margin: "0px 0px 3px"
         };
 
-        const label = {
-            background: "red"
-        };
-
-        const bar = {
-            display: "flex",
-            height: compact ? "5px" : "10px",
-            background: v.c.grey.light
-        };
-        const barBefore = {
-            transition: "flex-basis ease .3s",
-            flexShrink: "0",
-            maxWidth: "100%",
-            flexBasis: startValue + "%",
-            background: startColor
-        };
-        const barAfter = {
-            transition: "flex-basis ease .3s",
-            flexBasis: afterValue + "%",
-            background: startColor,
-            opacity: ".5"
-        };
         const alertMessage = {
             marginTop: "5px",
             fontSize: "12px",
@@ -167,12 +136,8 @@ class MeterGauge extends React.Component {
         // Combine Styles
         return {
             wrapper,
-            label,
             data,
             dataText,
-            bar,
-            barBefore,
-            barAfter,
             alertMessage
         };
     };

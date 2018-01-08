@@ -24,3 +24,4 @@ export { default as ActionGroupDoc } from './ActionGroup/ActionGroupDoc';
 export { default as CheckableAvatarDoc } from './CheckableAvatar/CheckableAvatarDoc';
 export { default as SummaryTextDoc } from './SummaryText/SummaryTextDoc';
 export { default as ElementDoc } from './Element/ElementDoc';
+export { default as BarGraphDoc } from './BarGraph/BarGraphDoc';
