@@ -168,7 +168,7 @@ class MediaCard extends React.Component {
                         <Identity
                             image = {
                                 <CheckableAvatar
-                                    image={image}
+                                    children={image}
                                     isCheckable={ showCheck }
                                     onCheck={ this.onCheck }
                                     checked={ checked }
