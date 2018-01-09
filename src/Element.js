@@ -64,6 +64,12 @@ class Element extends React.Component {
             display: displayProp = "block"
         } = this.props;
         const { palette, typography: themeTypography } = muiTheme;
+
+        // Throw an error if not using a CY-UI compatible theme
+        if ( !themeTypography ) {
+            throw(`Error: Missing theme field "typography"\n\ncyverse-ui requires that the material-ui base theme be extended with "cyverseTheme". Please refer to the cyverse-ui guide for instructions on theming`);
+        }
+
         const display = hide ? "none" : displayProp;
         const background = palette[backgroundProp]
             ? palette[backgroundProp]
