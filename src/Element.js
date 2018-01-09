@@ -4,8 +4,9 @@ import filterDomProps from 'filter-react-dom-props';
 import { createStyleSheet } from "jss-theme-reactor";
 import getStyleManager from "./styles/getStyleManager";
 import muiThemeable from "material-ui/styles/muiThemeable";
-import event from "./utils/events";
-import { marg, pad, styles } from "./styles";
+
+import * as events from "./utils/events";
+import { marg, pad } from "./styles";
 
 /**
  * Element is the building block for creating other components. All of CyVerse-UI is built with Element.
@@ -29,7 +30,7 @@ class Element extends React.Component {
 
     clickHandler = e => {
         const { stopPropagation, onClick } = this.props;
-        stopPropagation ? event.stopPropagation(e) : null;
+        stopPropagation ? events.stopPropagation(e) : null;
         onClick ? onClick(e) : null;
     };
 
@@ -54,7 +55,7 @@ class Element extends React.Component {
 
     styles = () => {
         const {
-            muiTheme: { palette },
+            muiTheme = {},
             color: colorProp,
             whiteSpace = {},
             typography = "body1",
@@ -62,10 +63,14 @@ class Element extends React.Component {
             hide,
             display: displayProp = "block"
         } = this.props;
+        const { palette, typography: themeTypography } = muiTheme;
+
+        // Throw an error if not using a CY-UI compatible theme
+        if ( !themeTypography ) {
+            throw `missing "cyverse-ui" dependency\n\nThe theme field "typography" is missing. "cyverse-ui" requires that the material-ui base theme be extended with "cyverseTheme". Visit https://cyverse.github.io/cyverse-ui/ to learn more about cyverse-ui theming.`;
+        }
 
         const display = hide ? "none" : displayProp;
-        const typoStack = styles.t;
-
         const background = palette[backgroundProp]
             ? palette[backgroundProp]
             : backgroundProp;
@@ -74,7 +79,7 @@ class Element extends React.Component {
             ? palette[colorProp]
             : colorProp;
 
-        const fontStyle = typoStack[typography];
+        const fontStyle = themeTypography[typography];
 
         return {
             color,
