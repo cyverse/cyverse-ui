@@ -14,8 +14,8 @@ export default class extends React.Component {
 
     data = () => {
         const { used, willUse, totalAllowed } = this.state;
-        const startValue = (used / totalAllowed) * 100;
-        const afterValue = (willUse / totalAllowed) * 100;
+        const startValue = Math.round((used / totalAllowed) * 100);
+        const afterValue = Math.round((willUse / totalAllowed) * 100);
         return {
             startValue,
             afterValue,
@@ -60,6 +60,15 @@ export default class extends React.Component {
                         data={ `Will total ${dataTotal}kg of ${totalAllowed}kg` }
                         startValue={startValue}
                         afterValue={afterValue}
+                        alertMessage="Hey, let's not get greedy"
+                    />
+                    <MeterGauge
+                        mb={ 3 }
+                        compact
+                        hideLabel
+                        label="Compact"
+                        data={ `${startValue + afterValue}%` }
+                        startValue={startValue + afterValue}
                         alertMessage="Hey, let's not get greedy"
                     />
                     <div style={ styles.t.label } >
