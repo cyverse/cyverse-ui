@@ -31,3 +31,6 @@ export { default as MDBlock } from './MDBlock';
 export { default as SummaryText } from './SummaryText';
 export { default as Element } from './Element';
 export { default as BarGraph } from './BarGraph';
+export { default as Collapsible } from './Collapsible';
+export { default as CollapsibleSummary } from './CollapsibleSummary';
+export { default as CollapsibleDetail } from './CollapsibleDetail';
