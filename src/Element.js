@@ -67,7 +67,7 @@ class Element extends React.Component {
 
         // Throw an error if not using a CY-UI compatible theme
         if ( !themeTypography ) {
-            throw(`Error: Missing theme field "typography"\n\ncyverse-ui requires that the material-ui base theme be extended with "cyverseTheme". Please refer to the cyverse-ui guide for instructions on theming`);
+            throw `missing "cyverse-ui" dependency\n\nThe theme field "typography" is missing. "cyverse-ui" requires that the material-ui base theme be extended with "cyverseTheme". Visit https://cyverse.github.io/cyverse-ui/ to learn more about cyverse-ui theming.`;
         }
 
         const display = hide ? "none" : displayProp;
