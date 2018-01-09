@@ -67,7 +67,7 @@ export default class extends React.Component {
                         compact
                         hideLabel
                         label="Compact"
-                        data={ `%${startValue + afterValue}` }
+                        data={ `${startValue + afterValue}%` }
                         startValue={startValue + afterValue}
                         alertMessage="Hey, let's not get greedy"
                     />
