@@ -54,8 +54,8 @@
     "material-ui": "~0.19.4",
     "prettier": "1.10.2",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0",
     "react-docgen": "^2.17.0",
+    "react-dom": "^16.0.0",
     "react-tap-event-plugin": "^3.0.1",
     "rimraf": "^2.6.2",
     "write-json": "^1.0.1"
