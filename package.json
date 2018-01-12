@@ -25,6 +25,7 @@
     "build:cjs": "BABEL_ENV=cjs babel src --out-dir lib",
     "build:es": "BABEL_ENV=es babel src --out-dir es",
     "clean": "rimraf lib && rimraf es",
+    "format": "prettier --config .prettierrc --write $(git ls-files src/*js)",
     "lint": "eslint -c .eslintrc --ext .jsx,.js --no-eslintrc src",
     "prepublish": "npm run build"
   },
