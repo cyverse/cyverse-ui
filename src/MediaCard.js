@@ -150,7 +150,7 @@ class MediaCard extends React.Component {
             onBatchClick,
             checked,
             batchMode,
-            ...rest,
+            ...rest
         } = this.props;
         const { cardIsHovered } = this.state;
         const showCheck = onBatchClick && ( batchMode || cardIsHovered );
