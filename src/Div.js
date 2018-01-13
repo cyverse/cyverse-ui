@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as event from "./utils/events";
-import filterDomProps from 'filter-react-dom-props';
+import filterDomProps from "filter-react-dom-props";
 
 import { marg, pad } from "./styles";
 
@@ -11,20 +11,20 @@ class Div extends React.Component {
      */
 
     clickHandler = e => {
-        const { stopPropagation, onClick } = this.props
+        const { stopPropagation, onClick } = this.props;
         stopPropagation ? event.stopPropagation(e) : null;
         onClick ? onClick(e) : null;
-    }
+    };
 
     render() {
-        const { styles, children, ...rest} = this.props;
+        const { styles, children, ...rest } = this.props;
         return (
             <div
-                { ...filterDomProps(rest) }
-                onClick={ this.clickHandler }
-                style={{ ...this.styles(), ...styles}}
+                {...filterDomProps(rest)}
+                onClick={this.clickHandler}
+                style={{ ...this.styles(), ...styles }}
             >
-                { children }
+                {children}
             </div>
         );
     }
@@ -48,13 +48,13 @@ class Div extends React.Component {
             display,
             ...marg(this.props),
             ...pad(this.props),
-            ...this.props.style
+            ...this.props.style,
         };
     };
 }
 
 Div.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
 };
 
 export default Div;

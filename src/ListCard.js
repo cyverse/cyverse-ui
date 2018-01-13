@@ -14,13 +14,13 @@ const styleSheet = () =>
                 position: "relative",
                 transition: "all ease .1s",
                 background: "white",
-                ...styles.boxShadow.li
+                ...styles.boxShadow.li,
             },
             isExpanded: {
                 margin: "40px -20px",
                 borderLeft: "solid 5px #0971ab",
-                ...styles.boxShadow.lg
-            }
+                ...styles.boxShadow.lg,
+            },
         };
     });
 /**
@@ -32,11 +32,17 @@ const ListCard = props => {
     // Generate classes object and render corresponding style definitions in header.
     const classes = getStyleManager({}).render(styleSheet(props));
 
-    const { white = {}, isExpanded, className = "", style, ...rest } = props;
+    const {
+        white = {},
+        isExpanded,
+        className = "",
+        style,
+        ...rest
+    } = props;
 
     const computedStyle = {
         ...pad(white),
-        ...marg(white)
+        ...marg(white),
     };
 
     return (
@@ -45,7 +51,7 @@ const ListCard = props => {
             className={`${classes.ListCard} ${
                 isExpanded ? classes.isExpanded : null
             } ${className}`}
-            style={{...computedStyle, ...style}}
+            style={{ ...computedStyle, ...style }}
         >
             {props.children}
         </Element>
@@ -57,7 +63,7 @@ ListCard.propTypes = {
     /**
      * Expects...
      */
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 
 export default ListCard;

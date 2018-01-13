@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import VerticalMenu from './VerticalMenu';
-import Identity from './Identity';
-import CheckableAvatar from './CheckableAvatar';
-import ListCard from './ListCard';
-import ListCardHeader from './ListCardHeader';
-import ListCardIdentity from './ListCardIdentity';
-import ListCardSummary from './ListCardSummary';
-import ListCardActions from './ListCardActions';
-import ListCardDetail from './ListCardDetail';
-import ActionGroup from './ActionGroup';
+import React from "react";
+import PropTypes from "prop-types";
+import VerticalMenu from "./VerticalMenu";
+import Identity from "./Identity";
+import CheckableAvatar from "./CheckableAvatar";
+import ListCard from "./ListCard";
+import ListCardHeader from "./ListCardHeader";
+import ListCardIdentity from "./ListCardIdentity";
+import ListCardSummary from "./ListCardSummary";
+import ListCardActions from "./ListCardActions";
+import ListCardDetail from "./ListCardDetail";
+import ActionGroup from "./ActionGroup";
 
 /**
-* MediaCards are used for objects like Projects, Project Resources, and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menu, attached to the card, contains all of the actions for that card.
+ * MediaCards are used for objects like Projects, Project Resources, and Images that have their own information and actions associated with them. They typically have a short description and a long description that can be seen by expanding the card. A contextual menu, attached to the card, contains all of the actions for that card.
  */
 class MediaCard extends React.Component {
     static displayName = "MediaCard";
@@ -101,30 +101,34 @@ class MediaCard extends React.Component {
         onExpand ? onExpand() : null;
     };
 
-    onCheck = (e) => {
+    onCheck = e => {
         this.props.onBatchClick(e, this);
     };
 
     renderQuickLinks = () => {
         const { quickLinks, isExpanded } = this.props;
         const { cardIsHovered } = this.state;
-        const isHidden = ( isExpanded ? false : !cardIsHovered )
+        const isHidden = isExpanded ? false : !cardIsHovered;
         return quickLinks ? (
-            <ActionGroup hide={ isHidden }>
-                { quickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
+            <ActionGroup hide={isHidden}>
+                {quickLinks.map((link, i) =>
+                    React.cloneElement(link, { key: i })
+                )}
             </ActionGroup>
-        ) : null
+        ) : null;
     };
 
     renderActiveQuickLinks = () => {
         const { activeQuickLinks, isExpanded } = this.props;
         const { cardIsHovered } = this.state;
-        const isHidden = ( isExpanded ? true : cardIsHovered )
+        const isHidden = isExpanded ? true : cardIsHovered;
         return activeQuickLinks ? (
-            <ActionGroup hide={ isHidden }>
-                { activeQuickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
+            <ActionGroup hide={isHidden}>
+                {activeQuickLinks.map((link, i) =>
+                    React.cloneElement(link, { key: i })
+                )}
             </ActionGroup>
-        ) : null
+        ) : null;
     };
 
     renderVericalMenu = () => {
@@ -132,11 +136,11 @@ class MediaCard extends React.Component {
         return menuItems ? (
             <ActionGroup>
                 <VerticalMenu
-                    children={ menuItems }
-                    disabled={ isDisabledMenu }
+                    children={menuItems}
+                    disabled={isDisabledMenu}
                 />
             </ActionGroup>
-        ) : null
+        ) : null;
     };
 
     render() {
@@ -153,49 +157,48 @@ class MediaCard extends React.Component {
             ...rest
         } = this.props;
         const { cardIsHovered } = this.state;
-        const showCheck = onBatchClick && ( batchMode || cardIsHovered );
+        const showCheck =
+            onBatchClick && (batchMode || cardIsHovered);
 
         return (
-            <ListCard { ...rest }
-                isExpanded={ isExpanded }
-            >
+            <ListCard {...rest} isExpanded={isExpanded}>
                 <ListCardHeader
-                    onMouseEnter = { this.onCardEnter }
-                    onMouseLeave = { this.onCardLeave }
-                    onClick = { this.handleOnExpand }
+                    onMouseEnter={this.onCardEnter}
+                    onMouseLeave={this.onCardLeave}
+                    onClick={this.handleOnExpand}
                 >
                     <ListCardIdentity>
                         <Identity
-                            image = {
+                            image={
                                 <CheckableAvatar
                                     children={image}
-                                    isCheckable={ showCheck }
-                                    onCheck={ this.onCheck }
-                                    checked={ checked }
+                                    isCheckable={showCheck}
+                                    onCheck={this.onCheck}
+                                    checked={checked}
                                 />
-                             }
-                            primaryText = { title }
-                            secondaryText = { subTitle }
+                            }
+                            primaryText={title}
+                            secondaryText={subTitle}
                         />
                     </ListCardIdentity>
 
-                    <ListCardSummary hide={ isExpanded }>
-                        { summary }
+                    <ListCardSummary hide={isExpanded}>
+                        {summary}
                     </ListCardSummary>
 
                     <ListCardActions stopPropagation>
-                        { this.renderQuickLinks() }
-                        { this.renderActiveQuickLinks() }
-                        { this.renderVericalMenu() }
+                        {this.renderQuickLinks()}
+                        {this.renderActiveQuickLinks()}
+                        {this.renderVericalMenu()}
                     </ListCardActions>
                 </ListCardHeader>
 
                 <ListCardDetail hide={!isExpanded}>
-                    { detail }
+                    {detail}
                 </ListCardDetail>
             </ListCard>
-        )
+        );
     }
 }
 
-export default MediaCard
+export default MediaCard;

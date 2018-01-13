@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import IconButton from 'material-ui/IconButton';
-import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
-import VerticalMenu from './VerticalMenu';
-import Div from './Div';
-import Title from './Title';
-
+import React from "react";
+import PropTypes from "prop-types";
+import IconButton from "material-ui/IconButton";
+import ArrowBack from "material-ui/svg-icons/navigation/arrow-back";
+import VerticalMenu from "./VerticalMenu";
+import Div from "./Div";
+import Title from "./Title";
 
 /**
  * SubHeader is the contextual header located at the top of a sub-view. A Sub-view is a view that one would navigate to from a main-view. For example clicking on a list item might open a sub-view detail of that list item. The SubHeader has a back button to navigate back to the main-view and some top level controls or actions for the particular sub-view.
@@ -37,30 +36,20 @@ class SubHeader extends React.Component {
         let style = this.style();
 
         let renderQuickActions = (option, i) => {
-            return (
-                <Div key={ option + i }>
-                    { option }
-                </Div>
-            )
+            return <Div key={option + i}>{option}</Div>;
         };
 
-        if ( quickActions || menuItems ) {
+        if (quickActions || menuItems) {
             return (
-                <div style={ style.actionGroup }>
-                    {
-                        quickActions ?
-                            quickActions.map( renderQuickActions )
-                            : null
-                    }
-                    {
-                        menuItems ?
-                            <VerticalMenu
-                                children={ menuItems }
-                            />
-                            : null
-                    }
+                <div style={style.actionGroup}>
+                    {quickActions
+                        ? quickActions.map(renderQuickActions)
+                        : null}
+                    {menuItems ? (
+                        <VerticalMenu children={menuItems} />
+                    ) : null}
                 </div>
-            )
+            );
         }
     };
 
@@ -69,22 +58,16 @@ class SubHeader extends React.Component {
         let style = this.style();
 
         return (
-            <div
-                style={ style.header }
-            >
-                <div style={ style.titleGroup }>
-                    <IconButton onTouchTap={ onBack } >
-                        <ArrowBack/>
+            <div style={style.header}>
+                <div style={style.titleGroup}>
+                    <IconButton onTouchTap={onBack}>
+                        <ArrowBack />
                     </IconButton>
-                    <Title
-                        h1
-                        title
-                        m={ 0 }
-                    >
-                        { name }
+                    <Title h1 title m={0}>
+                        {name}
                     </Title>
                 </div>
-                { this.renderOptionGroup() }
+                {this.renderOptionGroup()}
             </div>
         );
     }
@@ -94,7 +77,7 @@ class SubHeader extends React.Component {
             header: {
                 position: "relative",
                 display: "flex",
-                justifyContent: "space-between"
+                justifyContent: "space-between",
             },
 
             titleGroup: {
@@ -113,7 +96,7 @@ class SubHeader extends React.Component {
             actionGroup: {
                 display: "flex",
                 alignItems: "center",
-            }
+            },
         };
     };
 }

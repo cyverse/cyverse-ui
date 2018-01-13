@@ -27,17 +27,9 @@ class InfoBlock extends React.Component {
     icon = () => {
         const { warning } = this.props;
         if (warning) {
-            return (
-                <WarningIcon
-                    style={marg({ mr: 3})}
-                />
-            )
+            return <WarningIcon style={marg({ mr: 3 })} />;
         }
-        return (
-            <InformationIcon
-                style={marg({ mr: 3})}
-            />
-        )
+        return <InformationIcon style={marg({ mr: 3 })} />;
     };
 
     render() {
@@ -45,18 +37,16 @@ class InfoBlock extends React.Component {
             <div
                 style={{
                     display: "flex",
-                    ...marg(this.props)
+                    ...marg(this.props),
                 }}
             >
-                { this.icon() }
-                <P mb={ 0 }>
-                    { this.props.text }
-                </P>
+                {this.icon()}
+                <P mb={0}>{this.props.text}</P>
             </div>
-        )
+        );
     }
 }
 
 InfoBlock.displayName = "InfoBlock";
 
-export default InfoBlock
+export default InfoBlock;

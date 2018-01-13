@@ -1,25 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { marg } from './styles';
-import P from './P';
-import Title from './Title';
+import React from "react";
+import PropTypes from "prop-types";
+import { marg } from "./styles";
+import P from "./P";
+import Title from "./Title";
 
 /**
 * Identity is used on a card or view to provide context to the content. A resource for example, would have the resource name as the primary text and useful meta as the secondary text, like the date the resource was created or a quick summary.
 
 An Identity is located at the top left of a card or view. A small Identity is used on cards and a large Identity or small Identity can be used on views.
  */
-const Identity = (props) => {
-    const {
-        lg,
-        image,
-        primaryText,
-        secondaryText,
-    } = props;
+const Identity = props => {
+    const { lg, image, primaryText, secondaryText } = props;
 
     const imageSize = lg ? 60 : 40;
-    const renderImage = React.cloneElement(
-        image, { size: imageSize });
+    const renderImage = React.cloneElement(image, {
+        size: imageSize,
+    });
 
     const margSize = lg ? 3 : 2;
     const imgMarg = marg({ mr: margSize });
@@ -39,31 +35,25 @@ const Identity = (props) => {
     };
 
     return (
-        <div style={ style.wrapper }>
-            <div style={ style.img }>
-                { renderImage }
-            </div>
+        <div style={style.wrapper}>
+            <div style={style.img}>{renderImage}</div>
             <div>
                 <div>
-                    <Title
-                        m={0}
-                        title={ lg }
-                        body2={ !lg }
-                    >
-                        { primaryText }
+                    <Title m={0} title={lg} body2={!lg}>
+                        {primaryText}
                     </Title>
                     <P
                         m={0}
-                        subheading={ lg }
-                        caption={ !lg }
+                        subheading={lg}
+                        caption={!lg}
                         lineHeight="1.15"
                     >
-                        { secondaryText }
+                        {secondaryText}
                     </P>
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 Identity.propTypes = {
@@ -87,4 +77,4 @@ Identity.propTypes = {
 
 Identity.displayName = "Identity";
 
-export default Identity
+export default Identity;

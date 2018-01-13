@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { marg, variables } from './styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { marg, variables } from "./styles";
 
 /**
  * A Pill is used to indicate meta data like number of active users or if an item is featured or recommended. It is sort of like a badge but smaller to fit under a title or in the footer of a card.
@@ -24,36 +24,34 @@ export default class extends React.Component {
     };
 
     static defaultProps = {
-        color: variables.c.grey.xDark
+        color: variables.c.grey.xDark,
     };
 
     Icon = () => {
         const { icon, color } = this.props;
         if (icon) {
-            return (
-                React.cloneElement(icon, {
-                    color: color,
-                    style: {
-                        width: "16px",
-                        height: "16px",
-                    }
-                })
-            )
+            return React.cloneElement(icon, {
+                color: color,
+                style: {
+                    width: "16px",
+                    height: "16px",
+                },
+            });
         }
     };
 
     render() {
-        const style = this.style();    
+        const style = this.style();
         return (
-            <span style={ style.wrapper }>
-                <span style={ style.flex }>
-                    <span style={ style.pill }>
-                        { this.props.children }
+            <span style={style.wrapper}>
+                <span style={style.flex}>
+                    <span style={style.pill}>
+                        {this.props.children}
                     </span>
-                    { this.Icon() }
+                    {this.Icon()}
                 </span>
             </span>
-        )
+        );
     }
 
     style = () => {
@@ -61,11 +59,11 @@ export default class extends React.Component {
         return {
             wrapper: {
                 display: "inline-block",
-                ...marg({mr: 2})
+                ...marg({ mr: 2 }),
             },
             flex: {
                 display: "flex",
-                alignItems: "center"
+                alignItems: "center",
             },
             pill: {
                 display: "inline-block",
@@ -76,7 +74,7 @@ export default class extends React.Component {
                 borderRadius: "9999px",
                 color: "white",
                 background: color,
-            }
-        }
+            },
+        };
     };
 }

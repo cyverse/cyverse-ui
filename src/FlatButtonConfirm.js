@@ -1,17 +1,12 @@
-import React from 'react';
-import {
-    FlatButton,
-    RaisedButton,
-    Popover,
-} from 'material-ui/';
+import React from "react";
+import { FlatButton, RaisedButton, Popover } from "material-ui/";
 
-import { ButtonGroup, ClearFix } from './utils';
+import { ButtonGroup, ClearFix } from "./utils";
 
 export default class PopoverExampleSimple extends React.Component {
-
-/**
- * Under construction, has a bug closing the popover
- */
+    /**
+     * Under construction, has a bug closing the popover
+     */
     constructor(props) {
         super(props);
 
@@ -21,7 +16,7 @@ export default class PopoverExampleSimple extends React.Component {
         };
     }
 
-    handleTouchTap = (event) => {
+    handleTouchTap = event => {
         // This prevents ghost click.
         event.preventDefault();
 
@@ -49,49 +44,46 @@ export default class PopoverExampleSimple extends React.Component {
             content,
             style,
             icon,
-            primary
+            primary,
         } = this.props;
 
         return (
             <span>
                 <FlatButton
-                    primary={ primary }
-                    icon={ icon }
-                    style={ style }
+                    primary={primary}
+                    icon={icon}
+                    style={style}
                     onTouchTap={this.handleTouchTap}
-                    label={ label }
+                    label={label}
                 />
                 <Popover
                     style={{ minWidth: "200px" }}
                     open={this.state.open}
                     anchorEl={this.state.anchorEl}
                     anchorOrigin={{
-                        horizontal: 'left',
-                        vertical: 'top'
+                        horizontal: "left",
+                        vertical: "top",
                     }}
                     targetOrigin={{
-                        horizontal: 'left',
-                        vertical: 'bottom'
+                        horizontal: "left",
+                        vertical: "bottom",
                     }}
-                    onRequestClose={ this.handleRequestClose }
+                    onRequestClose={this.handleRequestClose}
                 >
-                    <div
-                        style={{ margin: "20px" }}
-                    >
-                        { content }
+                    <div style={{ margin: "20px" }}>
+                        {content}
                         <ClearFix>
-                            <ButtonGroup
-                                pullR
-                                mt={ 6 }
-                            >
+                            <ButtonGroup pullR mt={6}>
                                 <RaisedButton
                                     label="Cancel"
-                                    onTouchTap={ this.handleRequestClose }
+                                    onTouchTap={
+                                        this.handleRequestClose
+                                    }
                                 />
                                 <RaisedButton
                                     primary
-                                    label={ confirmLabel }
-                                    onTouchTap={ this.onConfirm }
+                                    label={confirmLabel}
+                                    onTouchTap={this.onConfirm}
                                 />
                             </ButtonGroup>
                         </ClearFix>
