@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { marg, pad } from './styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { marg, pad } from "./styles";
 
 class Section extends React.Component {
     /**
@@ -10,15 +10,15 @@ class Section extends React.Component {
     render() {
         return (
             <section style={this.styles()}>
-                { this.props.children }
+                {this.props.children}
             </section>
         );
     }
 
     styles = () => {
-        let displayType = (this.props.flex) ?
-            { display: "flex" } :
-            { display: "block" };
+        let displayType = this.props.flex
+            ? { display: "flex" }
+            : { display: "block" };
 
         return {
             position: "relative",
@@ -26,7 +26,7 @@ class Section extends React.Component {
             ...marg(this.props),
             ...pad(this.props),
             ...this.props.styles,
-        }
+        };
     };
 }
 

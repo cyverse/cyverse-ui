@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { styles, marg, pad } from './styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { styles, marg, pad } from "./styles";
 
 class Title extends React.Component {
     /**
@@ -8,25 +8,23 @@ class Title extends React.Component {
      */
 
     render() {
-        let HTag = 'h1';
+        let HTag = "h1";
 
         if (this.props.h1) {
-            HTag = 'h1';
+            HTag = "h1";
         }
         if (this.props.h2) {
-            HTag = 'h2';
+            HTag = "h2";
         }
         if (this.props.h3) {
-            HTag = 'h3';
+            HTag = "h3";
         }
         if (this.props.h4) {
-            HTag = 'h4';
+            HTag = "h4";
         }
-            return (
-                <HTag style={ this.styles() }>
-                    { this.props.children }
-                </HTag>
-            )
+        return (
+            <HTag style={this.styles()}>{this.props.children}</HTag>
+        );
     }
 
     styles = () => {
@@ -67,16 +65,16 @@ class Title extends React.Component {
 
         let margSize;
         if (!this.props.noMarg) {
-            margSize = marg({mb: 4})
+            margSize = marg({ mb: 4 });
         }
 
         return {
             color,
             ...fontStyle,
             ...margSize,
-            ...marg( this.props ),
-            ...pad( this.props ),
-        }
+            ...marg(this.props),
+            ...pad(this.props),
+        };
     };
 }
 

@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Div from './Div';
-import RaisedButton from 'material-ui/RaisedButton';
-import Popover from 'material-ui/Popover';
-import Menu from 'material-ui/Menu';
+import React from "react";
+import PropTypes from "prop-types";
+import Div from "./Div";
+import RaisedButton from "material-ui/RaisedButton";
+import Popover from "material-ui/Popover";
+import Menu from "material-ui/Menu";
 
 /**
  * A ButtonMenu is a menu that can be displayed by pressing a RaisedButton. In Troposphere a ButtonMenu is used to with the label "New" and opens a list of things that can be created.
@@ -52,7 +52,7 @@ export default class extends React.Component {
         open: false,
     };
 
-    handleTouchTap = (event) => {
+    handleTouchTap = event => {
         // This prevents ghost click.
         event.preventDefault();
         this.setState({
@@ -83,40 +83,41 @@ export default class extends React.Component {
             primary,
             secondary,
             disabled,
-            anchorOrigin = {horizontal: 'right', vertical: 'bottom'},
-            targetOrigin = {horizontal: 'right', vertical: 'top'},
+            anchorOrigin = {
+                horizontal: "right",
+                vertical: "bottom",
+            },
+            targetOrigin = { horizontal: "right", vertical: "top" },
         } = this.props;
 
         return (
             <Div
                 style={{
                     ...style,
-                    display: "inline-block"
+                    display: "inline-block",
                 }}
-                id={ this.props.id }
+                id={this.props.id}
             >
                 <RaisedButton
-                    onTouchTap={ this.handleTouchTap }
-                    label={ buttonLabel }
-                    icon={ buttonIcon }
-                    primary={ primary }
-                    secondary={ secondary }
-                    disabled={ disabled }
+                    onTouchTap={this.handleTouchTap}
+                    label={buttonLabel}
+                    icon={buttonIcon}
+                    primary={primary}
+                    secondary={secondary}
+                    disabled={disabled}
                 />
                 <Popover
-                    open={ this.state.open }
-                    anchorEl={ this.state.anchorEl }
-                    anchorOrigin={ anchorOrigin }
-                    targetOrigin={ targetOrigin }
-                    onRequestClose={ this.handleRequestClose }
+                    open={this.state.open}
+                    anchorEl={this.state.anchorEl}
+                    anchorOrigin={anchorOrigin}
+                    targetOrigin={targetOrigin}
+                    onRequestClose={this.handleRequestClose}
                 >
-                    <Menu
-                        onItemTouchTap={ this.handleItemTouchTap }
-                    >
-                        { children }
+                    <Menu onItemTouchTap={this.handleItemTouchTap}>
+                        {children}
                     </Menu>
                 </Popover>
             </Div>
-        )
+        );
     }
 }

@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { IconButton, IconMenu } from 'material-ui';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import { IconButton, IconMenu } from "material-ui";
+import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 
 /**
  * A VerticalMenu is a menu that can be displayed by pressing a VerticalMenuIcon. In Troposphere a VerticalMenu is used in the top right corner of a header or MediaCard to hold a list of actions that are applied to the item or items within that context.
@@ -28,33 +28,30 @@ class VerticalMenu extends React.Component {
     };
 
     static defaultProps = {
-        anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
-        targetOrigin: { horizontal: 'right', vertical: 'top' }
+        anchorOrigin: { horizontal: "right", vertical: "bottom" },
+        targetOrigin: { horizontal: "right", vertical: "top" },
     };
 
-    onTouch = (e) => {
+    onTouch = e => {
         e.stopPropagation();
         e.preventDefault();
     };
 
     render() {
-        const {
-            anchorOrigin,
-            targetOrigin
-        } = this.props;
+        const { anchorOrigin, targetOrigin } = this.props;
 
         return (
             <IconMenu
-                { ...this.props }
+                {...this.props}
                 iconButtonElement={
-                    <IconButton onClick={ this.onTouch }>
+                    <IconButton onClick={this.onTouch}>
                         <MoreVertIcon />
                     </IconButton>
                 }
-                anchorOrigin={ anchorOrigin }
-                targetOrigin={ targetOrigin }
+                anchorOrigin={anchorOrigin}
+                targetOrigin={targetOrigin}
             />
-        )
+        );
     }
 }
 

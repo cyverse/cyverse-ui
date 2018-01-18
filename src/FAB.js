@@ -1,9 +1,9 @@
-import React from 'react';
-import createClass from 'create-react-class';
-import PropTypes from 'prop-types';
-import { FloatingActionButton } from 'material-ui';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import Tooltip from './Tooltip';
+import React from "react";
+import createClass from "create-react-class";
+import PropTypes from "prop-types";
+import { FloatingActionButton } from "material-ui";
+import ContentAdd from "material-ui/svg-icons/content/add";
+import Tooltip from "./Tooltip";
 
 /**
 * FAB (Floating Action Button) is an extention of the Material-ui FloatingActionButton. See their documentation for full API.
@@ -13,8 +13,8 @@ FAB should be used for creating content in place of a new button. It should be p
 const FAB = createClass({
     getInitialState() {
         return {
-            isOpen: false
-        }
+            isOpen: false,
+        };
     },
 
     displayName: "FAB",
@@ -34,61 +34,56 @@ const FAB = createClass({
 
     handleClick() {
         const {
-            props: {
-                onTouchTap,
-                actions
-            }, state: { isOpen }
+            props: { onTouchTap, actions },
+            state: { isOpen },
         } = this;
 
         if (onTouchTap) {
-            onTouchTap()
+            onTouchTap();
         }
         if (actions) {
             this.setState({
-                isOpen: !isOpen
-            })
+                isOpen: !isOpen,
+            });
         }
     },
     renderActionList(actions) {
         return (
             <ul style={this.style().actionList}>
-                { actions.map( ({ render, label }, i) => (
-                    <li style={this.style().li} key={ i }>
-                        <Tooltip
-                            direction="left"
-                            message={label}
-                        >
-                            { render }
+                {actions.map(({ render, label }, i) => (
+                    <li style={this.style().li} key={i}>
+                        <Tooltip direction="left" message={label}>
+                            {render}
                         </Tooltip>
                     </li>
                 ))}
             </ul>
-        )
+        );
     },
 
     render() {
         const { secondary, actions, ...rest } = this.props;
         const background = this.state.isOpen ? "#585858" : null;
         return (
-            <div style={ this.style().root }>
+            <div style={this.style().root}>
                 <FloatingActionButton
                     {...rest}
                     backgroundColor={background}
-                    secondary={this.state.isOpen ? false : secondary }
-                    onTouchTap={ this.handleClick }
+                    secondary={this.state.isOpen ? false : secondary}
+                    onTouchTap={this.handleClick}
                     children={
-                        <ContentAdd style={this.style().icon}/>
+                        <ContentAdd style={this.style().icon} />
                     }
                 />
-                { actions ? this.renderActionList(actions) : null }
-           </div>
-       )
+                {actions ? this.renderActionList(actions) : null}
+            </div>
+        );
     },
 
     style() {
         return {
             root: {
-                position: "relative"
+                position: "relative",
             },
             actionList: {
                 display: "flex",
@@ -99,27 +94,32 @@ const FAB = createClass({
                 top: "100%",
                 listStyle: "none",
                 padding: "0",
-                transform: this.state.isOpen ? "scale(1)" : "scale(0)",
+                transform: this.state.isOpen
+                    ? "scale(1)"
+                    : "scale(0)",
                 transition: "transform ease .1s",
-                transformOrigin: "top"
+                transformOrigin: "top",
             },
             item: {
-                boxShadow: "rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px"
+                boxShadow:
+                    "rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px",
             },
             li: {
                 position: "relative",
                 padding: "10px 0",
-                transform: this.state.isOpen ? "scale(1)" : "scale(0)",
+                transform: this.state.isOpen
+                    ? "scale(1)"
+                    : "scale(0)",
                 transition: "transform ease .1s",
             },
             icon: {
-                transform: this.state.isOpen ? "rotate(45deg)" : "rotate(0)",
-                transition: "transform ease .1s"
-            }
-        }
-    }
+                transform: this.state.isOpen
+                    ? "rotate(45deg)"
+                    : "rotate(0)",
+                transition: "transform ease .1s",
+            },
+        };
+    },
 });
-
-
 
 export default FAB;

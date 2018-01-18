@@ -31,7 +31,7 @@ class MeterGauge extends React.Component {
         /**
          * Text version of data.
          */
-        data: PropTypes.string
+        data: PropTypes.string,
     };
 
     static defaultProps = {
@@ -39,7 +39,7 @@ class MeterGauge extends React.Component {
         afterValue: 0,
         alertMessage: "",
         label: "",
-        data: ""
+        data: "",
     };
 
     isOver = () => {
@@ -64,13 +64,10 @@ class MeterGauge extends React.Component {
             muiTheme,
             startValue,
             afterValue,
-            compact
+            compact,
         } = this.props;
 
-        const {
-            success,
-            danger
-        } = muiTheme.palette;
+        const { success, danger } = muiTheme.palette;
 
         const startColor = this.isOver() ? danger : success;
 
@@ -108,12 +105,12 @@ class MeterGauge extends React.Component {
         // Start styles
         const wrapper = {
             ...marg(this.props),
-            height: "70px"
+            height: "70px",
         };
 
         const data = {
             maxWidth: compact ? "60px" : "100%",
-            margin: 0
+            margin: 0,
         };
 
         const dataTextColor = this.isOver() ? danger : "#333333";
@@ -123,13 +120,13 @@ class MeterGauge extends React.Component {
             textAlign: dataTextAlighn,
             color: dataTextColor,
             fontSize: "13px",
-            margin: "0px 0px 3px"
+            margin: "0px 0px 3px",
         };
 
         const alertMessage = {
             marginTop: "5px",
             fontSize: "12px",
-            color: danger
+            color: danger,
         };
 
         // Combine Styles
@@ -137,7 +134,7 @@ class MeterGauge extends React.Component {
             wrapper,
             data,
             dataText,
-            alertMessage
+            alertMessage,
         };
     };
 }

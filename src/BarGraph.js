@@ -12,17 +12,17 @@ const styleSheet = theme =>
     createStyleSheet("BarGraph", theme => ({
         wrapper: {
             display: "flex",
-            background: colors.grey100
+            background: colors.grey100,
         },
         barBefore: {
             transition: "flex-basis ease .3s",
             flexShrink: "0",
-            maxWidth: "100%"
+            maxWidth: "100%",
         },
         barAfter: {
             transition: "flex-basis ease .3s",
-            opacity: ".5"
-        }
+            opacity: ".5",
+        },
     }));
 /**
  * BarGraph is used to show a percentage of a whole.
@@ -32,23 +32,23 @@ const BarGraph = ({
     afterValue,
     barColor,
     compact,
-    muiTheme
+    muiTheme,
 }) => {
     // Generate classes object and render corresponding style definitions in header.
     const classes = getStyleManager(muiTheme).render(styleSheet());
 
     const style = {
         wrapper: {
-            height: compact ? "5px" : "10px"
+            height: compact ? "5px" : "10px",
         },
         barBefore: {
             flexBasis: startValue + "%",
-            background: barColor
+            background: barColor,
         },
         barAfter: {
             flexBasis: afterValue + "%",
-            background: barColor
-        }
+            background: barColor,
+        },
     };
     return (
         <Element

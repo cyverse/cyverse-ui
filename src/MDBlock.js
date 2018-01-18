@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import marked from 'marked';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import marked from "marked";
 
 const styles = {
     root: {
@@ -10,14 +10,12 @@ const styles = {
 };
 
 class MDBlock extends Component {
-
     static propTypes = {
         style: PropTypes.object,
-
     };
 
     static defaultProps = {
-        text: '',
+        text: "",
     };
 
     componentWillMount() {
@@ -33,17 +31,14 @@ class MDBlock extends Component {
     }
 
     render() {
-        const {
-            style,
-            text,
-        } = this.props;
+        const { style, text } = this.props;
 
         /* eslint-disable react/no-danger */
         return (
             <div
-                style={{ ...styles.root, ...style}}
+                style={{ ...styles.root, ...style }}
                 className="markdown-body md-description"
-                dangerouslySetInnerHTML={{__html: marked(text)}}
+                dangerouslySetInnerHTML={{ __html: marked(text) }}
             />
         );
         /* eslint-enable */

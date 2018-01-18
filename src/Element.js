@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import filterDomProps from 'filter-react-dom-props';
+import filterDomProps from "filter-react-dom-props";
 import { createStyleSheet } from "jss-theme-reactor";
 import getStyleManager from "./styles/getStyleManager";
 import muiThemeable from "material-ui/styles/muiThemeable";
@@ -20,7 +20,7 @@ class Element extends React.Component {
     // TODO: Move styles from inline to here and compose classNames
     styleSheet = () =>
         createStyleSheet("Element", theme => ({
-            wrapper: {}
+            wrapper: {},
         }));
 
     componentWillMount() {
@@ -35,17 +35,13 @@ class Element extends React.Component {
     };
 
     render() {
-        const {
-            style,
-            tag = "div",
-            ...rest
-        } = this.props;
+        const { style, tag = "div", ...rest } = this.props;
         const Tag = tag;
 
         return (
             <Tag
                 {...filterDomProps(rest)}
-                style={{ ...style, ...this.styles()}}
+                style={{ ...style, ...this.styles() }}
                 onClick={this.clickHandler}
             >
                 {this.props.children}
@@ -61,12 +57,12 @@ class Element extends React.Component {
             typography = "body1",
             background: backgroundProp,
             hide,
-            display: displayProp = "block"
+            display: displayProp = "block",
         } = this.props;
         const { palette, typography: themeTypography } = muiTheme;
 
         // Throw an error if not using a CY-UI compatible theme
-        if ( !themeTypography ) {
+        if (!themeTypography) {
             throw `missing "cyverse-ui" dependency\n\nThe theme field "typography" is missing. "cyverse-ui" requires that the material-ui base theme be extended with "cyverseTheme". Visit https://cyverse.github.io/cyverse-ui/ to learn more about cyverse-ui theming.`;
         }
 
@@ -87,7 +83,7 @@ class Element extends React.Component {
             display,
             ...fontStyle,
             ...marg(whiteSpace),
-            ...pad(whiteSpace)
+            ...pad(whiteSpace),
         };
     };
 }
@@ -98,7 +94,7 @@ Element.propTypes = {
     /**
      * As a primitive Element excepts any DOM node or component.
      */
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 
 export default muiThemeable()(Element);
