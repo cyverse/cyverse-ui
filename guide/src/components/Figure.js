@@ -1,39 +1,40 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import theme from '../theme';
-import { styles } from 'cyverse-ui/styles';
-import { Title } from 'cyverse-ui';
+import React from "react";
+import PropTypes from "prop-types";
+import theme from "../theme";
+import { styles } from "cyverse-ui/styles";
+import { Title, Element } from "cyverse-ui";
 
 class Figure extends React.Component {
     render() {
         return (
-            <figure style={{
-                    margin: "0px",
-                    border: "solid 1px lightgrey",
-                    padding: "10px",
-                }}
-            >
-                <figcaption style={{
-                        ...styles.t.title,
-                        background: theme.color.primary,
-                        color: "white",
-                        padding: "10px",
-                        margin: "-11px -11px 20px",
-                    }}
+            <Element tag="figure" whiteSpace={{ m: 0, mb: 3 }}>
+                <Element
+                    tag="figcaption"
+                    typography="title"
+                    color="white"
+                    background="primary1Color"
+                    whiteSpace={{ p: 2 }}
                 >
-                    <Title title m={ 0 }>
-                        { this.props.caption }
+                    <Title title m={0}>
+                        {this.props.caption}
                     </Title>
-                </figcaption>
-                { this.props.children }
-            </figure>
-
+                </Element>
+                <Element
+                    style={{
+                        border: "solid 1px lightgrey",
+                        borderTop: "none"
+                    }}
+                    whiteSpace={{ p: 3 }}
+                >
+                    {this.props.children}
+                </Element>
+            </Element>
         );
     }
 }
 
 Figure.propTypes = {
-    className: PropTypes.string,
+    className: PropTypes.string
 };
 
 export default Figure;
