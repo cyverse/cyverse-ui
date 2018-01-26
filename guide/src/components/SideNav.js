@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider } from 'material-ui';
-import { Title } from 'cyverse-ui';
+import { Element } from 'cyverse-ui';
 import SideBar from './SideBar';
 import ComponentLinkList from './ComponentLinkList';
 import ThemeLinkList from './ThemeLinkList';
@@ -10,13 +10,13 @@ class SideNav extends React.Component {
     render() {
         return (
             <SideBar isOpen >
-                <Title h1
-                    title
-                    mb={ 2 }
-                    ps={ 3 }
+                <Element
+                    root="h1"
+                    typography="title"
+                    whitespace={["mb2", "ps2"]}
                 >
                     Table of Contents
-                </Title>
+                </Element>
                 <Divider/>
                 <ThemeLinkList/>
                 <ComponentLinkList/>

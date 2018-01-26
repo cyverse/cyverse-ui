@@ -1,10 +1,9 @@
 import React from 'react';
 import Scroll from 'react-scroll';
 import R from 'ramda';
-import {  Hr, P, Title, Div, Section } from 'cyverse-ui';
+import {  Hr, P, Element, Section } from 'cyverse-ui';
 import * as icons from 'cyverse-ui/icons';
 
-import theme from '../theme';
 import { Figure } from '../components/';
 import CodeBlock from '../components/CodeBlock';
 import IconEx from './IconEx';
@@ -26,44 +25,44 @@ class IconSection extends React.Component {
             }
         }
         return (
-            <Div
+            <Element
                 key={ icon[0] }
                 style={style.cell}
             >
-                <Div mb={3}>
+                <Element whitespace="mb3">
                     <Icon size={ 50 }/>
-                </Div>
+                </Element>
                 <P>
                     { icon[0] }
                 </P>
-            </Div>
+            </Element>
         );
     };
 
     render() {
         return (
-            <Section>
+            <Section style={{ position: "relative" }}>
                 <ScrollAnchor
                     name="svg-icons"
                     style={{
-                        position: "absolute", 
-                        top:"-50px" 
+                        position: "absolute",
+                        top:"-50px"
                     }}
                 />
-                <Title
-                    h2
-                    display1
-                    color={ theme.color.primary }
+                <Element
+                    root="h2"
+                    whitespace="mb3"
+                    typography="display1"
+                    color="primary1Color"
                 >
                     SVG Icons
-                </Title>
-                <Div mb={ 5 }>
+                </Element>
+                <Element whitespace="mb5">
                     <P>
                         SVG Icons are an extention to the material-ui svg icons. They can be used in all material-ui components that take an icon as a prop or children.
                     </P>
                     <Figure
                         caption={ `SVG Icon Example` }
-                        color={ theme.color.primary }
                     >
                         <IconEx/>
                         <CodeBlock
@@ -73,16 +72,17 @@ class IconSection extends React.Component {
                             text={ IconExCode }
                         />
                     </Figure>
-                </Div>
-                <Title
-                    h3
-                    title
+                </Element>
+                <Element
+                    root="h3"
+                    typography="title"
+                    whitespace="pb3"
                 >
                     Icon List
-                </Title>
-                <Div style={{ display: "flex", flexWrap: "wrap" }}>
+                </Element>
+                <Element style={{ display: "flex", flexWrap: "wrap" }}>
                     { R.toPairs(icons).map(this.IconCell) }
-                </Div>
+                </Element>
             </Section>
         );
     }

@@ -1,8 +1,7 @@
 import React from "react";
 import R from "ramda";
 import Scroll from "react-scroll";
-import theme from "../theme";
-import { Hr, P, Title, Div, Section } from "cyverse-ui";
+import { Hr, Element, Section } from "cyverse-ui";
 import { Header, SideNav, Figure, ThemeExamples, MDBlock } from "./";
 
 const ScrollAnchor = Scroll.Element;
@@ -36,25 +35,36 @@ class ComponentDoc extends React.Component {
             );
 
         return (
-            <Section key={displayName} mb={7}>
+            <Section
+                style={{ position: "relative" }}
+                key={displayName}
+            >
                 <ScrollAnchor
                     id={anchorId}
                     style={{
                         position: "absolute",
-                        top: "-50px"
+                        top: "-50px",
                     }}
                 />
 
-                <Hr mb={6} />
-                <Title h1 headline color={theme.color.primary}>
+                <Element
+                    root="h1"
+                    whitespace="mb4"
+                    typography="headline"
+                    color="primary1Color"
+                >
                     {displayName}
-                </Title>
+                </Element>
                 <MDBlock text={description} />
-                <Div mb={4}>{children}</Div>
-                <Div>
-                    <Title h2 title>
+                <Element whitespace="mb4">{children}</Element>
+                <Element>
+                    <Element
+                        tag="h2"
+                        whitespace="mb2"
+                        typography="title"
+                    >
                         {`${displayName} Properties`}
-                    </Title>
+                    </Element>
                     <table>
                         <thead>
                             <tr>
@@ -70,7 +80,7 @@ class ComponentDoc extends React.Component {
                             )}
                         </tbody>
                     </table>
-                </Div>
+                </Element>
             </Section>
         );
     }

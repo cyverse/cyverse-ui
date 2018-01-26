@@ -1,6 +1,5 @@
 import React from 'react';
 import { SvgIcon } from 'material-ui';
-import { marg } from '../styles';
 
 const ConsoleIcon = ({ size = 24, ...rest }) => {
     return (
@@ -8,8 +7,6 @@ const ConsoleIcon = ({ size = 24, ...rest }) => {
             style={{
                 height: size,
                 width: size,
-                ...marg(rest),
-                ...rest.style
             }}
         >
             <g transform="translate(2.000000, 2.000000)">

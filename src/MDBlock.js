@@ -13,7 +13,6 @@ class MDBlock extends Component {
 
     static propTypes = {
         style: PropTypes.object,
-
     };
 
     static defaultProps = {

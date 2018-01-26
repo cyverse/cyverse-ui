@@ -7,13 +7,11 @@ import { List, ListItem } from "material-ui/List";
 import * as componentDocs from "../componentDocs";
 
 const scroller = Scroll.scroller;
-const scrollTo = target => {
-    return () => {
-        scroller.scrollTo(target, {
-            duration: 1000,
-            smooth: true
-        });
-    };
+const scrollTo = target => () => {
+    scroller.scrollTo(target, {
+        duration: 1000,
+        smooth: true
+    });
 };
 
 class ComponentLinkList extends React.Component {

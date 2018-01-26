@@ -4,33 +4,37 @@ import { pad, marg } from 'cyverse-ui/styles';
 import { Card, CardText } from 'material-ui';
 
 const ElementEx = props => (
-    <Card>
-        <CardText>
-            <Element
-                tag="h1"
-                typography="display1"
-                color="primary1Color"
-                whiteSpace={{ mb:3 }}
-                children="Hello World"
-            />
-            <Element
-                tag="p"
-                typography="title"
-                color="primary1color"
-                background="#EAEAEA"
-                whiteSpace={{ mb: 3, p: 3 }}
-                children="Hello World"
-            />
-            <Element
-                tag="div"
-                typography="body1"
-                color="white"
-                background="primary1Color"
-                whiteSpace={{ p: 3 }}
-                children="Hello World"
-            />
-        </CardText>
-    </Card>
+    <Element>
+        <Element
+            root="h1"
+            typography="display1"
+            color="primary1Color"
+            whitespace="mb5"
+            children={`Control Typography`}
+        />
+        <Element
+            root="p"
+            typography="title"
+            background="gold"
+            elevation={3}
+            whitespace={["mb3", "p3" ]}
+            children={`Whitespace, background colors, and elevation!`}
+        />
+        <Element
+            typography="body2"
+            background="white"
+            whitespace={[ "p3" ]}
+            elevation={2}
+            children="An elevation of 2 is used for cards placed together as a list"
+        />
+        <Element
+            typography="body2"
+            background="white"
+            whitespace={[ "p3" ]}
+            elevation={2}
+            children="You get the idea. Use the source!"
+        />
+    </Element>
 );
 
 export default ElementEx;
