@@ -18,8 +18,13 @@ const Pad = ( props ) => {
                     ? sizes[value - 1]
                     : value
                 break;
+            case "pt":
+                style.paddingTop = typeof value == "number"
+                    ? sizes[value - 1]
+                    : value
+                break
             case "pb":
-                style.paddingnBottom = typeof value == "number"
+                style.paddingBottom = typeof value == "number"
                     ? sizes[value - 1]
                     : value
                 break;

@@ -25,3 +25,6 @@ export { default as CheckableAvatarDoc } from './CheckableAvatar/CheckableAvatar
 export { default as SummaryTextDoc } from './SummaryText/SummaryTextDoc';
 export { default as ElementDoc } from './Element/ElementDoc';
 export { default as BarGraphDoc } from './BarGraph/BarGraphDoc';
+export { default as CollapsibleDoc } from './Collapsible/CollapsibleDoc';
+export { default as CollapsibleSummaryDoc } from './CollapsibleSummary/CollapsibleSummaryDoc';
+export { default as CollapsibleDetailDoc } from './CollapsibleDetail/CollapsibleDetailDoc';
