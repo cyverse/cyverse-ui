@@ -5,6 +5,7 @@ import "../assets/css/github.css";
 import React from "react";
 import R from "ramda";
 import Scroll from "react-scroll";
+import injectSheet, { withTheme } from "react-jss";
 
 import { Hr, P, Title, Element } from "cyverse-ui";
 import * as componentDocs from "./componentDocs";
@@ -15,7 +16,25 @@ import IconSection from "./iconDocs/IconSection";
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
-export default class extends React.Component {
+const styles = theme => ({
+    wrapper: {
+        color: theme.palette.textColor,
+        display: "flex",
+    },
+    main: {
+        flex: 1,
+        background: "whitesmoke",
+        width: "0",
+        marginTop: 56,
+        padding: 40,
+    },
+    content: {
+        maxWidth: 1200,
+        margin: "auto",
+    }
+});
+
+class StyleGuide extends React.Component {
     renderThemeExamples = () => {
         return ThemeExList.map((component, i) => (
             <ThemeExamples key={i} component={component} i={i} />
@@ -23,6 +42,7 @@ export default class extends React.Component {
     };
 
     render() {
+        const { classes } = this.props;
         const renderComponentList = R.toPairs(componentDocs).map(
             item => {
                 let Doc = item[1];
@@ -30,11 +50,14 @@ export default class extends React.Component {
             }
         );
         return (
-            <Element style={{ display: "flex" }} id="bodyWrapper">
-                <Header/>
+            <Element
+                className={classes.wrapper}
+                id="bodyWrapper"
+            >
+                <Header />
                 <SideNav isOpen />
-                <main style={this.style().main}>
-                    <div style={this.style().content}>
+                <main className={classes.main}>
+                    <div className={classes.content}>
                         <Element root="section" whitespace="mb7">
                             <Element
                                 root="h1"
@@ -87,21 +110,5 @@ export default class extends React.Component {
             </Element>
         );
     }
-
-    style = () => {
-        return {
-            main: {
-                flex: 1,
-                background: "whitesmoke",
-                width: "0",
-                marginTop: 56,
-                padding: 40,
-            },
-
-            content: {
-                maxWidth: 1200,
-                margin: "auto",
-            },
-        };
-    };
 }
+export default withTheme(injectSheet(styles)(StyleGuide));

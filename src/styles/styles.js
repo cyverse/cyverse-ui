@@ -2,7 +2,7 @@ import styleVars from "./styleVars";
 import * as styleGenerators from "./styleGenerators";
 import * as colors from "material-ui/styles/colors";
 
-const { sizeUnits } = styleVars;
+const { sizeUnits, palette } = styleVars;
 
 const {
     generateMarginStyles,
@@ -73,7 +73,7 @@ const styleVariables = {
             fontSize: "14px",
             lineHeight: "16px",
             fontWeight: "400",
-            color: colors.grey500,
+            color: palette.secondaryTextColor,
         },
         label: {
             fontSize: "12px",
