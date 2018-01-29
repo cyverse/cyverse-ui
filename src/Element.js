@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import filterDomProps from "filter-react-dom-props";
 import classNames from "classnames";
 import injectSheet, { withTheme } from "react-jss";
-
 import * as events from "./utils/events";
 
 const getColor = (palette, background) =>
@@ -44,8 +43,7 @@ class Element extends React.Component {
             root = "div",
             className: classNameProp,
             classes,
-            hide,
-            display,
+            hide = false,
             typography = "body1",
             whitespace = [],
             elevation = 0,
@@ -66,7 +64,6 @@ class Element extends React.Component {
 
         const className = classNames(
             { [classes.hide]: hide },
-            { [classes.flex]: display === "flex" },
             { [elevationClass]: elevation > 0 },
             classes.wrapper,
             classes[typography],
@@ -97,7 +94,7 @@ Element.propTypes = {
     /**
      * The html tag to render, For example, "p", "div", "span". All html atrributes like "title", "src" etc.. are passed down.
      */
-    tag: PropTypes.string,
+    root: PropTypes.string,
     /**
      * The color of the text. You can use theme palette names like "primary1Color"
      */
@@ -114,7 +111,7 @@ Element.propTypes = {
      * Whitespace can be a string or an array of strings representing a spacing property followed by a spacing unit ranging 0 - 20. The expected values are shorthand "mb1" is "margin-bottom" with a unit of 1 so "mt1" is top "ml1" is left etc..., Padding is the same with a "p" instead of an "m". Other values are: top and bottom "mv1" for vertical, right and left "ms1" for sides, and all directions "m1" see example above or in the theme documentation on whitespace for a list of values. It is good to use whitespace units (multiples of 8px) over other values for margin or padding for consistancy and best alignment. See the Material Design specs for guidence.
      */
     whitespace: PropTypes.oneOfType([
-        PropTypes.srting,
+        PropTypes.string,
         PropTypes.array,
     ]),
     /**
@@ -124,10 +121,10 @@ Element.propTypes = {
 };
 
 Element.defaultProps = {
-    tag: "div",
+    root: "div",
     typography: "body1",
-    whitespace: ["m0","p0"]
-}
+    whitespace: ["m0","p0"],
+};
 
 
 export default withTheme(injectSheet(styles)(Element));
