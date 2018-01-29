@@ -13,6 +13,16 @@ const ElementEx = props => (
             children={`Control Typography`}
         />
         <Element
+            root="h2"
+            typography="title"
+            children={`Like Titles`}
+        />
+        <Element
+            typography="caption"
+            whitespace="mb5"
+            children={`And Captions`}
+        />
+        <Element
             root="p"
             typography="title"
             background="gold"
