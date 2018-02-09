@@ -18,7 +18,10 @@ const generateSpaceStyles = property => sizes =>
             },
             [property[0] + i]: { [property]: curr },
         };
-    }, {});
+    }, {
+    m0: { margin: 0 },
+    p0: { padding: 0 }
+});
 
 // Define opacity for each shadow direction
 const shadowKeyUmbraOpacity = 0.2;

@@ -3,7 +3,7 @@ import { styles as cyverseStyles } from "../styles";
 
 const { palette } = styleVars;
 
-export default {
+const theme = {
     palette,
     header: {
         headerColor: palette.primary1Color,
@@ -20,3 +20,4 @@ export default {
     },
     ...cyverseStyles,
 };
+export default theme;

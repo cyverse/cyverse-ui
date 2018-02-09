@@ -1,6 +1,5 @@
 import styleVars from "./styleVars";
 import * as styleGenerators from "./styleGenerators";
-import * as colors from "material-ui/styles/colors";
 
 const { sizeUnits, palette } = styleVars;
 
@@ -10,7 +9,7 @@ const {
     generateShadowStyles,
 } = styleGenerators;
 
-const styleVariables = {
+const styles = {
     elevation: {
         ...generateShadowStyles(),
     },
@@ -54,10 +53,10 @@ const styleVariables = {
             letterSpacing: "1px",
         },
         subheading: {
-            color: colors.grey400,
             fontSize: "16px",
             lineHeight: "1",
             fontWeight: "400",
+            color: palette.secondaryTextColor,
         },
         body2: {
             fontSize: "16px",
@@ -89,9 +88,9 @@ const styleVariables = {
             top: "9999px",
         },
         hide: {
-            display: "none",
+            display: "none !important",
         },
     },
 };
 
-export default styleVariables;
+export default styles;

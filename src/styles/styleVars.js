@@ -20,7 +20,7 @@ const styleVars = {
         accent2Color: colors.grey100,
         accent3Color: colors.grey500,
         textColor: "rgba(0, 0, 0, 0.75)",
-        secondaryTextColor: "rgba(0, 0, 0, 0.54)",
+        secondaryTextColor: "rgba(0, 0, 0, 0.4)",
         alternateTextColor: colors.white,
         danger: colors.red500,
         success: colors.green500,
