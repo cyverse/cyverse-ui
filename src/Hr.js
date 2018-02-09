@@ -1,24 +1,27 @@
-import React from 'react';
+import React from "react";
 import injectSheet, { withTheme } from "react-jss";
-import Element from './Element';
+import classnames from "classnames";
+import Element from "./Element";
+
+// Each key of the returned object will be available in the prop "classes" below.
+const styles = theme => ({
+    wrapper: {
+        border: "0px",
+        height: "1px",
+        background: "rgba( 0, 0, 0, .1 )",
+    },
+});
 
 /**
  * Hr renders the proper styling on a horizontal rule.
  */
-const styles = theme => {
-    return {
-        wrapper: {
-            border:"0px",
-            height: "1px",
-            background: "rgba( 0, 0, 0, .1 )",
-        }
-    }
+const Hr = ({ classes, className }) => {
+    const wrapperClasses = classnames(
+        { [className]: className },
+        "Hr",
+        classes.wrapper
+    );
+    return <Element root="hr" className={wrapperClasses} />;
 };
-
-const Hr = ({ classes }) => {
-    return (
-        <Element root="hr" className={ classes.wrapper}/>
-    )
-}
 
 export default withTheme(injectSheet(styles)(Hr));

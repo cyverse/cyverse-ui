@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
 import injectSheet, { withTheme } from "react-jss";
+import classnames from "classnames";
 import Element from "./Element";
 
 const styles = theme => ({
@@ -8,25 +9,30 @@ const styles = theme => ({
         lineHeight: "24px",
         margin: 0,
         ...theme.whitespace.mb3,
-    }
-})
+    },
+});
 
 class P extends React.Component {
     /**
      * P is a typography component for rendering a paragraph with the proper styles.
      */
-    static displayName = "P"
+    static displayName = "P";
     render() {
-        const { classes } = this.props;
+        const { classes, className } = this.props;
+        const wrapperClasses = classnames(
+            { [className]: className },
+            "P",
+            classes.wrapper
+        );
         return (
             <Element
                 root="p"
                 whitespace="mb3"
-                className={classes.wrapper}
+                className={wrapperClasses}
             >
-                { this.props.children }
+                {this.props.children}
             </Element>
-        )
+        );
     }
 }
 

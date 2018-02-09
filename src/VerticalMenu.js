@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import { IconButton, IconMenu } from 'material-ui';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import React from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
+import { IconButton, IconMenu } from "material-ui";
+import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 
 /**
  * A VerticalMenu is a menu that can be displayed by pressing a VerticalMenuIcon. In Troposphere a VerticalMenu is used in the top right corner of a header or MediaCard to hold a list of actions that are applied to the item or items within that context.
@@ -28,33 +28,38 @@ class VerticalMenu extends React.Component {
     };
 
     static defaultProps = {
-        anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
-        targetOrigin: { horizontal: 'right', vertical: 'top' }
+        anchorOrigin: { horizontal: "right", vertical: "bottom" },
+        targetOrigin: { horizontal: "right", vertical: "top" },
     };
 
-    onTouch = (e) => {
+    onTouch = e => {
         e.stopPropagation();
         e.preventDefault();
     };
 
     render() {
-        const {
-            anchorOrigin,
-            targetOrigin
-        } = this.props;
+        const { className, anchorOrigin, targetOrigin } = this.props;
+        const wrapperClasses = classnames(
+            { [className]: className },
+            "VerticalMenu"
+        );
 
         return (
             <IconMenu
-                { ...this.props }
+                {...this.props}
+                className={wrapperClasses}
                 iconButtonElement={
-                    <IconButton onClick={ this.onTouch }>
-                        <MoreVertIcon />
+                    <IconButton
+                        className="VerticalMenu-btn"
+                        onClick={this.onTouch}
+                    >
+                        <MoreVertIcon className="VerticalMenu-icon" />
                     </IconButton>
                 }
-                anchorOrigin={ anchorOrigin }
-                targetOrigin={ targetOrigin }
+                anchorOrigin={anchorOrigin}
+                targetOrigin={targetOrigin}
             />
-        )
+        );
     }
 }
 

@@ -1,35 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import filterDomProps from "filter-react-dom-props";
-import classNames from "classnames";
+import classnames from "classnames";
 import injectSheet, { withTheme } from "react-jss";
 import * as events from "./utils/events";
 
+// Each key of the returned styles object will be available as a className below.
 const getColor = (palette, background) =>
     palette[background] || background;
-
 const styles = theme => ({
     wrapper: {
         background: props =>
             getColor(theme.palette, props.background),
         color: props => getColor(theme.palette, props.color),
     },
-    hide: {
-        display: "none",
-    },
-    flex: {
-        display: "flex",
-    },
+    ...theme.utility,
     ...theme.typography,
     ...theme.whitespace,
     ...theme.elevation,
 });
+
 /**
  * All of CyVerse-UI is built with "Element". It is the same basic idea as MUI's "Paper" with the core features that are common across the CY-UI world. These features let you access global utilities for whitespace and typography to maintain consistency throughout your components without leaking global variables.
  *
  * Render the html tag you want using the root prop and pass any html attributes that element accepts.
  **/
-
 class Element extends React.Component {
     clickHandler = e => {
         const { stopPropagation, onClick } = this.props;
@@ -37,16 +32,25 @@ class Element extends React.Component {
         onClick ? onClick(e) : null;
     };
 
+    onKeyDown = e => {
+        if (e.keyCode === 13) {
+            this.clickHandler(e);
+        }
+    };
+
     render() {
         const {
             theme,
             root = "div",
-            className: classNameProp,
+            className,
             classes,
             hide = false,
+            hideReadable = false,
             typography = "body1",
             whitespace = [],
             elevation = 0,
+            tabindex,
+            onClick,
             ...rest
         } = this.props;
 
@@ -62,21 +66,24 @@ class Element extends React.Component {
             : classes[whitespace];
         const elevationClass = [classes["elevation" + elevation]];
 
-        const className = classNames(
+        const wrapperClasses = classnames(
+            { [className]: className },
+            "Element",
             { [classes.hide]: hide },
+            { [classes.hideReadable]: hideReadable },
             { [elevationClass]: elevation > 0 },
             classes.wrapper,
             classes[typography],
-            whitespaceClass,
-            classNameProp,
-            "Element"
+            whitespaceClass
         );
 
         return (
             <Root
                 {...filterDomProps(rest)}
-                className={className}
+                tabIndex={tabindex ? tabindex : onClick ? "0" : null}
+                className={wrapperClasses}
                 onClick={this.clickHandler}
+                onKeyDown={this.onKeyDown}
             >
                 {this.props.children}
             </Root>
@@ -123,8 +130,7 @@ Element.propTypes = {
 Element.defaultProps = {
     root: "div",
     typography: "body1",
-    whitespace: ["m0","p0"],
+    whitespace: ["m0", "p0"],
 };
-
 
 export default withTheme(injectSheet(styles)(Element));

@@ -1,16 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Div from './Div';
-import RaisedButton from 'material-ui/RaisedButton';
-import Popover from 'material-ui/Popover';
-import Menu from 'material-ui/Menu';
+import React from "react";
+import PropTypes from "prop-types";
+import injectSheet from "react-jss";
+import classnames from "classnames";
+import Element from "./Element";
+import RaisedButton from "material-ui/RaisedButton";
+import Popover from "material-ui/Popover";
+import Menu from "material-ui/Menu";
+
+// Each key of the returned object will be available as a className below.
+const styles = {
+    wrapper: {
+        display: "inline-block",
+    },
+};
 
 /**
  * A ButtonMenu is a menu that can be displayed by pressing a RaisedButton. In Troposphere a ButtonMenu is used to with the label "New" and opens a list of things that can be created.
 
 As a general rule menus should appear to the top right of the view so this component defaults to opening from the right and down but can be overridden using `anchorOrigin` and `targetOrigin`. See [Material-UI's Popover](http://www.material-ui.com/#/components/popover) for better documentation.
  */
-export default class extends React.Component {
+class ButtonMenu extends React.Component {
     static displayName = "ButtonMenu";
 
     static propTypes = {
@@ -52,7 +61,7 @@ export default class extends React.Component {
         open: false,
     };
 
-    handleTouchTap = (event) => {
+    handleTouchTap = event => {
         // This prevents ghost click.
         event.preventDefault();
         this.setState({
@@ -76,47 +85,55 @@ export default class extends React.Component {
 
     render() {
         const {
-            style,
+            classes,
+            className,
             buttonIcon,
             buttonLabel,
             children,
             primary,
             secondary,
             disabled,
-            anchorOrigin = {horizontal: 'right', vertical: 'bottom'},
-            targetOrigin = {horizontal: 'right', vertical: 'top'},
+            anchorOrigin = {
+                horizontal: "right",
+                vertical: "bottom",
+            },
+            targetOrigin = { horizontal: "right", vertical: "top" },
+            ...rest
         } = this.props;
-
+        const wrapperClasses = classnames(
+            { [className]: className },
+            "ButtonMenu",
+            classes.wrapper
+        );
         return (
-            <Div
-                style={{
-                    ...style,
-                    display: "inline-block"
-                }}
-                id={ this.props.id }
-            >
+            <Element {...rest} className={wrapperClasses}>
                 <RaisedButton
-                    onTouchTap={ this.handleTouchTap }
-                    label={ buttonLabel }
-                    icon={ buttonIcon }
-                    primary={ primary }
-                    secondary={ secondary }
-                    disabled={ disabled }
+                    className="ButtonMenu-btn"
+                    onTouchTap={this.handleTouchTap}
+                    label={buttonLabel}
+                    icon={buttonIcon}
+                    primary={primary}
+                    secondary={secondary}
+                    disabled={disabled}
                 />
                 <Popover
-                    open={ this.state.open }
-                    anchorEl={ this.state.anchorEl }
-                    anchorOrigin={ anchorOrigin }
-                    targetOrigin={ targetOrigin }
-                    onRequestClose={ this.handleRequestClose }
+                    className="ButtonMenu-popover"
+                    open={this.state.open}
+                    anchorEl={this.state.anchorEl}
+                    anchorOrigin={anchorOrigin}
+                    targetOrigin={targetOrigin}
+                    onRequestClose={this.handleRequestClose}
                 >
                     <Menu
-                        onItemTouchTap={ this.handleItemTouchTap }
+                        className="ButtonMenu-menu"
+                        onItemTouchTap={this.handleItemTouchTap}
                     >
-                        { children }
+                        {children}
                     </Menu>
                 </Popover>
-            </Div>
-        )
+            </Element>
+        );
     }
 }
+
+export default injectSheet(styles)(ButtonMenu);

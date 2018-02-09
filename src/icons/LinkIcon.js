@@ -1,13 +1,14 @@
 import React from "react";
 import { SvgIcon } from "material-ui";
 
-const LinkIcon = ({ size = 24, ...rest }) => {
+const LinkIcon = ({ size = 24, style, ...rest }) => {
     return (
         <SvgIcon
             {...rest}
             style={{
                 height: size,
                 width: size,
+                ...style,
             }}
             viewBox="0 0 40 40"
         >

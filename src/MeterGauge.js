@@ -1,13 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
-import muiThemeable from "material-ui/styles/muiThemeable";
-import { styles, marg } from "./styles";
+import classnames from 'classnames';
+import classNames from "classnames";
+import injectSheet, { withTheme } from "react-jss";
 import Element from "./Element";
 import BarGraph from "./BarGraph";
 
 /**
  * A MeterGauge is used to depict a percentage of a known quantity. A common use in Troposphere is to show how much of a total resource a user HAS consumed or WILL consume. In the case that a MeterGauge is showing how much of a known quantity a user WILL consume, in a form for example, an after value can be passed in addition to the start value.
  */
+
+const styles = theme => ({
+    wrapper: {
+        height: "70px",
+        marginTop: 0,
+    },
+    data: {
+        margin: 0,
+    },
+    data__compact: {
+        maxWidth: "60px",
+    },
+    dataText: {
+        ...theme.typography.caption,
+        ...theme.whitespace.mb1
+    },
+    dataText__alert: {
+        color: theme.palette.danger,
+    },
+    dataText__compact: {
+        textAlign: "center",
+    },
+    alertMessage: {
+        ...theme.typography.body1,
+        color: theme.palette.danger,
+    },
+});
+
 class MeterGauge extends React.Component {
     static displayName = "MeterGauge";
 
@@ -31,7 +60,7 @@ class MeterGauge extends React.Component {
         /**
          * Text version of data.
          */
-        data: PropTypes.string
+        data: PropTypes.string,
     };
 
     static defaultProps = {
@@ -39,7 +68,7 @@ class MeterGauge extends React.Component {
         afterValue: 0,
         alertMessage: "",
         label: "",
-        data: ""
+        data: "",
     };
 
     isOver = () => {
@@ -48,98 +77,74 @@ class MeterGauge extends React.Component {
     };
 
     alert = () => {
-        const { alertMessage } = this.props;
+        const { classes, alertMessage } = this.props;
 
         return this.isOver() ? (
-            <div style={this.style().alertMessage}>
-                {alertMessage}
-            </div>
+            <div className={classes.alertMessage}>{alertMessage}</div>
         ) : null;
     };
 
     render() {
-        const style = this.style();
         const {
+            classes,
+            className,
+            theme: { palette: { success, danger } },
             hideLabel,
-            muiTheme,
             startValue,
             afterValue,
-            compact
+            compact,
+            label,
+            data,
+            ...rest,
         } = this.props;
 
-        const {
-            success,
-            danger
-        } = muiTheme.palette;
+        const wrapperClasses = classnames(
+            {[className]: className},
+            "MeterGauge",
+            classes.wrapper
+        )
+        const dataClasses = classNames(
+            "MeterGauge-data",
+            classes.data,
+            { [classes.data__compact]: compact, }
+        );
+        const dataTextClasses = classNames(
+            "MeterGauge-dataText",
+            classes.dataText,
+            { [classes.dataText__compact]: compact },
+            { [classes.dataText__alert]: this.isOver() }
+        );
 
         const startColor = this.isOver() ? danger : success;
-
         return (
-            <Element style={style.wrapper}>
-                <dl>
-                    <Element
-                        tag="dt"
-                        hide={hideLabel}
-                        typography="label"
-                    >
-                        {this.props.label}
-                    </Element>
-                    <dd style={style.data}>
-                        <div style={style.dataText}>
-                            {this.props.data}
-                        </div>
-                        <BarGraph
-                            startValue={startValue}
-                            afterValue={afterValue}
-                            barColor={startColor}
-                            compact={compact}
-                        />
-                    </dd>
-                    {this.alert()}
-                </dl>
+            <Element { ...rest }
+                root="dl"
+                className={wrapperClasses}
+            >
+                <Element
+                    root="dt"
+                    className="MeterGauge-dataTitle"
+                    hide={hideLabel}
+                    typography="label"
+                    whitespace="mb1"
+                >
+                    { label }
+                </Element>
+                <dd className={dataClasses}>
+                    <div className={dataTextClasses}>
+                        { data }
+                    </div>
+                    <BarGraph
+                        startValue={startValue}
+                        afterValue={afterValue}
+                        barColor={startColor}
+                        compact={compact}
+                    />
+                </dd>
+                {this.alert()}
             </Element>
         );
     }
-
-    style = () => {
-        let { compact, muiTheme } = this.props;
-        const { danger = "red" } = muiTheme.palette;
-
-        // Start styles
-        const wrapper = {
-            ...marg(this.props),
-            height: "70px"
-        };
-
-        const data = {
-            maxWidth: compact ? "60px" : "100%",
-            margin: 0
-        };
-
-        const dataTextColor = this.isOver() ? danger : "#333333";
-        const dataTextAlighn = compact ? "center" : "left";
-        const dataText = {
-            ...styles.t.caption,
-            textAlign: dataTextAlighn,
-            color: dataTextColor,
-            fontSize: "13px",
-            margin: "0px 0px 3px"
-        };
-
-        const alertMessage = {
-            marginTop: "5px",
-            fontSize: "12px",
-            color: danger
-        };
-
-        // Combine Styles
-        return {
-            wrapper,
-            data,
-            dataText,
-            alertMessage
-        };
-    };
 }
 
-export default muiThemeable()(MeterGauge);
+export default withTheme(injectSheet(styles)(MeterGauge));

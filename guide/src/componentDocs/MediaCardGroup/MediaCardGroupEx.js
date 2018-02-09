@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import randomcolor from 'randomcolor';
 import { Avatar, FlatButton } from 'material-ui';
 import RefreshIcon from 'material-ui/svg-icons/navigation/refresh';
-import { MediaCardGroup, MediaCard, P, Title } from 'cyverse-ui';
-import { marg } from 'cyverse-ui/styles';
+import { MediaCardGroup, MediaCard, P, Element} from 'cyverse-ui';
 
 export default class MediaCardGroupEx extends Component {
     constructor(props) {
@@ -67,17 +66,18 @@ export default class MediaCardGroupEx extends Component {
         return (
             <div>
                 <FlatButton
-                    style={ marg({ mb: 4 }) }
+                    style={{marginBottom: "32px"}}
                     icon={<RefreshIcon/>}
                     label="Replay Stagger"
                     onTouchTap={ this.onRefresh }
                 />
-                <Title
-                    h2
-                    title
+                <Element
+                    root="h2"
+                    typography="title"
+                    whitespace="mb3"
                 >
                     With stagger and scroll animations
-                </Title>
+                </Element>
                 <div style={{ height: "300px" }}>
                     { refreshing ? null : (
                         <MediaCardGroup
@@ -89,12 +89,13 @@ export default class MediaCardGroupEx extends Component {
                     ) }
                 </div>
 
-                <Title
-                    h2
-                    title
+                <Element
+                    root="h2"
+                    typography="title"
+                    whitespace="mb3"
                 >
                     No stagger or scroll animations
-                </Title>
+                </Element>
                 <div style={{ height: "300px" }}>
                     { refreshing ? null : (
                         <MediaCardGroup

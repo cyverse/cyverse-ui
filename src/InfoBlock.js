@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 import InformationIcon from "material-ui/svg-icons/action/info";
 import WarningIcon from "material-ui/svg-icons/alert/warning";
 import Element from "./Element";
 import injectSheet from "react-jss";
 
+// Each key of the returned object will be available in the prop "classes" below.
 const styles = theme => {
     return {
         wrapper: {
@@ -20,22 +22,36 @@ const styles = theme => {
 /**
  * The InfoBlock is used everywhere information is displayed to the user that isn't part of an input or title. Usually at the top of a view to explain the purpose of said view. The icon helps isolate the information from the UI.
  */
-const InfoBlock = ({ warning, classes, text, ...rest }) => {
+const InfoBlock = ({
+    className,
+    warning,
+    classes,
+    text,
+    ...rest
+}) => {
+    const wrapperClasses = classnames(
+        { [className]: className },
+        "Infoblock",
+        classes.wrapper
+    );
+
     const icon = () => {
-        const classNames = `${classes.Icon} InfoBlock-icon`;
+        const iconClasses = `InfoBlock-icon ${classes.Icon}`;
 
         if (warning) {
-            return <WarningIcon className={classNames} />;
+            return <WarningIcon className={iconClasses} />;
         }
-        return <InformationIcon className={classNames} />;
+        return <InformationIcon className={iconClasses} />;
     };
+
     return (
-        <Element {...rest} className={`${classes.wrapper} InfoBlock`}>
+        <Element {...rest} className={wrapperClasses}>
             {icon()}
-            {text}
+            <div className="InfoBlock-text">{text}</div>
         </Element>
     );
 };
+``;
 
 InfoBlock.displayName = "InfoBlock";
 InfoBlock.propTypes = {

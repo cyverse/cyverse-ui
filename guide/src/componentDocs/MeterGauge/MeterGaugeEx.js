@@ -1,9 +1,6 @@
-import React, { PropType } from 'react';
-import Slider from 'material-ui/Slider'
-import { MeterGauge } from 'cyverse-ui';
-import { pad, marg, styles } from 'cyverse-ui/styles';
-
-import Paper from 'material-ui/Paper';
+import React, { PropType } from "react";
+import { MeterGauge, Element, Paper } from "cyverse-ui";
+import Slider from "material-ui/Slider";
 
 export default class extends React.Component {
     state = {
@@ -14,27 +11,27 @@ export default class extends React.Component {
 
     data = () => {
         const { used, willUse, totalAllowed } = this.state;
-        const startValue = Math.round((used / totalAllowed) * 100);
-        const afterValue = Math.round((willUse / totalAllowed) * 100);
+        const startValue = Math.round(used / totalAllowed * 100);
+        const afterValue = Math.round(willUse / totalAllowed * 100);
         return {
             startValue,
             afterValue,
-        }
+        };
     };
 
     onStartChange = (e, v) => {
         const { totalAllowed } = this.state;
-        const used = (v / 100) * totalAllowed;
+        const used = v / 100 * totalAllowed;
         this.setState({
-            used
+            used,
         });
     };
 
     onAfterChange = (e, v) => {
         const { totalAllowed } = this.state;
-        const willUse = (v / 100) * totalAllowed;
+        const willUse = v / 100 * totalAllowed;
         this.setState({
-            willUse
+            willUse,
         });
     };
 
@@ -43,54 +40,45 @@ export default class extends React.Component {
         const { startValue, afterValue } = this.data();
         const dataTotal = Math.round(used + willUse);
         return (
-            <Paper
-                style={{
-                    ...marg({ mb:4 }),
-                    ...pad({ p:3 }),
-                }}
-            >
+            <Paper whitespace="p3">
                 <div
                     style={{
                         maxWidth: "300px",
                     }}
                 >
                     <MeterGauge
-                        mb={ 3 }
+                        whitespace="mb3"
                         label="Thing Usage"
-                        data={ `Will total ${dataTotal}kg of ${totalAllowed}kg` }
+                        data={`Will total ${dataTotal}kg of ${totalAllowed}kg`}
                         startValue={startValue}
                         afterValue={afterValue}
                         alertMessage="Hey, let's not get greedy"
                     />
                     <MeterGauge
-                        mb={ 3 }
+                        whitespace="mb3"
                         compact
                         hideLabel
                         label="Compact"
-                        data={ `${startValue + afterValue}%` }
+                        data={`${startValue + afterValue}%`}
                         startValue={startValue + afterValue}
                         alertMessage="Hey, let's not get greedy"
                     />
-                    <div style={ styles.t.label } >
-                        StartValue
-                    </div>
+                    <Element typography="label">StartValue</Element>
                     <Slider
-                        min={ 0 }
-                        max={ 100 }
-                        value={ startValue }
-                        onChange={ this.onStartChange }
+                        min={0}
+                        max={100}
+                        value={startValue}
+                        onChange={this.onStartChange}
                     />
-                    <div style={ styles.t.label } >
-                        AfterValue
-                    </div>
+                    <Element typography="label">AfterValue</Element>
                     <Slider
-                        min={ 0 }
-                        max={ 100 }
-                        value={ afterValue }
-                        onChange={ this.onAfterChange }
+                        min={0}
+                        max={100}
+                        value={afterValue}
+                        onChange={this.onAfterChange}
                     />
                 </div>
             </Paper>
-        )
+        );
     }
 }

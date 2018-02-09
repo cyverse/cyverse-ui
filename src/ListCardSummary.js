@@ -1,44 +1,42 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { createStyleSheet } from 'jss-theme-reactor';
-import getStyleManager from "./styles/getStyleManager";
-import styles from "./styles/styles";
-import Element from "./Element"
+import React from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
+import injectSheet, { withTheme } from "react-jss";
+import Element from "./Element";
 
-// Define static styles here.
 // Each key of the returned object will be available as a className below.
-const styleSheet = () => (
-    createStyleSheet('ListCardSummary',
-        theme => ({
-            wrapper: {
-                width: "0%",
-                marginRight: "20px",
-                flex: "1",
-                ...styles.t.body1,
-            }
-        }
-    ))
-);
-/**
- * ListCardSummary is the area in ListCardHeader between ListCardIdentity and ListCardActions. Used to display a short summary or overview information at a birds eye view. Works well with SummaryText for truncating / previewing large blocks of text into a single line. For to display more information make the card expandable and render the additional information in ListCardDetail.
+const styles = theme => ({
+    wrapper: {
+        width: "0%",
+        flex: "1",
+    },
+});
+
+/** ListCardSummary is the area in ListCardHeader between ListCardIdentity and ListCardActions. Used to display a short summary or overview information at a birds eye view. Works well with SummaryText for truncating / previewing large blocks of text into a single line. For to display more information make the card expandable and render the additional information in ListCardDetail.
  *
  * For a more "automagic" solution or to see an example of how ListCardSummary and ListCardDetail work together on expandable cards see `MediaCard`.
  */
-const ListCardSummary = ({children, ...rest}) => {
-
-    // Generate classes object and render corresponding style definitions in header.
-    const classes = getStyleManager({})
-    .render(styleSheet());
-
-    return(
+const ListCardSummary = ({
+    classes,
+    className,
+    children,
+    ...rest
+}) => {
+    const wrapperClasses = classnames(
+        { [className]: className },
+        "ListCardSummery",
+        classes.wrapper
+    );
+    return (
         <Element
-            { ...rest }
-            className={ classes.wrapper }
+            {...rest}
+            whitespace="mr3"
+            className={wrapperClasses}
         >
-            { children }
+            {children}
         </Element>
-    )
-}
+    );
+};
 
 ListCardSummary.displayName = "ListCardSummary";
 
@@ -48,7 +46,7 @@ ListCardSummary.propTypes = {
      *
      * If a text summary is desired `SummaryText` is recommended.
      */
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 
-export default ListCardSummary
+export default withTheme(injectSheet(styles)(ListCardSummary));

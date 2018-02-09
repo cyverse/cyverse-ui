@@ -1,39 +1,37 @@
 import React from "react";
-import theme from "../../theme";
-import { ProgressAvatar, Element } from "cyverse-ui";
+import { ProgressAvatar, Element, Paper } from "cyverse-ui";
 import PlayIcon from "material-ui/svg-icons/av/play-arrow";
-import PersonIcon from "material-ui/svg-icons/social/person"
+import PersonIcon from "material-ui/svg-icons/social/person";
 import FlatButton from "material-ui/FlatButton";
-import Paper from "material-ui/Paper";
 
 export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            progress: 100
+            progress: 100,
         };
     }
 
     startProccess = () => {
         this.setState({
-            progress: 20
+            progress: 20,
         });
 
         window.setTimeout(() => {
             this.setState({
-                progress: 45
+                progress: 45,
             });
             window.setTimeout(() => {
                 this.setState({
-                    progress: 70
+                    progress: 70,
                 });
                 window.setTimeout(() => {
                     this.setState({
-                        progress: 90
+                        progress: 90,
                     });
                     window.setTimeout(() => {
                         this.setState({
-                            progress: 100
+                            progress: 100,
                         });
                     }, 2500);
                 }, 1000);
@@ -43,79 +41,86 @@ export default class extends React.Component {
 
     replayProccess = () => {
         this.setState({
-            progress: 0
+            progress: 0,
         });
     };
 
     render() {
         return (
             <React.Fragment>
-                <Element whiteSpace={{ mv: 5 }}>
+                <Element whiteSpace="mv5">
                     <FlatButton
+                        style={{ marginBottom: "8px" }}
                         label="Play Progress"
                         onTouchTap={this.startProccess}
                         icon={<PlayIcon />}
                     />
                 </Element>
-                <Paper>
-                    <Element whiteSpace={{ p: 3 }}>
-                        <Element
-                            whiteSpace={{ mb: 3 }}
-                            display="flex"
-                            style={{ alignItems: "center" }}
+                <Paper whitespace="p3">
+                    <Element
+                        whitespace="mb2"
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                        }}
+                    >
+                        <ProgressAvatar
+                            whitespace="mr2"
+                            percent={this.state.progress}
+                            src="https://www.fillmurray.com/100/100"
+                        />
+                        With an Image
+                    </Element>
+                    <Element
+                        whitespace="mb2"
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                        }}
+                    >
+                        <ProgressAvatar
+                            whitespace="mr2"
+                            percent={this.state.progress}
+                            backgroundColor="purple"
                         >
-                            <ProgressAvatar
-                                whiteSpace={{ mr: 3 }}
-                                percent={this.state.progress}
-                                src="https://www.fillmurray.com/100/100"
-                            />
-                            With an Image
-                        </Element>
-                        <Element
-                            whiteSpace={{ mb: 3 }}
-                            display="flex"
-                            style={{ alignItems: "center" }}
+                            W
+                        </ProgressAvatar>
+                        With Text
+                    </Element>
+                    <Element
+                        whitespace="mb2"
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                        }}
+                    >
+                        <ProgressAvatar
+                            whitespace="mr2"
+                            percent={this.state.progress}
+                            backgroundColor="coral"
+                            icon={<PersonIcon color="white" />}
+                        />
+                        With Icon
+                    </Element>
+                    <Element
+                        whitespace="mb3"
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                        }}
+                    >
+                        <ProgressAvatar
+                            whitespace="mr2"
+                            progressColor="gold"
+                            percent={this.state.progress}
+                            backgroundColor="royalblue"
+                            size={60}
+                            thickness={10}
                         >
-                            <ProgressAvatar
-                                whiteSpace={{ mr: 3 }}
-                                percent={this.state.progress}
-                                backgroundColor="purple"
-                            >
-                                W
-                            </ProgressAvatar>
-                            With Text
-                        </Element>
-                        <Element
-                            whiteSpace={{ mb: 3 }}
-                            display="flex"
-                            style={{ alignItems: "center" }}
-                        >
-                            <ProgressAvatar
-                                whiteSpace={{ mr: 3 }}
-                                percent={this.state.progress}
-                                backgroundColor="coral"
-                                icon={<PersonIcon color="white" />}
-                            />
-                            With Icon
-                        </Element>
-                        <Element
-                            whiteSpace={{ mb: 3 }}
-                            display="flex"
-                            style={{ alignItems: "center" }}
-                        >
-                            <ProgressAvatar
-                                whiteSpace={{ mr: 3 }}
-                                progressColor="gold"
-                                percent={this.state.progress}
-                                backgroundColor="royalblue"
-                                size={60}
-                                thickness={10}
-                            >
-                                C
-                            </ProgressAvatar>
-                            Custom Progress Color, Size, and Progress
-                            Thickness!
-                        </Element>
+                            C
+                        </ProgressAvatar>
+                        Custom Progress Color, Size, and Progress
+                        Thickness!
                     </Element>
                 </Paper>
             </React.Fragment>

@@ -1,13 +1,11 @@
 import React from "react";
-import { InfoBlock, P, Element } from "cyverse-ui";
+import { InfoBlock, P, Paper } from "cyverse-ui";
 import { Code } from "../../components";
-import Paper from "material-ui/Paper";
 
 class InfoBlockEx extends React.Component {
     render() {
         return (
-            <Paper>
-                <Element whitespace={["mb3", "p3"]}>
+            <Paper whitespace="p3">
                 <InfoBlock
                     text={
                         <P>
@@ -40,7 +38,6 @@ class InfoBlockEx extends React.Component {
                         </div>
                     }
                 />
-                </Element>
             </Paper>
         );
     }

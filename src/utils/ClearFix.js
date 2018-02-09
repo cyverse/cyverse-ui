@@ -1,29 +1,22 @@
-import React from 'react';
-import { marg } from '../styles';
-
+import React from "react";
 
 export default class ClearFix extends React.Component {
     render() {
         const beforeStyle = {
-            display: 'table'
+            display: "table",
         };
 
         const afterStyle = {
             ...beforeStyle,
-            clear: 'both'
+            clear: "both",
         };
 
         return (
-            <div 
-                style={{
-                    ...this.props.style,
-                    ...marg(this.props),
-                }}
-            >
-                <div style={beforeStyle}/>
-                    {this.props.children}
-                <div style={afterStyle}/>
-            </div>
+            <React.Fragment>
+                <div style={beforeStyle} />
+                {this.props.children}
+                <div style={afterStyle} />
+            </React.Fragment>
         );
     }
 }

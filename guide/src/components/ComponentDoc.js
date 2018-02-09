@@ -8,8 +8,10 @@ const ScrollAnchor = Scroll.Element;
 
 class ComponentDoc extends React.Component {
     tableData = prop => {
+        const { meta } = this.props;
         const defaultValue = prop[1].defaultValue;
         const renderDefault = defaultValue ? defaultValue.value : "";
+
         return (
             <tr key={prop[0]}>
                 <td>{prop[0]}</td>
