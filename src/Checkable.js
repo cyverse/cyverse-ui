@@ -55,7 +55,7 @@ const Checkable = props => {
 
     const wrapperClasses = classnames(
         { [className]: className },
-        "Checkable",
+        "CY-Checkable",
         classes.wrapper
     );
 
@@ -67,10 +67,10 @@ const Checkable = props => {
             className={wrapperClasses}
         >
             <Checkbox
-                className={`${classes.Checkbox} Checkbox`}
+                className={`CY-Checkbox ${classes.Checkbox}`}
                 {...checkboxProps}
             />
-            <div className={`${classes.children} Chackable-children`}>
+            <div className={`CY-Chackable-children ${classes.children}`}>
                 {children}
             </div>
         </Element>

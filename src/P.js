@@ -21,7 +21,7 @@ class P extends React.Component {
         const { classes, className } = this.props;
         const wrapperClasses = classnames(
             { [className]: className },
-            "P",
+            "CY-P",
             classes.wrapper
         );
         return (

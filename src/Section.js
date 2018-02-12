@@ -9,7 +9,7 @@ import Element from "./Element";
 const Section = ({ children, className, whitespace, ...rest }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "Section"
+        "CY-Section"
     );
     return (
         <Element

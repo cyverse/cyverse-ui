@@ -41,17 +41,17 @@ const BarGraph = ({
 }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "BarGraph",
+        "CY-BarGraph",
         classes.wrapper
     );
 
     return (
         <Element {...rest} className={wrapperClasses}>
             <div
-                className={`BarGraph-barBefore ${classes.barBefore}`}
+                className={`CY-BarGraph-barBefore ${classes.barBefore}`}
             />
             <div
-                className={`BarGraph-barAfter ${classes.barAfter}`}
+                className={`CY-BarGraph-barAfter ${classes.barAfter}`}
             />
         </Element>
     );

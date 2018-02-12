@@ -7,13 +7,13 @@ import Stagger from "react-css-stagger";
 const AnimationStyle = () => (
     <style>
         {`
-        .MediaCard__animation-enter {
+        .CY-MediaCard__animation-enter {
             opacity: 0;
             transform: translate(0,10px);
             transition:  opacity .2s ease, transform .2s ease !important;
         }
 
-        .MediaCard__animation-enter-active {
+        .CY-MediaCard__animation-enter-active {
             opacity: 1;
             transform: translate(0,0);
         }
@@ -93,7 +93,7 @@ class MediaCardGroup extends React.Component {
         const { expanded } = this.state;
         const wrapperClasses = classnames(
             { [className]: className },
-            "MediaCardGroup"
+            "CY-MediaCardGroup"
         );
         const renderChildren = React.Children.map(children, child =>
             React.cloneElement(child, {
@@ -105,7 +105,7 @@ class MediaCardGroup extends React.Component {
         );
 
         const renderList = stagger ? (
-            <Stagger transition="MediaCard__animation" delay={70}>
+            <Stagger transition="CY-MediaCard__animation" delay={70}>
                 {children}
             </Stagger>
         ) : (

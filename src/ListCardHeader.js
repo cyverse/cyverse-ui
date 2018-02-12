@@ -37,7 +37,7 @@ const ListCardHeader = ({
 }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "ListCardHeader",
+        "CY-ListCardHeader",
         classes.wrapper,
         {
             [classes.wrapper__clickable]: rest.onClick,

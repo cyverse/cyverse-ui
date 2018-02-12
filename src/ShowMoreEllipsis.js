@@ -26,7 +26,7 @@ const ShowMoreEllipsis = props => {
     const { classes, className, ...rest } = props;
     const wrapperClasses = classnames(
         { [className]: className },
-        "ShowMoreEllipsis",
+        "CY-ShowMoreEllipsis",
         classes.wrapper
     );
     return (

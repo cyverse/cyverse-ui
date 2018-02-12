@@ -153,17 +153,17 @@ class Tooltip extends React.Component {
 
         const wrapperClasses = classnames(
             { [className]: className },
-            "Tooltip",
+            "CY-Tooltip",
             classes.wrapper
         );
 
         const innerWrapperClasses = classnames(
-            "Tooltip-innerWrapper",
+            "CY-Tooltip-innerWrapper",
             classes.innerWrapper
         );
 
         const messageClasses = classnames(
-            "Tooltip-message",
+            "CY-Tooltip-message",
             classes.message,
             { [classes.message__show]: showTooltip },
             { [classes.message__hide]: !showTooltip },

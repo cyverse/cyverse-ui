@@ -14,14 +14,14 @@ import Hr from "./Hr";
 const ListCardDetail = ({ children, className, ...rest }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "ListCardDetail"
+        "CY-ListCardDetail"
     );
 
     return (
         <Element className={wrapperClasses} {...rest}>
-            <Hr className="ListCardDetail-Hr" whitespace="mb3" />
+            <Hr className="CY-ListCardDetail-Hr" whitespace="mb3" />
             <Element
-                className="ListCardDetail-content"
+                className="CY-ListCardDetail-content"
                 whitespace="p3"
             >
                 {children}

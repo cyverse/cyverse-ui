@@ -14,7 +14,7 @@ const ListCardActions = ({
 }) => {
     const ActionGroupClasses = classnames(
         { [className]: className },
-        "ListCardActions"
+        "CY-ListCardActions"
     );
     return (
         <ActionGroup

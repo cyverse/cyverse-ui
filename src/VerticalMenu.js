@@ -41,7 +41,7 @@ class VerticalMenu extends React.Component {
         const { className, anchorOrigin, targetOrigin } = this.props;
         const wrapperClasses = classnames(
             { [className]: className },
-            "VerticalMenu"
+            "CY-VerticalMenu"
         );
 
         return (
@@ -50,10 +50,10 @@ class VerticalMenu extends React.Component {
                 className={wrapperClasses}
                 iconButtonElement={
                     <IconButton
-                        className="VerticalMenu-btn"
+                        className="CY-VerticalMenu-btn"
                         onClick={this.onTouch}
                     >
-                        <MoreVertIcon className="VerticalMenu-icon" />
+                        <MoreVertIcon className="CY-VerticalMenu-icon" />
                     </IconButton>
                 }
                 anchorOrigin={anchorOrigin}

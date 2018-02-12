@@ -26,7 +26,7 @@ const FloatingActionButtonActions = props => {
     const { classes, className, children, isOpen } = props;
     const wrapperClasses = classnames(
         { [className]: className },
-        "FloatingActionButtonActions",
+        "CY-FloatingActionButtonActions",
         classes.wrapper,
         { [classes.wrapper__closed]: !isOpen }
     );

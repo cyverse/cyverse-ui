@@ -41,12 +41,12 @@ const SubHeader = ({
 }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "SubHeader",
+        "CY-SubHeader",
         classes.wrapper
     );
 
     const titleGroupClasses = classnames(
-        "SubHeader-titleGroup",
+        "CY-SubHeader-titleGroup",
         classes.titleGroup
     );
 
@@ -57,7 +57,7 @@ const SubHeader = ({
 
         if (quickActions || menuItems) {
             return (
-                <ActionGroup className="SubHeader-Actions">
+                <ActionGroup className="CY-SubHeader-Actions">
                     {quickActions
                         ? quickActions.map(renderQuickActions)
                         : null}
@@ -73,13 +73,13 @@ const SubHeader = ({
         <div className={wrapperClasses}>
             <div className={titleGroupClasses}>
                 <IconButton
-                    className="SubHeader-backBtn"
+                    className="CY-SubHeader-backBtn"
                     onTouchTap={onBack}
                 >
                     <ArrowBack />
                 </IconButton>
                 <Element
-                    className="SubHeader-title"
+                    className="CY-SubHeader-title"
                     root="h1"
                     typography="title"
                 >

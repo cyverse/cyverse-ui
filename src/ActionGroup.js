@@ -19,7 +19,7 @@ const styles = theme => ({
 const ActionGroup = ({ classes, className, children, ...rest }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "ActionGroup",
+        "CY-ActionGroup",
         classes.wrapper
     );
 

@@ -56,18 +56,18 @@ const SkeletonText = withTheme(
     injectSheet(SkeletonTextStyles)(({ classes, className }) => {
         const wrapperClasses = classnames(
             { [className]: className },
-            "SkelletonText",
+            "CY-SkelletonText",
             classes.wrapper
         );
         const firstLineClasses = classnames(
-            "SkelletonText-firstLine",
-            "SkelletonText-text",
+            "CY-SkelletonText-firstLine",
+            "CY-SkelletonText-text",
             classes.firstLine,
             classes.text
         );
         const secondLineClasses = classnames(
-            "SkelletonText-secondLine",
-            "SkelletonText-text",
+            "CY-SkelletonText-secondLine",
+            "CY-SkelletonText-text",
             classes.secondLine,
             classes.text
         );
@@ -86,31 +86,31 @@ const SkeletonText = withTheme(
 const SkeletonList = ({ classes, className, cardCount }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "SkelletonList",
+        "CY-SkelletonList",
         classes.wrapper
     );
     const avatarClasses = classnames(
-        "SkelletonCard-avatar",
+        "CY-SkelletonCard-avatar",
         classes.avatar
     );
     const progressClasses = classnames(
-        "SkelletonCard-progress",
+        "CY-SkelletonCard-progress",
         classes.progress
     );
 
     let SkeletonCards = [];
     for (let i = 0; i < cardCount; i++) {
         SkeletonCards.push(
-            <ListCard className="SkelletonCard" key={i}>
-                <ListCardHeader className="SkelletonCard-header">
-                    <ListCardIdentity className="SkelletonCard-identity">
+            <ListCard className="CY-SkelletonCard" key={i}>
+                <ListCardHeader className="CY-SkelletonCard-header">
+                    <ListCardIdentity className="CY-SkelletonCard-identity">
                         <Avatar
                             className={avatarClasses}
                             backgroundColor="#EFEFEF"
                         />
                         <SkeletonText />
                     </ListCardIdentity>
-                    <ListCardSummary className="SkelletonCard-summary">
+                    <ListCardSummary className="CY-SkelletonCard-summary">
                         <SkeletonText />
                     </ListCardSummary>
                 </ListCardHeader>

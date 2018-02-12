@@ -29,7 +29,7 @@ const FloatingActionButtonAction = props => {
 
     const wrapperClasses = classnames(
         { [className]: className },
-        "FloatingActionButtonAction",
+        "CY-FloatingActionButtonAction",
         classes.wrapper,
         { [classes.wrapper__closed]: !isOpen }
     );
@@ -37,12 +37,12 @@ const FloatingActionButtonAction = props => {
     return (
         <li className={wrapperClasses}>
             <Tooltip
-                className="FloatingActionButtonAction-tooltip"
+                className="CY-FloatingActionButtonAction-tooltip"
                 direction={tooltipDirection}
                 message={tooltip}
             >
                 <FloatingActionButton
-                    className="FloatingActionButtonAction-btn"
+                    className="CY-FloatingActionButtonAction-btn"
                     mini={true}
                     {...other}
                 />

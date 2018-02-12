@@ -28,7 +28,7 @@ const SummaryText = ({
 }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "SummaryText",
+        "CY-SummaryText",
         classes.wrapper
     );
     return (

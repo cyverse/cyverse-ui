@@ -30,7 +30,7 @@ const ListCard = props => {
 
     const ListCardClasses = classnames(
         { [className]: className },
-        "ListCard",
+        "CY-ListCard",
         classes.wrapper,
         { [classes.wrapper__isExpanded]: isExpanded }
     );

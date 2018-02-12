@@ -10,7 +10,7 @@ const Paper = ({
 }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "Paper"
+        "CY-Paper"
     );
     return (
         <Element

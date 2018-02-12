@@ -4,6 +4,7 @@ import injectSheet, { withTheme } from "react-jss";
 import classnames from "classnames";
 import { FloatingActionButton as MuiFloatingActionButton } from "material-ui";
 import { ContentAdd } from "material-ui/svg-icons";
+import Element from "./Element";
 
 // Each key of the returned object will be available as a className below.
 const styles = theme => ({
@@ -54,18 +55,17 @@ class FloatingActionButton extends Component {
             backgroundColor,
             secondary,
             isOpen,
-            style,
             ...rest
         } = this.props;
         // Define classes for wrapper
         const wrapperClasses = classnames(
             { [className]: className },
-            "FloatingActionButton",
+            "CY-FloatingActionButton",
             classes.wrapper
         );
         // Define classes for icon
         const iconClasses = classnames(
-            "FloatingActionButton-icon",
+            "CY-FloatingActionButton-icon",
             classes.icon,
             {
                 [classes.icon__open]: isOpen,
@@ -82,31 +82,29 @@ class FloatingActionButton extends Component {
             : backgroundColor || primary1Color;
 
         return (
-            <div style={style}>
-                <div className={wrapperClasses}>
-                    <MuiFloatingActionButton
-                        {...rest}
-                        className="FloatingActionButton-btn"
-                        backgroundColor={
-                            isOpen ? "#585858" : closedBackground
-                        }
-                        onClick={onClick || this.onClick}
-                    >
-                        {icon ? (
-                            React.cloneElement(icon, {
-                                className: iconClasses,
-                            })
-                        ) : (
-                            <ContentAdd className={iconClasses} />
-                        )}
-                    </MuiFloatingActionButton>
-                    {children
-                        ? React.cloneElement(children, {
-                              isOpen: isOpen,
-                          })
-                        : null}
-                </div>
-            </div>
+            <Element {...rest} className={wrapperClasses}>
+                <MuiFloatingActionButton
+                    {...rest}
+                    className="CY-FloatingActionButton-btn"
+                    backgroundColor={
+                        isOpen ? "#585858" : closedBackground
+                    }
+                    onClick={onClick || this.onClick}
+                >
+                    {icon ? (
+                        React.cloneElement(icon, {
+                            className: iconClasses,
+                        })
+                    ) : (
+                        <ContentAdd className={iconClasses} />
+                    )}
+                </MuiFloatingActionButton>
+                {children
+                    ? React.cloneElement(children, {
+                            isOpen: isOpen,
+                        })
+                    : null}
+            </Element>
         );
     }
 }

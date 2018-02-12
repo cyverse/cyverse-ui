@@ -100,16 +100,16 @@ class MeterGauge extends React.Component {
 
         const wrapperClasses = classnames(
             {[className]: className},
-            "MeterGauge",
+            "CY-MeterGauge",
             classes.wrapper
         )
         const dataClasses = classNames(
-            "MeterGauge-data",
+            "CY-MeterGauge-data",
             classes.data,
             { [classes.data__compact]: compact, }
         );
         const dataTextClasses = classNames(
-            "MeterGauge-dataText",
+            "CY-MeterGauge-dataText",
             classes.dataText,
             { [classes.dataText__compact]: compact },
             { [classes.dataText__alert]: this.isOver() }
@@ -123,7 +123,7 @@ class MeterGauge extends React.Component {
             >
                 <Element
                     root="dt"
-                    className="MeterGauge-dataTitle"
+                    className="CY-MeterGauge-dataTitle"
                     hide={hideLabel}
                     typography="label"
                     whitespace="mb1"

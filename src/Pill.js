@@ -43,18 +43,18 @@ const Pill = ({
     const iconColor = theme.palette[color] || color;
     const wrapperClasses = classnames(
         { [className]: className },
-        "Pill",
+        "CY-Pill",
         classes.wrapper
     );
     const innerWrapperClasses = classnames(
-        "Pill-innerWrapper",
+        "CY-Pill-innerWrapper",
         classes.innerWrapper
     );
     const pillBodyClasses = classnames(
-        "Pill-pillBody",
+        "CY-Pill-pillBody",
         classes.pillBody
     );
-    const pillIconClasses = classnames("Pill-icon", classes.icon);
+    const pillIconClasses = classnames("CY-Pill-icon", classes.icon);
     return (
         <Element {...rest} root="span" className={wrapperClasses}>
             <span className={innerWrapperClasses}>

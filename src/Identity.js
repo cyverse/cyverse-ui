@@ -51,13 +51,13 @@ const Identity = props => {
     // Define wrapper classes
     const wrapperClasses = classnames(
         { [className]: className },
-        "Identity",
+        "CY-Identity",
         classes.wrapper
     );
 
     // Define Image classes
     const imgClasses = classnames(
-        "Identity-img",
+        "CY-Identity-img",
         classes.img,
         { [classes.img__sm]: !lg },
         { [classes.img__lg]: lg }
@@ -66,15 +66,15 @@ const Identity = props => {
     return (
         <Element {...rest} className={wrapperClasses}>
             <div className={imgClasses}>{renderImage}</div>
-            <div className="Identity-textGroup">
+            <div className="CY-Identity-textGroup">
                 <Element
-                    className={`Identity-text ${classes.text}`}
+                    className={`CY-Identity-text ${classes.text}`}
                     typography={lg ? "title" : "body2"}
                 >
                     {primaryText}
                 </Element>
                 <Element
-                    className={`Identity-subtext ${classes.text}`}
+                    className={`CY-Identity-subtext ${classes.text}`}
                     typography={lg ? "subheading" : "caption"}
                 >
                     {secondaryText}

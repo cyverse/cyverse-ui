@@ -24,7 +24,7 @@ const ListCardSummary = ({
 }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "ListCardSummery",
+        "CY-ListCardSummery",
         classes.wrapper
     );
     return (

@@ -18,7 +18,7 @@ const styles = theme => ({
 const Hr = ({ classes, className }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "Hr",
+        "CY-Hr",
         classes.wrapper
     );
     return <Element root="hr" className={wrapperClasses} />;

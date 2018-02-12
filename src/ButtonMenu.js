@@ -102,13 +102,13 @@ class ButtonMenu extends React.Component {
         } = this.props;
         const wrapperClasses = classnames(
             { [className]: className },
-            "ButtonMenu",
+            "CY-ButtonMenu",
             classes.wrapper
         );
         return (
             <Element {...rest} className={wrapperClasses}>
                 <RaisedButton
-                    className="ButtonMenu-btn"
+                    className="CY-ButtonMenu-btn"
                     onTouchTap={this.handleTouchTap}
                     label={buttonLabel}
                     icon={buttonIcon}
@@ -117,7 +117,7 @@ class ButtonMenu extends React.Component {
                     disabled={disabled}
                 />
                 <Popover
-                    className="ButtonMenu-popover"
+                    className="CY-ButtonMenu-popover"
                     open={this.state.open}
                     anchorEl={this.state.anchorEl}
                     anchorOrigin={anchorOrigin}
@@ -125,7 +125,7 @@ class ButtonMenu extends React.Component {
                     onRequestClose={this.handleRequestClose}
                 >
                     <Menu
-                        className="ButtonMenu-menu"
+                        className="CY-ButtonMenu-menu"
                         onItemTouchTap={this.handleItemTouchTap}
                     >
                         {children}

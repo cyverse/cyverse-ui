@@ -31,12 +31,12 @@ const InfoBlock = ({
 }) => {
     const wrapperClasses = classnames(
         { [className]: className },
-        "Infoblock",
+        "CY-Infoblock",
         classes.wrapper
     );
 
     const icon = () => {
-        const iconClasses = `InfoBlock-icon ${classes.Icon}`;
+        const iconClasses = `CY-InfoBlock-icon ${classes.Icon}`;
 
         if (warning) {
             return <WarningIcon className={iconClasses} />;
@@ -47,7 +47,7 @@ const InfoBlock = ({
     return (
         <Element {...rest} className={wrapperClasses}>
             {icon()}
-            <div className="InfoBlock-text">{text}</div>
+            <div className="CY-InfoBlock-text">{text}</div>
         </Element>
     );
 };

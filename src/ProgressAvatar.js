@@ -43,14 +43,14 @@ const ProgressAvatar = ({
     const isInProgress = percent < 100;
     const wrapperClasses = classnames(
         { [className]: className },
-        "ProgressAvatar",
+        "CY-ProgressAvatar",
         classes.wrapper
     );
-    const avatarClasses = classnames("ProgressAvatar-avatar", {
+    const avatarClasses = classnames("CY-ProgressAvatar-avatar", {
         [classes.avatar__inProgressWithImg]: src && isInProgress,
     });
     const progressClasses = classnames(
-        "ProgressAvatar-progress",
+        "CY-ProgressAvatar-progress",
         classes.progress,
         { [classes.progress__complete]: !isInProgress }
     );

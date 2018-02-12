@@ -162,7 +162,7 @@ class MediaCard extends React.Component {
 
         const wrapperClasses = classnames(
             {[className]: className},
-            "MediaCard"
+            "CY-MediaCard"
         );
 
         const { cardIsHovered } = this.state;

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import injectSheet, { withTheme } from "react-jss";
 import classnames from "classnames";
-
+import Element from "./Element";
 import { IconButton } from "material-ui";
 import SearchIcon from "material-ui/svg-icons/action/search";
 import CloseIcon from "material-ui/svg-icons/navigation/close";
@@ -76,22 +76,23 @@ class SearchBar extends React.Component {
             onChange,
             onClear,
             theme,
+            ...rest
         } = this.props;
 
         const cardClasses = classnames(
             { [className]: className },
-            "SearchBar",
+            "CY-SearchBar",
             classes.card,
             {
                 [classes.card__active]: value,
             }
         );
         const iconClasses = classnames(
-            "SearchBar-searchIcon",
+            "CY-SearchBar-searchIcon",
             classes.searchIcon
         );
         const inputClasses = classnames(
-            "SearchBar-input",
+            "CY-SearchBar-input",
             classes.input
         );
 
@@ -102,7 +103,7 @@ class SearchBar extends React.Component {
         const shouldShowClear = onClear && value;
 
         return (
-            <div className={cardClasses}>
+            <Element {...rest} className={cardClasses}>
                 <SearchIcon
                     className={iconClasses}
                     color={searchColor}
@@ -117,13 +118,13 @@ class SearchBar extends React.Component {
                 />
                 {shouldShowClear ? (
                     <IconButton
-                        className="SearchBar-closeButton"
+                        className="CY-SearchBar-closeButton"
                         onTouchTap={onClear}
                     >
                         <CloseIcon />
                     </IconButton>
                 ) : null}
-            </div>
+            </Element>
         );
     }
 }
