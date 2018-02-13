@@ -1,6 +1,5 @@
 import React from 'react';
 import { SvgIcon } from 'material-ui';
-import { marg } from '../styles';
 
 const LaunchIcon = ({ size = 24, ...rest }) => {
     return (
@@ -8,7 +7,6 @@ const LaunchIcon = ({ size = 24, ...rest }) => {
             style={{
                 height: size,
                 width: size,
-                ...marg(rest),
                 ...rest.style
             }}
         >

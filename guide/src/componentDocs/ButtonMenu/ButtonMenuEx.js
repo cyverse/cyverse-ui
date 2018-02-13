@@ -1,9 +1,7 @@
 import React from 'react';
 import MenuItem from 'material-ui/MenuItem';
-import { ButtonMenu } from 'cyverse-ui';
+import { ButtonMenu, Paper } from 'cyverse-ui';
 import { ButtonGroup } from 'cyverse-ui/utils';
-import theme from '../../theme';
-import Paper from 'material-ui/Paper';
 
 export default class extends React.Component {
     onSelectItem = (e, item) => {
@@ -17,15 +15,13 @@ export default class extends React.Component {
             <MenuItem
                 value={ id }
                 primaryText={ name }
-                color={ theme.color.primary }
             />
         )
     };
 
     render() {
-
         return (
-            <Paper style={{ padding: "10px", marginBottom: "20px" }}>
+            <Paper whitespace={["p2", "mb3"]}>
                 <ButtonGroup>
                     <ButtonMenu
                         buttonLabel="Default"

@@ -1,25 +1,19 @@
-import React from 'react';
-import { ActionGroup } from 'cyverse-ui';
-import { pad, marg } from 'cyverse-ui/styles';
-import { Paper, IconButton } from 'material-ui';
-import * as Icons from 'cyverse-ui/icons';
+import React from "react";
+import { ActionGroup, Paper } from "cyverse-ui";
+import { IconButton } from "material-ui";
+import * as Icons from "cyverse-ui/icons";
 
 const ActionGroupEx = props => (
-    <Paper
-        style={{
-            ...marg({ mb: 4 }),
-            ...pad({ p: 3 }),
-        }}
-    >
+    <Paper whitespace={["mb3", "p2"]}>
         <ActionGroup>
             <IconButton>
-                <Icons.LaunchIcon/>
+                <Icons.LaunchIcon />
             </IconButton>
             <IconButton>
-                <Icons.LinkIcon/>
+                <Icons.LinkIcon />
             </IconButton>
             <IconButton>
-                <Icons.VolumeIcon/>
+                <Icons.VolumeIcon />
             </IconButton>
         </ActionGroup>
     </Paper>

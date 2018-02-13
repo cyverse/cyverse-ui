@@ -1,62 +1,72 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 import InformationIcon from "material-ui/svg-icons/action/info";
 import WarningIcon from "material-ui/svg-icons/alert/warning";
-import P from "./P";
-import { marg } from "./styles";
+import Element from "./Element";
+import injectSheet from "react-jss";
+
+// Each key of the returned object will be available in the prop "classes" below.
+const styles = theme => {
+    return {
+        wrapper: {
+            display: "flex",
+        },
+        Icon: {
+            minWidth: "30px",
+            ...theme.whitespace.mr3,
+        },
+    };
+};
 
 /**
  * The InfoBlock is used everywhere information is displayed to the user that isn't part of an input or title. Usually at the top of a view to explain the purpose of said view. The icon helps isolate the information from the UI.
  */
-class InfoBlock extends React.Component {
-    static propTypes = {
-        /**
-         * The information text that will be displayed.
-         */
-        text: PropTypes.string,
-        /**
-         * Show the warning icon over the default info icon
-         */
-        warning: PropTypes.bool,
-    };
+const InfoBlock = ({
+    className,
+    warning,
+    classes,
+    text,
+    ...rest
+}) => {
+    const wrapperClasses = classnames(
+        { [className]: className },
+        "CY-Infoblock",
+        classes.wrapper
+    );
 
-    static defaultProps = {
-        warning: false,
-    };
+    const icon = () => {
+        const iconClasses = `CY-InfoBlock-icon ${classes.Icon}`;
 
-    icon = () => {
-        const { warning } = this.props;
         if (warning) {
-            return (
-                <WarningIcon
-                    style={marg({ mr: 3})}
-                />
-            )
+            return <WarningIcon className={iconClasses} />;
         }
-        return (
-            <InformationIcon
-                style={marg({ mr: 3})}
-            />
-        )
+        return <InformationIcon className={iconClasses} />;
     };
 
-    render() {
-        return (
-            <div
-                style={{
-                    display: "flex",
-                    ...marg(this.props)
-                }}
-            >
-                { this.icon() }
-                <P mb={ 0 }>
-                    { this.props.text }
-                </P>
-            </div>
-        )
-    }
-}
+    return (
+        <Element {...rest} className={wrapperClasses}>
+            {icon()}
+            <div className="CY-InfoBlock-text">{text}</div>
+        </Element>
+    );
+};
+``;
 
 InfoBlock.displayName = "InfoBlock";
+InfoBlock.propTypes = {
+    /**
+     * The information text that will be displayed.
+     */
+    text: PropTypes.node,
+    /**
+     * Show the warning icon over the default info icon
+     */
+    warning: PropTypes.bool,
+};
 
-export default InfoBlock
+InfoBlock.defaultProps = {
+    warning: false,
+};
+
+export default injectSheet(styles)(InfoBlock);

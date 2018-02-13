@@ -1,68 +1,57 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { createStyleSheet } from "jss-theme-reactor";
-import getStyleManager from "./styles/getStyleManager";
-import muiThemeable from "material-ui/styles/muiThemeable";
-import * as colors from "material-ui/styles/colors";
+import injectSheet, { withTheme } from "react-jss";
+import classnames from "classnames";
 import Element from "./Element";
 
-// Define static styles here.
 // Each key of the returned object will be available as a className below.
-const styleSheet = theme =>
-    createStyleSheet("BarGraph", theme => ({
-        wrapper: {
-            display: "flex",
-            background: colors.grey100
-        },
-        barBefore: {
-            transition: "flex-basis ease .3s",
-            flexShrink: "0",
-            maxWidth: "100%"
-        },
-        barAfter: {
-            transition: "flex-basis ease .3s",
-            opacity: ".5"
-        }
-    }));
+const styles = theme => ({
+    wrapper: {
+        display: "flex",
+        background: "rgba(0,0,0,.08)",
+        height: ({ compact }) => (compact ? "8px" : "14px"),
+    },
+    barBefore: {
+        transition: "flex-basis ease .3s",
+        flexShrink: "0",
+        maxWidth: "100%",
+        flexBasis: ({ startValue }) => startValue + "%",
+        background: ({ barColor }) => barColor,
+    },
+    barAfter: {
+        transition: "flex-basis ease .3s",
+        opacity: ".5",
+        flexBasis: ({ afterValue }) => afterValue + "%",
+        background: ({ barColor }) => barColor,
+    },
+});
+
 /**
  * BarGraph is used to show a percentage of a whole.
  */
 const BarGraph = ({
+    classes,
+    className,
     startValue,
     afterValue,
     barColor,
     compact,
-    muiTheme
+    muiTheme,
+    ...rest
 }) => {
-    // Generate classes object and render corresponding style definitions in header.
-    const classes = getStyleManager(muiTheme).render(styleSheet());
+    const wrapperClasses = classnames(
+        { [className]: className },
+        "CY-BarGraph",
+        classes.wrapper
+    );
 
-    const style = {
-        wrapper: {
-            height: compact ? "5px" : "10px"
-        },
-        barBefore: {
-            flexBasis: startValue + "%",
-            background: barColor
-        },
-        barAfter: {
-            flexBasis: afterValue + "%",
-            background: barColor
-        }
-    };
     return (
-        <Element
-            display="flex"
-            style={style.wrapper}
-            className={classes.wrapper}
-        >
+        <Element {...rest} className={wrapperClasses}>
             <div
-                style={style.barBefore}
-                className={classes.barBefore}
+                className={`CY-BarGraph-barBefore ${classes.barBefore}`}
             />
             <div
-                style={style.barAfter}
-                className={classes.barAfter}
+                className={`CY-BarGraph-barAfter ${classes.barAfter}`}
             />
         </Element>
     );
@@ -88,4 +77,4 @@ BarGraph.propTypes = {
     compact: PropTypes.bool,
 };
 
-export default muiThemeable()(BarGraph);
+export default withTheme(injectSheet(styles)(BarGraph));

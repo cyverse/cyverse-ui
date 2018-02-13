@@ -15,7 +15,7 @@ class SideBar extends React.Component {
                 top: "0px",
                 bottom: "0px",
                 width: currentWidth,
-                marginTop: "59px",
+                marginTop: "56px",
                 padding: "20px 0",
                 background: "#EEEEEE",
                 overflowY: "auto",

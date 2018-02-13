@@ -1,62 +1,37 @@
-import React from 'react';
-import { Pill, Div, Title } from 'cyverse-ui';
-import { pad, marg } from 'cyverse-ui/styles';
-import PersonIcon from 'material-ui/svg-icons/social/person';
-import Paper from 'material-ui/Paper';
-import muiThemeable from 'material-ui/styles/muiThemeable';
+import React from "react";
+import { Pill, Element, Paper } from "cyverse-ui";
+import PersonIcon from "material-ui/svg-icons/social/person";
+import NotificationIcon from "material-ui/svg-icons/social/notifications";
+import AlertIcon from "material-ui/svg-icons/alert/warning";
 
 class PillEx extends React.Component {
     render() {
-        const {
-            muiTheme: {
-                palette: {
-                    primary1Color
-                }
-            }
-        } = this.props;
         return (
-            <Paper
-                style={{
-                    ...marg({ mb: 4 }),
-                    ...pad({ p: 3 }),
-                }}
-            >
-                <Div mb = { 3 }>
-                    <Title
-                        h3
-                        title-1
-                        m={ 0 }
-                    >
+            <Paper whitespace="p3">
+                <Element whitespace="mb2">
+                    <Element root="h3" typography="title-1">
                         Default Color
-                    </Title>
-                    <Pill>
-                        Featured
-                    </Pill>
-                    <Pill icon = {  <PersonIcon/> } >
-                        22
-                    </Pill>
-                </Div>
-                <Div>
-                    <Title
-                        h3
-                        title-1
-                        m={ 0 }
-                    >
+                    </Element>
+                    <Pill>Featured</Pill>
+                    <Pill icon={<PersonIcon />}>22</Pill>
+                </Element>
+                <Element whitespace="mb2">
+                    <Element root="h3" typography="title-1">
+                        Theme Color
+                    </Element>
+                    <Pill color="danger" icon={<AlertIcon />}>3</Pill>
+                </Element>
+                <Element>
+                    <Element root="h3" typography="title-1">
                         Custom Color
-                    </Title>
-                    <Pill color={ primary1Color }>
-                        Featured
+                    </Element>
+                    <Pill color="darkmagenta" icon={<NotificationIcon />}>
+                        230
                     </Pill>
-                    <Pill
-                        color={ primary1Color }
-                        icon = {  <PersonIcon/> }
-                    >
-                        22
-                    </Pill>
-                </Div>
+                </Element>
             </Paper>
-        )
+        );
     }
 }
 
-export default muiThemeable()(PillEx);
+export default PillEx;

@@ -1,53 +1,54 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { createStyleSheet } from 'jss-theme-reactor';
-import getStyleManager from "./styles/getStyleManager";
+import React from "react";
+import PropTypes from "prop-types";
+import injectSheet from "react-jss";
+import classnames from "classnames";
 import Element from "./Element";
 
-// Define static styles here.
 // Each key of the returned object will be available as a className below.
-const styleSheet = () => (
-    createStyleSheet('SummaryText',
-        theme => ({
-            wrapper: {
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-                maxWidth: "500px"
-            }
-        }
-    ))
-);
+const styles = {
+    wrapper: {
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
+        maxWidth: "500px",
+    },
+};
+
 /**
  * SummaryText is used to limit text to a single line and available width. Typically used to preview a large block of text that can be shown by clicking `ShowMoreEllipsis` or a collapsed `MediaCard`.
  *
  * For another use case of SummaryText see 'MediaCard`
  */
 const SummaryText = ({
+    classes,
+    className,
+    root = "p",
     children,
     ...rest
 }) => {
-
-    // Generate classes object and render corresponding style definitions in header.
-    const classes = getStyleManager({})
-    .render(styleSheet());
-
-    return(
-        <Element {...rest }
-            tag="p"
-            className={ classes.wrapper }
-        >
-            { children }
+    const wrapperClasses = classnames(
+        { [className]: className },
+        "CY-SummaryText",
+        classes.wrapper
+    );
+    return (
+        <Element {...rest} root={root} className={wrapperClasses}>
+            {children}
         </Element>
-    )
+    );
 };
+
 SummaryText.displayName = "SummaryText";
 
 SummaryText.propTypes = {
     /**
      * Any length string will be shortened to fit the available width on a single line.
      */
-    children: PropTypes.string
+    children: PropTypes.string,
+    /**
+     * The root element to be renderd.
+     */
+    root: PropTypes.string,
 };
 
-export default SummaryText
+export default injectSheet(styles)(SummaryText);
