@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import filterDomProps from "filter-react-dom-props";
+import * as R from "ramda";
 import classnames from "classnames";
 import injectSheet, { withTheme } from "react-jss";
 import * as events from "./utils/events";
@@ -9,11 +10,12 @@ import * as events from "./utils/events";
 const getColor = (palette, background) =>
     palette[background] || background;
 const styles = theme => ({
-    wrapper: {
-        background: props =>
-            getColor(theme.palette, props.background),
-        color: props => getColor(theme.palette, props.color),
-    },
+    ...R.mergeAll(R.toPairs(theme.palette).map( color => (
+        { ["background_" + color[0]]: { background: color[1] } }
+    ))),
+    ...R.mergeAll(R.toPairs(theme.palette).map( color => (
+        { ["color_" + color[0]]: { color: color[1] } }
+    ))),
     ...theme.utility,
     ...theme.typography,
     ...theme.whitespace,
@@ -46,6 +48,7 @@ class Element extends React.Component {
             classes,
             hide = false,
             hideReadable = false,
+            themeBackground,
             typography = "body1",
             whitespace = [],
             elevation = 0,
@@ -72,6 +75,7 @@ class Element extends React.Component {
             { [classes.hide]: hide },
             { [classes.hideReadable]: hideReadable },
             { [elevationClass]: elevation > 0 },
+            { [classes["background_" + themeBackground]]: themeBackground },
             classes.wrapper,
             classes[typography],
             whitespaceClass
