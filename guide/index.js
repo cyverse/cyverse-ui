@@ -2,7 +2,6 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import injectSheet, {ThemeProvider} from 'react-jss'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -23,9 +22,7 @@ setup();
 let newTheme = getMuiTheme(cyverseTheme);
 const App = () => (
     <MuiThemeProvider muiTheme={ newTheme }>
-        <ThemeProvider theme={ newTheme }>
-            <StyleGuide/>
-        </ThemeProvider>
+        <StyleGuide/>
     </MuiThemeProvider>
 );
 

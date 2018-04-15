@@ -1,42 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
-import classnames from "classnames";
-import Element from "./Element";
-import { IconButton } from "material-ui";
-import SearchIcon from "material-ui/svg-icons/action/search";
-import CloseIcon from "material-ui/svg-icons/navigation/close";
+import PropTypes from 'prop-types';
+import { createStyleSheet } from 'jss-theme-reactor';
+import getStyleManager from "./styles/getStyleManager";
+import muiThemeable from "material-ui/styles/muiThemeable";
 
-const styles = theme => ({
-    card: {
-        display: "flex",
-        alignItems: "center",
-        height: "40px",
-        background: "white",
-        position: "relative",
-        marginBottom: "20px",
-        transition: "box-shadow 350ms ease",
-        ...theme.elevation.elevation3,
-        "&:hover": {
-            ...theme.elevation.elevation6,
-        },
-    },
-    card__active: {
-        ...theme.elevation.elevation7,
-    },
-    input: {
-        flex: "1 1 100%",
-        border: "none",
-        boxShadow: "none",
-        "&:focus": {
-            outline: "none",
-        },
-    },
-    searchIcon: {
-        minWidth: "24px",
-        ...theme.whitespace.ms2,
-    },
-});
+import { IconButton } from "material-ui";
+import SearchIcon from "material-ui/svg-icons/action/search"
+import CloseIcon from "material-ui/svg-icons/navigation/close"
+import { styles, pad, marg } from './styles';
 
 /**
  * The SearchBar is used for searches. It has an active state that helps to inform the user a search is affecting the list in question. An optional onClear prop allows the query to be cleared when the user presses the clear button.
@@ -64,69 +35,92 @@ class SearchBar extends React.Component {
     };
 
     static defaultProps = {
-        placeholder: "Search",
+        placeholder: "Search"
     };
+
+    styleSheet = () => {
+        const size = { pl: 2, pr: 2 }
+        return createStyleSheet('Search',
+            theme => ({
+                card: {
+                    display: "flex",
+                    alignItems: "center",
+                    height: "40px",
+                    background: "white",
+                    position: "relative",
+                    marginBottom: "20px",
+                    transition: "box-shadow 350ms ease",
+                    ...styles.boxShadow.xsm,
+                    ...pad(size),
+                    ...marg(this.props),
+                    "&:hover": {
+                        ...styles.boxShadow.sm
+                    },
+                },
+                activeCard: {
+                    ...styles.boxShadow.md
+                },
+                input: {
+                    flex: "1 1 100%",
+                    border: "none",
+                    boxShadow: "none",
+                    "&:focus": {
+                        outline: "none"
+                    }
+                },
+                searchIcon: {
+                    ...marg({mr: 2})
+                }
+            }
+        ))
+    };
+
+    componentWillMount() {
+        const { muiTheme } = this.props;
+
+        this.classes = getStyleManager(muiTheme)
+            .render(this.styleSheet());
+    }
 
     render() {
         const {
-            classes,
-            className,
             value,
             placeholder,
             onChange,
             onClear,
-            theme,
-            ...rest
+            muiTheme,
         } = this.props;
 
-        const cardClasses = classnames(
-            { [className]: className },
-            "CY-SearchBar",
-            classes.card,
-            {
-                [classes.card__active]: value,
-            }
-        );
-        const iconClasses = classnames(
-            "CY-SearchBar-searchIcon",
-            classes.searchIcon
-        );
-        const inputClasses = classnames(
-            "CY-SearchBar-input",
-            classes.input
-        );
-
-        const searchColor = value
-            ? theme.palette.primary1Color
-            : null;
-
-        const shouldShowClear = onClear && value;
+        const searchColor = value ?
+            muiTheme.palette.primary1Color : null;
+        const activeCard = value ? this.classes.activeCard : null;
+        const shouldShowClear = ( onClear && value );
 
         return (
-            <Element {...rest} className={cardClasses}>
-                <SearchIcon
-                    className={iconClasses}
-                    color={searchColor}
-                />
-                <input
-                    className={inputClasses}
-                    type="text"
-                    value={value}
-                    placeholder={placeholder}
-                    onChange={onChange}
-                    onFocus={this.onFocus}
-                />
-                {shouldShowClear ? (
-                    <IconButton
-                        className="CY-SearchBar-closeButton"
-                        onTouchTap={onClear}
-                    >
-                        <CloseIcon />
-                    </IconButton>
-                ) : null}
-            </Element>
+            <div className={ `${this.classes.card} ${activeCard}` }>
+                    <SearchIcon
+                        className={ this.classes.searchIcon }
+                        color={ searchColor }
+                    />
+                    <input
+                        className={ this.classes.input }
+                        type="text"
+                        value={ value }
+                        placeholder={ placeholder }
+                        onChange={ onChange }
+                        onFocus={ this.onFocus }
+                    />
+                    { ( shouldShowClear ) ?
+                        <IconButton
+                            className={ this.classes.closeIcon }
+                            onTouchTap={ onClear }
+                        >
+                            <CloseIcon/>
+                        </IconButton> : null
+                    }
+            </div>
         );
     }
 }
 
-export default withTheme(injectSheet(styles)(SearchBar));
+export default muiThemeable()(SearchBar);

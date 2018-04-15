@@ -1,31 +1,42 @@
 import React from 'react';
-import injectSheet from 'react-jss';
-import Element from '../Element';
+import { marg } from '../styles';
+import ClearFix from './ClearFix';
 
-const styles = {
-    wrapper: {
-        display: "flex",
-        flexWrap: "wrap",
-        "& > *": {
-            marginRight: "16px",
-        },
-        "& > *:last-child": {
-            marginRight: 0
-        }
-    }
-}
-
-
-class ButtonGroup extends React.Component {
+export default class extends React.Component {
     static displayName = "ButtonGroup"
     render() {
-        const { children, classes, ...rest } = this.props;
+        const { children, pullR, pullL } = this.props;
+
+        let style = {
+            display: "flex",
+            flexWrap: "wrap",
+        };
+        if ( pullR ) {
+            style.float = "right";
+        }
+        if ( pullL ) {
+            style.float = "left";
+        }
+
+        let renderChildren = React.Children.map(children,
+            (child, i) => {
+                if (i === children.length - 1) {
+                    return React.cloneElement(child, {
+                        style: { ...marg({ mv: 1 }) }
+                    });
+                } else {
+                    return React.cloneElement(child, {
+                        style: { ...marg({ mr: 3, mv: 1 }) }
+                    })
+                }
+            }
+        );
         return (
-                <Element { ...rest} className={ `${classes.wrapper} ButtonGroup` }>
-                    { children }
-                </Element>
+            <ClearFix>
+                <div style={ style }>
+                    { renderChildren }
+                </div>
+            </ClearFix>
         )
     }
 }
-
-export default injectSheet(styles)(ButtonGroup)

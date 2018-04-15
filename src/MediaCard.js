@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import VerticalMenu from './VerticalMenu';
 import Identity from './Identity';
-import CheckableAvatar from './Checkable';
+import CheckableAvatar from './CheckableAvatar';
 import ListCard from './ListCard';
 import ListCardHeader from './ListCardHeader';
 import ListCardIdentity from './ListCardIdentity';
@@ -36,23 +35,19 @@ class MediaCard extends React.Component {
          */
         titleInfo: PropTypes.node,
         /**
-         * The space between the Identity and Actions.
-         * Only shown when card is collapsed. Will render any components or string passed.
+         * The space between the Identity and Actions. Only shown when card is collapsed. Will render any components or string passed.
          */
         summary: PropTypes.node,
         /**
-         * The large space below the card header.
-         * Only shown when card is expanded. Will render any components or string passed.
+         * The large space below the card header. Only shown when card is expanded. Will render any components or string passed.
          */
         detail: PropTypes.node,
         /**
-         * The exposed actions that appear to right of card on hover or when open.
-         * Expects an array of components. Best used with MUI IconButtons
+         * The exposed actions that appear to right of card on hover or when open. Expects an array of components. Best used with MUI IconButtons
          */
         quickLinks: PropTypes.array,
         /**
-         * Works with quicklinks but is visible when quickLinks is not.
-         * By having the same button in both props causes said button to always show while the others only show when card is hovered or active.
+         * Works with quicklinks but is visible when quickLinks is not. By having the same button in both props causes said button to always show while the others only show when card is hovered or active.
          */
         activeQuickLinks: PropTypes.array,
         /**
@@ -89,7 +84,7 @@ class MediaCard extends React.Component {
         cardIsHovered: false,
     };
 
-    onCardEnter = e => {
+    onCardEnter = () => {
         this.setState({
             cardIsHovered: true,
         });
@@ -115,8 +110,7 @@ class MediaCard extends React.Component {
         const { cardIsHovered } = this.state;
         const isHidden = ( isExpanded ? false : !cardIsHovered )
         return quickLinks ? (
-            <ActionGroup hideReadable={ isHidden }
-            >
+            <ActionGroup hide={ isHidden }>
                 { quickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
             </ActionGroup>
         ) : null
@@ -127,7 +121,7 @@ class MediaCard extends React.Component {
         const { cardIsHovered } = this.state;
         const isHidden = ( isExpanded ? true : cardIsHovered )
         return activeQuickLinks ? (
-            <ActionGroup  hide={ isHidden }>
+            <ActionGroup hide={ isHidden }>
                 { activeQuickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
             </ActionGroup>
         ) : null
@@ -147,7 +141,6 @@ class MediaCard extends React.Component {
 
     render() {
         const {
-            className,
             title,
             image,
             subTitle,
@@ -159,26 +152,17 @@ class MediaCard extends React.Component {
             batchMode,
             ...rest,
         } = this.props;
-
-        const wrapperClasses = classnames(
-            {[className]: className},
-            "CY-MediaCard"
-        );
-
         const { cardIsHovered } = this.state;
-        const showCheck = onBatchClick &&  batchMode || cardIsHovered || isExpanded;
+        const showCheck = onBatchClick && ( batchMode || cardIsHovered );
 
         return (
             <ListCard { ...rest }
-                className={wrapperClasses}
                 isExpanded={ isExpanded }
             >
                 <ListCardHeader
                     onMouseEnter = { this.onCardEnter }
                     onMouseLeave = { this.onCardLeave }
                     onClick = { this.handleOnExpand }
-                    onFocus={ this.onCardEnter }
-                    onBlur={ this.onCardLeave}
                 >
                     <ListCardIdentity>
                         <Identity
@@ -186,12 +170,8 @@ class MediaCard extends React.Component {
                                 <CheckableAvatar
                                     children={image}
                                     isCheckable={ showCheck }
-                                    onFocus={ this.onCardEnter }
-                                    onBlur={ this.onCardLeave}
-                                    checkboxProps={{
-                                        onCheck: this.onCheck,
-                                        checked: checked
-                                    }}
+                                    onCheck={ this.onCheck }
+                                    checked={ checked }
                                 />
                              }
                             primaryText = { title }

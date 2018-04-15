@@ -1,87 +1,69 @@
-import React from "react";
-import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
-import classnames from "classnames";
-import Element from "./Element";
-
-// Each key of the returned object will be available in the prop "classes" below.
-const styles = theme => ({
-    wrapper: {
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
-    },
-    text: {
-        marginBottom: 2,
-    },
-    img: {
-        borderRadius: "999px",
-        overflow: "hidden",
-    },
-    img__sm: {
-        ...theme.whitespace.mr2,
-    },
-    img__lg: {
-        ...theme.whitespace.mr3,
-    },
-});
+import React from 'react';
+import PropTypes from 'prop-types';
+import { marg } from './styles';
+import P from './P';
+import Title from './Title';
 
 /**
- * Identity is used on a card or view to provide context to the content. A resource for example, would have the resource name as the primary text and useful meta as the secondary text, like the date the resource was created or a quick summary.
- *
- * An Identity is located at the top left of a card or view. A small Identity is used on cards and a large Identity or small Identity can be used on views.
- **/
-const Identity = props => {
+* Identity is used on a card or view to provide context to the content. A resource for example, would have the resource name as the primary text and useful meta as the secondary text, like the date the resource was created or a quick summary.
+
+An Identity is located at the top left of a card or view. A small Identity is used on cards and a large Identity or small Identity can be used on views.
+ */
+const Identity = (props) => {
     const {
-        classes,
-        className,
         lg,
         image,
         primaryText,
         secondaryText,
-        ...rest
     } = props;
 
-    // Set Image size
     const imageSize = lg ? 60 : 40;
-    const renderImage = React.cloneElement(image, {
-        size: imageSize,
-    });
+    const renderImage = React.cloneElement(
+        image, { size: imageSize });
 
-    // Define wrapper classes
-    const wrapperClasses = classnames(
-        { [className]: className },
-        "CY-Identity",
-        classes.wrapper
-    );
+    const margSize = lg ? 3 : 2;
+    const imgMarg = marg({ mr: margSize });
 
-    // Define Image classes
-    const imgClasses = classnames(
-        "CY-Identity-img",
-        classes.img,
-        { [classes.img__sm]: !lg },
-        { [classes.img__lg]: lg }
-    );
+    const style = {
+        wrapper: {
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            ...marg(props),
+        },
+        img: {
+            borderRadius: "999px",
+            overflow: "hidden",
+            ...imgMarg,
+        },
+    };
 
     return (
-        <Element {...rest} className={wrapperClasses}>
-            <div className={imgClasses}>{renderImage}</div>
-            <div className="CY-Identity-textGroup">
-                <Element
-                    className={`CY-Identity-text ${classes.text}`}
-                    typography={lg ? "title" : "body2"}
-                >
-                    {primaryText}
-                </Element>
-                <Element
-                    className={`CY-Identity-subtext ${classes.text}`}
-                    typography={lg ? "subheading" : "caption"}
-                >
-                    {secondaryText}
-                </Element>
+        <div style={ style.wrapper }>
+            <div style={ style.img }>
+                { renderImage }
             </div>
-        </Element>
-    );
+            <div>
+                <div>
+                    <Title
+                        m={0}
+                        title={ lg }
+                        body2={ !lg }
+                    >
+                        { primaryText }
+                    </Title>
+                    <P
+                        m={0}
+                        subheading={ lg }
+                        caption={ !lg }
+                        lineHeight="1.15"
+                    >
+                        { secondaryText }
+                    </P>
+                </div>
+            </div>
+        </div>
+    )
 };
 
 Identity.propTypes = {
@@ -105,4 +87,4 @@ Identity.propTypes = {
 
 Identity.displayName = "Identity";
 
-export default withTheme(injectSheet(styles)(Identity));
+export default Identity

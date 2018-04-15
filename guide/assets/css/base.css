@@ -10,7 +10,17 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 button, html [type="button"], /* 1 */ [type="reset"], [type="submit"] { -webkit-appearance: none; /* 2 */}
-
+a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
+a:visited {
+    color: black
+}
+a:hover {
+    border-bottom: 2px solid lightgrey;
+}
 
 
 table {
@@ -52,7 +62,7 @@ code.lang-jsx, .CodeBlock {
     background: rgba(0,0,0,0.03);
     border: solid rgba(0,0,0,.2) 1px;
     border-radius: 3px;
-    font-size: 14px;
+    font-size: 11px;
     color: crimson;
     padding: 0 3px 2px;
     vertical-align: middle;
@@ -64,16 +74,4 @@ code.lang-jsx, .CodeBlock {
     max-width: 600px;
     line-height: 1.7;
     margin: 0px 0px 34px;
-}
-
-.markdown-body a, .Link {
-    color: black;
-    text-decoration: none;
-    font-weight: 500;
-}
-.markdown-body a:visited, a.Link:visited {
-    color: black
-}
-.markdown-body a:hover, .Link:hover {
-    border-bottom: 2px solid lightgrey;
 }

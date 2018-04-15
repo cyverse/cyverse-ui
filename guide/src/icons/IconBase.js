@@ -13,6 +13,7 @@ const IconBase = ({ children, size, style, ...props }, { reactIconBase }) => {
         <svg
             fill="currentColor"
             preserveAspectRatio="xMidYMid meet"
+            height={computedSize}
             width={computedSize}
             {...reactIconBase}
             {...props}

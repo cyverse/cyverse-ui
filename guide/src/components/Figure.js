@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import theme from '../theme';
 import { styles } from 'cyverse-ui/styles';
-import { Element } from 'cyverse-ui';
+import { Title } from 'cyverse-ui';
 
 class Figure extends React.Component {
     render() {
@@ -12,20 +13,18 @@ class Figure extends React.Component {
                     padding: "10px",
                 }}
             >
-                <Element
-                    root="figcaption"
-                    typography="title"
-                    background="primary1Color"
-                    style={{
+                <figcaption style={{
+                        ...styles.t.title,
+                        background: theme.color.primary,
                         color: "white",
                         padding: "10px",
                         margin: "-11px -11px 20px",
                     }}
                 >
-                    <Element typography="title" m={ 0 }>
+                    <Title title m={ 0 }>
                         { this.props.caption }
-                    </Element>
-                </Element>
+                    </Title>
+                </figcaption>
                 { this.props.children }
             </figure>
 

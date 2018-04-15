@@ -1,30 +1,38 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-import ActionGroup from "./ActionGroup";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { createStyleSheet } from 'jss-theme-reactor';
+import getStyleManager from "./styles/getStyleManager";
+import Element from "./Element";
 
+// Define static styles here.
+// Each key of the returned object will be available as a className below.
+const styleSheet = () => (
+    createStyleSheet('ListCardActions',
+        theme => ({
+            wrapper: {
+            },
+        }
+    ))
+);
 /**
  * ListCardActions is the area on ListCard on the right where actions live.
  */
-const ListCardActions = ({
-    classes,
-    className,
-    children,
-    ...rest
-}) => {
-    const ActionGroupClasses = classnames(
-        { [className]: className },
-        "CY-ListCardActions"
-    );
-    return (
-        <ActionGroup
-            {...rest}
+const ListCardActions = ({children, ...rest}) => {
+
+    // Generate classes object and render corresponding style definitions in header.
+    const classes = getStyleManager({})
+    .render(styleSheet());
+
+    return(
+        <Element
+            { ...rest }
+            display="flex"
             stopPropagation
-            className={ActionGroupClasses}
+            className={ classes.wrapper }
         >
             {children}
-        </ActionGroup>
-    );
+        </Element>
+    )
 };
 ListCardActions.displayName = "ListCardActions";
 
@@ -34,7 +42,7 @@ ListCardActions.propTypes = {
      *
      * For best results use `ActionGroup` with `IconButtons`.
      */
-    children: PropTypes.node,
+    children: PropTypes.node
 };
 
-export default ListCardActions;
+export default ListCardActions
