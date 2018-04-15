@@ -7,8 +7,6 @@ import injectSheet, { withTheme } from "react-jss";
 import * as events from "./utils/events";
 
 // Each key of the returned styles object will be available as a className below.
-const getColor = (palette, background) =>
-    palette[background] || background;
 const styles = theme => ({
     ...R.mergeAll(R.toPairs(theme.palette).map( color => (
         { ["background_" + color[0]]: { background: color[1] } }
