@@ -34,7 +34,7 @@ const Header = ({ classes, ...rest }) => (
         {...rest}
         className={classes.wrapper}
         root="header"
-        background="primary1Color"
+        themeBackground="primary1Color"
         whitespace="ps2"
     >
         <CyverseLogo fill="white" size="200" />
