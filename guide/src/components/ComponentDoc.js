@@ -1,17 +1,16 @@
 import React from "react";
 import R from "ramda";
 import Scroll from "react-scroll";
-import { Hr, Element, Section } from "cyverse-ui";
+import theme from "../theme";
+import { Hr, P, Title, Div, Section } from "cyverse-ui";
 import { Header, SideNav, Figure, ThemeExamples, MDBlock } from "./";
 
 const ScrollAnchor = Scroll.Element;
 
 class ComponentDoc extends React.Component {
     tableData = prop => {
-        const { meta } = this.props;
         const defaultValue = prop[1].defaultValue;
         const renderDefault = defaultValue ? defaultValue.value : "";
-
         return (
             <tr key={prop[0]}>
                 <td>{prop[0]}</td>
@@ -37,36 +36,25 @@ class ComponentDoc extends React.Component {
             );
 
         return (
-            <Section
-                style={{ position: "relative" }}
-                key={displayName}
-            >
+            <Section key={displayName} mb={7}>
                 <ScrollAnchor
                     id={anchorId}
                     style={{
                         position: "absolute",
-                        top: "-50px",
+                        top: "-50px"
                     }}
                 />
 
-                <Element
-                    root="h1"
-                    whitespace="mb4"
-                    typography="headline"
-                    color="primary1Color"
-                >
+                <Hr mb={6} />
+                <Title h1 headline color={theme.color.primary}>
                     {displayName}
-                </Element>
+                </Title>
                 <MDBlock text={description} />
-                <Element whitespace="mb4">{children}</Element>
-                <Element>
-                    <Element
-                        tag="h2"
-                        whitespace="mb2"
-                        typography="title"
-                    >
+                <Div mb={4}>{children}</Div>
+                <Div>
+                    <Title h2 title>
                         {`${displayName} Properties`}
-                    </Element>
+                    </Title>
                     <table>
                         <thead>
                             <tr>
@@ -82,7 +70,7 @@ class ComponentDoc extends React.Component {
                             )}
                         </tbody>
                     </table>
-                </Element>
+                </Div>
             </Section>
         );
     }

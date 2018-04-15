@@ -8,21 +8,14 @@ import IconButton from "material-ui/IconButton";
 import DeleteIcon from "material-ui/svg-icons/action/delete";
 import PersonIcon from "material-ui/svg-icons/social/person";
 import EditIcon from "material-ui/svg-icons/image/edit";
-import FavoritedIcon from "material-ui/svg-icons/action/favorite";
-import FavoriteIcon from "material-ui/svg-icons/action/favorite-border";
+import FavoriteIcon from "material-ui/svg-icons/action/favorite";
 import FavoriteBorderIcon from "material-ui/svg-icons/action/favorite-border";
-import {
-    MediaCard,
-    Pill,
-    MediaCardGroup,
-    MDBlock,
-    SummaryText,
-} from "cyverse-ui";
+import { MediaCard, Pill, MediaCardGroup, MDBlock, SummaryText } from "cyverse-ui";
 
 export default class extends React.Component {
     state = {
         batchMode: true,
-        selectedItems: [],
+        selectedItems: []
     };
 
     onCheck = (e, item) => {
@@ -33,27 +26,13 @@ export default class extends React.Component {
             ? list.filter(i => curr !== i)
             : [...list, curr];
         this.setState({ selectedItems });
-    };
+    }
 
     render() {
         const { selectedItems } = this.state;
         return (
             <MediaCardGroup>
                 {data.map((item, i) => {
-                    const isFavorited = i === 2;
-                    const RenderFavoriteIcon = isFavorited ? (
-                        <FavoritedIcon color="red" />
-                    ) : (
-                        <FavoriteIcon />
-                    );
-                    const favorited = isFavorited
-                        ? [
-                              <IconButton>
-                                  <FavoritedIcon color="red" />
-                              </IconButton>,
-                          ]
-                        : null;
-
                     return (
                         <MediaCard
                             uid={i}
@@ -65,21 +44,15 @@ export default class extends React.Component {
                                 <Avatar
                                     children={item.name[0]}
                                     backgroundColor={randomcolor({
-                                        seed: item.name,
+                                        seed: item.name
                                     })}
                                     color="rgba(255,255,255,.7)"
                                 />
                             }
                             title={item.name}
                             subTitle={item.tagline}
-                            summary={
-                                <SummaryText
-                                    children={item.description}
-                                />
-                            }
-                            detail={
-                                <MDBlock text={item.description} />
-                            }
+                            summary={<SummaryText children={item.description}/>}
+                            detail={ <MDBlock text={item.description}/> }
                             menuItems={[
                                 <MenuItem
                                     key="1"
@@ -96,18 +69,24 @@ export default class extends React.Component {
                                 <MenuItem
                                     key="4"
                                     primaryText="Help"
-                                />,
+                                />
                             ]}
                             quickLinks={[
-                                <IconButton>{RenderFavoriteIcon}</IconButton>,
+                                <IconButton>
+                                    <FavoriteIcon color="red" />
+                                </IconButton>,
                                 <IconButton>
                                     <EditIcon />
                                 </IconButton>,
                                 <IconButton>
                                     <DeleteIcon />
-                                </IconButton>,
+                                </IconButton>
                             ]}
-                            activeQuickLinks={favorited}
+                            activeQuickLinks={[
+                                <IconButton>
+                                    <FavoriteIcon color="red" />
+                                </IconButton>
+                            ]}
                         />
                     );
                 })}

@@ -1,6 +1,6 @@
 import React from 'react';
-import { VerticalMenu, Paper } from 'cyverse-ui';
-import { MenuItem } from 'material-ui';
+import { VerticalMenu } from 'cyverse-ui';
+import { Paper, MenuItem } from 'material-ui';
 
 class VerticalMenuEx extends React.Component {
     onSelect = (e, ch) => {
@@ -10,7 +10,7 @@ class VerticalMenuEx extends React.Component {
     render() {
         return (
             <div>
-                <Paper whitespace="p3">
+                <Paper style={{ padding: "10px", marginBottom: "20px" }}>
                     <VerticalMenu
                         onItemTouchTap={ this.onSelect }
                     >

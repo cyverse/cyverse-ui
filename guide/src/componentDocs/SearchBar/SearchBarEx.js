@@ -1,5 +1,6 @@
 import React from 'react';
 import { SearchBar } from 'cyverse-ui';
+import Paper from 'material-ui/Paper';
 
 export default class extends React.Component {
     state = {

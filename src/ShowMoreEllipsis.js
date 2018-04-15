@@ -1,41 +1,60 @@
-import React from "react";
-import injectSheet, { withTheme } from "react-jss";
-import classnames from "classnames";
-import Element from "./Element";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { hoverable } from './utils';
+import { marg } from './styles';
 
-const styles = theme => ({
-    wrapper: {
-        ...theme.whitespace.ml1,
+/**
+ * ShowMoreEllipsis is used to show he user that there is more content to see that has been hidden by the UI. Generally it is unnecessary to trigger any events with it as it is used on cards which expand when the user clicks anywhere inside.
+ */
+const ShowMoreEllipsis = (props) => {
+    const { 
+        isHovered,
+        onMouseEnter,
+        onMouseLeave,
+        onTouchTap
+    } = props;
+
+    function handleClick() {
+        if (onTouchTap) {
+            onTouchTap();
+        }
+    }
+
+    const styles = {
+        ...marg({mt: 2}),
         cursor: "pointer",
-        borderRadius: "3px",
-        padding: "0 3px 12px",
+        borderRadius: "3px", 
+        padding: "0 3px 12px", 
         display: "inline-block",
         lineHeight: "0",
         verticalAlign: "middle",
         fontSize: "22px",
         background: "rgba(0,0,0,.1)",
-        "&:hover": {
-            background: "rgba(0,0,0,.3)",
-        },
-    },
-});
-/**
- * ShowMoreEllipsis is used to show he user that there is more content to see that has been hidden by the UI. Generally it is unnecessary to trigger any events with it as it is used on cards which expand when the user clicks anywhere inside.
- */
-const ShowMoreEllipsis = props => {
-    const { classes, className, ...rest } = props;
-    const wrapperClasses = classnames(
-        { [className]: className },
-        "CY-ShowMoreEllipsis",
-        classes.wrapper
-    );
+        onHover: isHovered ? {
+            background: "rgba(0,0,0,.3)"
+        } : {}
+    }
     return (
-        <Element root="span" {...rest} className={wrapperClasses}>
+        <span 
+            onMouseEnter={ onMouseEnter }
+            onMouseLeave={ onMouseLeave }
+            onClick={ handleClick }
+            style={{
+                ...styles,
+                ...styles.onHover,
+            }}
+        >
             ...
-        </Element>
-    );
+        </span>
+    )
 };
 
 ShowMoreEllipsis.displayName = "ShowMoreEllipsis";
+ShowMoreEllipsis.propTypes = {
+    /**
+     *Callback when clicked or tapped
+    */
+    onTouchTap: PropTypes.func
+};
 
-export default withTheme(injectSheet(styles)(ShowMoreEllipsis));
+export default hoverable(ShowMoreEllipsis);

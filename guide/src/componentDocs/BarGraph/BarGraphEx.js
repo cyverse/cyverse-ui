@@ -1,14 +1,22 @@
 import React from "react";
 import * as colors from "material-ui/styles/colors";
-import { BarGraph, Paper } from "cyverse-ui";
+import Paper from "material-ui/Paper";
+import { BarGraph } from "cyverse-ui";
+import { pad, marg } from "cyverse-ui/styles";
 
 const BarGraphEx = props => (
-    <Paper whitespace={["p2", "mb3"]}>
+    <Paper
+        style={{
+            ...marg({ mb: 4 }),
+            ...pad({ p: 3 })
+        }}
+    >
         <BarGraph
             startValue={40}
             afterValue={10}
-            barColor={colors.orange500}
+            barColor={colors.lightBlue400}
         />
     </Paper>
 );
+
 export default BarGraphEx;

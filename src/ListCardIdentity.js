@@ -1,42 +1,39 @@
-import React from "react";
-import PropTypes from "prop-types";
-import injectSheet from "react-jss";
-import classnames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { createStyleSheet } from 'jss-theme-reactor';
+import getStyleManager from "./styles/getStyleManager";
 import Element from "./Element";
 
 // Define static styles here.
 // Each key of the returned object will be available as a className below.
-const styles = {
-    wrapper: {
-        display: "flex",
-        alignItems: "center",
-        minWidth: "300px",
-    },
-};
-
+const styleSheet = () => (
+    createStyleSheet('ListCardIdentity',
+        theme => ({
+            wrapper: {
+                alignItems: "center",
+                minWidth: "300px",
+            }
+        }
+    ))
+);
 /**
  * ListCardIdentity is the space on the left side within ListCardHeader that contains the ListCard's identity.
  */
-const ListCardIdentity = ({
-    classes,
-    className,
-    children,
-    ...rest
-}) => {
-    const wrapperClasses = classnames(
-        { [className]: className },
-        "CY-ListCardIdentity",
-        classes.wrapper
-    );
+const ListCardIdentity = ({ children, ...rest }) => {
+
+    // Generate classes object and render corresponding style definitions in header.
+    const classes = getStyleManager({})
+    .render(styleSheet());
+
     return (
         <Element
-            {...rest}
-            whitespace="pl2"
-            className={wrapperClasses}
+            { ...rest }
+            display="flex"
+            className={ classes.wrapper }
         >
-            {children}
+            { children }
         </Element>
-    );
+    )
 };
 ListCardIdentity.displayName = "ListCardIdentity";
 
@@ -46,7 +43,7 @@ ListCardIdentity.propTypes = {
      *
      * For best results use Identity
      */
-    children: PropTypes.node,
+    children: PropTypes.node
 };
 
-export default injectSheet(styles)(ListCardIdentity);
+export default ListCardIdentity

@@ -1,12 +1,18 @@
 import React from 'react';
-import { Identity, Paper } from 'cyverse-ui';
-import { Avatar } from 'material-ui';
+import { Identity, Title } from 'cyverse-ui';
+import { marg, pad } from 'cyverse-ui/styles';
+import { Avatar, Paper } from 'material-ui';
 
 export default props => (
-    <Paper whitespace="p2">
+    <Paper
+        style={{
+            ...marg({ mb: 4 }),
+            ...pad({ p: 3 }),
+        }}
+    >
         <Identity
             lg
-            whitespace="mb3"
+            mb={ 5 }
             image={
                 <Avatar
                     children="T"

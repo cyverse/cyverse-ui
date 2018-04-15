@@ -1,27 +1,24 @@
-import React from "react";
-import injectSheet, { withTheme } from "react-jss";
-import classnames from "classnames";
-import Element from "./Element";
+import React from 'react';
+import { marg } from './styles';
 
-// Each key of the returned object will be available in the prop "classes" below.
-const styles = theme => ({
-    wrapper: {
-        border: "0px",
-        height: "1px",
-        background: "rgba( 0, 0, 0, .1 )",
-    },
-});
+export default class extends React.Component {
+    /**
+     * Hr renders the proper styling on a horizontal rule.
+     */
+    static displayName = "Hr"
+    style = () => {
+        return {
+            border:"0px",
+            height: "1px",
+            background: "rgba( 0, 0, 0, .1 )",
+            ...marg(this.props),
+            ...this.props.style,
+        }
+    };
 
-/**
- * Hr renders the proper styling on a horizontal rule.
- */
-const Hr = ({ classes, className }) => {
-    const wrapperClasses = classnames(
-        { [className]: className },
-        "CY-Hr",
-        classes.wrapper
-    );
-    return <Element root="hr" className={wrapperClasses} />;
-};
-
-export default withTheme(injectSheet(styles)(Hr));
+    render() {
+        return (
+            <hr style={ this.style() }/>
+        )
+    }
+}
