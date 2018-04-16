@@ -15,7 +15,7 @@ class Figure extends React.Component {
                 <Element
                     root="figcaption"
                     typography="title"
-                    background="primary1Color"
+                    themeBackground="primary1Color"
                     style={{
                         color: "white",
                         padding: "10px",

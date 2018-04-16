@@ -47,6 +47,7 @@ class Element extends React.Component {
             hide = false,
             hideReadable = false,
             themeBackground,
+            themeColor,
             typography = "body1",
             whitespace = [],
             elevation = 0,
@@ -74,6 +75,7 @@ class Element extends React.Component {
             { [classes.hideReadable]: hideReadable },
             { [elevationClass]: elevation > 0 },
             { [classes["background_" + themeBackground]]: themeBackground },
+            { [classes["color_" + themeColor]]: themeColor },
             classes.wrapper,
             classes[typography],
             whitespaceClass

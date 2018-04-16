@@ -62,7 +62,7 @@ class StyleGuide extends React.Component {
                             <Element
                                 root="h1"
                                 typography="display2"
-                                color="primary1Color"
+                                themeColor="primary1Color"
                                 whitespace="mb3"
                             >
                                 CyVerse UI
@@ -87,7 +87,7 @@ class StyleGuide extends React.Component {
                             <Element
                                 root="h2"
                                 typography="display1"
-                                color="primary1Color"
+                                themeColor="primary1Color"
                             >
                                 Theming
                             </Element>
@@ -97,7 +97,7 @@ class StyleGuide extends React.Component {
                             <Element
                                 root="h2"
                                 typography="display1"
-                                color="primary1Color"
+                                themeColor="primary1Color"
                             >
                                 Components
                             </Element>
