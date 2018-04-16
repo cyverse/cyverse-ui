@@ -35,6 +35,7 @@ const Pill = ({
     theme,
     className,
     children,
+    themeColor,
     color,
     icon,
     ...rest
@@ -60,7 +61,7 @@ const Pill = ({
             <span className={innerWrapperClasses}>
                 <Element
                     root="span"
-                    background={color || textColor}
+                    style={{ background: iconColor || textColor}}
                     className={pillBodyClasses}
                 >
                     {children}
