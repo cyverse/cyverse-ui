@@ -8,7 +8,7 @@ const ElementEx = props => (
         <Element
             root="h1"
             typography="display1"
-            color="primary1Color"
+            themeColor="primary1Color"
             whitespace="mb5"
             children={`Control Typography`}
         />
@@ -25,21 +25,21 @@ const ElementEx = props => (
         <Element
             root="p"
             typography="title"
-            background="gold"
+            themeBackground="accent1Color"
             elevation={3}
             whitespace={["mb3", "p3" ]}
-            children={`Whitespace, background colors, and elevation!`}
+            children={`Whitespace, theme background colors, and elevation!`}
         />
         <Element
             typography="body2"
-            background="white"
+            themeBackground="canvasColor"
             whitespace={[ "p3" ]}
             elevation={2}
             children="An elevation of 2 is used for cards placed together as a list"
         />
         <Element
             typography="body2"
-            background="white"
+            themeBackground="canvasColor"
             whitespace={[ "p3" ]}
             elevation={2}
             children="You get the idea. Use the source!"

@@ -5,7 +5,7 @@ import Element from "./Element";
 const Paper = ({
     className,
     elevation = 3,
-    background = "white",
+    themeBackground = "canvasColor",
     ...rest
 }) => {
     const wrapperClasses = classnames(
@@ -17,7 +17,7 @@ const Paper = ({
             {...rest}
             className={wrapperClasses}
             elevation={elevation}
-            background={background}
+            themeBackground={themeBackground}
         />
     );
 };
