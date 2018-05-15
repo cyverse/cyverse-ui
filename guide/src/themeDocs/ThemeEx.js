@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { withTheme } from 'material-ui/styles';
 import withWidth, {SMALL} from 'material-ui/utils/withWidth';
-import typography from 'material-ui/styles/typography';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import ClearFix from 'material-ui/internal/ClearFix';
+import typography from 'material-ui/typography';
 
 import {
   Checkbox,
@@ -42,11 +39,6 @@ class ThemesPage extends Component {
     drawerOpen: false,
   };
 
-  componentWillMount() {
-    this.setState({
-      valueTabs: this.props.muiTheme.name || 'light',
-    });
-  }
 
   getStyles() {
     const {
@@ -120,7 +112,7 @@ class ThemesPage extends Component {
     const styles = this.getStyles();
 
     return (
-      <ClearFix>
+        <div>
         <div style={styles.group}>
           <div style={styles.containerCentered}>
             <RaisedButton label="Secondary" secondary={true} />
@@ -252,8 +244,8 @@ class ThemesPage extends Component {
             onActionTouchTap={this.handleRequestCloseSnackbar}
           />
         </div>
-      </ClearFix>
-    );
+        </div>
+    )
   }
 
   handleTouchTapDrawer = () => {
@@ -297,4 +289,4 @@ class ThemesPage extends Component {
     );
   }
 }
-export default muiThemeable()(withWidth()(ThemesPage));
+export default withTheme()(withWidth()(ThemesPage));

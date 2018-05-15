@@ -1,8 +1,8 @@
 import React from "react";
 import users from "../../data/users";
 import IconButton from "material-ui/IconButton";
-import DeleteIcon from "material-ui/svg-icons/action/delete";
-import EditIcon from "material-ui/svg-icons/image/edit";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 import {
     ListCard,
     ListCardHeader,
@@ -27,8 +27,8 @@ const ListCardDetailEx = props => (
                 <Identity
                     primaryText={user.name}
                     secondaryText={user.tagline}
-                    image={
-                        <Avatar backgroundColor="tomato">
+                    avatar={
+                        <Avatar style={{background: "tomato"}}>
                             {user.name[0]}
                         </Avatar>
                     }
@@ -49,9 +49,9 @@ const ListCardDetailEx = props => (
                         console.log(ch.props.primaryText)
                     }
                 >
-                    <MenuItem key="1" primaryText="Instance" />
-                    <MenuItem key="2" primaryText="Volume" />
-                    <MenuItem key="3" primaryText="Image" />
+                    <MenuItem key="1" children="Instance" />
+                    <MenuItem key="2" children="Volume" />
+                    <MenuItem key="3" children="Image" />
                 </VerticalMenu>
             </ListCardActions>
         </ListCardHeader>

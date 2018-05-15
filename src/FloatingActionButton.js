@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles, withTheme } from "material-ui";
 import classnames from "classnames";
-import { FloatingActionButton as MuiFloatingActionButton } from "material-ui";
-import { ContentAdd } from "material-ui/svg-icons";
+import { Button } from "material-ui";
+import ContentAdd from "@material-ui/icons/Add";
 import Element from "./Element";
 
 // Each key of the returned object will be available as a className below.
@@ -83,11 +83,12 @@ class FloatingActionButton extends Component {
 
         return (
             <Element {...rest} className={wrapperClasses}>
-                <MuiFloatingActionButton
+                <Button
                     {...rest}
+                    variant="fab"
                     className="CY-FloatingActionButton-btn"
-                    backgroundColor={
-                        isOpen ? "#585858" : closedBackground
+                    color={
+                        isOpen ? "#585858" : "secondary"
                     }
                     onClick={onClick || this.onClick}
                 >
@@ -98,7 +99,7 @@ class FloatingActionButton extends Component {
                     ) : (
                         <ContentAdd className={iconClasses} />
                     )}
-                </MuiFloatingActionButton>
+                </Button>
                 {children
                     ? React.cloneElement(children, {
                             isOpen: isOpen,
@@ -128,4 +129,4 @@ FloatingActionButton.propTypes = {
     actions: PropTypes.array,
 };
 
-export default withTheme(injectSheet(styles)(FloatingActionButton));
+export default withTheme()(withStyles(styles)(FloatingActionButton));

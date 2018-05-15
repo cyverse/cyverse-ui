@@ -1,7 +1,7 @@
 // @create-index
 export { default as InfoBlockDoc } from "./InfoBlock/InfoBlockDoc";
 export { default as IdentityDoc } from './Identity/IdentityDoc';
-export { default as ButtonMenuDoc } from "./ButtonMenu/ButtonMenuDoc";
+//export { default as ButtonMenuDoc } from "./ButtonMenu/ButtonMenuDoc";
 export { default as MediaCardDoc } from './MediaCard/MediaCardDoc';
 export { default as MediaCardGroupDoc } from './MediaCardGroup/MediaCardGroupDoc';
 export { default as MeterGaugeDoc } from "./MeterGauge/MeterGaugeDoc";

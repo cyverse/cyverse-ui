@@ -1,10 +1,12 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "./assets/css/github.css";
+import "./assets/css/base.css"
+import CssBaseline from 'material-ui/CssBaseline';
+import 'typeface-roboto'
 
-import injectSheet, {ThemeProvider} from 'react-jss'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { MuiThemeProvider, createMuiTheme}  from 'material-ui/styles/';
 
 // These two lines are necessary to interop with material-ui. It's supposed to
 // be temporary. When the installation no longer mentions it, I suppose these
@@ -20,12 +22,12 @@ import StyleGuide from './src/StyleGuide.js';
 
 setup();
 
-let newTheme = getMuiTheme(cyverseTheme);
+let newTheme = createMuiTheme(cyverseTheme);
+console.log(cyverseTheme, newTheme)
 const App = () => (
-    <MuiThemeProvider muiTheme={ newTheme }>
-        <ThemeProvider theme={ newTheme }>
-            <StyleGuide/>
-        </ThemeProvider>
+    <MuiThemeProvider theme={ newTheme }>
+        <CssBaseline/>
+       <StyleGuide/>
     </MuiThemeProvider>
 );
 

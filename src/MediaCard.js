@@ -110,46 +110,11 @@ class MediaCard extends React.Component {
         this.props.onBatchClick(e, this);
     };
 
-    renderQuickLinks = () => {
-        const { quickLinks, isExpanded } = this.props;
-        const { cardIsHovered } = this.state;
-        const isHidden = ( isExpanded ? false : !cardIsHovered )
-        return quickLinks ? (
-            <ActionGroup hideReadable={ isHidden }
-            >
-                { quickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
-            </ActionGroup>
-        ) : null
-    };
-
-    renderActiveQuickLinks = () => {
-        const { activeQuickLinks, isExpanded } = this.props;
-        const { cardIsHovered } = this.state;
-        const isHidden = ( isExpanded ? true : cardIsHovered )
-        return activeQuickLinks ? (
-            <ActionGroup  hide={ isHidden }>
-                { activeQuickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
-            </ActionGroup>
-        ) : null
-    };
-
-    renderVericalMenu = () => {
-        const { menuItems, isDisabledMenu } = this.props;
-        return menuItems ? (
-            <ActionGroup>
-                <VerticalMenu
-                    children={ menuItems }
-                    disabled={ isDisabledMenu }
-                />
-            </ActionGroup>
-        ) : null
-    };
-
     render() {
         const {
             className,
             title,
-            image,
+            avatar,
             subTitle,
             summary,
             detail,
@@ -182,9 +147,9 @@ class MediaCard extends React.Component {
                 >
                     <ListCardIdentity>
                         <Identity
-                            image = {
+                            avatar = {
                                 <CheckableAvatar
-                                    children={image}
+                                    children={avatar}
                                     isCheckable={ showCheck }
                                     onFocus={ this.onCardEnter }
                                     onBlur={ this.onCardLeave}
@@ -202,14 +167,17 @@ class MediaCard extends React.Component {
                     <ListCardSummary hide={ isExpanded }>
                         { summary }
                     </ListCardSummary>
-
                     <ListCardActions stopPropagation>
-                        { this.renderQuickLinks() }
-                        { this.renderActiveQuickLinks() }
-                        { this.renderVericalMenu() }
+                        <ActionGroup hide={!cardIsHovered && !isExpanded}>
+                            { this.props.quickActions }
+                            { this.props.persistActions }
+                        </ActionGroup>
+                        <ActionGroup hide={cardIsHovered || isExpanded}>
+                            { this.props.persistActions }
+                        </ActionGroup>
+                        { this.props.contextMenu}
                     </ListCardActions>
                 </ListCardHeader>
-
                 <ListCardDetail hide={!isExpanded}>
                     { detail }
                 </ListCardDetail>

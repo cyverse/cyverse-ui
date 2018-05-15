@@ -1,6 +1,6 @@
 import React from 'react';
 import Scroll from 'react-scroll';
-import muiThemeable from 'material-ui/styles/muiThemeable';
+import withTheme from 'material-ui/styles/withTheme';
 import {  Hr, P, Element, Div, Section } from 'cyverse-ui';
 import Figure from './Figure';
 
@@ -9,11 +9,11 @@ const ScrollAnchor = Scroll.Element;
 
 class ThemeExample extends React.Component {
     render() {
-        const { component, i, muiTheme } = this.props;
+        const { component, i, theme } = this.props;
         const { name, desc } = component;
         const {
             primary1Color
-        } = muiTheme.palette;
+        } = theme.palette;
 
         return (
             <Section
@@ -40,4 +40,4 @@ class ThemeExample extends React.Component {
     }
 }
 
-export default muiThemeable()(ThemeExample);
+export default withTheme()(ThemeExample);

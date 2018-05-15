@@ -53,7 +53,6 @@ class ComponentDoc extends React.Component {
                     root="h1"
                     whitespace="mb4"
                     typography="headline"
-                    themeColor="primary1Color"
                 >
                     {displayName}
                 </Element>

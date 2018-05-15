@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import filterDomProps from "filter-react-dom-props";
 import * as R from "ramda";
 import classnames from "classnames";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles, withTheme, } from "material-ui/styles";
 import * as events from "./utils/events";
 
 // Each key of the returned styles object will be available as a className below.
@@ -17,7 +17,7 @@ const styles = theme => ({
     ...theme.utility,
     ...theme.typography,
     ...theme.whitespace,
-    ...theme.elevation,
+    ...theme.elevation
 });
 
 /**
@@ -40,7 +40,6 @@ class Element extends React.Component {
 
     render() {
         const {
-            theme,
             root = "div",
             className,
             classes,
@@ -55,13 +54,6 @@ class Element extends React.Component {
             onClick,
             ...rest
         } = this.props;
-
-        // Throw an error if not using a CY-UI compatible theme
-        const { typography: themeTypography } = theme;
-        if (!themeTypography) {
-            throw `missing "cyverse-ui" dependency\n\nThe theme field "typography" is missing. "cyverse-ui" requires that the material-ui base theme be extended with "cyverseTheme". Visit https://cyverse.github.io/cyverse-ui/ to learn more about cyverse-ui theming.`;
-        }
-
         const Root = root;
         const whitespaceClass = Array.isArray(whitespace)
             ? whitespace.map(i => classes[i]).join(" ")
@@ -137,4 +129,4 @@ Element.defaultProps = {
     whitespace: ["m0", "p0"],
 };
 
-export default withTheme(injectSheet(styles)(Element));
+export default withStyles(styles)(withTheme()(Element));

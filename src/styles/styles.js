@@ -17,7 +17,7 @@ const styles = {
         ...generateMarginStyles(sizeUnits),
         ...generatePaddingStyles(sizeUnits),
     },
-    typography: {
+   /* typography: {
         display4: {
             fontSize: "112px",
             fontWeight: "300",
@@ -81,7 +81,7 @@ const styles = {
             color: "rgba(0, 0, 0, 0.3)",
             margin: "0px 0px 10px",
         },
-    },
+    },*/
     utility: {
         hideReadable: {
             position: "fixed",

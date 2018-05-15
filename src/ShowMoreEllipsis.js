@@ -1,5 +1,5 @@
 import React from "react";
-import injectSheet, { withTheme } from "react-jss";
+import {withStyles } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 
@@ -38,4 +38,4 @@ const ShowMoreEllipsis = props => {
 
 ShowMoreEllipsis.displayName = "ShowMoreEllipsis";
 
-export default withTheme(injectSheet(styles)(ShowMoreEllipsis));
+export default withStyles(styles)(ShowMoreEllipsis);

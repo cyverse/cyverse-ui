@@ -1,7 +1,7 @@
 import React from 'react';
 import R from 'ramda';
 import Paper from 'material-ui/Paper';
-import muiThemeable from 'material-ui/styles/muiThemeable';
+import { withTheme } from 'material-ui/styles';
 
 class ThemeColorsEx extends React.Component {
     getSwatch = (color) => {
@@ -29,7 +29,7 @@ class ThemeColorsEx extends React.Component {
 
     render() {
         const {
-            muiTheme: {
+            theme: {
                 palette
             }
         } = this.props;
@@ -44,10 +44,10 @@ class ThemeColorsEx extends React.Component {
                     width: "100%"
                 }}
             >
-                {  R.toPairs(palette).map( this.getSwatch ) }
+                { /* R.toPairs(palette).map( this.getSwatch )*/ }
             </div>
         )
     }
 }
 
-export default muiThemeable()(ThemeColorsEx);
+export default withTheme()(ThemeColorsEx);

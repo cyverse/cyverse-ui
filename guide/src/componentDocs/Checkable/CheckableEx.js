@@ -3,26 +3,7 @@ import { Checkable, Paper } from "cyverse-ui";
 import { Avatar, Checkbox } from "material-ui";
 
 class CheckableEx extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstIsHovered: false,
-            secondIsHovered: false,
-            isChecked: [],
-        };
-    }
-
-    onEnter = element => () => {
-        this.setState({
-            [element + "IsHovered"]: true,
-        });
-    };
-
-    onLeave = element => () => {
-        this.setState({
-            [element + "IsHovered"]: false,
-        });
-    };
+    state = { isChecked: [] };
 
     onCheck = element => () => {
         const { isChecked } = this.state;
@@ -45,55 +26,33 @@ class CheckableEx extends Component {
             <Paper whitespace="p3">
                 <Checkable
                     whitespace="mb3"
-                    onMouseEnter={this.onEnter("first")}
-                    onMouseLeave={this.onLeave("first")}
-                    size={60}
-                    isCheckable={
-                        firstIsHovered || isChecked.includes("first")
-                    }
+                    isCheckable={isChecked.length > 0}
                     checkboxProps={{
                         checked: isChecked.includes("first"),
-                        onCheck: this.onCheck("first"),
+                        onChange: this.onCheck("first"),
                     }}
                 >
-                    <Avatar
-                        size={60}
-                        backgroundColor="cornflowerblue"
-                    >
-                        B
-                    </Avatar>
+                    <Avatar>Y</Avatar>
                 </Checkable>
                 <Checkable
                     whitespace="mb3"
-                    size={60}
-                    isCheckable={
-                        true
-                    }
-                    checkboxProps={{
-                        checked: isChecked.includes("first"),
-                        onCheck: this.onCheck("first"),
-                    }}
-                >
-                    <Avatar
-                        size={60}
-                        backgroundColor="cornflowerblue"
-                    >
-                        B
-                    </Avatar>
-                </Checkable>
-                <Checkable
-                    onMouseEnter={this.onEnter("second")}
-                    onMouseLeave={this.onLeave("second")}
-                    isCheckable={
-                        secondIsHovered ||
-                        isChecked.includes("second")
-                    }
+                    isCheckable={isChecked.length > 0}
                     checkboxProps={{
                         checked: isChecked.includes("second"),
-                        onCheck: this.onCheck("second"),
+                        value: "second",
+                        onChange: this.onCheck("second"),
                     }}
                 >
-                    <Avatar backgroundColor="tomato">M</Avatar>
+                    <Avatar>B</Avatar>
+                </Checkable>
+                <Checkable
+                    isCheckable={isChecked.length > 0}
+                    checkboxProps={{
+                        checked: isChecked.includes("third"),
+                        onChange: this.onCheck("third"),
+                    }}
+                >
+                    <Avatar>M</Avatar>
                 </Checkable>
             </Paper>
         );

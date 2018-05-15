@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import injectSheet, { withTheme } from "react-jss";
+import { withStyles} from "material-ui/styles";
 import classnames from "classnames";
 import IconButton from "material-ui/IconButton";
-import ArrowBack from "material-ui/svg-icons/navigation/arrow-back";
+import ArrowBack from "@material-ui/icons/ArrowBack";
 import VerticalMenu from "./VerticalMenu";
 import ActionGroup from "./ActionGroup";
 import Element from "./Element";
@@ -112,4 +113,4 @@ SubHeader.propTypes = {
     onBack: PropTypes.func,
 };
 
-export default withTheme(injectSheet(styles)(SubHeader));
+export default withStyles(styles)(SubHeader);

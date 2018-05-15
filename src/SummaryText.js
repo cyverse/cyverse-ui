@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet from "react-jss";
+import { withStyles} from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 
@@ -51,4 +51,4 @@ SummaryText.propTypes = {
     root: PropTypes.string,
 };
 
-export default injectSheet(styles)(SummaryText);
+export default withStyles(styles)(SummaryText);

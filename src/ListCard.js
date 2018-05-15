@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 
@@ -50,4 +50,4 @@ ListCard.propTypes = {
     children: PropTypes.node,
 };
 
-export default withTheme(injectSheet(styles)(ListCard));
+export default withStyles(styles)(ListCard);

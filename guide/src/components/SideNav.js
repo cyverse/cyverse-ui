@@ -10,14 +10,6 @@ class SideNav extends React.Component {
     render() {
         return (
             <SideBar isOpen >
-                <Element
-                    root="h1"
-                    typography="title"
-                    whitespace={["mb2", "ps2"]}
-                >
-                    Table of Contents
-                </Element>
-                <Divider/>
                 <ThemeLinkList/>
                 <ComponentLinkList/>
                 <IconLink/>

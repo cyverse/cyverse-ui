@@ -1,66 +1,122 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classnames from "classnames";
-import { IconButton, IconMenu } from "material-ui";
-import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
+import classNames from "classnames";
+import { withStyles } from "material-ui/styles";
+import IconButton from "material-ui/IconButton";
+import {
+    MenuList,
+    Paper,
+    ClickAwayListener,
+    Grow,
+} from "material-ui";
+import { Popper, Target, Manager } from "react-popper";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Element from "./Element";
 
+const styles = theme => ({
+    target: {
+        display: "table",
+    },
+    menuWrapper: {
+        zIndex: 700,
+    },
+    menu: {
+        transformOrigin: "0 0 0",
+    },
+    menu__closed: {
+        display: "none",
+    },
+});
 /**
- * A VerticalMenu is a menu that can be displayed by pressing a VerticalMenuIcon. In Troposphere a VerticalMenu is used in the top right corner of a header or MediaCard to hold a list of actions that are applied to the item or items within that context.
+ *  VerticalMenu is a combination of MUI's IconButton, some MUI utilities and "react-popper". Since a common use case is to have a Vertical Menu for context actions on a card or detail view, we have provided a basic drop in emplementation for general use. If you need more customization, examples of other implementations they can be found in [MUI's Menu Documentation](https://material-ui-next.com/demos/menus/)
+ **/
 
-Because VerticalMenus should appear to the top right corner this component defaults to opening from the right and down but this behavior can be overridden using `anchorOrigin` and `targetOrigin`. See  [Material-UI's IconMenu](http://www.material-ui.com/#/components/icon-menu) for better documentation.
- */
 class VerticalMenu extends React.Component {
-    static displayName = "VerticalMenu";
-
     static propTypes = {
         /**
-         * This is the point on the icon where the menu targetOrigin will attach. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].
-         */
-        anchorOrigin: PropTypes.object,
-        /**
-         * This is the point on the menu which will stick to the menu origin. Options: vertical: [top, center, bottom] horizontal: [left, middle, right].
-         */
-        targetOrigin: PropTypes.object,
-        /**
-         * Should be used to pass MenuItem components.
-         */
-        children: PropTypes.node,
+         * The position the menu will try to stick to. It will adjust to veiwport constraints when unable. Example: if opened at the bottom of the viewport menu would open above the menu button. Expects ["top", "right", "left", "bottom"] with the modifiers "-start" and "-end" ie: ("bottom-start")
+         **/
+        placement: PropTypes.string,
     };
 
     static defaultProps = {
-        anchorOrigin: { horizontal: "right", vertical: "bottom" },
-        targetOrigin: { horizontal: "right", vertical: "top" },
+        placement: "bottom-end",
     };
 
-    onTouch = e => {
-        e.stopPropagation();
-        e.preventDefault();
+    state = {
+        open: false,
+    };
+
+    handleClose = event => {
+        this.setState({ open: false });
+    };
+
+    handleToggleOpen = () => {
+        this.setState({ open: !this.state.open });
     };
 
     render() {
-        const { className, anchorOrigin, targetOrigin } = this.props;
-        const wrapperClasses = classnames(
-            { [className]: className },
-            "CY-VerticalMenu"
-        );
+        const {
+            classes,
+            className,
+            children,
+            placement = "bottom-end",
+        } = this.props;
+        const { open, ...rest } = this.state;
 
+        const wrapperClasses = classNames(
+            { [className]: className },
+            "Cy-VerticalMenu"
+        );
         return (
-            <IconMenu
-                {...this.props}
-                className={wrapperClasses}
-                iconButtonElement={
-                    <IconButton
-                        className="CY-VerticalMenu-btn"
-                        onClick={this.onTouch}
-                    >
-                        <MoreVertIcon className="CY-VerticalMenu-icon" />
-                    </IconButton>
-                }
-                anchorOrigin={anchorOrigin}
-                targetOrigin={targetOrigin}
-            />
+            <Element {...rest} className={wrapperClasses}>
+                <ClickAwayListener onClickAway={this.handleClose}>
+                    <Manager>
+                        <Target>
+                            {({ targetProps }) => (
+                                <div
+                                    {...targetProps}
+                                    className={classes.target}
+                                >
+                                    <IconButton
+                                        onClick={
+                                            this.handleToggleOpen
+                                        }
+                                    >
+                                        <MoreVertIcon />
+                                    </IconButton>
+                                </div>
+                            )}
+                        </Target>
+                        <Popper placement={placement}>
+                            {({ popperProps, restProps }) => (
+                                <div
+                                    {...popperProps}
+                                    className={classes.menuWrapper}
+                                >
+                                    <Grow
+                                        in={open}
+                                        className={classNames(
+                                            classes.menu,
+                                            {
+                                                [classes.menu__closed]: !open,
+                                            }
+                                        )}
+                                    >
+                                        <Paper>
+                                            <MenuList>
+                                                {children}
+                                            </MenuList>
+                                        </Paper>
+                                    </Grow>
+                                </div>
+                            )}
+                        </Popper>
+                    </Manager>
+                </ClickAwayListener>
+            </Element>
         );
     }
 }
 
-export default VerticalMenu;
+export default withStyles(styles)(VerticalMenu);

@@ -5,7 +5,7 @@ const { palette } = styleVars;
 
 const theme = {
     palette,
-    header: {
+    /*header: {
         headerColor: palette.primary1Color,
         headerBorderColor: palette.accent1Color,
         headerLinkColor: "rgba(255, 255, 255, 0.7)",
@@ -17,7 +17,7 @@ const theme = {
     },
     inkBar: {
         backgroundColor: palette.primary1Color,
-    },
+    },*/
     ...cyverseStyles,
 };
 export default theme;

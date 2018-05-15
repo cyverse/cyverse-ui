@@ -1,5 +1,5 @@
 import React from "react";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles, withTheme } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 
@@ -36,4 +36,4 @@ class P extends React.Component {
     }
 }
 
-export default withTheme(injectSheet(styles)(P));
+export default withStyles(styles)(P);

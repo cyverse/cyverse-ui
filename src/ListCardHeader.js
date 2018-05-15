@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet from "react-jss";
+import {withStyles} from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 
@@ -60,4 +60,4 @@ ListCardHeader.propTypes = {
     children: PropTypes.node,
 };
 
-export default injectSheet(styles)(ListCardHeader);
+export default withStyles(styles)(ListCardHeader);

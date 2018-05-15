@@ -1,8 +1,10 @@
 import React, { PropType } from "react";
+import Slider from "rc-slider";
+import { withTheme } from "material-ui/styles";
+import "rc-slider/assets/index.css";
 import { MeterGauge, Element, Paper } from "cyverse-ui";
-import Slider from "material-ui/Slider";
 
-export default class extends React.Component {
+class MeterGaugeEx extends React.Component {
     state = {
         used: 40,
         willUse: 130,
@@ -19,26 +21,36 @@ export default class extends React.Component {
         };
     };
 
-    onStartChange = (e, v) => {
+    onStartChange = e => {
         const { totalAllowed } = this.state;
-        const used = v / 100 * totalAllowed;
+        const used = e / 100 * totalAllowed;
         this.setState({
             used,
         });
     };
 
-    onAfterChange = (e, v) => {
+    onAfterChange = e => {
         const { totalAllowed } = this.state;
-        const willUse = v / 100 * totalAllowed;
+        const willUse = e / 100 * totalAllowed;
         this.setState({
             willUse,
         });
     };
 
     render() {
+        const { theme } = this.props;
         const { used, willUse, totalAllowed } = this.state;
         const { startValue, afterValue } = this.data();
         const dataTotal = Math.round(used + willUse);
+        const sliderStyles = {
+            trackStyle: {
+                backgroundColor: theme.palette.primary.main,
+            },
+            handleStyle: {
+                backgroundColor: theme.palette.primary.main,
+                border: "none",
+            },
+        };
         return (
             <Paper whitespace="p3">
                 <div
@@ -65,6 +77,8 @@ export default class extends React.Component {
                     />
                     <Element typography="label">StartValue</Element>
                     <Slider
+                        {...sliderStyles}
+                        style={{ marginBottom: theme.spacing.unit * 2 }}
                         min={0}
                         max={100}
                         value={startValue}
@@ -72,6 +86,7 @@ export default class extends React.Component {
                     />
                     <Element typography="label">AfterValue</Element>
                     <Slider
+                        {...sliderStyles}
                         min={0}
                         max={100}
                         value={afterValue}
@@ -82,3 +97,5 @@ export default class extends React.Component {
         );
     }
 }
+
+export default withTheme()(MeterGaugeEx);

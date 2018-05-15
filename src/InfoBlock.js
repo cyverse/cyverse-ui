@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import InformationIcon from "material-ui/svg-icons/action/info";
-import WarningIcon from "material-ui/svg-icons/alert/warning";
+import InformationIcon from "@material-ui/icons/info";
+import WarningIcon from "@material-ui/icons/warning";
 import Element from "./Element";
-import injectSheet from "react-jss";
-
+import {withStyles } from "material-ui/styles";
 // Each key of the returned object will be available in the prop "classes" below.
 const styles = theme => {
     return {
@@ -69,4 +68,4 @@ InfoBlock.defaultProps = {
     warning: false,
 };
 
-export default injectSheet(styles)(InfoBlock);
+export default withStyles(styles)(InfoBlock);

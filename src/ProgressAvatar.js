@@ -8,6 +8,9 @@ import Element from "./Element";
 const styles = theme => ({
     wrapper: {
         position: "relative",
+        "& *": {
+            transition: "stroke-dashoffset ease .5s",
+        },
     },
     progress: {
         position: "absolute",
@@ -17,7 +20,7 @@ const styles = theme => ({
     progress__complete: {
         opacity: 0,
     },
-    avatar__inProgressWithImg: {
+    avatar__inProgress: {
         opacity: 0.3,
     },
 });
@@ -27,6 +30,7 @@ const styles = theme => ({
  */
 const ProgressAvatar = ({
     classes,
+    avatarClassName,
     children,
     className,
     progressColor,
@@ -47,7 +51,8 @@ const ProgressAvatar = ({
         classes.wrapper
     );
     const avatarClasses = classnames("CY-ProgressAvatar-avatar", {
-        [classes.avatar__inProgressWithImg]: src && isInProgress,
+        avatarClassName: avatarClassName,
+        [classes.avatar__inProgress]: isInProgress,
     });
     const progressClasses = classnames(
         "CY-ProgressAvatar-progress",
@@ -68,8 +73,6 @@ const ProgressAvatar = ({
         padding = thickness;
     }
 
-    let strokeColor = progressColor || success;
-
     return (
         <Element
             {...rest}
@@ -79,26 +82,24 @@ const ProgressAvatar = ({
                 padding,
             }}
         >
-            <div className={progressClasses}>
-                <CircularProgress
-                    className={progressClasses}
-                    mode="determinate"
-                    value={value}
-                    color={strokeColor}
-                    size={size}
-                    thickness={thickness}
-                />
-            </div>
             <Avatar
                 className={avatarClasses}
                 name={name}
                 src={src}
-                icon={icon}
-                backgroundColor={avatarColor}
-                size={avatarSize}
+                style={{ background: avatarColor, width: avatarSize, height: avatarSize }}
             >
                 {children}
             </Avatar>
+            <div className={progressClasses}>
+                <CircularProgress
+                    className={progressClasses}
+                    variant="static"
+                    value={value}
+                    size={size}
+                    thickness={thickness}
+                    style={{ color: success }}
+                />
+            </div>
         </Element>
     );
 };

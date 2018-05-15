@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles} from "material-ui/styles";
 import classnames from "classnames";
-import * as colors from "material-ui/styles/colors";
+import grey from "material-ui/colors/grey";
 import Element from "./Element";
-
 const tooltipDirection = (direction, classes) => {
     const {
         message__top: top,
@@ -42,7 +41,7 @@ const styles = theme => {
             zIndex: "9999",
             display: "block",
             padding: "5px",
-            background: colors.grey900,
+            background: grey[900],
             borderRadius: "2px",
             color: "white",
             fontSize: "12px",
@@ -178,7 +177,7 @@ class Tooltip extends React.Component {
                     onMouseEnter={this.onMouseEnter}
                     onMouseLeave={this.onMouseLeave}
                 >
-                    {this.props.children}
+                    { this.props.children }
                     <span className={messageClasses}>
                         <div>{message}</div>
                     </span>
@@ -188,4 +187,4 @@ class Tooltip extends React.Component {
     }
 }
 
-export default withTheme(injectSheet(styles)(Tooltip));
+export default withStyles(styles)(Tooltip);

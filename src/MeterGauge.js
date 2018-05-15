@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import classnames from 'classnames';
 import classNames from "classnames";
 import injectSheet, { withTheme } from "react-jss";
+import * as colors from "material-ui/colors";
 import Element from "./Element";
 import BarGraph from "./BarGraph";
 
@@ -26,14 +27,14 @@ const styles = theme => ({
         ...theme.whitespace.mb1
     },
     dataText__alert: {
-        color: theme.palette.danger,
+        color: "red",
     },
     dataText__compact: {
         textAlign: "center",
     },
     alertMessage: {
         ...theme.typography.body1,
-        color: theme.palette.danger,
+        color: "red",
     },
 });
 
@@ -88,7 +89,6 @@ class MeterGauge extends React.Component {
         const {
             classes,
             className,
-            theme: { palette: { success, danger } },
             hideLabel,
             startValue,
             afterValue,
@@ -115,7 +115,7 @@ class MeterGauge extends React.Component {
             { [classes.dataText__alert]: this.isOver() }
         );
 
-        const startColor = this.isOver() ? danger : success;
+        const startColor = this.isOver() ? colors.red["500"] : colors.green["500"];
         return (
             <Element { ...rest }
                 root="dl"

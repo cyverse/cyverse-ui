@@ -16,7 +16,7 @@ class MediaCardGroupDoc extends React.Component {
     render() {
         return (
             <ComponentDoc meta={ meta } >
-                <Figure caption={ `MediaCard Example` } >
+                <Figure caption={ `MediaCardGroup Example` } >
                     <MediaCardGroupEx/>
                     <CodeBlock text={ MediaCardGroupExCode } />
                 </Figure>

@@ -3,7 +3,7 @@ import { P } from 'cyverse-ui';
 import { Figure } from '../components';
 import CodeBlock from '../components/CodeBlock';
 import Paper from 'material-ui/Paper';
-import ThemeEx from './ThemeEx';
+//import ThemeEx from './ThemeEx';
 import ThemeColorsEx from './ThemeColorsEx';
 
 const ThemeExList = [
@@ -14,7 +14,7 @@ const ThemeExList = [
                 <P>
                     The <code className="CodeInline">cyverseTheme</code> is provided by the CyVerse-UI library and works with the Material-UI theme system to maintain a consistent "CyVerse look" across all applications using it.
                 </P>
-		<ThemeEx/>
+		{/* <ThemeEx/> */}
             </div>
         ),
     },

@@ -25,21 +25,21 @@ const ElementEx = props => (
         <Element
             root="p"
             typography="title"
-            themeBackground="accent1Color"
+            style={{background: "white"}}
             elevation={3}
             whitespace={["mb3", "p3" ]}
             children={`Whitespace, theme background colors, and elevation!`}
         />
         <Element
             typography="body2"
-            themeBackground="canvasColor"
             whitespace={[ "p3" ]}
+            style={{background: "white"}}
             elevation={2}
             children="An elevation of 2 is used for cards placed together as a list"
         />
         <Element
-            typography="body2"
-            themeBackground="canvasColor"
+            typography="body1"
+            style={{background: "white"}}
             whitespace={[ "p3" ]}
             elevation={2}
             children="You get the idea. Use the source!"

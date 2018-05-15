@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles, withTheme } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 import { IconButton } from "material-ui";
-import SearchIcon from "material-ui/svg-icons/action/search";
-import CloseIcon from "material-ui/svg-icons/navigation/close";
+import SearchIcon from "@material-ui/icons/es/Search";
+import CloseIcon from "@material-ui/icons/Close";
 
 const styles = theme => ({
     card: {
@@ -106,7 +106,6 @@ class SearchBar extends React.Component {
             <Element {...rest} className={cardClasses}>
                 <SearchIcon
                     className={iconClasses}
-                    color={searchColor}
                 />
                 <input
                     className={inputClasses}
@@ -129,4 +128,4 @@ class SearchBar extends React.Component {
     }
 }
 
-export default withTheme(injectSheet(styles)(SearchBar));
+export default withTheme()(withStyles(styles)(SearchBar));
