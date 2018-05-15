@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import filterDomProps from "filter-react-dom-props";
 import * as R from "ramda";
 import classnames from "classnames";
-import { withStyles, withTheme, } from "material-ui/styles";
+import { withStyles  } from "material-ui/styles";
 import * as events from "./utils/events";
 
 // Each key of the returned styles object will be available as a className below.
@@ -129,4 +129,4 @@ Element.defaultProps = {
     whitespace: ["m0", "p0"],
 };
 
-export default withStyles(styles)(withTheme()(Element));
+export default withStyles(styles)(Element);

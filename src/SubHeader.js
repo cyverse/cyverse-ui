@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
 import { withStyles} from "material-ui/styles";
 import classnames from "classnames";
 import IconButton from "material-ui/IconButton";

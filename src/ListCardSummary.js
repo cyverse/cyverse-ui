@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
 import Element from "./Element";
 
 // Each key of the returned object will be available as a className below.
@@ -49,4 +49,4 @@ ListCardSummary.propTypes = {
     children: PropTypes.node,
 };
 
-export default withTheme(injectSheet(styles)(ListCardSummary));
+export default withStyles(styles)(ListCardSummary);

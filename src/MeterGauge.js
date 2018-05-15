@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classnames from 'classnames';
 import classNames from "classnames";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
 import * as colors from "material-ui/colors";
 import Element from "./Element";
 import BarGraph from "./BarGraph";
@@ -147,4 +147,4 @@ class MeterGauge extends React.Component {
     }
 }
 
-export default withTheme(injectSheet(styles)(MeterGauge));
+export default withStyles(styles)(MeterGauge);

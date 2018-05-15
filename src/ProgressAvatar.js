@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
 import classnames from "classnames";
 import { Avatar, CircularProgress } from "material-ui";
 import Element from "./Element";
@@ -60,7 +60,7 @@ const ProgressAvatar = ({
         { [classes.progress__complete]: !isInProgress }
     );
 
-    let { success = "green" } = theme.palette;
+    let success = "green";
     let padding = 0;
     let avatarSize = size;
     let value = 0;
@@ -134,4 +134,4 @@ ProgressAvatar.defaultProps = {
     thickness: 3,
 };
 
-export default withTheme(injectSheet(styles)(ProgressAvatar));
+export default withStyles(styles)(ProgressAvatar);
