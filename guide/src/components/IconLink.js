@@ -17,8 +17,9 @@ class IconLink extends React.Component {
     render() {
         return (
             <ListItem
-                onTouchTap={ this.scrollTo("svg-icons") }
-                primaryText="SVG Icons"
+                button={true}
+                onClick={ this.scrollTo("svg-icons") }
+                children="SVG Icons"
             />
         )
     }

@@ -10,7 +10,6 @@ class SideNav extends React.Component {
     render() {
         return (
             <SideBar isOpen >
-                <ThemeLinkList/>
                 <ComponentLinkList/>
                 <IconLink/>
             </SideBar>

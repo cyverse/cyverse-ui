@@ -9,6 +9,8 @@ import List, {
 } from "material-ui/List";
 import Collapse from "material-ui/transitions/Collapse";
 import * as componentDocs from "../componentDocs";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 import { Typography } from "material-ui";
 
 const scroller = Scroll.scroller;
@@ -27,9 +29,9 @@ const styles = theme => ({
 class ComponentLinkList extends React.Component {
     state = { open: false };
 
-  handleClick = () => {
-    this.setState({ open: !this.state.open });
-  };
+    handleClick = () => {
+        this.setState({ open: !this.state.open });
+    };
 
     renderComponentLinks = () => {
         const { classes } = this.props;
@@ -57,13 +59,15 @@ class ComponentLinkList extends React.Component {
     };
 
     render() {
+        const { open } = this.state;
         return (
             <List>
                 <ListItem button={true} onClick={this.handleClick}>
-                    <Typography variant="title">Components</Typography>
+                    <ListItemText>Components</ListItemText>
+                    {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
-                <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-                {this.renderComponentLinks()}
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                    {this.renderComponentLinks()}
                 </Collapse>
             </List>
         );
