@@ -10,7 +10,7 @@ const styles = theme => ({
         padding: "10px",
     },
     figcaption: {
-        background: theme.palette.primary.dark,
+        background: theme.palette.primary.main,
         color: "white",
         padding: "10px",
         margin: "-11px -11px 20px",

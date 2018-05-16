@@ -15,7 +15,7 @@ const styles = theme => ({
         position: "fixed",
         width: "100%",
         zIndex: "700",
-        background: theme.palette.primary.dark
+        background: theme.palette.primary.main
     },
     GithubLink: {
         borderRadius: "50%",

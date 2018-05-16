@@ -14,9 +14,7 @@ const styleVars = {
     sizeUnits,
     palette: {
         primary: {
-            light: colors.blue["500"],
-            main: colors.blue["700"],
-            dark: colors.blue["900"]
+            main: "#006ca9",
         },
         text: {
             primary: colors.grey[800]
