@@ -81,7 +81,7 @@ class StyleGuide extends React.Component {
                                 not covered by Material-UI.
                             </P>
                         </Element>
-                       {/* <section>
+                       {<section>
                             <Element
                                 root="h2"
                                 typography="display1"
@@ -90,7 +90,7 @@ class StyleGuide extends React.Component {
                                 Theming
                             </Element>
                             {this.renderThemeExamples()}
-                       </section> */}
+                       </section> }
                         <section>
                             <Element
                                 root="h2"

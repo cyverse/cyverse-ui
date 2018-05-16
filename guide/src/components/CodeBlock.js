@@ -46,7 +46,7 @@ class CodeBlock extends Component {
     }
 
     render() {
-        const { style, text } = this.props;
+        const { style, text, collapseDisabled } = this.props;
         const { open } = this.state;
 
         const renderCode = `\`\`\`jsx
@@ -56,11 +56,12 @@ ${text}
         /* eslint-disable react/no-danger */
         return (
             <Element whitespace="pt3">
+                { collapseDisabled? null :
                 <Button onClick={this.handleOpen}>
                     {`</> ${open ? "Hide" : "View"} Code Example`}
-                </Button>
+                </Button> }
 
-                <Collapse in={open}>
+                <Collapse in={open || collapseDisabled}>
                     <div
                         style={{ ...styles.root, ...style }}
                         className="markdown-body"

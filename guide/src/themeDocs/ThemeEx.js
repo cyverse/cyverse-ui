@@ -1,181 +1,175 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withTheme } from 'material-ui/styles';
-import withWidth, {SMALL} from 'material-ui/utils/withWidth';
-import typography from 'material-ui/typography';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withTheme } from "material-ui/styles";
+import typography from "material-ui/typography";
 
 import {
-  Checkbox,
-  DatePicker,
-  Dialog,
-  DropDownMenu,
-  FlatButton,
-  FloatingActionButton,
-  Drawer,
-  MenuItem,
-  Paper,
-  RadioButton,
-  RadioButtonGroup,
-  RaisedButton,
-  Snackbar,
-  Slider,
-  Tabs,
-  Tab,
-  TextField,
-  Toggle,
-} from 'material-ui';
+    Checkbox,
+    Button,
+    Paper,
+    Radio,
+    Switch,
+    RadioGroup,
+    FormControlLabel,
+} from "material-ui";
 
+import { ButtonGroup } from "cyverse-ui/utils";
 
 class ThemesPage extends Component {
-  static propTypes = {
-    muiTheme: PropTypes.object,
-    onChangeMuiTheme: PropTypes.func,
-    width: PropTypes.number.isRequired,
-  };
-
-  state = {
-    dialogOpen: false,
-    snackbarOpen: false,
-    drawerOpen: false,
-  };
-
-
-  getStyles() {
-    const {
-      muiTheme,
-      width,
-    } = this.props;
-
-    const canvasColor = muiTheme.baseTheme.palette.canvasColor;
-    const borderColor = muiTheme.baseTheme.palette.borderColor;
-    const styles = {
-      group: {
-        float: 'left',
-        width: width === SMALL ? '100%' : '33%',
-        marginTop: '16px',
-        padding: '0 50px',
-        boxSizing: 'border-box',
-      },
-      groupSlider: {
-        marginTop: '0px',
-        width: '100%',
-      },
-      container: {
-        marginBottom: '16px',
-        minHeight: '24px',
-        textAlign: 'left',
-      },
-      containerCentered: {
-        textAlign: 'center',
-      },
-      paper: {
-        height: '100px',
-        width: '100px',
-        margin: '0 auto',
-        marginBottom: '64px',
-      },
-      textfield: {
-        width: '100%',
-      },
-      slider: {
-        marginTop: '0px',
-        marginBottom: '0px',
-      },
-      title: {
-        fontSize: '20px',
-        lineHeight: '28px',
-        paddingTop: '19px',
-        marginBottom: '13px',
-        letterSpacing: '0',
-        fontWeight: typography.fontWeightMedium,
-        color: typography.textDarkBlack,
-      },
-      liveExamplePaper: {
-	padding: "20px",
-        backgroundColor: canvasColor,
-        marginBottom: 32,
-        overflow: 'hidden',
-      },
-      bottomBorderWrapper: {
-        borderBottom: `1px solid ${borderColor}`,
-        paddingBottom: '10px',
-      },
+    static propTypes = {
+        muiTheme: PropTypes.object,
+        onChangeMuiTheme: PropTypes.func,
+        width: PropTypes.number.isRequired,
     };
 
-    styles.containerCentered = Object.assign({}, styles.container, styles.containerCentered);
-    styles.groupSlider = Object.assign({}, styles.group, styles.groupSlider);
+    state = {
+        dialogOpen: false,
+        snackbarOpen: false,
+        drawerOpen: false,
+    };
 
-    return styles;
-  }
+    getStyles() {
+        const { muiTheme, width } = this.props;
 
-  getComponentGroup() {
-    const styles = this.getStyles();
+        const styles = {
+            group: {
+                marginTop: "16px",
+                padding: "0 50px",
+                boxSizing: "border-box",
+            },
+            groupSlider: {
+                marginTop: "0px",
+                width: "100%",
+            },
+            container: {
+                marginBottom: "16px",
+                minHeight: "24px",
+                textAlign: "left",
+            },
+            containerCentered: {
+                textAlign: "center",
+            },
+            paper: {
+                height: "100px",
+                width: "100px",
+                margin: "0 auto",
+                marginBottom: "64px",
+            },
+            textfield: {
+                width: "100%",
+            },
+            slider: {
+                marginTop: "0px",
+                marginBottom: "0px",
+            },
+            title: {
+                fontSize: "20px",
+                lineHeight: "28px",
+                paddingTop: "19px",
+                marginBottom: "13px",
+                letterSpacing: "0",
+            },
+            liveExamplePaper: {
+                padding: "20px",
+                marginBottom: 32,
+                overflow: "hidden",
+            },
+            bottomBorderWrapper: {
+                paddingBottom: "10px",
+            },
+        };
 
-    return (
-        <div>
-        <div style={styles.group}>
-          <div style={styles.containerCentered}>
-            <RaisedButton label="Secondary" secondary={true} />
-          </div>
-          <div style={styles.containerCentered}>
-            <RaisedButton label="Primary" primary={true} />
-          </div>
-          <div style={styles.containerCentered}>
-            <RaisedButton label="Default" />
-          </div>
-        </div>
-        <div style={styles.group}>
-          <div style={styles.container}>
-            <Checkbox
-              name="checkboxName1"
-              value="checkboxValue1"
-              label="checkbox"
-              defaultChecked
-            />
-            <Checkbox
-              name="checkboxName1"
-              value="checkboxValue1"
-              label="checkbox"
-            />
-            <Checkbox
-              name="checkboxName2"
-              value="checkboxValue2"
-              label="disabled checkbox"
-              disabled={true}
-            />
-          </div>
-          <div style={styles.container}>
-            <RadioButtonGroup
-              name="shipSpeed"
-              defaultSelected="usd"
-            >
-              <RadioButton
-                value="usd"
-                label="USD"
-              />
-              <RadioButton
-                value="euro"
-                label="Euro"
-              />
-              <RadioButton
-                value="mxn"
-                label="MXN"
-                disabled={true}
-              />
-            </RadioButtonGroup>
-          </div>
-          <div style={styles.container}>
-            <Toggle
-              name="toggleName1"
-              label="toggle"
-            />
-            <Toggle
-              name="toggleName2"
-              label="disabled toggle"
-              defaultToggled={true}
-              disabled={true}
-            />
-          </div>
+        styles.containerCentered = Object.assign(
+            {},
+            styles.container,
+            styles.containerCentered
+        );
+        styles.groupSlider = Object.assign(
+            {},
+            styles.group,
+            styles.groupSlider
+        );
+
+        return styles;
+    }
+
+    getComponentGroup() {
+        const styles = this.getStyles();
+
+        return (
+            <div>
+                <ButtonGroup style={styles.group}>
+                    <Button
+                        variant="raised"
+                        children="Primary"
+                        color="primary"
+                    />
+                    <Button
+                        variant="raised"
+                        children="Secondary"
+                        color="secondary"
+                    />
+                    <Button variant="raised" children="Default" />
+                </ButtonGroup>
+                <ButtonGroup style={styles.group}>
+                    <Button children="Primary" color="primary" />
+                    <Button children="Secondary" color="secondary" />
+                    <Button children="Default" />
+                </ButtonGroup>
+                <div style={styles.group}>
+                    <RadioGroup
+                        name="shipSpeed"
+                        defaultSelected="usd"
+                        value="dog"
+                    >
+                        <FormControlLabel
+                            value="cat"
+                            control={<Radio />}
+                            label="Cat"
+                        />
+                        <FormControlLabel
+                            value="dog"
+                            control={<Radio />}
+                            label="Dog"
+                        />
+                        <FormControlLabel
+                            value="disabled"
+                            disabled
+                            control={<Radio />}
+                            label="(Disabled option)"
+                        />
+                    </RadioGroup>
+                </div>
+                <div style={styles.group}>
+                    <Checkbox
+                        name="checkboxName1"
+                        value="checkboxValue1"
+                        label="checkbox"
+                        defaultChecked
+                    />
+                    <Checkbox
+                        name="checkboxName1"
+                        value="checkboxValue1"
+                        label="checkbox"
+                    />
+                    <Checkbox
+                        name="checkboxName2"
+                        value="checkboxValue2"
+                        label="disabled checkbox"
+                        disabled={true}
+                    />
+                </div>
+                <div style={styles.group}>
+                    <Switch checked={true} name="toggleName1" label="toggle" />
+                    <Switch name="toggleName1" label="toggle" />
+                    <Switch
+                        name="toggleName2"
+                        label="disabled toggle"
+                        defaultToggled={true}
+                        disabled={true}
+                    />
+                </div>
+                {/*}
         </div>
         <div style={Object.assign({}, styles.group, {marginTop: 0})}>
           <div style={styles.container}>
@@ -243,50 +237,48 @@ class ThemesPage extends Component {
             action="Got It!"
             onActionTouchTap={this.handleRequestCloseSnackbar}
           />
-        </div>
-        </div>
-    )
-  }
+            </div> */}
+            </div>
+        );
+    }
 
-  handleTouchTapDrawer = () => {
-    this.setState({
-      drawerOpen: true,
-    });
-  };
-  handleRequestChangeDrawer = (open) => {
-    this.setState({
-      drawerOpen: open,
-    });
-  };
-  handleTouchTapDialog = () => {
-    this.setState({
-      dialogOpen: true,
-    });
-  };
-  handleRequestCloseDialog = () => {
-    this.setState({
-      dialogOpen: false,
-    });
-  };
-  handleTouchTapSnackbar = () => {
-    this.setState({
-      snackbarOpen: true,
-    });
-  };
-  handleRequestCloseSnackbar = () => {
-    this.setState({
-      snackbarOpen: false,
-    });
-  };
-  render() {
-    const styles = this.getStyles();
-    return (
-        <Paper style={styles.liveExamplePaper}>
-          <ClearFix style={styles.liveExampleBlock}>
-	    {this.getComponentGroup()}
-	  </ClearFix>
-        </Paper>
-    );
-  }
+    handleTouchTapDrawer = () => {
+        this.setState({
+            drawerOpen: true,
+        });
+    };
+    handleRequestChangeDrawer = open => {
+        this.setState({
+            drawerOpen: open,
+        });
+    };
+    handleTouchTapDialog = () => {
+        this.setState({
+            dialogOpen: true,
+        });
+    };
+    handleRequestCloseDialog = () => {
+        this.setState({
+            dialogOpen: false,
+        });
+    };
+    handleTouchTapSnackbar = () => {
+        this.setState({
+            snackbarOpen: true,
+        });
+    };
+    handleRequestCloseSnackbar = () => {
+        this.setState({
+            snackbarOpen: false,
+        });
+    };
+    render() {
+        const styles = this.getStyles();
+        return (
+            <Paper style={styles.liveExamplePaper}>
+                {this.getComponentGroup()}
+            </Paper>
+        );
+    }
 }
-export default withTheme()(withWidth()(ThemesPage));
+export default withTheme()(ThemesPage);
