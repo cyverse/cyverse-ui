@@ -52,10 +52,11 @@ export default class extends React.Component {
                 <Element whiteSpace="mv5">
                     <Button
                         style={{ marginBottom: "8px" }}
-                        children="Play Progress"
-                        onTouchTap={this.startProccess}
-                        icon={<PlayIcon />}
-                    />
+                        onClick={this.startProccess}
+                    >
+                        <PlayIcon style={{marginRight: 8}}/>
+                        Play Progress
+                    </Button>
                 </Element>
                 <Paper whitespace="p3">
                     <Element

@@ -7,7 +7,7 @@ import ActionGroupExCode from '!raw-loader!./ActionGroupEx';
 import { parse } from 'react-docgen';
 import ActionGroup from '!raw-loader!cyverse-ui/ActionGroup';
 const meta = parse(ActionGroup);
-``
+
 class ActionGroupDoc extends React.Component {
     render() {
         return (
