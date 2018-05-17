@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/cyverse/cyverse-ui/blob/master/guide/README.md",
   "dependencies": {
+    "@material-ui/core": "^1.0.0-rc.1",
     "@material-ui/icons": "^1.0.0-rc.0",
     "babel-polyfill": "^6.23.0",
     "highlight.js": "^9.12.0",
