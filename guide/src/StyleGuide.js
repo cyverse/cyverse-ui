@@ -1,5 +1,6 @@
 import React from "react";
 import R from "ramda";
+import classNames from "classnames";
 import Scroll from "react-scroll";
 import injectSheet from "react-jss";
 import { withStyles } from "material-ui/styles";
@@ -9,6 +10,7 @@ import * as componentDocs from "./componentDocs";
 import ThemeExList from "./themeDocs/ThemeExList";
 import { Header, SideNav, Figure, ThemeExamples } from "./components";
 import IconSection from "./iconDocs/IconSection";
+import Installation from "./components/Instalation";
 
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
@@ -21,19 +23,23 @@ const styles = theme => ({
         display: "flex",
     },
     banner: {
-        height: "400px",
+        overFlow: "none",
+        height: "0",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         background: theme.palette.primary.main,
-        textShadow: "1px 1px 1px rgba(0,0,0,.3)"
+        textShadow: "1px 1px 1px rgba(0,0,0,.3)",
+    },
+    banner__open: {
+        height: "400px",
     },
     main: {
         flex: 1,
         background: "whitesmoke",
         width: "0",
-        padding: "70px 20px",
+        padding: "100px 20px",
     },
     content: {
         maxWidth: 1200,
@@ -42,6 +48,9 @@ const styles = theme => ({
 });
 
 class StyleGuide extends React.Component {
+    state = {
+        bannerOpen: true,
+    };
     renderThemeExamples = () => {
         return ThemeExList.map((component, i) => (
             <ThemeExamples key={i} component={component} i={i} />
@@ -61,10 +70,12 @@ class StyleGuide extends React.Component {
                 <Header />
                 <Element
                     root="section"
-                    className={classes.banner}
+                    className={classNames(classes.banner, {
+                        [classes.banner__open]: this.state.bannerOpen,
+                    })}
                 >
                     <Element
-                        style={{color: "white"}}
+                        style={{ color: "white" }}
                         root="h1"
                         typography="display3"
                         themeColor="primary1Color"
@@ -72,28 +83,38 @@ class StyleGuide extends React.Component {
                     >
                         CyVerse UI
                     </Element>
-                    <Element style={{color: "white", maxWidth: "700px"}} typography="headline">
+                    <Element
+                        style={{ color: "white", maxWidth: "700px" }}
+                        typography="headline"
+                    >
                         A collection of UI components for CyVerse that
                         extend{" "}
                         <a
                             className="Link"
-                            style={{color: "rgba(256,256,256,.7"}}
+                            style={{ color: "rgba(256,256,256,.7" }}
                             href="http://www.material-ui.com/"
                             target="_blank"
                             title="Material-UI"
                         >
                             Material-UI.
                         </a>{" "}
-                        These components handle UI patterns
-                        more specific the CyVerse ecosystem not covered by
+                        These components handle UI patterns more
+                        specific the CyVerse ecosystem not covered by
                         Material-UI.
                     </Element>
                 </Element>
                 <section className={classes.appContainer}>
-                    <SideNav isOpen />
+                    <SideNav
+                        onClick={() => {
+                            this.setState({ bannerOpen: false });
+                        }}
+                        isOpen
+                    />
                     <main className={classes.main}>
                         <div className={classes.content}>
-                            {
+                        <section>
+                            <Installation/>
+                        </section>
                                 <section>
                                     <Element
                                         root="h2"
@@ -104,7 +125,6 @@ class StyleGuide extends React.Component {
                                     </Element>
                                     {this.renderThemeExamples()}
                                 </section>
-                            }
                             <section>
                                 <Element
                                     root="h2"

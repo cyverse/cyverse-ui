@@ -7,9 +7,12 @@ import { Element } from "cyverse-ui";
 
 const styles = {
     root: {
-        marginTop: 20,
         marginBottom: 20,
-        padding: "0 10px",
+    },
+    buttonWrapper: {
+        display: "flex",
+        justifyContent: "flex-end",
+        paddingTop: "8px"
     },
 };
 
@@ -55,11 +58,16 @@ ${text}
 
         /* eslint-disable react/no-danger */
         return (
-            <Element whitespace="pt3">
-                { collapseDisabled? null :
-                <Button onClick={this.handleOpen}>
-                    {`</> ${open ? "Hide" : "View"} Code Example`}
-                </Button> }
+            <Element>
+                {collapseDisabled ? null : (
+                    <div style={styles.buttonWrapper}>
+                        <Button onClick={this.handleOpen}>
+                            {`</> ${
+                                open ? "Hide" : "View"
+                            } Code Example`}
+                        </Button>
+                    </div>
+                )}
 
                 <Collapse in={open || collapseDisabled}>
                     <div

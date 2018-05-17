@@ -47,37 +47,6 @@ const ThemeExList = [
         ),
     },
     {
-        name: "Theme Installation",
-        desc: (
-            <div>
-                <P>
-                    To use the CyVerse theme we need to wrap our
-                    entire application in the Material-UI theme
-                    provider{" "}
-                    <code className="CodeInline">
-                        MuiThemeProvider
-                    </code>{" "}
-                    and initialize it with our custom CyVerse theme
-                    with{" "}
-                    <code className="CodeInline">createMuiTheme</code>{" "}
-                    as our base theme. This will make the theme values
-                    available to all of the components.
-                </P>
-                <P>
-                    For consistency in styling we also want include
-                    Material-ui's<code className="CodeInline">
-                        CssBaseline
-                    </code>{" "}
-                    which is a minimal set of styles that "normalize"
-                    the global styles across browsers. If you have
-                    used CSS Reset or Normalize.css this is esentially
-                    the same thing.
-                </P>
-                <CodeBlock collapseDisabled={true} text={index} />
-            </div>
-        ),
-    },
-    {
         name: "Using the Theme",
         desc: (
             <div>
