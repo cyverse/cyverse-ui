@@ -48,6 +48,7 @@ module.exports = function(env) {
                 'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
                 'material-ui': path.resolve(__dirname, 'node_modules/material-ui'),
                 '@material-ui/icons': path.resolve(__dirname, 'node_modules/@material-ui/icons'),
+                '@material-ui/core': path.resolve(__dirname, 'node_modules/@material-ui/core'),
                 'cyverse-ui': path.resolve(__dirname, '../src')
             }
         },
