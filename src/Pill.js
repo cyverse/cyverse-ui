@@ -34,7 +34,7 @@ const styles = theme => ({
         color: theme.palette.primary.main,
     },
     pillSecondary: {
-        color: theme.palette.secondary.main,
+        background: theme.palette.secondary.main,
     },
     iconSecondary: {
         color: theme.palette.secondary.main,
