@@ -1,9 +1,8 @@
-
 import React from "react";
 import R from "ramda";
 import Scroll from "react-scroll";
 import injectSheet from "react-jss";
-import { withStyles } from "material-ui/styles"
+import { withStyles } from "material-ui/styles";
 
 import { Hr, P, Title, Element } from "cyverse-ui";
 import * as componentDocs from "./componentDocs";
@@ -14,23 +13,33 @@ import IconSection from "./iconDocs/IconSection";
 const scroller = Scroll.scroller;
 const ScrollAnchor = Scroll.Element;
 
-const styles = {
+const styles = theme => ({
     wrapper: {
         //color: theme.palette.textColor,
+    },
+    appContainer: {
         display: "flex",
+    },
+    banner: {
+        height: "400px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        background: theme.palette.primary.main,
+        textShadow: "1px 1px 1px rgba(0,0,0,.3)"
     },
     main: {
         flex: 1,
         background: "whitesmoke",
         width: "0",
-        marginTop: 56,
-        padding: 40,
+        padding: "70px 20px",
     },
     content: {
         maxWidth: 1200,
         margin: "auto",
-    }
-};
+    },
+});
 
 class StyleGuide extends React.Component {
     renderThemeExamples = () => {
@@ -48,63 +57,69 @@ class StyleGuide extends React.Component {
             }
         );
         return (
-            <Element
-                className={classes.wrapper}
-                id="bodyWrapper"
-            >
+            <Element className={classes.wrapper} id="bodyWrapper">
                 <Header />
-                <SideNav isOpen />
-                <main className={classes.main}>
-                    <div className={classes.content}>
-                        <Element root="section" whitespace="mb7">
-                            <Element
-                                root="h1"
-                                typography="display2"
-                                themeColor="primary1Color"
-                                whitespace="mb3"
-                            >
-                                CyVerse UI
-                            </Element>
-                            <P subheading>
-                                A collection of UI components for
-                                CyVerse that extend{" "}
-                                <a
-                                    className="Link"
-                                    href="http://www.material-ui.com/"
-                                    target="_blank"
-                                    title="Material-UI"
+                <Element
+                    root="section"
+                    className={classes.banner}
+                >
+                    <Element
+                        style={{color: "white"}}
+                        root="h1"
+                        typography="display3"
+                        themeColor="primary1Color"
+                        whitespace="mb3"
+                    >
+                        CyVerse UI
+                    </Element>
+                    <Element style={{color: "white", maxWidth: "700px"}} typography="headline">
+                        A collection of UI components for CyVerse that
+                        extend{" "}
+                        <a
+                            className="Link"
+                            style={{color: "rgba(256,256,256,.7"}}
+                            href="http://www.material-ui.com/"
+                            target="_blank"
+                            title="Material-UI"
+                        >
+                            Material-UI.
+                        </a>{" "}
+                        These components handle UI patterns
+                        more specific the CyVerse ecosystem not covered by
+                        Material-UI.
+                    </Element>
+                </Element>
+                <section className={classes.appContainer}>
+                    <SideNav isOpen />
+                    <main className={classes.main}>
+                        <div className={classes.content}>
+                            {
+                                <section>
+                                    <Element
+                                        root="h2"
+                                        typography="display2"
+                                        themeColor="primary1Color"
+                                    >
+                                        Theming
+                                    </Element>
+                                    {this.renderThemeExamples()}
+                                </section>
+                            }
+                            <section>
+                                <Element
+                                    root="h2"
+                                    typography="display2"
+                                    themeColor="primary1Color"
                                 >
-                                    Material-UI
-                                </a>{" "}
-                                adding components that handle UI
-                                patterns within the CyVerse ecosystem
-                                not covered by Material-UI.
-                            </P>
-                        </Element>
-                       {<section>
-                            <Element
-                                root="h2"
-                                typography="display1"
-                                themeColor="primary1Color"
-                            >
-                                Theming
-                            </Element>
-                            {this.renderThemeExamples()}
-                       </section> }
-                        <section>
-                            <Element
-                                root="h2"
-                                typography="display1"
-                                themeColor="primary1Color"
-                            >
-                                Components
-                            </Element>
-                            {renderComponentList}
-                        </section>
-                        <IconSection />
-                    </div>
-                </main>
-                <footer />
+                                    Components
+                                </Element>
+                                {renderComponentList}
+                            </section>
+                            <IconSection />
+                        </div>
+                    </main>
+                    <footer />
+                </section>
             </Element>
         );
     }

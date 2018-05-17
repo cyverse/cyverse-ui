@@ -1,6 +1,6 @@
 import React from 'react';
 import Scroll from 'react-scroll';
-import {List, ListItem} from 'material-ui/List';
+import {List, ListItem, ListItemText} from 'material-ui/List';
 
 const scroller = Scroll.scroller;
 
@@ -19,8 +19,9 @@ class IconLink extends React.Component {
             <ListItem
                 button={true}
                 onClick={ this.scrollTo("svg-icons") }
-                children="SVG Icons"
-            />
+                >
+                <ListItemText> SVG Icons </ListItemText>
+            </ListItem>
         )
     }
 }

@@ -52,7 +52,7 @@ class ComponentDoc extends React.Component {
                 <Element
                     root="h1"
                     whitespace="mb4"
-                    typography="headline"
+                    typography="display1"
                 >
                     {displayName}
                 </Element>

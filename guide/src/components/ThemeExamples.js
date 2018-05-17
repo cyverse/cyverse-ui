@@ -29,7 +29,7 @@ class ThemeExample extends React.Component {
                 />
                 <Element
                     root="h1"
-                    typography="headline"
+                    typography="display1"
                     whitespace="mb3"
                 >
                     { name }
