@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTheme } from "material-ui/styles";
 import typography from "material-ui/typography";
+import PersonIcon from "@material-ui/icons/person";
+import NotificationIcon from "@material-ui/icons/notifications";
 
 import {
     Checkbox,
@@ -11,9 +13,12 @@ import {
     Switch,
     RadioGroup,
     FormControlLabel,
+    TextField,
+    Divider,
 } from "material-ui";
 
 import { ButtonGroup } from "cyverse-ui/utils";
+import { Pill } from "cyverse-ui";
 
 class ThemesPage extends Component {
     static propTypes = {
@@ -33,7 +38,7 @@ class ThemesPage extends Component {
 
         const styles = {
             group: {
-                marginTop: "16px",
+                marginBottom: "16px",
                 padding: "0 50px",
                 boxSizing: "border-box",
             },
@@ -97,147 +102,121 @@ class ThemesPage extends Component {
         const styles = this.getStyles();
 
         return (
-            <div>
-                <ButtonGroup style={styles.group}>
-                    <Button
-                        variant="raised"
-                        children="Primary"
-                        color="primary"
-                    />
-                    <Button
-                        variant="raised"
-                        children="Secondary"
-                        color="secondary"
-                    />
-                    <Button variant="raised" children="Default" />
-                </ButtonGroup>
-                <ButtonGroup style={styles.group}>
-                    <Button children="Primary" color="primary" />
-                    <Button children="Secondary" color="secondary" />
-                    <Button children="Default" />
-                </ButtonGroup>
-                <div style={styles.group}>
-                    <RadioGroup
-                        name="shipSpeed"
-                        defaultSelected="usd"
-                        value="dog"
-                    >
-                        <FormControlLabel
-                            value="cat"
-                            control={<Radio />}
-                            label="Cat"
+            <div style={{ display: "flex" }}>
+                <div style={{ width: "100%", paddingRight: 32 }}>
+                    <ButtonGroup style={styles.group}>
+                        <Button
+                            variant="raised"
+                            children="Primary"
+                            color="primary"
                         />
-                        <FormControlLabel
+                        <Button
+                            variant="raised"
+                            children="Secondary"
+                            color="secondary"
+                        />
+                        <Button variant="raised" children="Default" />
+                    </ButtonGroup>
+                    <ButtonGroup style={styles.group}>
+                        <Button children="Primary" color="primary" />
+                        <Button
+                            children="Secondary"
+                            color="secondary"
+                        />
+                        <Button children="Default" />
+                    </ButtonGroup>
+                    <Divider/>
+                    <div style={styles.group}>
+                        <RadioGroup
+                            name="shipSpeed"
+                            defaultSelected="usd"
                             value="dog"
-                            control={<Radio />}
-                            label="Dog"
+                        >
+                            <FormControlLabel
+                                value="cat"
+                                control={<Radio />}
+                                label="Cat"
+                            />
+                            <FormControlLabel
+                                value="dog"
+                                control={<Radio />}
+                                label="Dog"
+                            />
+                            <FormControlLabel
+                                value="disabled"
+                                disabled
+                                control={<Radio />}
+                                label="(Disabled option)"
+                            />
+                        </RadioGroup>
+                    </div>
+
+                </div>
+                <div style={{ width: "100%" }}>
+                    <TextField
+                        fullWidth
+                        required
+                        id="required"
+                        label="Required"
+                        defaultValue="Hello World"
+                        margin="normal"
+                        style={{ display: "block" }}
+                    />
+                    <TextField
+                        fullWidth
+                        error
+                        id="error"
+                        label="Error"
+                        defaultValue="Doh!"
+                        helperText="Don't be so hard on yourself"
+                        style={{
+                            display: "block",
+                            marginBottom: "30px",
+                        }}
+                        margin="normal"
+                    />
+                        <Pill>Featured</Pill>
+                        <Pill color="primary" icon={<PersonIcon />}>
+                            3
+                        </Pill>
+                        <Pill
+                            color="secondary"
+                            icon={<NotificationIcon />}
+                        >
+                            230
+                        </Pill>
+                        <br/>
+                        <Checkbox
+                            name="checkboxName1"
+                            value="checkboxValue1"
+                            label="checkbox"
+                            defaultChecked
                         />
-                        <FormControlLabel
-                            value="disabled"
-                            disabled
-                            control={<Radio />}
-                            label="(Disabled option)"
+                        <Checkbox
+                            name="checkboxName1"
+                            value="checkboxValue1"
+                            label="checkbox"
                         />
-                    </RadioGroup>
+                        <Checkbox
+                            name="checkboxName2"
+                            value="checkboxValue2"
+                            label="disabled checkbox"
+                            disabled={true}
+                        />
+                        <Switch
+                            checked={true}
+                            name="toggleName1"
+                            label="toggle"
+                        />
+                        <Switch name="toggleName1" label="toggle" />
+                        <Switch
+                            name="toggleName2"
+                            label="disabled toggle"
+                            defaultToggled={true}
+                            disabled={true}
+                        />
+
                 </div>
-                <div style={styles.group}>
-                    <Checkbox
-                        name="checkboxName1"
-                        value="checkboxValue1"
-                        label="checkbox"
-                        defaultChecked
-                    />
-                    <Checkbox
-                        name="checkboxName1"
-                        value="checkboxValue1"
-                        label="checkbox"
-                    />
-                    <Checkbox
-                        name="checkboxName2"
-                        value="checkboxValue2"
-                        label="disabled checkbox"
-                        disabled={true}
-                    />
-                </div>
-                <div style={styles.group}>
-                    <Switch checked={true} name="toggleName1" label="toggle" />
-                    <Switch name="toggleName1" label="toggle" />
-                    <Switch
-                        name="toggleName2"
-                        label="disabled toggle"
-                        defaultToggled={true}
-                        disabled={true}
-                    />
-                </div>
-                {/*}
-        </div>
-        <div style={Object.assign({}, styles.group, {marginTop: 0})}>
-          <div style={styles.container}>
-            <TextField
-              style={styles.textfield}
-              hintText="TextField"
-            />
-          </div>
-          <div style={styles.container}>
-            <DatePicker
-              hintText="Landscape Dialog"
-              mode="landscape"
-              style={{width: '100%'}}
-            />
-          </div>
-          <div style={styles.container}>
-            <DropDownMenu value={3} style={{width: '100%'}}>
-              <MenuItem value={1} primaryText={'Never'} />
-              <MenuItem value={2} primaryText={'Every Night'} />
-              <MenuItem value={3} primaryText={'Weeknights'} />
-              <MenuItem value={4} primaryText={'Weekends'} />
-              <MenuItem value={5} primaryText={'Weekly'} />
-            </DropDownMenu>
-          </div>
-        </div>
-        <div style={styles.groupSlider}>
-          <Slider style={styles.slider} name="slider2" defaultValue={0.5} />
-        </div>
-        <div style={styles.group}>
-          <div style={styles.containerCentered}>
-            <FlatButton label="View Dialog" onTouchTap={this.handleTouchTapDialog} />
-            <Dialog
-              open={this.state.dialogOpen}
-              title="Dialog With Standard Actions"
-              actions={[
-                <FlatButton
-                  label="Cancel"
-                  keyboardFocused={true}
-                  onTouchTap={this.handleRequestCloseDialog}
-                  primary={true}
-                />,
-                <FlatButton
-                  label="Submit"
-                  onTouchTap={this.handleRequestCloseDialog}
-                  primary={true}
-                />,
-              ]}
-              onRequestClose={this.handleRequestCloseDialog}
-            >
-              The actions in this window are created from tan array of element's that&#39;s passed in.
-            </Dialog>
-          </div>
-        </div>
-        <div style={styles.group}>
-          <div style={styles.containerCentered}>
-            <FlatButton
-              onTouchTap={this.handleTouchTapSnackbar}
-              label="View Snackbar"
-            />
-          </div>
-          <Snackbar
-            open={this.state.snackbarOpen}
-            onRequestClose={this.handleRequestCloseSnackbar}
-            message="This is a snackbar"
-            action="Got It!"
-            onActionTouchTap={this.handleRequestCloseSnackbar}
-          />
-            </div> */}
             </div>
         );
     }

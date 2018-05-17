@@ -47,7 +47,7 @@ const ThemeExList = [
         ),
     },
     {
-        name: "Installing CyVerse Theme and CSS Baseline",
+        name: "Theme Installation",
         desc: (
             <div>
                 <P>
@@ -64,7 +64,7 @@ const ThemeExList = [
                     available to all of the components.
                 </P>
                 <P>
-                    For consistency in styling we also include
+                    For consistency in styling we also want include
                     Material-ui's<code className="CodeInline">
                         CssBaseline
                     </code>{" "}
@@ -78,7 +78,7 @@ const ThemeExList = [
         ),
     },
     {
-        name: "withTheme and withStyles",
+        name: "Using the Theme",
         desc: (
             <div>
                 <P>

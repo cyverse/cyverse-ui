@@ -21,7 +21,7 @@ class ThemeExample extends React.Component {
                 mb={ 7 }
             >
                 <ScrollAnchor
-                    name={ name.replace(/\s+/g, '-') }
+                    id={ name.toLowerCase().split(" ").join("-") }
                     style={{
                         position: "absolute",
                         top:"-50px"
