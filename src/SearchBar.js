@@ -96,10 +96,6 @@ class SearchBar extends React.Component {
             classes.input
         );
 
-        const searchColor = value
-            ? theme.palette.primary1Color
-            : null;
-
         const shouldShowClear = onClear && value;
 
         return (
@@ -118,7 +114,7 @@ class SearchBar extends React.Component {
                 {shouldShowClear ? (
                     <IconButton
                         className="CY-SearchBar-closeButton"
-                        onTouchTap={onClear}
+                        onClick={onClear}
                     >
                         <CloseIcon />
                     </IconButton>
