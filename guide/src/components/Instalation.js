@@ -16,7 +16,7 @@ const Instalation = () => (
         </Element>
         <Element whitespace="mb7">
             <Element typography="display1">Installation</Element>
-            <P>Install packages and and them to your package.json.</P>
+            <P>Install packages and add them to your package.json.</P>
             <CodeBlock
                 collapseDisabled={true}
                 text={`npm install --save cyverse-ui@next @material-ui/core @material-ui/icons`}
@@ -33,9 +33,8 @@ const Instalation = () => (
             </P>
             <P>
                 Note that we are also including "CssBaseline" and
-                importing "typeface-roboto" these are for consistancy.
-                You can read more about theming and these dependencies
-                in the{" "}
+                "typeface-roboto" these are for consistancy. You can
+                read more about theming and these dependencies in the{" "}
                 <a
                     href="https://material-ui-next.com/getting-started/installation/"
                     className="Link"

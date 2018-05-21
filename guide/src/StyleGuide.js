@@ -87,7 +87,7 @@ class StyleGuide extends React.Component {
                         style={{ color: "white", maxWidth: "700px" }}
                         typography="headline"
                     >
-                        A collection of UI components for CyVerse that
+                        UI components for CyVerse that
                         extend{" "}
                         <a
                             className="Link"
@@ -97,10 +97,7 @@ class StyleGuide extends React.Component {
                             title="Material-UI"
                         >
                             Material-UI.
-                        </a>{" "}
-                        These components handle UI patterns more
-                        specific the CyVerse ecosystem not covered by
-                        Material-UI.
+                        </a>
                     </Element>
                 </Element>
                 <section className={classes.appContainer}>
