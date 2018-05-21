@@ -44,17 +44,14 @@ export default class extends React.Component {
                 {data.map((item, i) => {
                     const isFavorited = i === 2;
                     const RenderFavoriteIcon = isFavorited ? (
-                        <FavoritedIcon color="red" />
+                        <IconButton style={{ color: "red" }}>
+                            <FavoritedIcon/>
+                        </IconButton>
                     ) : (
-                        <FavoriteIcon />
+                        <IconButton>
+                            <FavoriteIcon />
+                        </IconButton>
                     );
-                    const favorited = isFavorited
-                        ? [
-                              <IconButton>
-                                  <FavoritedIcon color="red" />
-                              </IconButton>,
-                          ]
-                        : null;
 
                     return (
                         <MediaCard
@@ -83,7 +80,7 @@ export default class extends React.Component {
                             }
                             quickActions={
                                 <React.Fragment>
-                                    <IconButton>
+                                    <IconButton onClick={() => {}}>
                                         <EditIcon />
                                     </IconButton>
                                     <IconButton>
@@ -92,7 +89,7 @@ export default class extends React.Component {
                                 </React.Fragment>
                             }
                             persistActions={
-                                <IconButton>
+                                <IconButton style={{ color: "red" }}>
                                     {RenderFavoriteIcon}
                                 </IconButton>
                             }
