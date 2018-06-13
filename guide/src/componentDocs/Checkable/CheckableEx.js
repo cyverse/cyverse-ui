@@ -28,6 +28,7 @@ class CheckableEx extends Component {
                     whitespace="mb3"
                     isCheckable={isChecked.length > 0}
                     checkboxProps={{
+                        value: "first",
                         checked: isChecked.includes("first"),
                         onChange: this.onCheck("first"),
                     }}
@@ -38,8 +39,8 @@ class CheckableEx extends Component {
                     whitespace="mb3"
                     isCheckable={isChecked.length > 0}
                     checkboxProps={{
-                        checked: isChecked.includes("second"),
                         value: "second",
+                        checked: isChecked.includes("second"),
                         onChange: this.onCheck("second"),
                     }}
                 >
@@ -48,6 +49,7 @@ class CheckableEx extends Component {
                 <Checkable
                     isCheckable={isChecked.length > 0}
                     checkboxProps={{
+                        value: "third",
                         checked: isChecked.includes("third"),
                         onChange: this.onCheck("third"),
                     }}
