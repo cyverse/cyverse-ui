@@ -8,12 +8,6 @@ import * as events from "./utils/events";
 
 // Each key of the returned styles object will be available as a className below.
 const styles = theme => ({
-    ...R.mergeAll(R.toPairs(theme.palette).map( color => (
-        { ["background_" + color[0]]: { background: color[1] } }
-    ))),
-    ...R.mergeAll(R.toPairs(theme.palette).map( color => (
-        { ["color_" + color[0]]: { color: color[1] } }
-    ))),
     ...theme.utility,
     ...theme.typography,
     ...theme.whitespace,
@@ -45,8 +39,6 @@ class Element extends React.Component {
             classes,
             hide = false,
             hideReadable = false,
-            themeBackground,
-            themeColor,
             typography = "body1",
             whitespace = [],
             elevation = 0,
@@ -66,8 +58,6 @@ class Element extends React.Component {
             { [classes.hide]: hide },
             { [classes.hideReadable]: hideReadable },
             { [elevationClass]: elevation > 0 },
-            { [classes["background_" + themeBackground]]: themeBackground },
-            { [classes["color_" + themeColor]]: themeColor },
             classes.wrapper,
             classes[typography],
             whitespaceClass
@@ -98,14 +88,6 @@ Element.propTypes = {
      * The html tag to render, For example, "p", "div", "span". All html atrributes like "title", "src" etc.. are passed down.
      */
     root: PropTypes.string,
-    /**
-     * The color of the text. You can use theme palette names like "primary1Color"
-     */
-    color: PropTypes.string,
-    /**
-     * The color of the background. You can use theme palette names like "primary1Color"
-     */
-    background: PropTypes.string,
     /**
      * The typography styles from the theme like "title" or "body1"
      */
