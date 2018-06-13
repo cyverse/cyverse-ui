@@ -76,7 +76,6 @@ class SearchBar extends React.Component {
             placeholder,
             onChange,
             onClear,
-            theme,
             ...rest
         } = this.props;
 
