@@ -28,6 +28,7 @@ const styles = theme => ({
         flex: "1 1 100%",
         border: "none",
         boxShadow: "none",
+        fontSize: "16px",
         "&:focus": {
             outline: "none",
         },
