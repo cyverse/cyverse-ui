@@ -13,7 +13,13 @@ class FloatingActionButtonEx extends Component {
     state = { isOpen: false };
     render() {
         return (
-            <Paper style={{ height: "50px", position: "relative" }}>
+            <Paper
+                style={{
+                    height: "50px",
+                    position: "relative",
+                    marginBottom: "50px",
+                }}
+            >
                 <div
                     style={{
                         position: "absolute",
