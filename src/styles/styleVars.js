@@ -16,6 +16,10 @@ const styleVars = {
         primary: {
             main: "#006ca9",
         },
+        secondary: {
+            main: "#34c8ef",
+            contrastText: 'white',
+        },
         text: {
             primary: colors.grey[800]
         }
