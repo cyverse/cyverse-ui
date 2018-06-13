@@ -31,7 +31,6 @@ const BarGraph = ({
     startValue,
     afterValue,
     barColor,
-    compact,
     muiTheme,
     ...rest
 }) => {
@@ -77,10 +76,6 @@ BarGraph.propTypes = {
      * The color of the bar representing the percentage of the whole used. The after value will be a lighter version of this color.
      */
     barColor: PropTypes.string,
-    /**
-     * Wether the BarGraph is compact or regular size
-     */
-    compact: PropTypes.bool,
 };
 
 export default withTheme()(withStyles(styles)(BarGraph));
