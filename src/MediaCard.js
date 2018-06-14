@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Identity from './Identity';
-import { events } from "./utils";
 import CheckableAvatar from './Checkable';
 import ListCard from './ListCard';
 import ListCardHeader from './ListCardHeader';

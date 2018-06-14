@@ -1,5 +1,4 @@
 import React from "react";
-import { merge } from 'ramda';
 import PropTypes from "prop-types";
 import classnames from 'classnames';
 import classNames from "classnames";

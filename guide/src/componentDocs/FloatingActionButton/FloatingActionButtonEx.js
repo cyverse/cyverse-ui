@@ -28,7 +28,7 @@ class FloatingActionButtonEx extends Component {
                     }}
                 >
                     <FloatingActionButton
-                        secondary
+                        secondary={true}
                         isOpen={this.state.isOpen}
                         onClick={() =>
                             this.setState({
