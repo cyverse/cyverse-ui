@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import InformationIcon from "@material-ui/icons/info";
-import WarningIcon from "@material-ui/icons/warning";
+import InformationIcon from "@material-ui/icons/Info";
+import WarningIcon from "@material-ui/icons/Warning";
 import Element from "./Element";
 import {withStyles } from "material-ui/styles";
+
 // Each key of the returned object will be available in the prop "classes" below.
 const styles = theme => {
     return {
