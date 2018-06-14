@@ -2,6 +2,7 @@ import React from "react";
 import { Element } from "cyverse-ui";
 import classnames from "classnames";
 import PropTypes from "prop-types";
+import { ClickAwayListener } from "material-ui";
 
 /**
  * MediaCardGroup is a wrapper for MediaCards that helps to manage opening and closing animation of MediaCards as children.
@@ -20,27 +21,10 @@ class MediaCardGroup extends React.Component {
         expanded: null,
     };
 
-    componentDidMount() {
-        document.addEventListener(
-            "click",
-            this.handleDocumentClick,
-            false
-        );
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener(
-            "click",
-            this.handleDocumentClick,
-            false
-        );
-    }
-
-    handleDocumentClick = e => {
-        let cards = this.group;
-       /* if (!cards.contains(e.target)) {
-            this.setState({ expanded: null });
-        } */
+    onClickAway = () => {
+        this.setState({
+            expanded: null,
+        });
     };
 
     onExpand = el => {
@@ -67,8 +51,14 @@ class MediaCardGroup extends React.Component {
         );
 
         return (
-            <Element {...rest} ref={ group => this.group = group} className={wrapperClasses}>
-                {renderChildren}
+            <Element
+                {...rest}
+                ref={group => (this.group = group)}
+                className={wrapperClasses}
+            >
+                <ClickAwayListener onClickAway={this.onClickAway}>
+                    {renderChildren}
+                </ClickAwayListener>
             </Element>
         );
     }
