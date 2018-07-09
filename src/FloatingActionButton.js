@@ -12,7 +12,7 @@ const styles = theme => ({
         position: "relative",
     },
     icon: {
-        transition: "transform ease .1s",
+        transition: "transform ease .2s !important",
     },
     icon__open: {
         transform: "rotate(45deg)",
@@ -46,14 +46,11 @@ class FloatingActionButton extends Component {
 
     render() {
         const {
-            theme,
             classes,
             className,
             children,
             icon,
             onClick,
-            backgroundColor,
-            secondary,
             isOpen,
             ...rest
         } = this.props;
@@ -72,15 +69,6 @@ class FloatingActionButton extends Component {
             }
         );
 
-        // Define background color,
-        // priority goes to secondary "accent color" prop,
-        // else to backgroundColor prop,
-        // defaults to primary color
-        const { accent1Color, primary1Color } = theme.palette;
-        const closedBackground = secondary
-            ? accent1Color
-            : backgroundColor || primary1Color;
-
         return (
             <Element {...rest} className={wrapperClasses}>
                 <Button
@@ -88,7 +76,7 @@ class FloatingActionButton extends Component {
                     variant="fab"
                     className="CY-FloatingActionButton-btn"
                     color={
-                        isOpen ? "#585858" : "secondary"
+                        isOpen ? "" : "secondary"
                     }
                     onClick={onClick || this.onClick}
                 >
