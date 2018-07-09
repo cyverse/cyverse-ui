@@ -28,6 +28,7 @@ class FloatingActionButtonEx extends Component {
                     }}
                 >
                     <FloatingActionButton
+                        style={{zIndex: "600"}}
                         secondary={true}
                         isOpen={this.state.isOpen}
                         onClick={() =>
