@@ -39,6 +39,7 @@
     "react-docgen": "^2.20.1",
     "react-dom": "^16.3.2",
     "react-ink": "^5.1.1",
+    "react-router-dom": "^4.3.1",
     "react-scroll": "^1.7.9",
     "react-tap-event-plugin": "^3.0.0",
     "typeface-roboto": "0.0.54"

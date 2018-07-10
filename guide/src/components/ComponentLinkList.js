@@ -1,31 +1,19 @@
 import React from "react";
 import R from "ramda";
-import Scroll from "react-scroll";
 import { withStyles } from "material-ui/styles";
-import List, {
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-} from "material-ui/List";
+import List, { ListItem, ListItemText } from "material-ui/List";
 import Collapse from "material-ui/transitions/Collapse";
 import * as componentDocs from "../componentDocs";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import { Typography } from "material-ui";
-
-const scroller = Scroll.scroller;
-const scrollTo = target => () => {
-    scroller.scrollTo(target, {
-        duration: 1000,
-        smooth: true,
-    });
-};
+import { Link } from "react-router-dom";
 
 const styles = theme => ({
     indentedList: {
         paddingLeft: theme.spacing.unit * 4,
     },
 });
+
 class ComponentLinkList extends React.Component {
     state = { open: false };
 
@@ -50,7 +38,8 @@ class ComponentLinkList extends React.Component {
                     button={true}
                     className={classes.indentedList}
                     key={name}
-                    onClick={scrollTo(target)}
+                    component={Link}
+                    to={`/components/${target}-doc`}
                 >
                     <ListItemText> {name} </ListItemText>
                 </ListItem>

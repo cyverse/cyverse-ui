@@ -5,6 +5,7 @@ import { GithubIcon } from "cyverse-ui/icons";
 import { pad } from "cyverse-ui/styles";
 import { Element } from "cyverse-ui";
 import { CyverseLogo } from "../icons";
+import { Link } from "react-router-dom";
 
 const styles = theme => ({
     wrapper: {
@@ -12,7 +13,8 @@ const styles = theme => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        position: "fixed",
+        position: "sticky",
+        top: 0,
         width: "100%",
         zIndex: "700",
         background: theme.palette.primary.main
@@ -30,6 +32,7 @@ const styles = theme => ({
         },
     },
 });
+
 const Header = ({ classes, ...rest }) => (
     <Element
         {...rest}
@@ -38,7 +41,9 @@ const Header = ({ classes, ...rest }) => (
         themeBackground="primary1Color"
         whitespace="ps2"
     >
-        <CyverseLogo fill="white" size="200" />
+        <Link to="/">
+            <CyverseLogo fill="white" size="200" />
+        </Link>
         <a
             className={classes.GithubLink}
             href="https://github.com/cyverse/cyverse-ui"

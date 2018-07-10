@@ -1,14 +1,10 @@
 import React from "react";
 import R from "ramda";
-import Scroll from "react-scroll";
-import { Hr, Element, Section } from "cyverse-ui";
-import { Header, SideNav, Figure, ThemeExamples, MDBlock } from "./";
-
-const ScrollAnchor = Scroll.Element;
+import { Element } from "cyverse-ui";
+import { MDBlock } from "./";
 
 class ComponentDoc extends React.Component {
     tableData = prop => {
-        const { meta } = this.props;
         const defaultValue = prop[1].defaultValue;
         const renderDefault = defaultValue ? defaultValue.value : "";
 
@@ -29,26 +25,11 @@ class ComponentDoc extends React.Component {
     render() {
         const { meta, children } = this.props;
         const { description, displayName } = meta;
-        const anchorId = displayName
-            .replace(/(^[A-Z])/, ([first]) => first.toLowerCase())
-            .replace(
-                /([A-Z])/g,
-                ([letter]) => `-${letter.toLowerCase()}`
-            );
 
         return (
-            <Section
-                style={{ position: "relative" }}
+            <section
                 key={displayName}
             >
-                <ScrollAnchor
-                    id={anchorId}
-                    style={{
-                        position: "absolute",
-                        top: "-50px",
-                    }}
-                />
-
                 <Element
                     root="h1"
                     whitespace="mb4"
@@ -82,7 +63,7 @@ class ComponentDoc extends React.Component {
                         </tbody>
                     </table>
                 </Element>
-            </Section>
+            </section>
         );
     }
 }

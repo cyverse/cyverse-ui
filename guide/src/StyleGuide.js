@@ -1,19 +1,19 @@
 import React from "react";
 import R from "ramda";
-import classNames from "classnames";
-import Scroll from "react-scroll";
-import injectSheet from "react-jss";
 import { withStyles } from "material-ui/styles";
 
-import { Hr, P, Title, Element } from "cyverse-ui";
+import { Element } from "cyverse-ui";
 import * as componentDocs from "./componentDocs";
 import ThemeExList from "./themeDocs/ThemeExList";
-import { Header, SideNav, Figure, ThemeExamples } from "./components";
+import { Header, SideNav, ThemeExamples } from "./components";
 import IconSection from "./iconDocs/IconSection";
 import Installation from "./components/Instalation";
+import Banner from "./components/Banner";
 
-const scroller = Scroll.scroller;
-const ScrollAnchor = Scroll.Element;
+import {
+    BrowserRouter as Router,
+    Route,
+} from "react-router-dom";
 
 const styles = theme => ({
     wrapper: {
@@ -22,24 +22,11 @@ const styles = theme => ({
     appContainer: {
         display: "flex",
     },
-    banner: {
-        overFlow: "none",
-        height: "0",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        background: theme.palette.primary.main,
-        textShadow: "1px 1px 1px rgba(0,0,0,.3)",
-    },
-    banner__open: {
-        height: "400px",
-    },
     main: {
         flex: 1,
         background: "whitesmoke",
         width: "0",
-        padding: "100px 20px",
+        padding: "48px",
     },
     content: {
         maxWidth: 1200,
@@ -47,97 +34,67 @@ const styles = theme => ({
     },
 });
 
-class StyleGuide extends React.Component {
-    state = {
-        bannerOpen: true,
-    };
-    renderThemeExamples = () => {
-        return ThemeExList.map((component, i) => (
+const Theming = () => (
+    <section>
+        <Element
+            root="h2"
+            typography="display2"
+        >
+            Theming
+        </Element>
+        {ThemeExList.map((component, i) => (
             <ThemeExamples key={i} component={component} i={i} />
-        ));
-    };
+        ))}
+    </section>
+);
 
+
+const ComponentRoutes = R.toPairs(componentDocs).map(item => {
+    const Doc = item[1];
+    const componentPath = item[0]
+        .replace(/(^[A-Z])/, ([first]) => first.toLowerCase())
+        .replace(
+            /([A-Z])/g,
+            ([letter]) => `-${letter.toLowerCase()}`
+        );
+    return <Route path={`/components/${componentPath}`} component={Doc} />;
+});
+
+class StyleGuide extends React.Component {
     render() {
         const { classes } = this.props;
-        const renderComponentList = R.toPairs(componentDocs).map(
-            item => {
-                let Doc = item[1];
-                return <Doc key={item[0]} />;
-            }
-        );
         return (
-            <Element className={classes.wrapper} id="bodyWrapper">
-                <Header />
-                <Element
-                    root="section"
-                    className={classNames(classes.banner, {
-                        [classes.banner__open]: this.state.bannerOpen,
-                    })}
-                >
-                    <Element
-                        style={{ color: "white" }}
-                        root="h1"
-                        typography="display3"
-                        themeColor="primary1Color"
-                        whitespace="mb3"
-                    >
-                        CyVerse UI
-                    </Element>
-                    <Element
-                        style={{ color: "white", maxWidth: "700px" }}
-                        typography="headline"
-                    >
-                        UI components for CyVerse that
-                        extend{" "}
-                        <a
-                            className="Link"
-                            style={{ color: "rgba(256,256,256,.7" }}
-                            href="http://www.material-ui.com/"
-                            target="_blank"
-                            title="Material-UI"
-                        >
-                            Material-UI.
-                        </a>
-                    </Element>
+            <Router>
+                <Element className={classes.wrapper} id="bodyWrapper">
+                    <Header />
+                    <Route exact path="/" component={Banner} />
+
+                    <section className={classes.appContainer}>
+                        <SideNav
+                            onClick={() => {
+                                this.setState({ bannerOpen: false });
+                            }}
+                            isOpen
+                        />
+                        <main className={classes.main}>
+                            <div className={classes.content}>
+                                <Route
+                                    exact
+                                    path="/"
+                                    component={Installation}
+                                />
+                                <Route
+                                    path="/theming"
+                                    component={Theming}
+                                />
+                                {ComponentRoutes.map(route => route)}
+                                <Route path="/icons" component={IconSection} />
+                            </div>
+                        </main>
+                        <footer />
+                    </section>
                 </Element>
-                <section className={classes.appContainer}>
-                    <SideNav
-                        onClick={() => {
-                            this.setState({ bannerOpen: false });
-                        }}
-                        isOpen
-                    />
-                    <main className={classes.main}>
-                        <div className={classes.content}>
-                        <section>
-                            <Installation/>
-                        </section>
-                                <section>
-                                    <Element
-                                        root="h2"
-                                        typography="display2"
-                                        themeColor="primary1Color"
-                                    >
-                                        Theming
-                                    </Element>
-                                    {this.renderThemeExamples()}
-                                </section>
-                            <section>
-                                <Element
-                                    root="h2"
-                                    typography="display2"
-                                    themeColor="primary1Color"
-                                >
-                                    Components
-                                </Element>
-                                {renderComponentList}
-                            </section>
-                            <IconSection />
-                        </div>
-                    </main>
-                    <footer />
-                </section>
-            </Element>
+            </Router>
         );
     }
 }
