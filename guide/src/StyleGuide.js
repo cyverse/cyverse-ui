@@ -4,21 +4,15 @@ import { withStyles } from "material-ui/styles";
 
 import { Element } from "cyverse-ui";
 import * as componentDocs from "./componentDocs";
-import ThemeExList from "./themeDocs/ThemeExList";
-import { Header, SideNav, ThemeExamples } from "./components";
+import { Header, SideNav } from "./components";
 import IconSection from "./iconDocs/IconSection";
 import Installation from "./components/Instalation";
 import Banner from "./components/Banner";
+import Theming from "./components/Theming";
 
-import {
-    BrowserRouter as Router,
-    Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-const styles = theme => ({
-    wrapper: {
-        //color: theme.palette.textColor,
-    },
+const styles = {
     appContainer: {
         display: "flex",
     },
@@ -32,43 +26,35 @@ const styles = theme => ({
         maxWidth: 1200,
         margin: "auto",
     },
-});
+};
 
-const Theming = () => (
-    <section>
-        <Element
-            root="h2"
-            typography="display2"
-        >
-            Theming
-        </Element>
-        {ThemeExList.map((component, i) => (
-            <ThemeExamples key={i} component={component} i={i} />
-        ))}
-    </section>
-);
-
-
-const ComponentRoutes = R.toPairs(componentDocs).map(item => {
-    const Doc = item[1];
-    const componentPath = item[0]
-        .replace(/(^[A-Z])/, ([first]) => first.toLowerCase())
-        .replace(
-            /([A-Z])/g,
-            ([letter]) => `-${letter.toLowerCase()}`
-        );
-    return <Route path={`/components/${componentPath}`} component={Doc} />;
-});
+const ComponentRoutes = () =>
+    R.toPairs(componentDocs)
+        .map(item => {
+            const Doc = item[1];
+            const componentPath = item[0]
+                .replace(/(^[A-Z])/, ([first]) => first.toLowerCase())
+                .replace(
+                    /([A-Z])/g,
+                    ([letter]) => `-${letter.toLowerCase()}`
+                );
+            return (
+                <Route
+                    path={`/components/${componentPath}`}
+                    component={Doc}
+                />
+            );
+        })
+        .map(route => route);
 
 class StyleGuide extends React.Component {
     render() {
         const { classes } = this.props;
         return (
             <Router>
-                <Element className={classes.wrapper} id="bodyWrapper">
+                <Element id="bodyWrapper">
                     <Header />
                     <Route exact path="/" component={Banner} />
-
                     <section className={classes.appContainer}>
                         <SideNav
                             onClick={() => {
@@ -80,6 +66,11 @@ class StyleGuide extends React.Component {
                             <div className={classes.content}>
                                 <Route
                                     exact
+                                    path="/getting-started"
+                                    component={Installation}
+                                />
+                                <Route
+                                    exact
                                     path="/"
                                     component={Installation}
                                 />
@@ -87,8 +78,11 @@ class StyleGuide extends React.Component {
                                     path="/theming"
                                     component={Theming}
                                 />
-                                {ComponentRoutes.map(route => route)}
-                                <Route path="/icons" component={IconSection} />
+                                <ComponentRoutes />
+                                <Route
+                                    path="/icons"
+                                    component={IconSection}
+                                />
                             </div>
                         </main>
                         <footer />

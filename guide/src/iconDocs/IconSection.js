@@ -1,16 +1,12 @@
 import React from 'react';
-import Scroll from 'react-scroll';
 import R from 'ramda';
-import {  Hr, P, Element, Section } from 'cyverse-ui';
+import { P, Element, Section } from 'cyverse-ui';
 import * as icons from 'cyverse-ui/icons';
 
 import { Figure } from '../components/';
 import CodeBlock from '../components/CodeBlock';
 import IconEx from './IconEx';
 import IconExCode from '!raw-loader!./IconEx';
-
-const scroller = Scroll.scroller;
-const ScrollAnchor = Scroll.Element;
 
 class IconSection extends React.Component {
     IconCell = (icon) => {
@@ -42,13 +38,6 @@ class IconSection extends React.Component {
     render() {
         return (
             <Section style={{ position: "relative" }}>
-                <ScrollAnchor
-                    name="svg-icons"
-                    style={{
-                        position: "absolute",
-                        top:"-50px"
-                    }}
-                />
                 <Element
                     root="h2"
                     whitespace="mb3"
