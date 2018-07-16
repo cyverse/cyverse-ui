@@ -1,5 +1,4 @@
 import React from "react";
-import R from "ramda";
 import Paper from "material-ui/Paper";
 import { withStyles } from "material-ui/styles";
 
