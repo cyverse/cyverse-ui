@@ -52,7 +52,7 @@ class StyleGuide extends React.Component {
         const { classes } = this.props;
         return (
             <Router>
-                <Element id="bodyWrapper">
+                <section>
                     <Header />
                     <Route exact path="/" component={Banner} />
                     <section className={classes.appContainer}>
@@ -63,7 +63,7 @@ class StyleGuide extends React.Component {
                             isOpen
                         />
                         <main className={classes.main}>
-                            <div className={classes.content}>
+                            <section className={classes.content}>
                                 <Route
                                     exact
                                     path="/getting-started"
@@ -83,11 +83,11 @@ class StyleGuide extends React.Component {
                                     path="/icons"
                                     component={IconSection}
                                 />
-                            </div>
+                            </section>
                         </main>
                         <footer />
                     </section>
-                </Element>
+                </section>
             </Router>
         );
     }

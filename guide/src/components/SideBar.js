@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 class SideBar extends React.Component {
     render() {
@@ -18,19 +18,15 @@ class SideBar extends React.Component {
                 padding: "20px 0",
                 background: "#EEEEEE",
                 overflowY: "auto",
-                height: "calc(100vh - 48px)"
+                height: "calc(100vh - 48px)",
             },
         };
 
         return (
-            <nav id="sideBar"
-                style={ style.wrapper }
-            >
-                <div style={ style.sideBar } >
-                    { this.props.children }
-                </div>
-            </nav>
-        )
+            <aside id="sideBar" style={style.wrapper}>
+                <nav style={style.sideBar}>{this.props.children}</nav>
+            </aside>
+        );
     }
 }
 

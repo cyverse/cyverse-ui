@@ -35,6 +35,7 @@ const Banner = ({ classes }) => (
             CyVerse UI
         </Element>
         <Element
+            root="p"
             style={{ color: "white", maxWidth: "700px" }}
             typography="headline"
         >

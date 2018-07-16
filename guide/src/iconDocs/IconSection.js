@@ -37,7 +37,7 @@ class IconSection extends React.Component {
 
     render() {
         return (
-            <Section style={{ position: "relative" }}>
+            <React.Fragment>
                 <Element
                     root="h2"
                     whitespace="mb3"
@@ -72,7 +72,7 @@ class IconSection extends React.Component {
                 <Element style={{ display: "flex", flexWrap: "wrap" }}>
                     { R.toPairs(icons).map(this.IconCell) }
                 </Element>
-            </Section>
+            </React.Fragment>
         );
     }
 }

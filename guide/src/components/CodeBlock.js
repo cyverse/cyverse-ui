@@ -49,7 +49,7 @@ class CodeBlock extends Component {
     }
 
     render() {
-        const { style, text, collapseDisabled } = this.props;
+        const { style, text, collapseDisabled, ...rest } = this.props;
         const { open } = this.state;
 
         const renderCode = `\`\`\`jsx
@@ -58,7 +58,7 @@ ${text}
 
         /* eslint-disable react/no-danger */
         return (
-            <Element>
+            <Element {...rest}>
                 {collapseDisabled ? null : (
                     <div style={styles.buttonWrapper}>
                         <Button onClick={this.handleOpen}>

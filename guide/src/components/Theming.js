@@ -4,14 +4,14 @@ import ThemeExamples from "./ThemeExamples";
 import ThemeExList from "../themeDocs/ThemeExList";
 
 const Theming = () => (
-    <section>
+    <React.Fragment>
         <Element root="h1" typography="display2" whitespace="mb4">
             Theming and Theme Colors
         </Element>
         {ThemeExList.map((component, i) => (
             <ThemeExamples key={i} component={component} i={i} />
         ))}
-    </section>
+    </React.Fragment>
 );
 
 export default Theming;

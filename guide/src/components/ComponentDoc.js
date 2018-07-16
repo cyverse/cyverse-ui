@@ -27,11 +27,9 @@ class ComponentDoc extends React.Component {
         const { description, displayName } = meta;
 
         return (
-            <section
-                key={displayName}
-            >
+            <React.Fragment>
                 <Element
-                    root="h1"
+                    root="h2"
                     whitespace="mb4"
                     typography="display1"
                 >
@@ -39,31 +37,23 @@ class ComponentDoc extends React.Component {
                 </Element>
                 <MDBlock text={description} />
                 <Element whitespace="mb4">{children}</Element>
-                <Element>
-                    <Element
-                        tag="h2"
-                        whitespace="mb2"
-                        typography="title"
-                    >
-                        {`${displayName} Properties`}
-                    </Element>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Type</td>
-                                <td>Default</td>
-                                <td>Description</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {R.toPairs(meta.props).map(
-                                this.tableData
-                            )}
-                        </tbody>
-                    </table>
+                <Element tag="h2" whitespace="mb2" typography="title">
+                    {`${displayName} Properties`}
                 </Element>
-            </section>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Type</td>
+                            <td>Default</td>
+                            <td>Description</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {R.toPairs(meta.props).map(this.tableData)}
+                    </tbody>
+                </table>
+            </React.Fragment>
         );
     }
 }
