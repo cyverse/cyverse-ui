@@ -7,8 +7,7 @@ const styles = theme => ({
     wrapper: {
         maxWidth: "600px",
         lineHeight: "24px",
-        margin: 0,
-        ...theme.whitespace.mb3,
+        marginTop: 0,
     },
 });
 
@@ -18,7 +17,7 @@ class P extends React.Component {
      */
     static displayName = "P";
     render() {
-        const { classes, className } = this.props;
+        const { classes, className, whitespace="mb4", ...rest } = this.props;
         const wrapperClasses = classnames(
             { [className]: className },
             "CY-P",
@@ -27,7 +26,8 @@ class P extends React.Component {
         return (
             <Element
                 root="p"
-                whitespace="mb3"
+                {...rest}
+                whitespace={whitespace}
                 className={wrapperClasses}
             >
                 {this.props.children}
