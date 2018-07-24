@@ -1,5 +1,5 @@
 import React from "react";
-import R from "ramda";
+import { compose, toPairs } from "ramda";
 import { withStyles } from "material-ui/styles";
 import * as componentDocs from "./componentDocs";
 import { Header, SideNav } from "./components";
@@ -8,7 +8,7 @@ import Installation from "./components/Installation";
 import Banner from "./components/Banner";
 import Theming from "./components/Theming";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { withRouter, Route } from "react-router-dom";
 
 const styles = {
     appContainer: {
@@ -27,7 +27,7 @@ const styles = {
 };
 
 const ComponentRoutes = () =>
-    R.toPairs(componentDocs)
+    toPairs(componentDocs)
         .map(item => {
             const Doc = item[1];
             const componentPath = item[0]
@@ -46,50 +46,54 @@ const ComponentRoutes = () =>
         .map(route => route);
 
 class StyleGuide extends React.Component {
+    componentDidUpdate(prevProps) {
+        // We want to scroll to the top of the view if our route changes
+        if (this.props.location !== prevProps.location) {
+            window.scrollTo(0, 0);
+        }
+    }
     render() {
         const { classes } = this.props;
         return (
-            <Router>
-                <section>
-                    <Header />
-                    <Route exact path="/" component={Banner} />
-                    <section className={classes.appContainer}>
-                        <SideNav
-                            onClick={() => {
-                                this.setState({ bannerOpen: false });
-                            }}
-                            isOpen
-                        />
-                        <main className={classes.main}>
-                            <section className={classes.content}>
-                                <Route
-                                    exact
-                                    path="/getting-started"
-                                    component={Installation}
-                                />
-                                <Route
-                                    exact
-                                    path="/"
-                                    component={Installation}
-                                />
-                                <Route
-                                    exact
-                                    path="/theming"
-                                    component={Theming}
-                                />
-                                <ComponentRoutes />
-                                <Route
-                                    exact
-                                    path="/icons"
-                                    component={IconSection}
-                                />
-                            </section>
-                        </main>
-                        <footer />
-                    </section>
+            <section>
+                <Header />
+                <Route exact path="/" component={Banner} />
+                <section className={classes.appContainer}>
+                    <SideNav
+                        onClick={() => {
+                            this.setState({ bannerOpen: false });
+                        }}
+                        isOpen
+                    />
+                    <main className={classes.main}>
+                        <section className={classes.content}>
+                            <Route
+                                exact
+                                path="/getting-started"
+                                component={Installation}
+                            />
+                            <Route
+                                exact
+                                path="/"
+                                component={Installation}
+                            />
+                            <Route
+                                exact
+                                path="/theming"
+                                component={Theming}
+                            />
+                            <ComponentRoutes />
+                            <Route
+                                exact
+                                path="/icons"
+                                component={IconSection}
+                            />
+                        </section>
+                    </main>
+                    <footer />
                 </section>
-            </Router>
+            </section>
         );
     }
 }
-export default withStyles(styles)(StyleGuide);
+export default compose(withRouter, withStyles(styles))(StyleGuide);
