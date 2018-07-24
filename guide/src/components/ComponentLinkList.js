@@ -1,7 +1,7 @@
 import React from "react";
-import R from "ramda";
+import { toPairs } from "ramda";
 import { withStyles } from "material-ui/styles";
-import List, { ListItem, ListItemText } from "material-ui/List";
+import { ListItem, ListItemText } from "material-ui/List";
 import Collapse from "material-ui/transitions/Collapse";
 import * as componentDocs from "../componentDocs";
 import ExpandLess from "@material-ui/icons/ExpandLess";
@@ -23,7 +23,7 @@ class ComponentLinkList extends React.Component {
 
     renderComponentLinks = () => {
         const { classes } = this.props;
-        return R.toPairs(componentDocs).map(item => {
+        return toPairs(componentDocs).map(item => {
             // This is kind of lame because the file ends with "doc"
             // Probably a better way to get the name off the component
             const name = item[0].slice(0, -3);

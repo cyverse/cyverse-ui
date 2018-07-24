@@ -1,5 +1,5 @@
 import React from "react";
-import R from "ramda";
+import { toPairs } from "ramda";
 import { Element } from "cyverse-ui";
 import { MDBlock } from "./";
 
@@ -50,7 +50,7 @@ class ComponentDoc extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {R.toPairs(meta.props).map(this.tableData)}
+                        {toPairs(meta.props).map(this.tableData)}
                     </tbody>
                 </table>
             </React.Fragment>

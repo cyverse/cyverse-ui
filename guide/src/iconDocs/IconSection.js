@@ -1,15 +1,15 @@
-import React from 'react';
-import R from 'ramda';
-import { P, Element, Section } from 'cyverse-ui';
-import * as icons from 'cyverse-ui/icons';
+import React from "react";
+import { toPairs } from "ramda";
+import { P, Element, Section } from "cyverse-ui";
+import * as icons from "cyverse-ui/icons";
 
-import { Figure } from '../components/';
-import CodeBlock from '../components/CodeBlock';
-import IconEx from './IconEx';
-import IconExCode from '!raw-loader!./IconEx';
+import { Figure } from "../components/";
+import CodeBlock from "../components/CodeBlock";
+import IconEx from "./IconEx";
+import IconExCode from "!raw-loader!./IconEx";
 
 class IconSection extends React.Component {
-    IconCell = (icon) => {
+    IconCell = icon => {
         const Icon = icon[1];
         const style = {
             cell: {
@@ -17,20 +17,15 @@ class IconSection extends React.Component {
                 flexDirection: "column",
                 alignItems: "center",
                 width: "150px",
-                height: "150px"
-            }
-        }
+                height: "150px",
+            },
+        };
         return (
-            <Element
-                key={ icon[0] }
-                style={style.cell}
-            >
+            <Element key={icon[0]} style={style.cell}>
                 <Element whitespace="mb3">
-                    <Icon size={ 50 }/>
+                    <Icon size={50} />
                 </Element>
-                <P>
-                    { icon[0] }
-                </P>
+                <P>{icon[0]}</P>
             </Element>
         );
     };
@@ -48,17 +43,18 @@ class IconSection extends React.Component {
                 </Element>
                 <Element whitespace="mb5">
                     <P>
-                        SVG Icons are an extention to the material-ui svg icons. They can be used in all material-ui components that take an icon as a prop or children.
+                        SVG Icons are an extention to the material-ui
+                        svg icons. They can be used in all material-ui
+                        components that take an icon as a prop or
+                        children.
                     </P>
-                    <Figure
-                        caption={ `SVG Icon Example` }
-                    >
-                        <IconEx/>
+                    <Figure caption={`SVG Icon Example`}>
+                        <IconEx />
                         <CodeBlock
                             style={{
                                 overflow: "scroll",
                             }}
-                            text={ IconExCode }
+                            text={IconExCode}
                         />
                     </Figure>
                 </Element>
@@ -69,12 +65,14 @@ class IconSection extends React.Component {
                 >
                     Icon List
                 </Element>
-                <Element style={{ display: "flex", flexWrap: "wrap" }}>
-                    { R.toPairs(icons).map(this.IconCell) }
+                <Element
+                    style={{ display: "flex", flexWrap: "wrap" }}
+                >
+                    {toPairs(icons).map(this.IconCell)}
                 </Element>
             </React.Fragment>
         );
     }
 }
 
-export default IconSection
+export default IconSection;
