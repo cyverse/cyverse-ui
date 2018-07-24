@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const styles = theme => ({
     indentedList: {
-        paddingLeft: theme.spacing.unit * 4,
+        paddingLeft: theme.spacing.unit * 6,
     },
 });
 
@@ -34,15 +34,20 @@ class ComponentLinkList extends React.Component {
                     ([letter]) => `-${letter.toLowerCase()}`
                 );
             return (
-                <ListItem
-                    button={true}
-                    className={classes.indentedList}
-                    key={name}
-                    component={Link}
-                    to={`/components/${target}-doc`}
-                >
-                    <ListItemText> {name} </ListItemText>
-                </ListItem>
+                <li style={{ listStyle: "none" }}>
+                    <ListItem
+                        button={true}
+                        className={classes.indentedList}
+                        key={name}
+                        component={Link}
+                        to={`/components/${target}-doc`}
+                    >
+                        <ListItemText disableTypography={true}>
+                            {" "}
+                            {name}{" "}
+                        </ListItemText>
+                    </ListItem>
+                </li>
             );
         });
     };
@@ -50,15 +55,19 @@ class ComponentLinkList extends React.Component {
     render() {
         const { open } = this.state;
         return (
-            <List>
+            <li style={{ listStyle: "none" }}>
                 <ListItem button={true} onClick={this.handleClick}>
-                    <ListItemText>Components</ListItemText>
+                    <ListItemText disableTypography={true}>
+                        Components
+                    </ListItemText>
                     {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Collapse in={open} timeout="auto" unmountOnExit>
-                    {this.renderComponentLinks()}
+                    <ul style={{ margin: 0, padding: 0 }}>
+                        {this.renderComponentLinks()}
+                    </ul>
                 </Collapse>
-            </List>
+            </li>
         );
     }
 }

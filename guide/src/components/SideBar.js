@@ -19,13 +19,16 @@ class SideBar extends React.Component {
                 background: "#EEEEEE",
                 overflowY: "auto",
                 height: "calc(100vh - 48px)",
-            },
+                margin: 0,
+            }
         };
 
         return (
-            <aside id="sideBar" style={style.wrapper}>
-                <nav style={style.sideBar}>{this.props.children}</nav>
-            </aside>
+            <nav id="sideBar" style={style.wrapper}>
+                <ul style={style.sideBar}>
+                   {this.props.children}
+                </ul>
+            </nav>
         );
     }
 }

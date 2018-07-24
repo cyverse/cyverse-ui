@@ -29,7 +29,7 @@ class ComponentDoc extends React.Component {
         return (
             <React.Fragment>
                 <Element
-                    root="h2"
+                    root="h1"
                     whitespace="mb4"
                     typography="display1"
                 >

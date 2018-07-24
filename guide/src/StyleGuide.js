@@ -1,12 +1,10 @@
 import React from "react";
 import R from "ramda";
 import { withStyles } from "material-ui/styles";
-
-import { Element } from "cyverse-ui";
 import * as componentDocs from "./componentDocs";
 import { Header, SideNav } from "./components";
 import IconSection from "./iconDocs/IconSection";
-import Installation from "./components/Instalation";
+import Installation from "./components/Installation";
 import Banner from "./components/Banner";
 import Theming from "./components/Theming";
 
@@ -75,11 +73,13 @@ class StyleGuide extends React.Component {
                                     component={Installation}
                                 />
                                 <Route
+                                    exact
                                     path="/theming"
                                     component={Theming}
                                 />
                                 <ComponentRoutes />
                                 <Route
+                                    exact
                                     path="/icons"
                                     component={IconSection}
                                 />

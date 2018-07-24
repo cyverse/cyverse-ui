@@ -2,7 +2,6 @@ import React from "react";
 import { withStyles } from "material-ui/styles";
 
 import { GithubIcon } from "cyverse-ui/icons";
-import { pad } from "cyverse-ui/styles";
 import { Element } from "cyverse-ui";
 import { CyverseLogo } from "../icons";
 import { Link } from "react-router-dom";
@@ -41,10 +40,11 @@ const Header = ({ classes, ...rest }) => (
         themeBackground="primary1Color"
         whitespace="ps2"
     >
-        <Link to="/">
+        <Link to="/" aria-label="CyVerse">
             <CyverseLogo fill="white" size="200" />
         </Link>
         <a
+            aria-label="Github"
             className={classes.GithubLink}
             href="https://github.com/cyverse/cyverse-ui"
         >

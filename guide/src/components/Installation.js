@@ -1,9 +1,9 @@
 import React from "react";
 import CodeBlock from "./CodeBlock";
 import { Element, P } from "cyverse-ui";
-const Instalation = () => (
+const Installation = ({location:{pathname}}) => (
     <React.Fragment>
-        <Element root="h2" whitespace="mb3" typography="display2">
+        <Element root={pathname === "/" ? "h2" : "h1"} whitespace="mb3" typography="display2">
             Getting Started
         </Element>
         <P whitespace="mb7">
@@ -12,7 +12,7 @@ const Instalation = () => (
             install some packages and setup the root of your React
             application to provide the theme.
         </P>
-        <Element root="h3" whitespace="mb3" typography="display1">
+        <Element root="h2" whitespace="mb3" typography="display1">
             Installation
         </Element>
         <P>
@@ -23,7 +23,7 @@ const Instalation = () => (
             collapseDisabled={true}
             text={`npm install --save cyverse-ui@next @material-ui/core @material-ui/icons`}
         />
-        <Element root="h3" whitespace="mv4" typography="display1">
+        <Element root="h2" whitespace="mv4" typography="display1">
             Setting Up
         </Element>
         <P>
@@ -33,7 +33,7 @@ const Instalation = () => (
         </P>
         <P>
             Note that we are also including "CssBaseline" and
-            "typeface-roboto" these are for consistancy. You can read
+            "typeface-roboto" these are for consistency. You can read
             more about theming and these dependencies in the{" "}
             <a
                 href="https://material-ui-next.com/getting-started/installation/"
@@ -68,4 +68,4 @@ ReactDOM.render(<App />, document.getElementById("app"));`}
         />
     </React.Fragment>
 );
-export default Instalation;
+export default Installation;

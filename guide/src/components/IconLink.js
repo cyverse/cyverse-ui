@@ -3,9 +3,13 @@ import { ListItem, ListItemText } from "material-ui/List";
 import { Link } from "react-router-dom";
 
 const IconLink = () => (
-    <ListItem button={true} to="/icons" component={Link}>
-        <ListItemText> SVG Icons </ListItemText>
-    </ListItem>
+    <li style={{ listStyle: "none" }}>
+        <ListItem button={true} to="/icons" component={Link}>
+            <ListItemText disableTypography={true}>
+                SVG Icons
+            </ListItemText>
+        </ListItem>
+    </li>
 );
 
 export default IconLink;
