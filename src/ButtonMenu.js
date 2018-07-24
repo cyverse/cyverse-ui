@@ -1,10 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {withStyles} from "material-ui/styles";
-import classnames from "classnames";
-import Element from "./Element";
 import Button from "material-ui/Button";
-import Popover from "material-ui/Popover";
 import Menu from "material-ui/Menu";
 
 // Each key of the returned object will be available as a className below.
@@ -76,21 +73,13 @@ class ButtonMenu extends React.Component {
 
     render() {
         const {
-            classes,
-            className,
             anchorOrigin = {
                 horizontal: "right",
                 vertical: "bottom",
             },
-            targetOrigin = { horizontal: "right", vertical: "top" },
             buttonLabel,
             ...rest
         } = this.props;
-        const wrapperClasses = classnames(
-            { [className]: className },
-            "CY-ButtonMenu",
-            classes.wrapper
-        );
         return (
             <React.Fragment>
                 <Button

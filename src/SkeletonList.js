@@ -33,7 +33,7 @@ const styles = {
     },
 };
 
-const SkeletonTextStyles = theme => ({
+const SkeletonTextStyles = {
     wrapper: {
         width: "100%",
         paddingRight: "32px",
@@ -44,7 +44,7 @@ const SkeletonTextStyles = theme => ({
         background: "#EFEFEF",
         borderRadius: "2px",
     },
-});
+};
 const SkeletonText = withStyles(SkeletonTextStyles)(
     ({ classes, className }) => {
         const wrapperClasses = classnames(
@@ -56,12 +56,6 @@ const SkeletonText = withStyles(SkeletonTextStyles)(
             "CY-SkelletonText-firstLine",
             "CY-SkelletonText-text",
             classes.firstLine,
-            classes.text
-        );
-        const secondLineClasses = classnames(
-            "CY-SkelletonText-secondLine",
-            "CY-SkelletonText-text",
-            classes.secondLine,
             classes.text
         );
         return (
