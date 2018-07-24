@@ -34,8 +34,6 @@ class ThemesPage extends Component {
     };
 
     getStyles() {
-        const { muiTheme, width } = this.props;
-
         const styles = {
             group: {
                 marginBottom: "16px",
@@ -76,7 +74,7 @@ class ThemesPage extends Component {
             },
             liveExamplePaper: {
                 padding: "20px",
-                marginBottom: 32,
+                marginBottom: 56,
                 overflow: "hidden",
             },
             bottomBorderWrapper: {
@@ -125,7 +123,7 @@ class ThemesPage extends Component {
                         />
                         <Button children="Default" />
                     </ButtonGroup>
-                    <Divider/>
+                    <Divider />
                     <div style={styles.group}>
                         <RadioGroup
                             name="shipSpeed"
@@ -150,7 +148,6 @@ class ThemesPage extends Component {
                             />
                         </RadioGroup>
                     </div>
-
                 </div>
                 <div style={{ width: "100%" }}>
                     <TextField
@@ -175,47 +172,46 @@ class ThemesPage extends Component {
                         }}
                         margin="normal"
                     />
-                        <Pill>Featured</Pill>
-                        <Pill color="primary" icon={<PersonIcon />}>
-                            3
-                        </Pill>
-                        <Pill
-                            color="secondary"
-                            icon={<NotificationIcon />}
-                        >
-                            230
-                        </Pill>
-                        <br/>
-                        <Checkbox
-                            name="checkboxName1"
-                            value="checkboxValue1"
-                            label="checkbox"
-                            defaultChecked
-                        />
-                        <Checkbox
-                            name="checkboxName1"
-                            value="checkboxValue1"
-                            label="checkbox"
-                        />
-                        <Checkbox
-                            name="checkboxName2"
-                            value="checkboxValue2"
-                            label="disabled checkbox"
-                            disabled={true}
-                        />
-                        <Switch
-                            checked={true}
-                            name="toggleName1"
-                            label="toggle"
-                        />
-                        <Switch name="toggleName1" label="toggle" />
-                        <Switch
-                            name="toggleName2"
-                            label="disabled toggle"
-                            defaultToggled={true}
-                            disabled={true}
-                        />
-
+                    <Pill>Featured</Pill>
+                    <Pill color="primary" icon={<PersonIcon />}>
+                        3
+                    </Pill>
+                    <Pill
+                        color="secondary"
+                        icon={<NotificationIcon />}
+                    >
+                        230
+                    </Pill>
+                    <br />
+                    <Checkbox
+                        name="checkboxName1"
+                        value="checkboxValue1"
+                        label="checkbox"
+                        defaultChecked
+                    />
+                    <Checkbox
+                        name="checkboxName1"
+                        value="checkboxValue1"
+                        label="checkbox"
+                    />
+                    <Checkbox
+                        name="checkboxName2"
+                        value="checkboxValue2"
+                        label="disabled checkbox"
+                        disabled={true}
+                    />
+                    <Switch
+                        checked={true}
+                        name="toggleName1"
+                        label="toggle"
+                    />
+                    <Switch name="toggleName1" label="toggle" />
+                    <Switch
+                        name="toggleName2"
+                        label="disabled toggle"
+                        defaultToggled={true}
+                        disabled={true}
+                    />
                 </div>
             </div>
         );

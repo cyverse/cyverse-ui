@@ -40,7 +40,7 @@ const ThemeExList = [
                     the Material-UI theme provider. See directions for
                     this and installing the CyVerse theme below.
                 </P>
-                <Paper style={{ padding: "20px" }}>
+                <Paper style={{ padding: "20px", marginBottom: "56px" }}>
                     <ThemeColorsEx />
                 </Paper>
             </div>
