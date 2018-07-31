@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import randomcolor from "randomcolor";
 import userData from "../../data/users";
 import { Avatar, Button } from "material-ui";
-import RefreshIcon from "@material-ui/icons/refresh";
+import RefreshIcon from "@material-ui/icons/Refresh";
 import { MediaCardGroup, MediaCard, P, Element } from "cyverse-ui";
 
 const UserCard = user => (

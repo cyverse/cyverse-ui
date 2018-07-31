@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTheme } from "material-ui/styles";
-import typography from "material-ui/typography";
-import PersonIcon from "@material-ui/icons/person";
-import NotificationIcon from "@material-ui/icons/notifications";
+import PersonIcon from "@material-ui/icons/Person";
+import NotificationIcon from "@material-ui/icons/Notifications";
 
 import {
     Checkbox,

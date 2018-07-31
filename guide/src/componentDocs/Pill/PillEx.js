@@ -1,9 +1,9 @@
 import React from "react";
 import { withStyles } from "material-ui/styles";
 import { Pill, Element, Paper } from "cyverse-ui";
-import PersonIcon from "@material-ui/icons/person";
-import NotificationIcon from "@material-ui/icons/notifications";
-import AlertIcon from "@material-ui/icons/warning";
+import PersonIcon from "@material-ui/icons/Person";
+import NotificationIcon from "@material-ui/icons/Notifications";
+import AlertIcon from "@material-ui/icons/Warning";
 
 const styles = theme => ({
     pillCustom: {

@@ -6,8 +6,8 @@ import {
     Paper,
 } from "cyverse-ui";
 import { LinkIcon } from "cyverse-ui/icons";
-import StorageIcon from "@material-ui/icons/storage";
-import FolderIcon from "@material-ui/icons/folder";
+import StorageIcon from "@material-ui/icons/Storage";
+import FolderIcon from "@material-ui/icons/Folder";
 
 class FloatingActionButtonEx extends Component {
     state = { isOpen: false };

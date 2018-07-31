@@ -4,7 +4,7 @@ import { withStyles, withTheme } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 import { IconButton } from "material-ui";
-import SearchIcon from "@material-ui/icons/es/Search";
+import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 
 const styles = theme => ({

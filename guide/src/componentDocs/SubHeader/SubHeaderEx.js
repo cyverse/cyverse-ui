@@ -1,9 +1,9 @@
 import React from 'react';
 import { Paper, MenuItem } from 'material-ui';
 import IconButton from 'material-ui/IconButton';
-import Share from '@material-ui/icons/share';
-import Delete from '@material-ui/icons/delete';
-import Edit from '@material-ui/icons/edit';
+import Share from '@material-ui/icons/Share';
+import Delete from '@material-ui/icons/Delete';
+import Edit from '@material-ui/icons/Edit';
 import { SubHeader, Div, Title } from 'cyverse-ui';
 
 export default class extends React.Component {
