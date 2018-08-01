@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
 import classnames from "classnames";
 
 import { Avatar, CircularProgress } from "material-ui";
@@ -33,27 +33,20 @@ const styles = {
     },
 };
 
-const SkeletonTextStyles = theme => ({
+const SkeletonTextStyles = {
     wrapper: {
         width: "100%",
         paddingRight: "32px",
     },
     text: {
-        height: "8px",
+        height: "16px",
         width: "100%",
         background: "#EFEFEF",
-        borderRadius: "800px",
+        borderRadius: "2px",
     },
-    firstLine: {
-        width: "100%",
-        marginBottom: "12px",
-    },
-    secondLine: {
-        width: "80%",
-    },
-});
-const SkeletonText = withTheme(
-    injectSheet(SkeletonTextStyles)(({ classes, className }) => {
+};
+const SkeletonText = withStyles(SkeletonTextStyles)(
+    ({ classes, className }) => {
         const wrapperClasses = classnames(
             { [className]: className },
             "CY-SkelletonText",
@@ -65,19 +58,12 @@ const SkeletonText = withTheme(
             classes.firstLine,
             classes.text
         );
-        const secondLineClasses = classnames(
-            "CY-SkelletonText-secondLine",
-            "CY-SkelletonText-text",
-            classes.secondLine,
-            classes.text
-        );
         return (
             <div className={wrapperClasses}>
                 <div className={firstLineClasses} />
-                <div className={secondLineClasses} />
             </div>
         );
-    })
+    }
 );
 
 /**
@@ -106,7 +92,7 @@ const SkeletonList = ({ classes, className, cardCount }) => {
                     <ListCardIdentity className="CY-SkelletonCard-identity">
                         <Avatar
                             className={avatarClasses}
-                            backgroundColor="#EFEFEF"
+                            style={{ background: "#EFEFEF"}}
                         />
                         <SkeletonText />
                     </ListCardIdentity>
@@ -139,4 +125,4 @@ SkeletonList.defaultProps = {
     cardCount: 5,
 };
 
-export default injectSheet(styles)(SkeletonList);
+export default withStyles(styles)(SkeletonList);

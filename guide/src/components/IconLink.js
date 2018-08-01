@@ -1,27 +1,15 @@
-import React from 'react';
-import Scroll from 'react-scroll';
-import {List, ListItem} from 'material-ui/List';
+import React from "react";
+import { ListItem, ListItemText } from "material-ui/List";
+import { Link } from "react-router-dom";
 
-const scroller = Scroll.scroller;
-
-class IconLink extends React.Component {
-    scrollTo = (target) => {
-        return () => {
-            scroller.scrollTo(target, {
-                duration: 1000,
-                smooth: true,
-            });
-        }
-    };
-
-    render() {
-        return (
-            <ListItem
-                onTouchTap={ this.scrollTo("svg-icons") }
-                primaryText="SVG Icons"
-            />
-        )
-    }
-}
+const IconLink = () => (
+    <li style={{ listStyle: "none" }}>
+        <ListItem button={true} to="/icons" component={Link}>
+            <ListItemText disableTypography={true}>
+                SVG Icons
+            </ListItemText>
+        </ListItem>
+    </li>
+);
 
 export default IconLink;

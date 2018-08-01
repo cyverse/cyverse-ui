@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles, withTheme } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 import { IconButton } from "material-ui";
-import SearchIcon from "material-ui/svg-icons/action/search";
-import CloseIcon from "material-ui/svg-icons/navigation/close";
+import SearchIcon from "@material-ui/icons/Search";
+import CloseIcon from "@material-ui/icons/Close";
 
 const styles = theme => ({
     card: {
@@ -28,6 +28,7 @@ const styles = theme => ({
         flex: "1 1 100%",
         border: "none",
         boxShadow: "none",
+        fontSize: "16px",
         "&:focus": {
             outline: "none",
         },
@@ -75,7 +76,6 @@ class SearchBar extends React.Component {
             placeholder,
             onChange,
             onClear,
-            theme,
             ...rest
         } = this.props;
 
@@ -96,17 +96,12 @@ class SearchBar extends React.Component {
             classes.input
         );
 
-        const searchColor = value
-            ? theme.palette.primary1Color
-            : null;
-
         const shouldShowClear = onClear && value;
 
         return (
             <Element {...rest} className={cardClasses}>
                 <SearchIcon
                     className={iconClasses}
-                    color={searchColor}
                 />
                 <input
                     className={inputClasses}
@@ -119,7 +114,7 @@ class SearchBar extends React.Component {
                 {shouldShowClear ? (
                     <IconButton
                         className="CY-SearchBar-closeButton"
-                        onTouchTap={onClear}
+                        onClick={onClear}
                     >
                         <CloseIcon />
                     </IconButton>
@@ -129,4 +124,4 @@ class SearchBar extends React.Component {
     }
 }
 
-export default withTheme(injectSheet(styles)(SearchBar));
+export default withTheme()(withStyles(styles)(SearchBar));

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import {withStyles, withTheme } from "material-ui";
 import classnames from "classnames";
 
 import Element from "./Element";
@@ -38,4 +38,4 @@ ActionGroup.propTypes = {
     children: PropTypes.node,
 };
 
-export default withTheme(injectSheet(styles)(ActionGroup));
+export default withTheme()(withStyles(styles)(ActionGroup));

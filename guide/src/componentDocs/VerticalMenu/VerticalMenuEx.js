@@ -1,35 +1,42 @@
-import React from 'react';
-import { VerticalMenu, Paper } from 'cyverse-ui';
-import { MenuItem } from 'material-ui';
+import React from "react";
+import { VerticalMenu, Paper } from "cyverse-ui";
+import { MenuItem } from "material-ui";
 
 class VerticalMenuEx extends React.Component {
+    state = {
+        menuOpen: false,
+    };
     onSelect = (e, ch) => {
         console.log(ch.props.primaryText);
     };
-
+    handelItemClick = () => {
+        this.setState({ menuOpen: false });
+    };
     render() {
+        const { menuOpen } = this.state;
         return (
             <div>
                 <Paper whitespace="p3">
-                    <VerticalMenu
-                        onItemTouchTap={ this.onSelect }
-                    >
+                    <VerticalMenu placement="bottom-start">
                         <MenuItem
                             key="1"
-                            primaryText="Instance"
+                            children="Instance"
+                            onClick={this.handelItemClick}
                         />
                         <MenuItem
                             key="2"
-                            primaryText="Volume"
+                            children="Volume"
+                            onClick={this.handelItemClick}
                         />
                         <MenuItem
                             key="3"
-                            primaryText="Image"
+                            children="Image"
+                            onClick={this.handelItemClick}
                         />
                     </VerticalMenu>
                 </Paper>
             </div>
-        )
+        );
     }
 }
 

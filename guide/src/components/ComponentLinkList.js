@@ -1,22 +1,29 @@
 import React from "react";
-import R from "ramda";
-import Scroll from "react-scroll";
-
-import { List, ListItem } from "material-ui/List";
-
+import { toPairs } from "ramda";
+import { withStyles } from "material-ui/styles";
+import { ListItem, ListItemText } from "material-ui/List";
+import Collapse from "material-ui/transitions/Collapse";
 import * as componentDocs from "../componentDocs";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import { Link } from "react-router-dom";
 
-const scroller = Scroll.scroller;
-const scrollTo = target => () => {
-    scroller.scrollTo(target, {
-        duration: 1000,
-        smooth: true
-    });
-};
+const styles = theme => ({
+    indentedList: {
+        paddingLeft: theme.spacing.unit * 6,
+    },
+});
 
 class ComponentLinkList extends React.Component {
+    state = { open: false };
+
+    handleClick = () => {
+        this.setState({ open: !this.state.open });
+    };
+
     renderComponentLinks = () => {
-        return R.toPairs(componentDocs).map(item => {
+        const { classes } = this.props;
+        return toPairs(componentDocs).map(item => {
             // This is kind of lame because the file ends with "doc"
             // Probably a better way to get the name off the component
             const name = item[0].slice(0, -3);
@@ -27,25 +34,42 @@ class ComponentLinkList extends React.Component {
                     ([letter]) => `-${letter.toLowerCase()}`
                 );
             return (
-            <ListItem
-                key={ name }
-                onTouchTap={ scrollTo(target) }
-                primaryText= { name }
-            />
-            )
-        })
+                <li style={{ listStyle: "none" }}>
+                    <ListItem
+                        button={true}
+                        className={classes.indentedList}
+                        key={name}
+                        component={Link}
+                        to={`/components/${target}-doc`}
+                    >
+                        <ListItemText disableTypography={true}>
+                            {" "}
+                            {name}{" "}
+                        </ListItemText>
+                    </ListItem>
+                </li>
+            );
+        });
     };
 
     render() {
+        const { open } = this.state;
         return (
-            <ListItem
-                primaryTogglesNestedList={true}
-                nestedItems={this.renderComponentLinks()}
-            >
-                Components
-            </ListItem>
+            <li style={{ listStyle: "none" }}>
+                <ListItem button={true} onClick={this.handleClick}>
+                    <ListItemText disableTypography={true}>
+                        Components
+                    </ListItemText>
+                    {open ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                    <ul style={{ margin: 0, padding: 0 }}>
+                        {this.renderComponentLinks()}
+                    </ul>
+                </Collapse>
+            </li>
         );
     }
 }
 
-export default ComponentLinkList;
+export default withStyles(styles)(ComponentLinkList);

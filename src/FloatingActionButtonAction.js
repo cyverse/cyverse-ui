@@ -1,8 +1,8 @@
 import React from "react";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { FloatingActionButton } from "material-ui";
+import { Button } from "material-ui";
 import Tooltip from "./Tooltip";
 
 // Each key of the returned object will be available as a className below.
@@ -41,8 +41,10 @@ const FloatingActionButtonAction = props => {
                 direction={tooltipDirection}
                 message={tooltip}
             >
-                <FloatingActionButton
+                <Button
+                    variant="fab"
                     className="CY-FloatingActionButtonAction-btn"
+                    color="primary"
                     mini={true}
                     {...other}
                 />
@@ -78,6 +80,4 @@ FloatingActionButtonAction.defaultProps = {
     onClick: () => {},
 };
 
-export default withTheme(
-    injectSheet(styles)(FloatingActionButtonAction)
-);
+export default withStyles(styles)(FloatingActionButtonAction)

@@ -1,5 +1,5 @@
 import React from "react";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 
@@ -24,4 +24,4 @@ const Hr = ({ classes, className }) => {
     return <Element root="hr" className={wrapperClasses} />;
 };
 
-export default withTheme(injectSheet(styles)(Hr));
+export default withStyles(styles)(Hr);

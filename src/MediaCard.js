@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import VerticalMenu from './VerticalMenu';
 import Identity from './Identity';
 import CheckableAvatar from './Checkable';
 import ListCard from './ListCard';
@@ -110,46 +109,11 @@ class MediaCard extends React.Component {
         this.props.onBatchClick(e, this);
     };
 
-    renderQuickLinks = () => {
-        const { quickLinks, isExpanded } = this.props;
-        const { cardIsHovered } = this.state;
-        const isHidden = ( isExpanded ? false : !cardIsHovered )
-        return quickLinks ? (
-            <ActionGroup hideReadable={ isHidden }
-            >
-                { quickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
-            </ActionGroup>
-        ) : null
-    };
-
-    renderActiveQuickLinks = () => {
-        const { activeQuickLinks, isExpanded } = this.props;
-        const { cardIsHovered } = this.state;
-        const isHidden = ( isExpanded ? true : cardIsHovered )
-        return activeQuickLinks ? (
-            <ActionGroup  hide={ isHidden }>
-                { activeQuickLinks.map( (link, i) => React.cloneElement(link, {key: i}) ) }
-            </ActionGroup>
-        ) : null
-    };
-
-    renderVericalMenu = () => {
-        const { menuItems, isDisabledMenu } = this.props;
-        return menuItems ? (
-            <ActionGroup>
-                <VerticalMenu
-                    children={ menuItems }
-                    disabled={ isDisabledMenu }
-                />
-            </ActionGroup>
-        ) : null
-    };
-
     render() {
         const {
             className,
             title,
-            image,
+            avatar,
             subTitle,
             summary,
             detail,
@@ -174,22 +138,23 @@ class MediaCard extends React.Component {
                 isExpanded={ isExpanded }
             >
                 <ListCardHeader
+                    tabIndex
                     onMouseEnter = { this.onCardEnter }
                     onMouseLeave = { this.onCardLeave }
                     onClick = { this.handleOnExpand }
                     onFocus={ this.onCardEnter }
-                    onBlur={ this.onCardLeave}
                 >
                     <ListCardIdentity>
                         <Identity
-                            image = {
+                            avatar = {
                                 <CheckableAvatar
-                                    children={image}
+                                    stopPropagation
+                                    children={avatar}
                                     isCheckable={ showCheck }
                                     onFocus={ this.onCardEnter }
                                     onBlur={ this.onCardLeave}
                                     checkboxProps={{
-                                        onCheck: this.onCheck,
+                                        onChange: this.onCheck,
                                         checked: checked
                                     }}
                                 />
@@ -202,14 +167,17 @@ class MediaCard extends React.Component {
                     <ListCardSummary hide={ isExpanded }>
                         { summary }
                     </ListCardSummary>
-
                     <ListCardActions stopPropagation>
-                        { this.renderQuickLinks() }
-                        { this.renderActiveQuickLinks() }
-                        { this.renderVericalMenu() }
+                        <ActionGroup hide={!cardIsHovered && !isExpanded}>
+                            { this.props.quickActions }
+                            { this.props.persistActions }
+                        </ActionGroup>
+                        <ActionGroup hide={cardIsHovered || isExpanded}>
+                            { this.props.persistActions }
+                        </ActionGroup>
+                        { this.props.contextMenu}
                     </ListCardActions>
                 </ListCardHeader>
-
                 <ListCardDetail hide={!isExpanded}>
                     { detail }
                 </ListCardDetail>

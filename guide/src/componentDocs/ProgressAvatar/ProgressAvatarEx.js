@@ -1,8 +1,9 @@
 import React from "react";
 import { ProgressAvatar, Element, Paper } from "cyverse-ui";
-import PlayIcon from "material-ui/svg-icons/av/play-arrow";
-import PersonIcon from "material-ui/svg-icons/social/person";
-import FlatButton from "material-ui/FlatButton";
+import PlayIcon from "@material-ui/icons/PlayArrow";
+import PersonIcon from "@material-ui/icons/Person";
+import Button from "material-ui/Button";
+import { Avatar, CircularProgress } from "material-ui";
 
 export default class extends React.Component {
     constructor(props) {
@@ -49,12 +50,13 @@ export default class extends React.Component {
         return (
             <React.Fragment>
                 <Element whiteSpace="mv5">
-                    <FlatButton
+                    <Button
                         style={{ marginBottom: "8px" }}
-                        label="Play Progress"
-                        onTouchTap={this.startProccess}
-                        icon={<PlayIcon />}
-                    />
+                        onClick={this.startProccess}
+                    >
+                        <PlayIcon style={{marginRight: 8}}/>
+                        Play Progress
+                    </Button>
                 </Element>
                 <Paper whitespace="p3">
                     <Element
@@ -79,6 +81,7 @@ export default class extends React.Component {
                         }}
                     >
                         <ProgressAvatar
+                            size={30}
                             whitespace="mr2"
                             percent={this.state.progress}
                             backgroundColor="purple"
@@ -98,7 +101,7 @@ export default class extends React.Component {
                             whitespace="mr2"
                             percent={this.state.progress}
                             backgroundColor="coral"
-                            icon={<PersonIcon color="white" />}
+                            children={<PersonIcon color="white" />}
                         />
                         With Icon
                     </Element>

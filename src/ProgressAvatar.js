@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
 import classnames from "classnames";
 import { Avatar, CircularProgress } from "material-ui";
 import Element from "./Element";
@@ -8,6 +8,9 @@ import Element from "./Element";
 const styles = theme => ({
     wrapper: {
         position: "relative",
+        "& *": {
+            transition: "stroke-dashoffset ease .5s",
+        },
     },
     progress: {
         position: "absolute",
@@ -17,7 +20,7 @@ const styles = theme => ({
     progress__complete: {
         opacity: 0,
     },
-    avatar__inProgressWithImg: {
+    avatar__inProgress: {
         opacity: 0.3,
     },
 });
@@ -27,6 +30,7 @@ const styles = theme => ({
  */
 const ProgressAvatar = ({
     classes,
+    avatarClassName,
     children,
     className,
     progressColor,
@@ -47,7 +51,8 @@ const ProgressAvatar = ({
         classes.wrapper
     );
     const avatarClasses = classnames("CY-ProgressAvatar-avatar", {
-        [classes.avatar__inProgressWithImg]: src && isInProgress,
+        avatarClassName: avatarClassName,
+        [classes.avatar__inProgress]: isInProgress,
     });
     const progressClasses = classnames(
         "CY-ProgressAvatar-progress",
@@ -55,7 +60,7 @@ const ProgressAvatar = ({
         { [classes.progress__complete]: !isInProgress }
     );
 
-    let { success = "green" } = theme.palette;
+    let success = "green";
     let padding = 0;
     let avatarSize = size;
     let value = 0;
@@ -68,8 +73,6 @@ const ProgressAvatar = ({
         padding = thickness;
     }
 
-    let strokeColor = progressColor || success;
-
     return (
         <Element
             {...rest}
@@ -79,26 +82,24 @@ const ProgressAvatar = ({
                 padding,
             }}
         >
-            <div className={progressClasses}>
-                <CircularProgress
-                    className={progressClasses}
-                    mode="determinate"
-                    value={value}
-                    color={strokeColor}
-                    size={size}
-                    thickness={thickness}
-                />
-            </div>
             <Avatar
                 className={avatarClasses}
                 name={name}
                 src={src}
-                icon={icon}
-                backgroundColor={avatarColor}
-                size={avatarSize}
+                style={{ background: avatarColor, width: avatarSize, height: avatarSize }}
             >
                 {children}
             </Avatar>
+            <div className={progressClasses}>
+                <CircularProgress
+                    className={progressClasses}
+                    variant="static"
+                    value={value}
+                    size={size}
+                    thickness={thickness}
+                    style={{ color: success }}
+                />
+            </div>
         </Element>
     );
 };
@@ -133,4 +134,4 @@ ProgressAvatar.defaultProps = {
     thickness: 3,
 };
 
-export default withTheme(injectSheet(styles)(ProgressAvatar));
+export default withStyles(styles)(ProgressAvatar);

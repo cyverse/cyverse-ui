@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet from "react-jss";
+import { withStyles } from "material-ui";
 import classnames from "classnames";
 import Checkbox from "material-ui/Checkbox";
 
@@ -16,23 +16,30 @@ const styles = {
         position: "relative",
         alignSelf: "flex-start",
         borderRadius: "50%",
-        width: ({ size }) => size + "px !important",
-        height: ({ size }) => size + "px !important",
         "&:focus": {
             outline: "none",
         },
+        "&:hover": {
+            "& > .CY-Checkable-checkbox": {
+                opacity: 1,
+            },
+            "& > .CY-Checkable-children": {
+                opacity: 0,
+            },
+        },
     },
-    Checkbox: {
+    checkbox: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        position: "absolute !important",
-        width: ({ size }) => size + "px !important",
-        left: ({ size }) => size * 0.5 - 12,
-        opacity: ({ isCheckable }) => (isCheckable ? 1 : 0),
+        position: "absolute",
+        opacity: 0,
     },
-    children: {
-        opacity: ({ isCheckable }) => (isCheckable ? 0 : 1),
+    checkbox__checkable: {
+        opacity: 1,
+    },
+    children__checkable: {
+        opacity: 0,
     },
 };
 
@@ -50,6 +57,7 @@ const Checkable = props => {
         children,
         checkboxProps,
         root = "div",
+        isCheckable,
         ...rest
     } = props;
 
@@ -58,21 +66,23 @@ const Checkable = props => {
         "CY-Checkable",
         classes.wrapper
     );
-
+    const checkBoxClasses = classnames(
+        "CY-Checkable-checkbox",
+        classes.checkbox,
+        { [classes.checkbox__checkable]: isCheckable }
+    );
+    const childrenClasses = classnames(
+        "CY-Checkable-children",
+        classes.children,
+        { [classes.children__checkable]: isCheckable }
+    );
     return (
-        <Element
-            {...rest}
-            root={root}
-            stopPropagation
-            className={wrapperClasses}
-        >
+        <Element {...rest} root={root} className={wrapperClasses}>
+            <div className={childrenClasses}>{children}</div>
             <Checkbox
-                className={`CY-Checkbox ${classes.Checkbox}`}
+                className={checkBoxClasses}
                 {...checkboxProps}
             />
-            <div className={`CY-Chackable-children ${classes.children}`}>
-                {children}
-            </div>
         </Element>
     );
 };
@@ -103,4 +113,4 @@ Checkable.propTypes = {
     isCheckable: PropTypes.bool,
 };
 
-export default injectSheet(styles)(Checkable);
+export default withStyles(styles)(Checkable);

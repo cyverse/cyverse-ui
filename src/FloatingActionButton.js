@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles, withTheme } from "material-ui";
 import classnames from "classnames";
-import { FloatingActionButton as MuiFloatingActionButton } from "material-ui";
-import { ContentAdd } from "material-ui/svg-icons";
+import { Button } from "material-ui";
+import ContentAdd from "@material-ui/icons/Add";
 import Element from "./Element";
 
 // Each key of the returned object will be available as a className below.
@@ -12,7 +12,7 @@ const styles = theme => ({
         position: "relative",
     },
     icon: {
-        transition: "transform ease .1s",
+        transition: "transform ease .2s !important",
     },
     icon__open: {
         transform: "rotate(45deg)",
@@ -46,14 +46,11 @@ class FloatingActionButton extends Component {
 
     render() {
         const {
-            theme,
             classes,
             className,
             children,
             icon,
             onClick,
-            backgroundColor,
-            secondary,
             isOpen,
             ...rest
         } = this.props;
@@ -72,22 +69,14 @@ class FloatingActionButton extends Component {
             }
         );
 
-        // Define background color,
-        // priority goes to secondary "accent color" prop,
-        // else to backgroundColor prop,
-        // defaults to primary color
-        const { accent1Color, primary1Color } = theme.palette;
-        const closedBackground = secondary
-            ? accent1Color
-            : backgroundColor || primary1Color;
-
         return (
             <Element {...rest} className={wrapperClasses}>
-                <MuiFloatingActionButton
+                <Button
                     {...rest}
+                    variant="fab"
                     className="CY-FloatingActionButton-btn"
-                    backgroundColor={
-                        isOpen ? "#585858" : closedBackground
+                    color={
+                        isOpen ? "" : "secondary"
                     }
                     onClick={onClick || this.onClick}
                 >
@@ -98,7 +87,7 @@ class FloatingActionButton extends Component {
                     ) : (
                         <ContentAdd className={iconClasses} />
                     )}
-                </MuiFloatingActionButton>
+                </Button>
                 {children
                     ? React.cloneElement(children, {
                             isOpen: isOpen,
@@ -128,4 +117,4 @@ FloatingActionButton.propTypes = {
     actions: PropTypes.array,
 };
 
-export default withTheme(injectSheet(styles)(FloatingActionButton));
+export default withTheme()(withStyles(styles)(FloatingActionButton));

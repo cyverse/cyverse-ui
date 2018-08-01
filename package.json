@@ -32,14 +32,13 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "filter-react-dom-props": "0.0.2",
-    "marked": "^0.3.12",
+    "marked": "^0.3.19",
     "mkdirp-promise": "^5.0.1",
     "prop-types": "^15.5.10",
     "ramda": "^0.25.0",
     "react-css-stagger": "0.0.5",
     "react-ink": "6.2.0",
-    "react-jss": "^8.2.1",
-    "react-scroll": "^1.6.7"
+    "react-popper": "^0.10.4"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
@@ -51,17 +50,16 @@
     "babel-preset-stage-2": "^6.5.0",
     "eslint": "^2.13.*",
     "eslint-plugin-react": "^5.1.1",
-    "material-ui": "~0.19.4",
     "prettier": "1.10.2",
-    "react": "^16.0.0",
     "react-docgen": "^2.17.0",
-    "react-dom": "^16.0.0",
-    "react-tap-event-plugin": "^3.0.1",
     "rimraf": "^2.6.2",
     "write-json": "^1.0.1"
   },
   "peerDependencies": {
     "material-ui": ">= 0.17.1 < 1.0.0",
+    "@material-ui/icons": "^1.0.0-beta.42",
+    "@material-ui/core": "^1.0.0-rc.1",
+
     "react": ">= 15.0.1 < 17.0.0",
     "react-tap-event-plugin": ">= 2.0.1 < 4.0.0"
   }

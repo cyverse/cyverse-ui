@@ -1,10 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet from "react-jss";
-import classnames from "classnames";
-import Element from "./Element";
-import RaisedButton from "material-ui/RaisedButton";
-import Popover from "material-ui/Popover";
+import {withStyles} from "material-ui/styles";
+import Button from "material-ui/Button";
 import Menu from "material-ui/Menu";
 
 // Each key of the returned object will be available as a className below.
@@ -61,79 +58,53 @@ class ButtonMenu extends React.Component {
         open: false,
     };
 
-    handleTouchTap = event => {
-        // This prevents ghost click.
-        event.preventDefault();
+    handleClick = event => {
         this.setState({
-            open: true,
             anchorEl: event.currentTarget,
         });
     };
 
-    handleRequestClose = () => {
-        this.setState({
-            open: false,
-        });
-    };
-
-    handleItemTouchTap = (e, item) => {
+    handleClose = (e, item) => {
         this.props.onItemTouchTap(e, item);
         this.setState({
-            open: false,
+            anchorEl: false,
         });
     };
 
     render() {
         const {
-            classes,
-            className,
-            buttonIcon,
-            buttonLabel,
-            children,
-            primary,
-            secondary,
-            disabled,
             anchorOrigin = {
                 horizontal: "right",
                 vertical: "bottom",
             },
-            targetOrigin = { horizontal: "right", vertical: "top" },
+            buttonLabel,
             ...rest
         } = this.props;
-        const wrapperClasses = classnames(
-            { [className]: className },
-            "CY-ButtonMenu",
-            classes.wrapper
-        );
         return (
-            <Element {...rest} className={wrapperClasses}>
-                <RaisedButton
+            <React.Fragment>
+                <Button
+                    {...rest}
                     className="CY-ButtonMenu-btn"
-                    onTouchTap={this.handleTouchTap}
-                    label={buttonLabel}
-                    icon={buttonIcon}
-                    primary={primary}
-                    secondary={secondary}
-                    disabled={disabled}
-                />
-                <Popover
-                    className="CY-ButtonMenu-popover"
-                    open={this.state.open}
+                    onClick={this.handleClick}
+                > { buttonLabel }</Button>
+                <Menu
+                    className="CY-ButtonMenu-menu"
+                    open={Boolean(this.state.anchorEl)}
+                    onClose={ this.handleClose}
                     anchorEl={this.state.anchorEl}
                     anchorOrigin={anchorOrigin}
-                    targetOrigin={targetOrigin}
-                    onRequestClose={this.handleRequestClose}
                 >
-                    <Menu
-                        className="CY-ButtonMenu-menu"
-                        onItemTouchTap={this.handleItemTouchTap}
-                    >
-                        {children}
-                    </Menu>
-                </Popover>
-            </Element>
+                    {
+                        React.Children.map( rest.children, child =>
+                            React.cloneElement(child, {
+                                onClick: this.handleClose
+                            })
+                        )
+                    }
+                </Menu>
+            </React.Fragment>
         );
     }
 }
 
-export default injectSheet(styles)(ButtonMenu);
+export default withStyles(styles)(ButtonMenu);

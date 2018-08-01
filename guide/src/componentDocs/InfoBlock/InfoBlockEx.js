@@ -30,10 +30,12 @@ class InfoBlockEx extends React.Component {
                                 "InfoBlock" use the "P" component on
                                 blocks of text. This is to offer the
                                 flexibility to have things like
-                                multi-paragraphs, <a className="Link">links</a>, or{" "}
+                                multi-paragraphs,{" "}
+                                <a className="Link">links</a>, or{" "}
                                 <code className="CodeInline">
                                     code
-                                </code> in your messages.
+                                </code>{" "}
+                                in your messages.
                             </P>
                         </div>
                     }

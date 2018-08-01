@@ -1,45 +1,13 @@
-import React from 'react';
-import Scroll from 'react-scroll';
+import React from "react";
+import { ListItem, ListItemText } from "material-ui/List";
+import { Link } from "react-router-dom";
 
-import {List, ListItem} from 'material-ui/List';
-
-import ThemeExList from '../themeDocs/ThemeExList';
-
-const scroller = Scroll.scroller;
-
-class ThemeLinkList extends React.Component {
-    scrollTo = (name) => {
-        return () => {
-            let target = name.replace(/\s+/g, '-');
-            scroller.scrollTo(target, {
-                duration: 1000,
-                smooth: true,
-            });
-        }
-    };
-
-    renderComponentLinks = () => {
-        return ThemeExList.map( item => {
-            return ( 
-            <ListItem
-                key={ item.name }
-                onTouchTap={ this.scrollTo(item.name) }
-                primaryText= { item.name }
-            />
-            )
-        })
-    };
-
-    render() {
-        return (
-            <ListItem
-                primaryTogglesNestedList={true}
-                nestedItems={ this.renderComponentLinks() }
-            >
-                Using The Theme
-            </ListItem>
-        )
-    }
-}
+const ThemeLinkList = () => (
+    <li style={{ listStyle: "none" }}>
+        <ListItem button={true} component={Link} to={"/theming"}>
+            <ListItemText disableTypography={true}>Theme and Colors</ListItemText>
+        </ListItem>
+    </li>
+);
 
 export default ThemeLinkList;

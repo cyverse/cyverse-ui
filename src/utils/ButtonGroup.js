@@ -1,5 +1,5 @@
 import React from 'react';
-import injectSheet from 'react-jss';
+import { withStyles } from "material-ui/styles";
 import Element from '../Element';
 
 const styles = {
@@ -28,4 +28,4 @@ class ButtonGroup extends React.Component {
     }
 }
 
-export default injectSheet(styles)(ButtonGroup)
+export default withStyles(styles)(ButtonGroup)

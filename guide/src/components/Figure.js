@@ -1,34 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { styles } from 'cyverse-ui/styles';
-import { Element } from 'cyverse-ui';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "material-ui/styles";
+import { Element } from "cyverse-ui";
 
+const styles = theme => ({
+    wrapper: {
+        margin: "0px",
+        border: "solid 1px lightgrey",
+        padding: "10px",
+    },
+    figcaption: {
+        background: theme.palette.primary.main,
+        color: "white",
+        padding: "10px",
+        margin: "-11px -11px 20px",
+    },
+});
 class Figure extends React.Component {
     render() {
+        const { classes } = this.props;
         return (
-            <figure style={{
-                    margin: "0px",
-                    border: "solid 1px lightgrey",
-                    padding: "10px",
-                }}
-            >
+            <figure className={classes.wrapper}>
                 <Element
                     root="figcaption"
                     typography="title"
-                    themeBackground="primary1Color"
-                    style={{
-                        color: "white",
-                        padding: "10px",
-                        margin: "-11px -11px 20px",
-                    }}
+                    className={classes.figcaption}
                 >
-                    <Element typography="title" m={ 0 }>
-                        { this.props.caption }
-                    </Element>
+                        {this.props.caption}
                 </Element>
-                { this.props.children }
+                {this.props.children}
             </figure>
-
         );
     }
 }
@@ -37,4 +38,4 @@ Figure.propTypes = {
     className: PropTypes.string,
 };
 
-export default Figure;
+export default withStyles(styles)(Figure);

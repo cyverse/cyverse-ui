@@ -1,10 +1,11 @@
-import React from 'react';
-import { P } from 'cyverse-ui';
-import { Figure } from '../components';
-import CodeBlock from '../components/CodeBlock';
-import Paper from 'material-ui/Paper';
-import ThemeEx from './ThemeEx';
-import ThemeColorsEx from './ThemeColorsEx';
+import React from "react";
+import { P } from "cyverse-ui";
+import { Figure } from "../components";
+import CodeBlock from "../components/CodeBlock";
+import Paper from "material-ui/Paper";
+import ThemeEx from "./ThemeEx";
+import ThemeColorsEx from "./ThemeColorsEx";
+import index from "!raw-loader!../../index";
 
 const ThemeExList = [
     {
@@ -12,9 +13,14 @@ const ThemeExList = [
         desc: (
             <div>
                 <P>
-                    The <code className="CodeInline">cyverseTheme</code> is provided by the CyVerse-UI library and works with the Material-UI theme system to maintain a consistent "CyVerse look" across all applications using it.
+                    The{" "}
+                    <code className="CodeInline">cyverseTheme</code>{" "}
+                    is provided by the CyVerse-UI library and works
+                    with the Material-UI theme system to maintain a
+                    consistent "CyVerse look" across all applications
+                    using it.
                 </P>
-		<ThemeEx/>
+                {<ThemeEx />}
             </div>
         ),
     },
@@ -23,86 +29,107 @@ const ThemeExList = [
         desc: (
             <div>
                 <P>
-                    The <code className="CodeInline">cyverseTheme</code> colors are part of a color system, encouraging proper contrast and consistency while enforcing the CyVerse band.
+                    The{" "}
+                    <code className="CodeInline">cyverseTheme</code>{" "}
+                    colors are part of a color system, encouraging
+                    proper contrast and consistency while enforcing
+                    the CyVerse brand.
                 </P>
                 <P>
-                    These colors can be overridden when initializing the Material-UI theme provider. See directions for this and installing the CyVerse theme below.
+                    These colors can be overridden when initializing
+                    the Material-UI theme provider. See directions for
+                    this and installing the CyVerse theme below.
                 </P>
-                <Paper style={{ padding: "20px" }}>
-                    <ThemeColorsEx/>
+                <Paper style={{ padding: "20px", marginBottom: "56px" }}>
+                    <ThemeColorsEx />
                 </Paper>
             </div>
         ),
     },
     {
-        name: "Installing CyVerse Theme",
+        name: "Using the Theme",
         desc: (
             <div>
                 <P>
-                    To use the CyVerse theme we need to wrap our entire application in the Material-UI theme provider <code className="CodeInline">MuiThemeProvider</code> and initialize it with our custom CyVerse theme using "getMuiTheme" as our base theme. This will make the theme values available to all of the components.
+                    The "theme" values can be used by your
+                    application's components through a theme object as
+                    a prop for inline styles, or using{" "}
+                    <a
+                        className="Link"
+                        href="http://cssinjs.org/?v=v9.8.1"
+                    >
+                        JSS
+                    </a>. To access the theme Material-UI has provided{" "}
+                    <code className="CodeInline">withStyles</code> to
+                    recieve the theme object as a prop for inline
+                    styles and{" "}
+                    <code className="CodeInline">withTheme</code> to
+                    recieve the theme as an argument to your style
+                    function in JSS. See examples below for both
+                    methods or refer to{" "}
+                    <a
+                        className="Link"
+                        href="https://material-ui-next.com/customization/themes"
+                    >
+                        Material-ui's Documentation
+                    </a>{" "}
+                    for more information.
                 </P>
                 <CodeBlock
-                    text={
-`import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import cyverseTheme from 'cyverse-ui/styles/cyverseTheme.json';
-import MyApp from './MyApp';
-
-const App = () => (
-  <MuiThemeProvider muiTheme={getMuiTheme(cyverseTheme)}>
-    <MyApp/>
-  </MuiThemeProvider>
-);
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);`
-                    }
-                />
-            </div>
-        ),
-    },
-    {
-        name: "muiThemeable",
-        desc: (
-            <div>
-                <P>
-                    The <code className="CodeInline">cyverseTheme</code> values can be used by your app specific components using Material-UI's "muiThemeable" module. To use export "muiThemeable" passing your component as a second argument.  The theme object will be available to your component through it's <code className="CodeInline">props</code>.
-                </P>
-                <CodeBlock
-                    text={
-`import React from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
+                    collapseDisabled={true}
+                    text={`// Access the theme object as a prop!
+import React from 'react';
+import { withTheme } from 'material-ui/styles';
 
 const ThemeColorsEx = React.createClass({
     render() {
         const {
-            muiTheme: {
+           theme: {
                 palette: {
-                    primary1Color,
+                    primary,
                 }
             }
         } = this.props;
 
 
         return (
-            <div>
-                <div
-                    style={{
-                        backgroundColor: primary1Color,
-                        width: "75px",
-                        height: "75px"
-                    }}
-                />
-            </div>
+            <div
+                style={{
+                    backgroundColor: primary.main,
+                    width: "75px",
+                    height: "75px"
+                }}
+            />
         )
     }
 });
 
-export default muiThemeable()(ThemeColorsEx);`
-                    }
+export default withTheme()(ThemeColorsEx);`}
+                />
+                <CodeBlock
+                    collapseDisabled={true}
+                    text={`// Access the theme object with JSS!
+import React from 'react';
+import { withStyles } from 'material-ui/styles';
+
+const styles = theme => ({
+    coloredTile: {
+        height: 100px,
+        width: 100px,
+        backgroundColor: theme.palette.primary.main
+    }
+});
+
+const ThemeColorsEx = React.createClass({
+    render() {
+        const { classes } = this.props;
+        return (
+            <div className={classes.coloredTile}/>
+        )
+    }
+});
+
+export default withStyles(styles)(ThemeColorsEx);`}
                 />
             </div>
         ),

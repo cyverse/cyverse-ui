@@ -1,20 +1,22 @@
 import React from "react";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
 
 import { GithubIcon } from "cyverse-ui/icons";
-import { pad } from "cyverse-ui/styles";
 import { Element } from "cyverse-ui";
 import { CyverseLogo } from "../icons";
+import { Link } from "react-router-dom";
 
-const styles = {
+const styles = theme => ({
     wrapper: {
         height: "56px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        position: "fixed",
+        position: "sticky",
+        top: 0,
         width: "100%",
         zIndex: "700",
+        background: theme.palette.primary.main
     },
     GithubLink: {
         borderRadius: "50%",
@@ -28,7 +30,8 @@ const styles = {
             outline: "none",
         },
     },
-};
+});
+
 const Header = ({ classes, ...rest }) => (
     <Element
         {...rest}
@@ -37,8 +40,11 @@ const Header = ({ classes, ...rest }) => (
         themeBackground="primary1Color"
         whitespace="ps2"
     >
-        <CyverseLogo fill="white" size="200" />
+        <Link to="/" aria-label="CyVerse">
+            <CyverseLogo fill="white" size="200" />
+        </Link>
         <a
+            aria-label="Github"
             className={classes.GithubLink}
             href="https://github.com/cyverse/cyverse-ui"
         >
@@ -47,4 +53,4 @@ const Header = ({ classes, ...rest }) => (
     </Element>
 );
 
-export default injectSheet(styles)(Header);
+export default withStyles(styles)(Header);

@@ -1,5 +1,5 @@
 import React from "react";
-import injectSheet from "react-jss";
+import {withStyles} from "material-ui/styles";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
@@ -47,4 +47,4 @@ FloatingActionButtonActions.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export default injectSheet(styles)(FloatingActionButtonActions);
+export default withStyles(styles)(FloatingActionButtonActions);

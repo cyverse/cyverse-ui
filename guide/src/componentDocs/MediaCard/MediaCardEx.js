@@ -1,23 +1,25 @@
 import React from "react";
 import data from "../../data/users";
 import randomcolor from "randomcolor";
-import MenuItem from "material-ui/MenuItem";
+import MenuItem from "material-ui/Menu/MenuItem";
 import Avatar from "material-ui/Avatar";
 import Checkbox from "material-ui/Checkbox";
 import IconButton from "material-ui/IconButton";
-import DeleteIcon from "material-ui/svg-icons/action/delete";
-import PersonIcon from "material-ui/svg-icons/social/person";
-import EditIcon from "material-ui/svg-icons/image/edit";
-import FavoritedIcon from "material-ui/svg-icons/action/favorite";
-import FavoriteIcon from "material-ui/svg-icons/action/favorite-border";
-import FavoriteBorderIcon from "material-ui/svg-icons/action/favorite-border";
+import DeleteIcon from "@material-ui/icons/Delete";
+import PersonIcon from "@material-ui/icons/Person";
+import EditIcon from "@material-ui/icons/Edit";
+import FavoritedIcon from "@material-ui/icons/Favorite";
+import FavoriteIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import {
     MediaCard,
     Pill,
     MediaCardGroup,
     MDBlock,
+    VerticalMenu,
     SummaryText,
 } from "cyverse-ui";
+import { Button } from "material-ui";
 
 export default class extends React.Component {
     state = {
@@ -42,17 +44,14 @@ export default class extends React.Component {
                 {data.map((item, i) => {
                     const isFavorited = i === 2;
                     const RenderFavoriteIcon = isFavorited ? (
-                        <FavoritedIcon color="red" />
+                        <IconButton style={{ color: "red" }}>
+                            <FavoritedIcon/>
+                        </IconButton>
                     ) : (
-                        <FavoriteIcon />
+                        <IconButton>
+                            <FavoriteIcon />
+                        </IconButton>
                     );
-                    const favorited = isFavorited
-                        ? [
-                              <IconButton>
-                                  <FavoritedIcon color="red" />
-                              </IconButton>,
-                          ]
-                        : null;
 
                     return (
                         <MediaCard
@@ -61,13 +60,12 @@ export default class extends React.Component {
                             batchMode={selectedItems.length > 0}
                             checked={selectedItems.includes(i)}
                             onBatchClick={this.onCheck}
-                            image={
+                            avatar={
                                 <Avatar
+                                    style={{
+                                        backgroundColor: "tomato",
+                                    }}
                                     children={item.name[0]}
-                                    backgroundColor={randomcolor({
-                                        seed: item.name,
-                                    })}
-                                    color="rgba(255,255,255,.7)"
                                 />
                             }
                             title={item.name}
@@ -80,34 +78,22 @@ export default class extends React.Component {
                             detail={
                                 <MDBlock text={item.description} />
                             }
-                            menuItems={[
-                                <MenuItem
-                                    key="1"
-                                    primaryText="Refresh"
-                                />,
-                                <MenuItem
-                                    key="2"
-                                    primaryText="Send feedback"
-                                />,
-                                <MenuItem
-                                    key="3"
-                                    primaryText="Settings"
-                                />,
-                                <MenuItem
-                                    key="4"
-                                    primaryText="Help"
-                                />,
-                            ]}
-                            quickLinks={[
-                                <IconButton>{RenderFavoriteIcon}</IconButton>,
-                                <IconButton>
-                                    <EditIcon />
-                                </IconButton>,
-                                <IconButton>
-                                    <DeleteIcon />
-                                </IconButton>,
-                            ]}
-                            activeQuickLinks={favorited}
+                            quickActions={
+                                <React.Fragment>
+                                    <IconButton onClick={() => {}}>
+                                        <EditIcon />
+                                    </IconButton>
+                                    <IconButton>
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </React.Fragment>
+                            }
+                            persistActions={
+                                <IconButton style={{ color: "red" }}>
+                                    {RenderFavoriteIcon}
+                                </IconButton>
+                            }
+                            contextMenu={<VerticalMenu />}
                         />
                     );
                 })}

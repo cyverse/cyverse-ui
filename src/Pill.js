@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 
@@ -14,6 +14,7 @@ const styles = theme => ({
         alignItems: "center",
     },
     pillBody: {
+        background: theme.palette.text.primary,
         display: "inline-block",
         verticalAlign: "middle",
         padding: "4px",
@@ -24,6 +25,19 @@ const styles = theme => ({
     },
     icon: {
         height: "24px",
+        color: theme.palette.text.primary,
+    },
+    pillPrimary: {
+        background: theme.palette.primary.main,
+    },
+    iconPrimary: {
+        color: theme.palette.primary.main,
+    },
+    pillSecondary: {
+        background: theme.palette.secondary.main,
+    },
+    iconSecondary: {
+        color: theme.palette.secondary.main,
     },
 });
 
@@ -34,14 +48,14 @@ const Pill = ({
     classes,
     theme,
     className,
+    pillClassName,
+    iconClassName,
     children,
     themeColor,
     color,
     icon,
     ...rest
 }) => {
-    const { palette: { textColor } } = theme;
-    const iconColor = theme.palette[color] || color;
     const wrapperClasses = classnames(
         { [className]: className },
         "CY-Pill",
@@ -52,27 +66,33 @@ const Pill = ({
         classes.innerWrapper
     );
     const pillBodyClasses = classnames(
+        {
+            [pillClassName]: pillClassName,
+            [classes.pillPrimary]: color === "primary",
+            [classes.pillSecondary]: color === "secondary",
+        },
+
         "CY-Pill-pillBody",
         classes.pillBody
     );
-    const pillIconClasses = classnames("CY-Pill-icon", classes.icon);
+    const pillIconClasses = classnames(
+        {
+            [iconClassName]: iconClassName,
+            [classes.iconPrimary]: color === "primary",
+            [classes.iconSecondary]: color === "secondary",
+        },
+        "CY-Pill-icon",
+        classes.icon
+    );
     return (
         <Element {...rest} root="span" className={wrapperClasses}>
             <span className={innerWrapperClasses}>
-                <Element
-                    root="span"
-                    style={{ background: iconColor || textColor}}
-                    className={pillBodyClasses}
-                >
+                <Element root="span" className={pillBodyClasses}>
                     {children}
                 </Element>
-                <span className={pillIconClasses}>
-                    {icon
-                        ? React.cloneElement(icon, {
-                              color: iconColor,
-                          })
-                        : null}
-                </span>
+                {icon ? (
+                    <span className={pillIconClasses}>{icon}</span>
+                ) : null}
             </span>
         </Element>
     );
@@ -95,4 +115,4 @@ Pill.propTypes = {
     children: PropTypes.node,
 };
 
-export default withTheme(injectSheet(styles)(Pill));
+export default withStyles(styles)(Pill);

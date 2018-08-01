@@ -6,14 +6,20 @@ import {
     Paper,
 } from "cyverse-ui";
 import { LinkIcon } from "cyverse-ui/icons";
-import StorageIcon from "material-ui/svg-icons/device/storage";
-import FolderIcon from "material-ui/svg-icons/file/folder";
+import StorageIcon from "@material-ui/icons/Storage";
+import FolderIcon from "@material-ui/icons/Folder";
 
 class FloatingActionButtonEx extends Component {
     state = { isOpen: false };
     render() {
         return (
-            <Paper style={{ height: "50px", position: "relative" }}>
+            <Paper
+                style={{
+                    height: "50px",
+                    position: "relative",
+                    marginBottom: "50px",
+                }}
+            >
                 <div
                     style={{
                         position: "absolute",
@@ -22,7 +28,8 @@ class FloatingActionButtonEx extends Component {
                     }}
                 >
                     <FloatingActionButton
-                        secondary
+                        style={{zIndex: "600"}}
+                        secondary={true}
                         isOpen={this.state.isOpen}
                         onClick={() =>
                             this.setState({

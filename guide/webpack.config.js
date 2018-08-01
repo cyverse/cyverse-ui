@@ -31,7 +31,6 @@ module.exports = function(env) {
                 'react',
                 'react-dom',
                 'material-ui',
-                'material-ui/svg-icons'
             ]
         },
         output: {
@@ -48,6 +47,8 @@ module.exports = function(env) {
                 'react': path.resolve(__dirname, 'node_modules/react'),
                 'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
                 'material-ui': path.resolve(__dirname, 'node_modules/material-ui'),
+                '@material-ui/icons': path.resolve(__dirname, 'node_modules/@material-ui/icons'),
+                '@material-ui/core': path.resolve(__dirname, 'node_modules/@material-ui/core'),
                 'cyverse-ui': path.resolve(__dirname, '../src')
             }
         },

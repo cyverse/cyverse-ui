@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuItem from 'material-ui/MenuItem';
+import MenuItem from 'material-ui/Menu/MenuItem';
 import { ButtonMenu, Paper } from 'cyverse-ui';
 import { ButtonGroup } from 'cyverse-ui/utils';
 
@@ -25,21 +25,15 @@ export default class extends React.Component {
                 <ButtonGroup>
                     <ButtonMenu
                         buttonLabel="Default"
-                        onItemTouchTap={ this.onSelectItem }
                     >
-                        <MenuItem
-                            primaryText="Instance"
+                        <MenuItem>Instance</MenuItem>
+                        <MenuItem>Instance</MenuItem>
+                        <MenuItem>Instance</MenuItem>
 
-                        />
-                        <MenuItem
-                            primaryText="Volume"
-                        />
-                        <MenuItem
-                            primaryText="Image"
-                        />
                     </ButtonMenu>
                     <ButtonMenu
-                        primary
+                        variant="raised"
+                        color="primary"
                         buttonLabel="Primary"
                         onItemTouchTap={ this.onSelectItem }
                         onTouchTap={ this.onToggleMenu }
@@ -57,7 +51,8 @@ export default class extends React.Component {
                         />
                     </ButtonMenu>
                     <ButtonMenu
-                        secondary
+                        variant="raised"
+                        color="secondary"
                         buttonLabel="Secondary"
                         onItemTouchTap={ this.onSelectItem }
                         onTouchTap={ this.onToggleMenu }

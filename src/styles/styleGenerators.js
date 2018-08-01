@@ -1,4 +1,4 @@
-// Create spacing styles genorator for given property.
+// Create spacing styles generator for given property.
 const generateSpaceStyles = property => sizes =>
     sizes.reduce((acc, curr, i) => {
         i++;

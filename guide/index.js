@@ -1,35 +1,27 @@
-import 'babel-polyfill';
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import injectSheet, {ThemeProvider} from 'react-jss'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-// These two lines are necessary to interop with material-ui. It's supposed to
-// be temporary. When the installation no longer mentions it, I suppose these
-// can be removed.
-// http://www.material-ui.com/#/get-started/installation
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-
-import { setup } from './setup';
-
-import cyverseTheme from 'cyverse-ui/styles/cyverseTheme';
-import StyleGuide from './src/StyleGuide.js';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./assets/css/github.css";
+import "./assets/css/base.css";
+import CssBaseline from "material-ui/CssBaseline";
+import "typeface-roboto";
+import {
+    MuiThemeProvider,
+    createMuiTheme,
+} from "material-ui/styles/";
+import cyverseTheme from "cyverse-ui/styles/cyverseTheme";
+import StyleGuide from "./src/StyleGuide.js";
+import { setup } from "./setup";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 setup();
 
-let newTheme = getMuiTheme(cyverseTheme);
+let newTheme = createMuiTheme(cyverseTheme);
 const App = () => (
-    <MuiThemeProvider muiTheme={ newTheme }>
-        <ThemeProvider theme={ newTheme }>
-            <StyleGuide/>
-        </ThemeProvider>
+    <MuiThemeProvider theme={newTheme}>
+        <CssBaseline />
+        <Router>
+            <StyleGuide />
+        </Router>
     </MuiThemeProvider>
 );
 
-ReactDOM.render(
-    <App/>,
-    document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById("app"));

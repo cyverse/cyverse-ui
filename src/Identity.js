@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import {withStyles } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 
@@ -13,16 +13,12 @@ const styles = theme => ({
     },
     text: {
         marginBottom: 2,
+        lineHeight: 1
     },
-    img: {
+    avatar: {
         borderRadius: "999px",
         overflow: "hidden",
-    },
-    img__sm: {
-        ...theme.whitespace.mr2,
-    },
-    img__lg: {
-        ...theme.whitespace.mr3,
+        marginRight: theme.spacing.unit * 2
     },
 });
 
@@ -36,17 +32,13 @@ const Identity = props => {
         classes,
         className,
         lg,
-        image,
+        avatar,
         primaryText,
         secondaryText,
         ...rest
     } = props;
 
-    // Set Image size
-    const imageSize = lg ? 60 : 40;
-    const renderImage = React.cloneElement(image, {
-        size: imageSize,
-    });
+
 
     // Define wrapper classes
     const wrapperClasses = classnames(
@@ -58,16 +50,17 @@ const Identity = props => {
     // Define Image classes
     const imgClasses = classnames(
         "CY-Identity-img",
-        classes.img,
-        { [classes.img__sm]: !lg },
-        { [classes.img__lg]: lg }
+        classes.avatar,
     );
 
     return (
         <Element {...rest} className={wrapperClasses}>
-            <div className={imgClasses}>{renderImage}</div>
+            <div className={imgClasses}>
+            {avatar}
+            </div>
             <div className="CY-Identity-textGroup">
                 <Element
+                    root="h3"
                     className={`CY-Identity-text ${classes.text}`}
                     typography={lg ? "title" : "body2"}
                 >
@@ -94,9 +87,9 @@ Identity.propTypes = {
      */
     secondaryText: PropTypes.node,
     /**
-     * Expects MUI's Avatar.
+     * Expects MUI's Avatar but any node will work.
      */
-    image: PropTypes.element,
+    avatar: PropTypes.element,
     /**
      * If true Identity is rendered larger.
      */
@@ -105,4 +98,4 @@ Identity.propTypes = {
 
 Identity.displayName = "Identity";
 
-export default withTheme(injectSheet(styles)(Identity));
+export default withStyles(styles)(Identity);

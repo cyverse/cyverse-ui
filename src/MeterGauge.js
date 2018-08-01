@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import classnames from 'classnames';
 import classNames from "classnames";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles } from "material-ui/styles";
+import * as colors from "material-ui/colors";
+import FormHelperText from '@material-ui/core/FormHelperText';
 import Element from "./Element";
 import BarGraph from "./BarGraph";
 
@@ -22,18 +24,15 @@ const styles = theme => ({
         maxWidth: "60px",
     },
     dataText: {
-        ...theme.typography.caption,
+        ...theme.typography.body,
         ...theme.whitespace.mb1
     },
     dataText__alert: {
-        color: theme.palette.danger,
+        color: theme.palette.error.main,
     },
     dataText__compact: {
+        ...theme.typography.caption,
         textAlign: "center",
-    },
-    alertMessage: {
-        ...theme.typography.body1,
-        color: theme.palette.danger,
     },
 });
 
@@ -77,10 +76,10 @@ class MeterGauge extends React.Component {
     };
 
     alert = () => {
-        const { classes, alertMessage } = this.props;
+        const { alertMessage } = this.props;
 
         return this.isOver() ? (
-            <div className={classes.alertMessage}>{alertMessage}</div>
+           <FormHelperText error>{alertMessage}</FormHelperText>
         ) : null;
     };
 
@@ -88,7 +87,6 @@ class MeterGauge extends React.Component {
         const {
             classes,
             className,
-            theme: { palette: { success, danger } },
             hideLabel,
             startValue,
             afterValue,
@@ -115,7 +113,7 @@ class MeterGauge extends React.Component {
             { [classes.dataText__alert]: this.isOver() }
         );
 
-        const startColor = this.isOver() ? danger : success;
+        const startColor = this.isOver() ? colors.red["500"] : colors.green["500"];
         return (
             <Element { ...rest }
                 root="dl"
@@ -125,7 +123,7 @@ class MeterGauge extends React.Component {
                     root="dt"
                     className="CY-MeterGauge-dataTitle"
                     hide={hideLabel}
-                    typography="label"
+                    typography="caption"
                     whitespace="mb1"
                 >
                     { label }
@@ -147,4 +145,4 @@ class MeterGauge extends React.Component {
     }
 }
 
-export default withTheme(injectSheet(styles)(MeterGauge));
+export default withStyles(styles)(MeterGauge);

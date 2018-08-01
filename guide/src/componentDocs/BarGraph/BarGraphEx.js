@@ -1,5 +1,5 @@
 import React from "react";
-import * as colors from "material-ui/styles/colors";
+import * as colors from "material-ui/colors";
 import { BarGraph, Paper } from "cyverse-ui";
 
 const BarGraphEx = props => (
@@ -7,7 +7,7 @@ const BarGraphEx = props => (
         <BarGraph
             startValue={40}
             afterValue={10}
-            barColor={colors.orange500}
+            barColor={colors.orange[500]}
         />
     </Paper>
 );

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import injectSheet, { withTheme } from "react-jss";
+import { withStyles, withTheme } from "material-ui/styles";
 import classnames from "classnames";
 import Element from "./Element";
 
@@ -15,14 +15,10 @@ const styles = theme => ({
         transition: "flex-basis ease .3s",
         flexShrink: "0",
         maxWidth: "100%",
-        flexBasis: ({ startValue }) => startValue + "%",
-        background: ({ barColor }) => barColor,
     },
     barAfter: {
         transition: "flex-basis ease .3s",
         opacity: ".5",
-        flexBasis: ({ afterValue }) => afterValue + "%",
-        background: ({ barColor }) => barColor,
     },
 });
 
@@ -35,7 +31,6 @@ const BarGraph = ({
     startValue,
     afterValue,
     barColor,
-    compact,
     muiTheme,
     ...rest
 }) => {
@@ -48,9 +43,19 @@ const BarGraph = ({
     return (
         <Element {...rest} className={wrapperClasses}>
             <div
-                className={`CY-BarGraph-barBefore ${classes.barBefore}`}
+                style={{
+                    flexBasis: startValue + "%",
+                    background: barColor,
+                }}
+                className={`CY-BarGraph-barBefore ${
+                    classes.barBefore
+                }`}
             />
             <div
+            style={{
+                flexBasis: afterValue + "%",
+                background: barColor,
+            }}
                 className={`CY-BarGraph-barAfter ${classes.barAfter}`}
             />
         </Element>
@@ -71,10 +76,6 @@ BarGraph.propTypes = {
      * The color of the bar representing the percentage of the whole used. The after value will be a lighter version of this color.
      */
     barColor: PropTypes.string,
-    /**
-     * Wether the BarGraph is compact or regular size
-     */
-    compact: PropTypes.bool,
 };
 
-export default withTheme(injectSheet(styles)(BarGraph));
+export default withTheme()(withStyles(styles)(BarGraph));

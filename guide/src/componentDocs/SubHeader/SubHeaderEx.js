@@ -1,9 +1,9 @@
 import React from 'react';
 import { Paper, MenuItem } from 'material-ui';
 import IconButton from 'material-ui/IconButton';
-import Share from 'material-ui/svg-icons/social/share';
-import Delete from 'material-ui/svg-icons/action/delete';
-import Edit from 'material-ui/svg-icons/image/edit';
+import Share from '@material-ui/icons/Share';
+import Delete from '@material-ui/icons/Delete';
+import Edit from '@material-ui/icons/Edit';
 import { SubHeader, Div, Title } from 'cyverse-ui';
 
 export default class extends React.Component {
@@ -26,10 +26,10 @@ export default class extends React.Component {
 
                         ]}
                         menuItems={[
-                            <MenuItem key="1" primaryText="Refresh" />,
-                            <MenuItem key="2" primaryText="Send feedback" />,
-                            <MenuItem key="3" primaryText="Settings" />,
-                            <MenuItem key="4" primaryText="Help" />,
+                            <MenuItem key="1" children="Refresh" />,
+                            <MenuItem key="2" children="Send feedback" />,
+                            <MenuItem key="3" children="Settings" />,
+                            <MenuItem key="4" children="Help" />,
                         ]}
 
                     />
