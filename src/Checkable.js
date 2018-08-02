@@ -14,7 +14,6 @@ const styles = {
         justifyContent: "center",
         flexShrink: "0",
         position: "relative",
-        alignSelf: "flex-start",
         borderRadius: "50%",
         "&:focus": {
             outline: "none",
