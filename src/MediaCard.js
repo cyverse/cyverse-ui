@@ -23,13 +23,13 @@ class MediaCard extends React.Component {
          */
         image: PropTypes.element,
         /**
-         * The identity of the MediaCard
+         * The primary text on the Identity of the MediaCard.
          */
-        title: PropTypes.node,
+        primaryText: PropTypes.node,
         /**
-         * Sub-information like creation date or caption
+         * The secondary text on the Identity of the MediaCard for sub-information like the creation date.
          */
-        subTitle: PropTypes.node,
+        secondaryText: PropTypes.node,
         /**
          * Additional meta or status info
          */
@@ -112,9 +112,9 @@ class MediaCard extends React.Component {
     render() {
         const {
             className,
-            title,
+            primaryText,
             avatar,
-            subTitle,
+            secondaryText,
             summary,
             detail,
             isExpanded,
@@ -159,8 +159,8 @@ class MediaCard extends React.Component {
                                     }}
                                 />
                              }
-                            primaryText = { title }
-                            secondaryText = { subTitle }
+                            primaryText = { primaryText }
+                            secondaryText = { secondaryText }
                         />
                     </ListCardIdentity>
 
