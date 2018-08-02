@@ -68,8 +68,8 @@ export default class extends React.Component {
                                     children={item.name[0]}
                                 />
                             }
-                            title={item.name}
-                            subTitle={item.tagline}
+                            primaryText={item.name}
+                            secondaryText={item.tagline}
                             summary={
                                 <SummaryText
                                     children={item.description}
