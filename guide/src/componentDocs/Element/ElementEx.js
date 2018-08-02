@@ -42,6 +42,15 @@ const ElementEx = props => (
             elevation={2}
             children="You get the idea. Use the source!"
         />
+         <Element
+            hide={true}
+            children="I'm hidden from everything"
+        />
+        <Element
+            hideReadable={true}
+            children="Screen readers and search engines can see me but you can't"
+        />
+
     </Element>
 );
 
