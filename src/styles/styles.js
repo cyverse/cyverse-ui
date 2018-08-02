@@ -19,8 +19,12 @@ const styles = {
     },
     utility: {
         hideReadable: {
-            position: "fixed",
-            top: "9999px",
+            position: "absolute",
+            left: "-10000px",
+            top: "auto",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
         },
         hide: {
             display: "none !important",

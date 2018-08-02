@@ -88,6 +88,14 @@ Element.propTypes = {
      */
     root: PropTypes.string,
     /**
+     * Hides Element from the DOM using `display: none`.
+     */
+    hide: PropTypes.bool,
+    /**
+     * Hides Element visually but is still visible to screen readers. Good for binding semantic interfaces to non semantic interfaces. Eg: binding a check box to some divs that are made to look like a toggle button.
+     */
+    hideReadable: PropTypes.bool,
+    /**
      * The typography styles from the theme like "title" or "body1"
      */
     typography: PropTypes.string,
@@ -106,6 +114,8 @@ Element.propTypes = {
 
 Element.defaultProps = {
     root: "div",
+    hide: false,
+    hideReadable: false,
     typography: "body1",
     whitespace: ["m0", "p0"],
 };
