@@ -1,33 +1,32 @@
 module.exports = name =>
 `import React from 'react';
 import PropTypes from 'prop-types';
-import { createStyleSheet } from 'jss-theme-reactor';
-import getStyleManager from "./styles/getStyleManager";
+import { withStyles } from "material-ui";
+import classnames from "classnames";
 
 // Define static styles here.
-// Each key of the returned object will be available as a className below.
-const styleSheet = () => (
-    createStyleSheet('${name}',
-        theme => ({
-            wrapper: {
-                color: "tomato",
-                fontSize: "23px"
-            }
-        }
-    ))
-);
+// Each key of the returned object will be available as a className below under the classes prop.
+const styleSheet = theme => ({
+    wrapper: {
+        color: "tomato",
+        fontSize: "23px"
+    }
+});
+
 /**
  * ${name} is used to...
  */
-const ${name} = (props) => {
+const ${name} = ({children, classes, className}) => {
 
-    // Generate classes object and render corresponding style definitions in header.
-    const classes = getStyleManager({})
-    .render(styleSheet());
+    const wrapperClasses = classnames(
+        { [className]: className },
+        "CY-${name}",
+        classes.wrapper
+    );
 
     return(
-        <div className={ classes.wrapper }>
-            Hello World
+        <div className={wrapperClasses}>
+            {children}
         </div>
     )
 };
@@ -40,5 +39,5 @@ ${name}.propTypes = {
     children: PropTypes.node
 };
 
-export default ${name}
+export default withStyles(styleSheet)(${name})
 `;
