@@ -1,5 +1,4 @@
 module.exports = name => (`import React from 'react';
-import { P } from 'cyverse-ui';
 import { Figure, ComponentDoc, CodeBlock } from '../../components';
 
 import ${name}Ex from './${name}Ex';
