@@ -30,3 +30,4 @@ export {
 export { default as SummaryTextDoc } from './SummaryText/SummaryTextDoc';
 export { default as ElementDoc } from "./Element/ElementDoc";
 export { default as BarGraphDoc } from "./BarGraph/BarGraphDoc";
+export { default as EnhancedTableDoc } from './EnhancedTable/EnhancedTableDoc';
