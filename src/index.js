@@ -32,3 +32,4 @@ export { default as Element } from './Element';
 export { default as Paper} from './Paper';
 export { default as BarGraph } from './BarGraph';
 export { default as MDBlock } from './MDBlock';
+export { default as EnhancedTable } from './EnhancedTable';
